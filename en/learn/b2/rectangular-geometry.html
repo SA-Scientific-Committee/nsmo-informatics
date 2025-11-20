@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>weird-algorithm</title>
+<title>rectangular-geometry</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -58,24 +58,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../">
-<link href="../../b0/problems/domino-piling.html" rel="next">
-<link href="../../b0/cp/problems-with-subproblems.html" rel="prev">
-<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-707d8167ce6003fca903bfe2be84ab7f.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-5c3993218031af39509ca3cf88eb1c29.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-707d8167ce6003fca903bfe2be84ab7f.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-5c3993218031af39509ca3cf88eb1c29.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -136,16 +134,16 @@ window.Quarto = {
 
 </head>
 
-<body class="nav-sidebar floating nav-fixed quarto-light">
+<body class="nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
-    <img src="../../logo.png" alt="" class="navbar-logo light-content">
-    <img src="../../logo.png" alt="" class="navbar-logo dark-content">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../logo.png" alt="" class="navbar-logo light-content">
+    <img src="../logo.png" alt="" class="navbar-logo dark-content">
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -155,15 +153,15 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="../../b0/cpp/hello-world.html" aria-current="page"> 
+    <a class="nav-link" href="../b0/cpp/hello-world.html"> 
 <span class="menu-text">Stage 1</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../b1/cpp/sets.html"> 
+    <a class="nav-link" href="../b1/cpp/sets.html"> 
 <span class="menu-text">Stage 2</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../b2/cpp/bitwise-operations.html"> 
+    <a class="nav-link" href="../b2/cpp/bitwise-operations.html"> 
 <span class="menu-text">Stage 3</span></a>
   </li>  
   <li class="nav-item">
@@ -177,307 +175,35 @@ window.Quarto = {
 </div>
       </div> <!-- /container-fluid -->
     </nav>
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-        <i class="bi bi-layout-text-sidebar-reverse"></i>
-      </button>
-        <a class="flex-grow-1 no-decor" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-          <h1 class="quarto-secondary-nav-title"></h1>
-        </a>     
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
-        <i class="bi bi-search"></i>
-      </button>
-    </div>
-  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
-      <a href="../../index.html" class="sidebar-logo-link">
-      </a>
-      </div>
-        <div class="mt-2 flex-shrink-0 align-items-center">
-        <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Search"></div>
-        </div>
-        </div>
-    <div class="sidebar-menu-container"> 
-    <ul class="list-unstyled mt-1">
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text">C++ Basics</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../b0/cpp/hello-world.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Hello World!</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../b0/cpp/structure-of-a-program.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Structure of a Program</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../b0/cpp/variables-and-types.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Variables and Types</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../b0/cpp/constants.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Constants</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../b0/cpp/operators.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Operators</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../b0/cpp/input-output.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Input/Output</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../b0/cpp/statements.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Statements and Flow Control</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../b0/cpp/if.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">The <code>if</code> Statement</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../b0/cpp/while.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">The <code>while</code> Loop</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../b0/cpp/for.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">The <code>for</code> Loop</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../b0/cpp/functions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Functions</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../b0/cpp/name-visibility.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Name Visibility</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../b0/cpp/arrays.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Arrays</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../b0/cpp/vectors.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Vectors</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
- <span class="menu-text">Competitive Programming</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../b0/cp/contests-and-platforms.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Contests and Platforms</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../b0/cp/problems-with-subproblems.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Problems with Subproblems</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
- <span class="menu-text">Problems</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../b0/problems/weird-algorithm.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Weird Algorithm</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../b0/problems/domino-piling.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Domino Piling</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../b0/problems/bit++.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Bit++</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../b0/problems/static-range-sum-queries.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Static Range Sum Queries</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../b0/problems/theatre-square.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Theatre Square</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../b0/problems/next-round.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Next Round</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../b0/problems/beautiful-matrix.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Beautiful Matrix</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../b0/problems/team.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Team</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../b0/problems/equator.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Equator</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../b0/problems/dislike-of-threes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Dislike of Threes</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../b0/problems/diverse-game.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Diverse Game</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../b0/problems/holiday-of-equality.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Holiday of Equality</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../b0/problems/beautiful-year.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Beautiful Year</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../b0/problems/your-digits.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Your Digits</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
- <span class="menu-text">Practice Problems</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../b0/problems/sum-product.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Sum Product</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../b0/problems/leap-year.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Leap Year</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../b0/problems/alternate.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Alternate</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../b0/problems/increasing-decreasing-digits.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Increasing Decreasing Digits</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../b0/problems/middle-digits.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Middle Digits</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../b0/problems/min-operations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Min Operations</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-    </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="10">
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#weird-algorithm" id="toc-weird-algorithm" class="nav-link active" data-scroll-target="#weird-algorithm">Weird Algorithm</a></li>
+  <li><a href="#rectangular-geometry" id="toc-rectangular-geometry" class="nav-link active" data-scroll-target="#rectangular-geometry">Rectangular Geometry</a>
+  <ul class="collapse">
+  <li><a href="#representing-rectangles" id="toc-representing-rectangles" class="nav-link" data-scroll-target="#representing-rectangles">Representing Rectangles</a></li>
+  <li><a href="#common-formulas" id="toc-common-formulas" class="nav-link" data-scroll-target="#common-formulas">Common Formulas</a>
+  <ul class="collapse">
+  <li><a href="#length-and-width" id="toc-length-and-width" class="nav-link" data-scroll-target="#length-and-width">Length and Width</a></li>
+  <li><a href="#area" id="toc-area" class="nav-link" data-scroll-target="#area">Area</a></li>
+  <li><a href="#check-intersection" id="toc-check-intersection" class="nav-link" data-scroll-target="#check-intersection">Check Intersection</a></li>
+  <li><a href="#finding-intersection" id="toc-finding-intersection" class="nav-link" data-scroll-target="#finding-intersection">Finding Intersection</a></li>
+  </ul></li>
+  <li><a href="#single-dimensional-formulas" id="toc-single-dimensional-formulas" class="nav-link" data-scroll-target="#single-dimensional-formulas">Single Dimensional Formulas</a>
+  <ul class="collapse">
+  <li><a href="#formulas" id="toc-formulas" class="nav-link" data-scroll-target="#formulas">Formulas</a></li>
+  </ul></li>
+  <li><a href="#example-task" id="toc-example-task" class="nav-link" data-scroll-target="#example-task">Example Task</a>
+  <ul class="collapse">
   <li><a href="#solution" id="toc-solution" class="nav-link" data-scroll-target="#solution">Solution</a></li>
+  </ul></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -487,82 +213,158 @@ window.Quarto = {
 
 
 
-<section id="weird-algorithm" class="level2 problem-toc-header">
-<h2 class="problem-toc-header" data-anchor-id="weird-algorithm">Weird Algorithm</h2>
-<div class="problem-card">
-<div class="problem-header">
-<span class="problem-title">Weird Algorithm</span>
-<div class="problem-meta">
-<span class="problem-origin"><a href="https://cses.fi/problemset/task/1068">CSES</a></span>
-<span class="problem-difficulty">easy</span>
+<section id="rectangular-geometry" class="level1">
+<h1>Rectangular Geometry</h1>
+<p>Rectangular geometry deals with rectangles whose sides are aligned with the coordinate axes. In this section we focus on the basic ideas of these axis-parallel rectangles.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
 </div>
 </div>
-<div class="problem-body">
-<p>Given a positive integer <span class="math inline">\(n\)</span>, repeatedly apply:</p>
+<div class="callout-body-container callout-body">
+<p>We assume the positive <span class="math inline">\(X\)</span>-axis points to the right and the positive <span class="math inline">\(Y\)</span>-axis points upward.</p>
+</div>
+</div>
+<section id="representing-rectangles" class="level2">
+<h2 data-anchor-id="representing-rectangles">Representing Rectangles</h2>
+<p>Rectangles can be represented by two coordinate points, either the top-left and bottom-right corners or the top-right and bottom-left corners.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In this section we’ll represent a rectangle using its top-right and bottom-left coordinates, where <span class="math inline">\(tr_x\)</span> and <span class="math inline">\(tr_y\)</span> are the coordinates of the top-right point, and <span class="math inline">\(bl_x\)</span> and <span class="math inline">\(bl_y\)</span> are the coordinates of the bottom-left point.</p>
+</div>
+</div>
+</section>
+<section id="common-formulas" class="level2">
+<h2 data-anchor-id="common-formulas">Common Formulas</h2>
+<section id="length-and-width" class="level3">
+<h3 data-anchor-id="length-and-width">Length and Width</h3>
+<p><span class="math inline">\(length\)</span> is the vertical side of the rectangle while <span class="math inline">\(width\)</span> is the horizontal side.</p>
+<p><span class="math inline">\(width = tr_x - bl_x\)</span></p>
+<p><span class="math inline">\(length = tr_y - bl_y\)</span></p>
+</section>
+<section id="area" class="level3">
+<h3 data-anchor-id="area">Area</h3>
+<p>The <span class="math inline">\(area\)</span> of a rectangle is the product of <span class="math inline">\(length\)</span> and <span class="math inline">\(width\)</span>.</p>
+<p><span class="math inline">\(area = length \cdot width\)</span></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> area<span class="op">(</span><span class="dt">int</span> bl_x<span class="op">,</span> <span class="dt">int</span> bl_y<span class="op">,</span> <span class="dt">int</span> tr_x<span class="op">,</span> <span class="dt">int</span> tr_y<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> length <span class="op">=</span> tr_y <span class="op">-</span> bl_y<span class="op">;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> width <span class="op">=</span> tr_x <span class="op">-</span> bl_x<span class="op">;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> length <span class="op">*</span> width<span class="op">;</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="check-intersection" class="level3">
+<h3 data-anchor-id="check-intersection">Check Intersection</h3>
+<p>To determine whether two rectangles <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> intersect, both their <span class="math inline">\(X\)</span>-ranges and <span class="math inline">\(Y\)</span>-ranges must overlap. It is often easier to check the opposite: determine whether at least one dimension <strong>doesn’t</strong> intersect. If either the <span class="math inline">\(X\)</span> dimension or the <span class="math inline">\(Y\)</span> dimension does not overlap, then the rectangles do not intersect.</p>
+<p>For <span class="math inline">\(Y\)</span> dimension:</p>
 <ul>
-<li>if <span class="math inline">\(n\)</span> is even, set <span class="math inline">\(n \leftarrow n/2\)</span>;</li>
-<li>if <span class="math inline">\(n\)</span> is odd, set <span class="math inline">\(n \leftarrow 3n+1\)</span>.</li>
+<li><span class="math inline">\(a_{tr_y} \le b_{bl_y}\)</span> or <span class="math inline">\(b_{tr_y} \le a_{bl_y}\)</span></li>
 </ul>
-<p>Print all values of <span class="math inline">\(n\)</span> from the start until it reaches <span class="math inline">\(1\)</span>.</p>
-</div>
-</div>
+<p>For <span class="math inline">\(X\)</span> dimension:</p>
+<ul>
+<li><span class="math inline">\(a_{tr_x} \le b_{bl_x}\)</span> or <span class="math inline">\(b_{tr_x} \le a_{bl_x}\)</span></li>
+</ul>
+<p>If any of those apply, the rectangles doesn’t intersect. otherwise they will intersect.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> are_intersected<span class="op">(</span><span class="dt">int</span> a_tr_x <span class="op">,</span> <span class="dt">int</span> a_tr_y<span class="op">,</span> <span class="dt">int</span> a_bl_x<span class="op">,</span> <span class="dt">int</span> a_bl_y<span class="op">,</span> <span class="dt">int</span> b_tr_x <span class="op">,</span> <span class="dt">int</span> b_tr_y<span class="op">,</span> <span class="dt">int</span> b_bl_x<span class="op">,</span> <span class="dt">int</span> b_bl_y<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span><span class="op">(</span>a_tr_y <span class="op">&lt;=</span> b_bl_y <span class="op">||</span> b_tr_y <span class="op">&lt;=</span> a_bl_y <span class="op">||</span> a_tr_x <span class="op">&lt;=</span> b_bl_x <span class="op">||</span> b_tr_x <span class="op">&lt;=</span> a_bl_x<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="kw">false</span><span class="op">;</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">else</span> <span class="op">{</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="kw">true</span><span class="op">;</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="solution" class="level3 problem-toc-header">
-<h3 class="problem-toc-header" data-anchor-id="solution">Solution</h3>
-<div class="problem-card">
-<p><span class="solution-title">Solution</span></p>
-<div class="problem-body">
-<p>We simulate the process iteratively. Start by printing the initial <span class="math inline">\(n\)</span>, then on each step update <span class="math inline">\(n\)</span> using the even/odd rule and print it. The sequence is conjectured to always reach <span class="math inline">\(1\)</span> and is called Collatz Conjecture; for this problem, we just perform the simulation until <span class="math inline">\(n=1\)</span>.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Loop simulation
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>A single while-loop suffices: print, update <span class="math inline">\(n\)</span>, and stop once <span class="math inline">\(n=1\)</span>.</p>
-</div>
-</div>
-<div class="sol-code">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> <span class="kw">namespace</span> std<span class="op">;</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">long</span> <span class="dt">long</span> n<span class="op">;</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    cin <span class="op">&gt;&gt;</span> n<span class="op">;</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    cout <span class="op">&lt;&lt;</span> n<span class="op">;</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> <span class="op">(</span>n <span class="op">!=</span> <span class="dv">1</span><span class="op">)</span> <span class="op">{</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>n <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span><span class="op">)</span> <span class="op">{</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>            n <span class="op">/=</span> <span class="dv">2</span><span class="op">;</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span> <span class="cf">else</span> <span class="op">{</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>            n <span class="op">=</span> <span class="dv">3</span><span class="op">*</span>n <span class="op">+</span> <span class="dv">1</span><span class="op">;</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>        cout <span class="op">&lt;&lt;</span> <span class="ch">' '</span> <span class="op">&lt;&lt;</span> n<span class="op">;</span></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div class="callout callout-style-default callout-caution callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Caution</span>Overflow
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Although the input satisfies <span class="math inline">\(1 \le n \le 10^6\)</span>, intermediate values in the sequence can grow above <span class="math inline">\(10^9\)</span>. Use <code>long long</code> to avoid overflow during <span class="math inline">\(3*n+1\)</span>.</p>
-</div>
-</div>
-</div>
-</div>
+<section id="finding-intersection" class="level3">
+<h3 data-anchor-id="finding-intersection">Finding Intersection</h3>
+<p>If two rectangles <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> intersect then the rectangel <span class="math inline">\(c\)</span> that is the intersection of <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> will be:</p>
+<p><span class="math inline">\(c_{tr_x} = min(a_{tr_x}, b_{tr_x})\)</span></p>
+<p><span class="math inline">\(c_{tr_y} = min(a_{tr_y}, b_{tr_y})\)</span></p>
+<p><span class="math inline">\(c_{bl_x} = max(a_{bl_x}, b_{bl_x})\)</span></p>
+<p><span class="math inline">\(c_{bl_y} = max(a_{bl_y}, b_{bl_y})\)</span></p>
 </section>
+</section>
+<section id="single-dimensional-formulas" class="level2">
+<h2 data-anchor-id="single-dimensional-formulas">Single Dimensional Formulas</h2>
+<p>This geometry also applies in one-dimensional space, where we work with intervals instead of rectangles. An interval is represented by two numbers, <span class="math inline">\(l\)</span> and <span class="math inline">\(r\)</span>, which denote the beginning and end of the interval.</p>
+<section id="formulas" class="level3">
+<h3 data-anchor-id="formulas">Formulas</h3>
+<section id="length" class="level4">
+<h4 data-anchor-id="length">Length</h4>
+<p><span class="math inline">\(length\)</span> is the area covered by the interval.</p>
+<p><span class="math inline">\(length = r - l\)</span></p>
+</section>
+<section id="check-intersection-1" class="level4">
+<h4 data-anchor-id="check-intersection-1">Check Intersection</h4>
+<p>For two intervals <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> in one dimension, we can check whether they do not intersect. If one interval lies entirely to the left or right of the other, they do not overlap. Otherwise, the intervals intersect:</p>
+<ul>
+<li><span class="math inline">\(a_{r} \le b_{l}\)</span> or <span class="math inline">\(b_{r} \le a_{l}\)</span></li>
+</ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> are_intersected<span class="op">(</span><span class="dt">int</span> a_l <span class="op">,</span> <span class="dt">int</span> a_r<span class="op">,</span> <span class="dt">int</span> b_l <span class="op">,</span> <span class="dt">int</span> b_r<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span><span class="op">(</span>b_l <span class="op">&lt;=</span> a_r <span class="op">||</span> a_l <span class="op">&lt;=</span> b_r<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="kw">false</span><span class="op">;</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">else</span> <span class="op">{</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="kw">true</span><span class="op">;</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="finding-intersection-1" class="level4">
+<h4 data-anchor-id="finding-intersection-1">Finding Intersection</h4>
+<p>If two intervals <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> intersect then the interval <span class="math inline">\(c\)</span> that is the intersection of <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> will be:</p>
+<p><span class="math inline">\(c_{l} = max(a_{l}, b_{r})\)</span></p>
+<p><span class="math inline">\(c_{r} = min(a_{l}, b_{tr_y})\)</span></p>
+</section>
+</section>
+</section>
+<section id="example-task" class="level2">
+<h2 data-anchor-id="example-task">Example Task</h2>
+<p>In the task <a href="https://usaco.org/index.php?page=viewproblem2&amp;cpid=567">Fence Painting - USACO</a> we are given two intervals and are asked to print the total length covered by these intervals.</p>
+<section id="solution" class="level3">
+<h3 data-anchor-id="solution">Solution</h3>
+<p>If the two give intervals don’t intersect then the area cover is the sum of both lengths. Otherwise, the solution will be the sum of both lengths subtracted by the intersected area.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> <span class="kw">namespace</span> std<span class="op">;</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="co">// these two lines are just to do i/o in USACO</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  freopen<span class="op">(</span><span class="st">"paint.in"</span><span class="op">,</span> <span class="st">"r"</span><span class="op">,</span> stdin<span class="op">);</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    freopen<span class="op">(</span><span class="st">"paint.out"</span><span class="op">,</span> <span class="st">"w"</span><span class="op">,</span> stdout<span class="op">);</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> a_l <span class="op">,</span> a_r<span class="op">,</span> b_l <span class="op">,</span> b_r<span class="op">;</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>  cin <span class="op">&gt;&gt;</span> a_l <span class="op">&gt;&gt;</span> a_r <span class="op">&gt;&gt;</span> b_l <span class="op">&gt;&gt;</span> b_r<span class="op">;</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>  <span class="co">// c represents the intersection between a and b.</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> c_l <span class="op">=</span> max<span class="op">(</span>a_l<span class="op">,</span> b_l<span class="op">),</span> c_r <span class="op">=</span> min<span class="op">(</span>a_r<span class="op">,</span> b_r<span class="op">);</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> total <span class="op">=</span> <span class="op">(</span>a_r <span class="op">-</span> a_l<span class="op">)</span> <span class="op">+</span> <span class="op">(</span>b_r <span class="op">-</span> b_l<span class="op">);</span></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> intersection <span class="op">=</span> <span class="op">(</span>c_r <span class="op">-</span> c_l<span class="op">);</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>  <span class="co">// now we need to check if a and b don't intersect</span></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span><span class="op">(</span>b_l <span class="op">&gt;</span> a_r <span class="op">||</span> a_l <span class="op">&gt;</span> b_r<span class="op">){</span></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>    cout <span class="op">&lt;&lt;</span> total <span class="op">&lt;&lt;</span> <span class="st">"</span><span class="sc">\n</span><span class="st">"</span><span class="op">;</span></span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>  <span class="cf">else</span><span class="op">{</span></span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>    cout <span class="op">&lt;&lt;</span> total <span class="op">-</span> intersection <span class="op">&lt;&lt;</span> <span class="st">"</span><span class="sc">\n</span><span class="st">"</span><span class="op">;</span></span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 
+</section>
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -963,18 +765,6 @@ window.Quarto = {
     }
   });
   </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-      <a href="../../b0/cp/problems-with-subproblems.html" class="pagination-link" aria-label="Problems with Subproblems">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Problems with Subproblems</span>
-      </a>          
-  </div>
-  <div class="nav-page nav-page-next">
-      <a href="../../b0/problems/domino-piling.html" class="pagination-link" aria-label="Domino Piling">
-        <span class="nav-page-text">Domino Piling</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
-  </div>
-</nav>
 </div> <!-- /content -->
 
 

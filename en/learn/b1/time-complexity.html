@@ -73,7 +73,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-707d8167ce6003fca903bfe2be84ab7f.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-6ca0fb2697fe3d78b539e946d72b137d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-5c3993218031af39509ca3cf88eb1c29.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -187,18 +187,15 @@ window.Quarto = {
   <ul>
   <li><a href="#time-complexity" id="toc-time-complexity" class="nav-link active" data-scroll-target="#time-complexity">Time Complexity</a>
   <ul class="collapse">
-  <li><a href="#why-we-need-it" id="toc-why-we-need-it" class="nav-link" data-scroll-target="#why-we-need-it">Why we need it</a></li>
   <li><a href="#a-simple-example" id="toc-a-simple-example" class="nav-link" data-scroll-target="#a-simple-example">A simple example</a></li>
   <li><a href="#what-oldots-means" id="toc-what-oldots-means" class="nav-link" data-scroll-target="#what-oldots-means">What <span class="math inline">\(O(\ldots)\)</span> means</a></li>
   <li><a href="#example-1-constant-time-o1" id="toc-example-1-constant-time-o1" class="nav-link" data-scroll-target="#example-1-constant-time-o1">Example 1: Constant time – <span class="math inline">\(O(1)\)</span></a></li>
   <li><a href="#example-2-linear-time-on" id="toc-example-2-linear-time-on" class="nav-link" data-scroll-target="#example-2-linear-time-on">Example 2: Linear time – <span class="math inline">\(O(n)\)</span></a></li>
   <li><a href="#example-3-quadratic-time-on2" id="toc-example-3-quadratic-time-on2" class="nav-link" data-scroll-target="#example-3-quadratic-time-on2">Example 3: Quadratic time – <span class="math inline">\(O(n^2)\)</span></a></li>
-  <li><a href="#example-4-logarithmic-time-olog-n" id="toc-example-4-logarithmic-time-olog-n" class="nav-link" data-scroll-target="#example-4-logarithmic-time-olog-n">Example 4: Logarithmic time – <span class="math inline">\(O(\log n)\)</span></a></li>
   <li><a href="#comparing-growth-rates" id="toc-comparing-growth-rates" class="nav-link" data-scroll-target="#comparing-growth-rates">Comparing growth rates</a></li>
   <li><a href="#a-quick-rule-of-thumb" id="toc-a-quick-rule-of-thumb" class="nav-link" data-scroll-target="#a-quick-rule-of-thumb">A quick rule of thumb</a></li>
   <li><a href="#space-complexity" id="toc-space-complexity" class="nav-link" data-scroll-target="#space-complexity">Space complexity</a></li>
   <li><a href="#real-life-analogy" id="toc-real-life-analogy" class="nav-link" data-scroll-target="#real-life-analogy">Real life analogy</a></li>
-  <li><a href="#quick-summary" id="toc-quick-summary" class="nav-link" data-scroll-target="#quick-summary">Quick summary</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -214,12 +211,7 @@ window.Quarto = {
 <p>When we write programs, some solutions run faster than others.<br>
 Time complexity is a way to <strong>measure how fast an algorithm grows</strong> as the input gets larger.</p>
 <p>You don’t measure it in seconds. You measure it in how the number of steps increases when the input size increases.</p>
-<section id="why-we-need-it" class="level2">
-<h2 data-anchor-id="why-we-need-it">Why we need it</h2>
-<p>Imagine you write a program that works for <span class="math inline">\(10\)</span> numbers, but takes forever for <span class="math inline">\(1,000,000\)</span> numbers.<br>
-Both programs might give the right answer, but one is much faster.<br>
-Time complexity helps you compare algorithms without actually running them.</p>
-</section>
+<p>Time complexity helps you compare algorithms without actually running them.</p>
 <section id="a-simple-example" class="level2">
 <h2 data-anchor-id="a-simple-example">A simple example</h2>
 <p>Let’s say we have this code:</p>
@@ -256,7 +248,7 @@ That means the time grows <em>linearly</em> with the size of the input.</p>
 </tr>
 <tr class="even">
 <td><span class="math inline">\(O(\log n)\)</span></td>
-<td>Binary search</td>
+<td><code>set::insert</code></td>
 <td>Each step cuts the problem in half</td>
 </tr>
 <tr class="odd">
@@ -266,7 +258,7 @@ That means the time grows <em>linearly</em> with the size of the input.</p>
 </tr>
 <tr class="even">
 <td><span class="math inline">\(O(n \log n)\)</span></td>
-<td>Sorting (like quicksort)</td>
+<td>Sorting</td>
 <td>Slightly slower than <span class="math inline">\(O(n)\)</span>, but much faster than <span class="math inline">\(O(n^2)\)</span></td>
 </tr>
 <tr class="odd">
@@ -304,14 +296,6 @@ If the array doubles in size, time doubles too.</p>
 <p>There are <span class="math inline">\(n \cdot n\)</span> pairs.<br>
 If <span class="math inline">\(n = 10\)</span>, it does 100 steps. If <span class="math inline">\(n = 1000\)</span>, it does a million steps.</p>
 <p>That’s why <span class="math inline">\(O(n^2)\)</span> algorithms can get very slow fast.</p>
-</section>
-<section id="example-4-logarithmic-time-olog-n" class="level2">
-<h2 data-anchor-id="example-4-logarithmic-time-olog-n">Example 4: Logarithmic time – <span class="math inline">\(O(\log n)\)</span></h2>
-<p>Binary search is a perfect example.</p>
-<p>Each step cuts the problem in half.<br>
-If you start with <span class="math inline">\(1,000\)</span> elements, you only need about <span class="math inline">\(10\)</span> steps.<br>
-If you start with <span class="math inline">\(1,000,000\)</span>, you need about <span class="math inline">\(20\)</span> steps.</p>
-<p>That’s why <span class="math inline">\(O(\log n)\)</span> is incredibly efficient.</p>
 </section>
 <section id="comparing-growth-rates" class="level2">
 <h2 data-anchor-id="comparing-growth-rates">Comparing growth rates</h2>
@@ -403,20 +387,6 @@ The idea is the same: how memory usage grows as input size grows.</p>
 <h2 data-anchor-id="real-life-analogy">Real life analogy</h2>
 <p>If you have 10 papers to sort, you can look at each one by hand — that’s <span class="math inline">\(O(n)\)</span>.<br>
 If you have a million, you’ll need a smarter way — like sorting them in halves — that’s closer to <span class="math inline">\(O(n \log n)\)</span>.</p>
-</section>
-<section id="quick-summary" class="level2">
-<h2 data-anchor-id="quick-summary">Quick summary</h2>
-<ul>
-<li>Time complexity measures how the number of steps grows as input grows.<br>
-</li>
-<li>Big <span class="math inline">\(O\)</span> ignores constants and focuses on the growth rate.<br>
-</li>
-<li>Common types: <span class="math inline">\(O(1)\)</span>, <span class="math inline">\(O(\log n)\)</span>, <span class="math inline">\(O(n)\)</span>, <span class="math inline">\(O(n \log n)\)</span>, <span class="math inline">\(O(n^2)\)</span>.<br>
-</li>
-<li>Lower is better, especially when inputs are large.<br>
-</li>
-<li>It’s not about exact time — it’s about how fast your program’s time increases as the problem size increases.</li>
-</ul>
 
 
 </section>

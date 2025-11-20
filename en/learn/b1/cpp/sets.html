@@ -74,7 +74,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-707d8167ce6003fca903bfe2be84ab7f.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-6ca0fb2697fe3d78b539e946d72b137d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-5c3993218031af39509ca3cf88eb1c29.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -311,17 +311,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#sets" id="toc-sets" class="nav-link active" data-scroll-target="#sets">Sets</a>
   <ul class="collapse">
-  <li><a href="#what-is-a-set" id="toc-what-is-a-set" class="nav-link" data-scroll-target="#what-is-a-set">What is a set?</a></li>
   <li><a href="#creating-a-set" id="toc-creating-a-set" class="nav-link" data-scroll-target="#creating-a-set">Creating a set</a></li>
   <li><a href="#basic-operations" id="toc-basic-operations" class="nav-link" data-scroll-target="#basic-operations">Basic operations</a></li>
   <li><a href="#example-using-a-set" id="toc-example-using-a-set" class="nav-link" data-scroll-target="#example-using-a-set">Example: Using a set</a></li>
   <li><a href="#iterating-through-a-set" id="toc-iterating-through-a-set" class="nav-link" data-scroll-target="#iterating-through-a-set">Iterating through a set</a></li>
   <li><a href="#kinds-of-sets" id="toc-kinds-of-sets" class="nav-link" data-scroll-target="#kinds-of-sets">Kinds of sets</a></li>
-  <li><a href="#when-to-use-a-set" id="toc-when-to-use-a-set" class="nav-link" data-scroll-target="#when-to-use-a-set">When to use a set</a></li>
-  <li><a href="#advantages" id="toc-advantages" class="nav-link" data-scroll-target="#advantages">Advantages</a></li>
-  <li><a href="#disadvantages" id="toc-disadvantages" class="nav-link" data-scroll-target="#disadvantages">Disadvantages</a></li>
   <li><a href="#example-removing-duplicates" id="toc-example-removing-duplicates" class="nav-link" data-scroll-target="#example-removing-duplicates">Example: removing duplicates</a></li>
-  <li><a href="#quick-summary" id="toc-quick-summary" class="nav-link" data-scroll-target="#quick-summary">Quick summary</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -334,12 +329,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="sets" class="level1">
 <h1>Sets</h1>
-<p>A <strong>set</strong> in C++ is a special type of container that stores <strong>unique elements</strong> in <strong>sorted order</strong>.<br>
-You can think of it as a box that automatically keeps everything organized and doesn’t allow duplicates.</p>
-<section id="what-is-a-set" class="level2">
-<h2 data-anchor-id="what-is-a-set">What is a set?</h2>
-<p>A <code>set</code> is part of the Standard Template Library (STL).<br>
-It stores items (like numbers or words) in a way that: - Each value appears only once. - The values are kept sorted (by default, smallest to largest). - You can quickly check if something exists in it.</p>
+<p>A <code>set</code> is container in <code>C++</code> which stores values of the same type in a way that:</p>
+<ul>
+<li>Each value appears only once.</li>
+<li>The values are kept sorted (by default, smallest to largest).</li>
+<li>You can quickly check if something exists in it.</li>
+</ul>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;set&gt;</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> <span class="kw">namespace</span> std<span class="op">;</span></span>
@@ -352,7 +347,6 @@ It stores items (like numbers or words) in a way that: - Each value appears only
 <p>Output:</p>
 <pre><code>1 2 5 9</code></pre>
 <p>Notice that the second <code>2</code> disappeared — because a set doesn’t allow duplicates.</p>
-</section>
 <section id="creating-a-set" class="level2">
 <h2 data-anchor-id="creating-a-set">Creating a set</h2>
 <p>To use a set, include the header:</p>
@@ -361,7 +355,19 @@ It stores items (like numbers or words) in a way that: - Each value appears only
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>set<span class="op">&lt;</span><span class="dt">int</span><span class="op">&gt;</span> mySet<span class="op">;</span>              <span class="co">// empty set of integers</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>set<span class="op">&lt;</span>string<span class="op">&gt;</span> names<span class="op">;</span>           <span class="co">// set of strings</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>set<span class="op">&lt;</span><span class="dt">char</span><span class="op">&gt;</span> letters <span class="op">=</span> <span class="op">{</span><span class="ch">'a'</span><span class="op">,</span><span class="ch">'b'</span><span class="op">,</span><span class="ch">'c'</span><span class="op">};</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>You can also initialize it with values using braces <code>{ }</code>.</p>
+</div>
+</div>
 </section>
 <section id="basic-operations" class="level2">
 <h2 data-anchor-id="basic-operations">Basic operations</h2>
@@ -505,33 +511,6 @@ After removing 1: 3 4</code></pre>
 If you need to store duplicates — use <code>multiset</code>.<br>
 If you only care about speed — use <code>unordered_set</code>.</p>
 </section>
-<section id="when-to-use-a-set" class="level2">
-<h2 data-anchor-id="when-to-use-a-set">When to use a set</h2>
-<p>Use a <code>set</code> when: - You need to store unique items. - You want them automatically sorted. - You often need to check quickly if something exists.</p>
-<p>For example: - Keep track of distinct words in a text. - Store unique student IDs. - Manage visited nodes in a graph.</p>
-</section>
-<section id="advantages" class="level2">
-<h2 data-anchor-id="advantages">Advantages</h2>
-<ul>
-<li>Always sorted<br>
-</li>
-<li>Automatically removes duplicates<br>
-</li>
-<li>Fast lookups (<code>find</code> and <code>count</code> are O(log n))<br>
-</li>
-<li>Easy to use with range-based for loops</li>
-</ul>
-</section>
-<section id="disadvantages" class="level2">
-<h2 data-anchor-id="disadvantages">Disadvantages</h2>
-<ul>
-<li>Slightly slower than vectors or arrays for inserting or deleting many items<br>
-</li>
-<li>Can’t access elements by index (like <code>s[0]</code> or <code>s[5]</code>)<br>
-</li>
-<li>Uses more memory internally</li>
-</ul>
-</section>
 <section id="example-removing-duplicates" class="level2">
 <h2 data-anchor-id="example-removing-duplicates">Example: removing duplicates</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
@@ -541,23 +520,16 @@ If you only care about speed — use <code>unordered_set</code>.</p>
 <span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
 <span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    vector<span class="op">&lt;</span><span class="dt">int</span><span class="op">&gt;</span> nums <span class="op">=</span> <span class="op">{</span><span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span><span class="op">,</span> <span class="dv">4</span><span class="op">,</span> <span class="dv">3</span><span class="op">,</span> <span class="dv">1</span><span class="op">};</span></span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    set<span class="op">&lt;</span><span class="dt">int</span><span class="op">&gt;</span> unique<span class="op">(</span>nums<span class="op">.</span>begin<span class="op">(),</span> nums<span class="op">.</span>end<span class="op">());</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    set<span class="op">&lt;</span><span class="dt">int</span><span class="op">&gt;</span> unique<span class="op">;</span></span>
 <span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> x <span class="op">:</span> unique<span class="op">)</span></span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>        cout <span class="op">&lt;&lt;</span> x <span class="op">&lt;&lt;</span> <span class="st">" "</span><span class="op">;</span></span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> x <span class="op">:</span> nums<span class="op">)</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>        unique<span class="op">.</span>insert<span class="op">(</span>x<span class="op">);</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> x <span class="op">:</span> unique<span class="op">)</span></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>        cout <span class="op">&lt;&lt;</span> x <span class="op">&lt;&lt;</span> <span class="st">" "</span><span class="op">;</span></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Output:</p>
 <pre><code>1 2 3 4</code></pre>
-</section>
-<section id="quick-summary" class="level2">
-<h2 data-anchor-id="quick-summary">Quick summary</h2>
-<ul>
-<li>A <code>set</code> stores <strong>unique, sorted</strong> values.</li>
-<li><code>insert</code> adds elements, <code>erase</code> removes them.</li>
-<li><code>count</code> and <code>find</code> check if something exists.</li>
-<li>Use <code>set</code> when order and uniqueness matter.</li>
-<li>Use <code>unordered_set</code> when you only care about speed.</li>
-</ul>
 
 
 </section>

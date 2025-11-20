@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>casework</title>
+<title>bit-manipulation</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -64,8 +64,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../b1/greedy.html" rel="next">
-<link href="../b1/simulation.html" rel="prev">
+<link href="../b2/dynamic-programming.html" rel="next">
+<link href="../b2/cpp/structs.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -104,35 +104,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 </head>
 
@@ -159,11 +130,11 @@ window.Quarto = {
 <span class="menu-text">Stage 1</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="../b1/cpp/sets.html" aria-current="page"> 
+    <a class="nav-link" href="../b1/cpp/sets.html"> 
 <span class="menu-text">Stage 2</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../b2/cpp/bitwise-operations.html"> 
+    <a class="nav-link active" href="../b2/cpp/bitwise-operations.html" aria-current="page"> 
 <span class="menu-text">Stage 3</span></a>
   </li>  
   <li class="nav-item">
@@ -217,52 +188,28 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../b1/cpp/sets.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Sets</span></a>
+  <a href="../b2/cpp/bitwise-operations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Bitwise Operators and Bitmasks</strong></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../b1/cpp/maps.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Maps</span></a>
+  <a href="../b2/cpp/structs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Data Structures with <code>struct</code></strong></span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../b1/binary-search.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Binary Search</span></a>
+  <a href="../b2/bit-manipulation.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Common Bit Manipulation Tricks</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../b1/modular-arithmetics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Modular Arithmetics</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../b1/simulation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Simulation</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../b1/casework.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Case Work</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../b1/greedy.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Greedy Algorithms</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../b1/adhoc.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Ad-hoc Problems</span></a>
+  <a href="../b2/dynamic-programming.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Dynamic Programming (DP)</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -276,58 +223,15 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../b1/problems/digit-queries.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Digit Queries</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../b1/problems/sum-of-two-values.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Sum Of Two Values</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../b1/problems/twins.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Twins</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../b1/problems/vanya-and-lanterns.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Vanya and Lanterns</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../b1/problems/modular-exponentiation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Modular Exponentiation</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../b1/problems/domino-piling.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Domino piling</span></a>
+  <a href="../b2/problems/dice-combinations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Dice Combinations</span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
- <span class="menu-text">Practice Problems</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../b1/problems/stick-lengths.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Stick Lengths</span></a>
-  </div>
-</li>
-      </ul>
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">Practice Problems</span></span>
   </li>
     </ul>
     </div>
@@ -339,16 +243,45 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#case-work" id="toc-case-work" class="nav-link active" data-scroll-target="#case-work">Case Work</a>
+  <li><a href="#common-bit-manipulation-tricks" id="toc-common-bit-manipulation-tricks" class="nav-link active" data-scroll-target="#common-bit-manipulation-tricks">Common Bit Manipulation Tricks</a>
   <ul class="collapse">
-  <li><a href="#what-is-case-work" id="toc-what-is-case-work" class="nav-link" data-scroll-target="#what-is-case-work">What is case work?</a></li>
-  <li><a href="#why-use-case-work" id="toc-why-use-case-work" class="nav-link" data-scroll-target="#why-use-case-work">Why use case work?</a></li>
-  <li><a href="#how-to-do-case-work" id="toc-how-to-do-case-work" class="nav-link" data-scroll-target="#how-to-do-case-work">How to do case work</a></li>
-  <li><a href="#example-1-even-or-odd-sum" id="toc-example-1-even-or-odd-sum" class="nav-link" data-scroll-target="#example-1-even-or-odd-sum">Example 1: Even or odd sum</a></li>
-  <li><a href="#example-2-triangle-validity" id="toc-example-2-triangle-validity" class="nav-link" data-scroll-target="#example-2-triangle-validity">Example 2: Triangle validity</a></li>
-  <li><a href="#example-3-coordinate-quadrant" id="toc-example-3-coordinate-quadrant" class="nav-link" data-scroll-target="#example-3-coordinate-quadrant">Example 3: Coordinate quadrant</a></li>
-  <li><a href="#tips-for-case-work" id="toc-tips-for-case-work" class="nav-link" data-scroll-target="#tips-for-case-work">Tips for case work</a></li>
-  <li><a href="#quick-summary" id="toc-quick-summary" class="nav-link" data-scroll-target="#quick-summary">Quick summary</a></li>
+  <li><a href="#checking-if-a-bit-is-set" id="toc-checking-if-a-bit-is-set" class="nav-link" data-scroll-target="#checking-if-a-bit-is-set">Checking if a Bit Is Set</a>
+  <ul class="collapse">
+  <li><a href="#trick" id="toc-trick" class="nav-link" data-scroll-target="#trick">Trick</a></li>
+  <li><a href="#example" id="toc-example" class="nav-link" data-scroll-target="#example">Example</a></li>
+  <li><a href="#example-problem-explanation" id="toc-example-problem-explanation" class="nav-link" data-scroll-target="#example-problem-explanation">Example Problem + Explanation</a></li>
+  </ul></li>
+  <li><a href="#setting-the-k-th-bit-to-1" id="toc-setting-the-k-th-bit-to-1" class="nav-link" data-scroll-target="#setting-the-k-th-bit-to-1">Setting the <code>k</code>-th Bit to 1</a>
+  <ul class="collapse">
+  <li><a href="#trick-1" id="toc-trick-1" class="nav-link" data-scroll-target="#trick-1">Trick</a></li>
+  <li><a href="#example-1" id="toc-example-1" class="nav-link" data-scroll-target="#example-1">Example</a></li>
+  </ul></li>
+  <li><a href="#clearing-the-k-th-bit-set-it-to-0" id="toc-clearing-the-k-th-bit-set-it-to-0" class="nav-link" data-scroll-target="#clearing-the-k-th-bit-set-it-to-0">Clearing the <code>k</code>-th Bit (Set It to 0)</a>
+  <ul class="collapse">
+  <li><a href="#trick-2" id="toc-trick-2" class="nav-link" data-scroll-target="#trick-2">Trick</a></li>
+  <li><a href="#example-2" id="toc-example-2" class="nav-link" data-scroll-target="#example-2">Example</a></li>
+  </ul></li>
+  <li><a href="#toggling-flipping-the-k-th-bit" id="toc-toggling-flipping-the-k-th-bit" class="nav-link" data-scroll-target="#toggling-flipping-the-k-th-bit">Toggling (Flipping) the <code>k</code>-th Bit</a>
+  <ul class="collapse">
+  <li><a href="#trick-3" id="toc-trick-3" class="nav-link" data-scroll-target="#trick-3">Trick</a></li>
+  <li><a href="#example-3" id="toc-example-3" class="nav-link" data-scroll-target="#example-3">Example</a></li>
+  </ul></li>
+  <li><a href="#remove-the-lowest-set-bit" id="toc-remove-the-lowest-set-bit" class="nav-link" data-scroll-target="#remove-the-lowest-set-bit">Remove the Lowest Set Bit</a>
+  <ul class="collapse">
+  <li><a href="#trick-4" id="toc-trick-4" class="nav-link" data-scroll-target="#trick-4">Trick</a></li>
+  <li><a href="#example-4" id="toc-example-4" class="nav-link" data-scroll-target="#example-4">Example</a></li>
+  </ul></li>
+  <li><a href="#check-if-x-is-a-power-of-two" id="toc-check-if-x-is-a-power-of-two" class="nav-link" data-scroll-target="#check-if-x-is-a-power-of-two">Check if <code>x</code> Is a Power of Two</a>
+  <ul class="collapse">
+  <li><a href="#trick-5" id="toc-trick-5" class="nav-link" data-scroll-target="#trick-5">Trick</a></li>
+  <li><a href="#examples" id="toc-examples" class="nav-link" data-scroll-target="#examples">Examples</a></li>
+  </ul></li>
+  <li><a href="#get-the-lowest-set-bit-only" id="toc-get-the-lowest-set-bit-only" class="nav-link" data-scroll-target="#get-the-lowest-set-bit-only">Get the Lowest Set Bit Only</a>
+  <ul class="collapse">
+  <li><a href="#trick-6" id="toc-trick-6" class="nav-link" data-scroll-target="#trick-6">Trick</a></li>
+  <li><a href="#example-5" id="toc-example-5" class="nav-link" data-scroll-target="#example-5">Example</a></li>
+  </ul></li>
+  <li><a href="#quick-summary" id="toc-quick-summary" class="nav-link" data-scroll-target="#quick-summary">Quick Summary</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -359,123 +292,187 @@ window.Quarto = {
 
 
 
-<section id="case-work" class="level1">
-<h1>Case Work</h1>
-<p>Case work problems are those where the solution is found by splitting the problem into different cases, solving each one separately, and then combining the results.</p>
-<section id="what-is-case-work" class="level2">
-<h2 data-anchor-id="what-is-case-work">What is case work?</h2>
-<p>In many problems you might try to write one formula or one loop to cover everything. In a case work problem, you notice that different situations behave differently. So instead of one generic rule, you say:</p>
+<section id="common-bit-manipulation-tricks" class="level1">
+<h1>Common Bit Manipulation Tricks</h1>
+<p>We’ll assume:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> x<span class="op">;</span>       <span class="co">// some non-negative integer</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> k<span class="op">;</span>       <span class="co">// 0-based bit index (0 = least significant bit)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>and use masks like <code>1 &lt;&lt; k</code> which has <strong>only bit k = 1</strong>.</p>
+<hr>
+<section id="checking-if-a-bit-is-set" class="level2">
+<h2 data-anchor-id="checking-if-a-bit-is-set">Checking if a Bit Is Set</h2>
+<section id="trick" class="level3">
+<h3 data-anchor-id="trick">Trick</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> isSet <span class="op">=</span> <span class="op">(</span>x <span class="op">&amp;</span> <span class="op">(</span><span class="dv">1</span> <span class="op">&lt;&lt;</span> k<span class="op">))</span> <span class="op">!=</span> <span class="dv">0</span><span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <ul>
-<li>If case A happens, do this.</li>
-<li>If case B happens, do that.</li>
-<li>Maybe also case C, case D, etc.</li>
-</ul>
-<p>Then you either add up the answers of all the cases, or pick the best one.</p>
-</section>
-<section id="why-use-case-work" class="level2">
-<h2 data-anchor-id="why-use-case-work">Why use case work?</h2>
-<ul>
-<li>It allows you to handle special situations cleanly (when simple logic alone doesn’t work).</li>
-<li>It helps you break down a tricky problem into manageable pieces.</li>
-<li>It often appears in counting problems or problems with multiple outcomes.</li>
+<li><code>1 &lt;&lt; k</code> → binary number with only bit <code>k</code> = 1.</li>
+<li><code>x &amp; (1 &lt;&lt; k)</code> → keeps bit <code>k</code>, zeroes everything else.</li>
+<li>If result is non-zero → bit <code>k</code> was 1.</li>
 </ul>
 </section>
-<section id="how-to-do-case-work" class="level2">
-<h2 data-anchor-id="how-to-do-case-work">How to do case work</h2>
-<ol type="1">
-<li>Read the problem carefully and look for places where things change (for example, small/large, positive/negative, even/odd).</li>
-<li>Identify all distinct cases that cover all possibilities without overlap.</li>
-<li>For each case, figure out how to compute the result.</li>
-<li>Combine the results if needed (add them or take min/max).</li>
-<li>Double-check you didn’t miss any case or count something twice.</li>
-</ol>
-</section>
-<section id="example-1-even-or-odd-sum" class="level2">
-<h2 data-anchor-id="example-1-even-or-odd-sum">Example 1: Even or odd sum</h2>
-<p>Problem: You have two numbers <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>. Count how many pairs <span class="math inline">\((i, j)\)</span> with <span class="math inline">\(1 \leq i \leq a\)</span> and <span class="math inline">\(1 \leq j \leq b\)</span> have <span class="math inline">\(i + j\)</span> even.</p>
-<p>Observation: <span class="math inline">\(i + j\)</span> is even if both are even or both are odd.</p>
-<p>So there are two cases: - Case 1: <span class="math inline">\(i\)</span> even and <span class="math inline">\(j\)</span> even - Case 2: <span class="math inline">\(i\)</span> odd and <span class="math inline">\(j\)</span> odd</p>
-<p>Compute each count and add them together.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> <span class="kw">namespace</span> std<span class="op">;</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> a<span class="op">,</span> b<span class="op">;</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    cin <span class="op">&gt;&gt;</span> a <span class="op">&gt;&gt;</span> b<span class="op">;</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> evenA <span class="op">=</span> a <span class="op">/</span> <span class="dv">2</span><span class="op">;</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> oddA <span class="op">=</span> a <span class="op">-</span> evenA<span class="op">;</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> evenB <span class="op">=</span> b <span class="op">/</span> <span class="dv">2</span><span class="op">;</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> oddB <span class="op">=</span> b <span class="op">-</span> evenB<span class="op">;</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> pairs <span class="op">=</span> evenA <span class="op">*</span> evenB <span class="op">+</span> oddA <span class="op">*</span> oddB<span class="op">;</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    cout <span class="op">&lt;&lt;</span> pairs<span class="op">;</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section id="example-2-triangle-validity" class="level2">
-<h2 data-anchor-id="example-2-triangle-validity">Example 2: Triangle validity</h2>
-<p>Problem: Given three side lengths <span class="math inline">\(a, b, c\)</span>, determine if they can form a triangle.</p>
-<p>We can test each case by checking which side might be the largest:</p>
-<ul>
-<li>Case 1: <span class="math inline">\(a\)</span> is largest → check if <span class="math inline">\(b + c &gt; a\)</span></li>
-<li>Case 2: <span class="math inline">\(b\)</span> is largest → check if <span class="math inline">\(a + c &gt; b\)</span></li>
-<li>Case 3: <span class="math inline">\(c\)</span> is largest → check if <span class="math inline">\(a + b &gt; c\)</span></li>
-</ul>
-<p>If any of these are true, a triangle is possible.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> <span class="kw">namespace</span> std<span class="op">;</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> a<span class="op">,</span> b<span class="op">,</span> c<span class="op">;</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    cin <span class="op">&gt;&gt;</span> a <span class="op">&gt;&gt;</span> b <span class="op">&gt;&gt;</span> c<span class="op">;</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="dt">bool</span> ok <span class="op">=</span> <span class="kw">false</span><span class="op">;</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>b <span class="op">+</span> c <span class="op">&gt;</span> a<span class="op">)</span> ok <span class="op">=</span> <span class="kw">true</span><span class="op">;</span></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>a <span class="op">+</span> c <span class="op">&gt;</span> b<span class="op">)</span> ok <span class="op">=</span> <span class="kw">true</span><span class="op">;</span></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>a <span class="op">+</span> b <span class="op">&gt;</span> c<span class="op">)</span> ok <span class="op">=</span> <span class="kw">true</span><span class="op">;</span></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    cout <span class="op">&lt;&lt;</span> <span class="op">(</span>ok <span class="op">?</span> <span class="st">"YES"</span> <span class="op">:</span> <span class="st">"NO"</span><span class="op">);</span></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>This checks all cases separately — a direct example of case work.</p>
-</section>
-<section id="example-3-coordinate-quadrant" class="level2">
-<h2 data-anchor-id="example-3-coordinate-quadrant">Example 3: Coordinate quadrant</h2>
-<p>Problem: Given <span class="math inline">\((x, y)\)</span>, print which quadrant the point belongs to.</p>
-<p>Cases: 1. <span class="math inline">\(x &gt; 0, y &gt; 0\)</span> → Quadrant I 2. <span class="math inline">\(x &lt; 0, y &gt; 0\)</span> → Quadrant II 3. <span class="math inline">\(x &lt; 0, y &lt; 0\)</span> → Quadrant III 4. <span class="math inline">\(x &gt; 0, y &lt; 0\)</span> → Quadrant IV 5. If <span class="math inline">\(x == 0\)</span> or <span class="math inline">\(y == 0\)</span> → on an axis</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> <span class="kw">namespace</span> std<span class="op">;</span></span>
+<section id="example" class="level3">
+<h3 data-anchor-id="example">Example</h3>
+<blockquote class="blockquote">
+<p><strong>Example:</strong> Check if bit 1 of <code>x</code> is set.</p>
+</blockquote>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> x <span class="op">=</span> <span class="dv">10</span><span class="op">;</span>     <span class="co">// 10 = 1010 (in binary)</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> k <span class="op">=</span> <span class="dv">1</span><span class="op">;</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> x<span class="op">,</span> y<span class="op">;</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    cin <span class="op">&gt;&gt;</span> x <span class="op">&gt;&gt;</span> y<span class="op">;</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>x <span class="op">&gt;</span> <span class="dv">0</span> <span class="op">&amp;&amp;</span> y <span class="op">&gt;</span> <span class="dv">0</span><span class="op">)</span> cout <span class="op">&lt;&lt;</span> <span class="st">"Quadrant I"</span><span class="op">;</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span> <span class="cf">if</span> <span class="op">(</span>x <span class="op">&lt;</span> <span class="dv">0</span> <span class="op">&amp;&amp;</span> y <span class="op">&gt;</span> <span class="dv">0</span><span class="op">)</span> cout <span class="op">&lt;&lt;</span> <span class="st">"Quadrant II"</span><span class="op">;</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span> <span class="cf">if</span> <span class="op">(</span>x <span class="op">&lt;</span> <span class="dv">0</span> <span class="op">&amp;&amp;</span> y <span class="op">&lt;</span> <span class="dv">0</span><span class="op">)</span> cout <span class="op">&lt;&lt;</span> <span class="st">"Quadrant III"</span><span class="op">;</span></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span> <span class="cf">if</span> <span class="op">(</span>x <span class="op">&gt;</span> <span class="dv">0</span> <span class="op">&amp;&amp;</span> y <span class="op">&lt;</span> <span class="dv">0</span><span class="op">)</span> cout <span class="op">&lt;&lt;</span> <span class="st">"Quadrant IV"</span><span class="op">;</span></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span> cout <span class="op">&lt;&lt;</span> <span class="st">"On an axis"</span><span class="op">;</span></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> isSet <span class="op">=</span> <span class="op">(</span>x <span class="op">&amp;</span> <span class="op">(</span><span class="dv">1</span> <span class="op">&lt;&lt;</span> k<span class="op">))</span> <span class="op">!=</span> <span class="dv">0</span><span class="op">;</span> <span class="co">// (1010 &amp; 0010) = 0010 != 0 → true</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>So bit 1 is set.</p>
 </section>
-<section id="tips-for-case-work" class="level2">
-<h2 data-anchor-id="tips-for-case-work">Tips for case work</h2>
+<section id="example-problem-explanation" class="level3">
+<h3 data-anchor-id="example-problem-explanation">Example Problem + Explanation</h3>
+<blockquote class="blockquote">
+<p><strong>Problem:</strong> Given <code>n</code> and <code>k</code>, determine if the <code>k</code>-th bit of <code>n</code> is set.</p>
+</blockquote>
+<p><strong>Idea:</strong> Directly use the trick above.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> kthBitIsSet<span class="op">(</span><span class="dt">int</span> n<span class="op">,</span> <span class="dt">int</span> k<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="op">(</span>n <span class="op">&amp;</span> <span class="op">(</span><span class="dv">1</span> <span class="op">&lt;&lt;</span> k<span class="op">))</span> <span class="op">!=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>No loops, constant time.</p>
+<hr>
+</section>
+</section>
+<section id="setting-the-k-th-bit-to-1" class="level2">
+<h2 data-anchor-id="setting-the-k-th-bit-to-1">Setting the <code>k</code>-th Bit to 1</h2>
+<section id="trick-1" class="level3">
+<h3 data-anchor-id="trick-1">Trick</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">|=</span> <span class="op">(</span><span class="dv">1</span> <span class="op">&lt;&lt;</span> k<span class="op">);</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <ul>
-<li>Make sure your cases don’t overlap.</li>
-<li>Ensure all possibilities are covered.</li>
-<li>Watch for boundaries (like 0 or equality).</li>
-<li>Keep the logic clear and simple.</li>
+<li><code>|</code> sets bits where either side has 1.</li>
+<li>So we <strong>force</strong> bit <code>k</code> to 1, leave others unchanged.</li>
 </ul>
+</section>
+<section id="example-1" class="level3">
+<h3 data-anchor-id="example-1">Example</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> x <span class="op">=</span> <span class="dv">4</span><span class="op">;</span> <span class="co">// 0100</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">|=</span> <span class="op">(</span><span class="dv">1</span> <span class="op">&lt;&lt;</span> <span class="dv">0</span><span class="op">);</span>  <span class="co">// 0100 | 0001 = 0101 (5)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+</section>
+</section>
+<section id="clearing-the-k-th-bit-set-it-to-0" class="level2">
+<h2 data-anchor-id="clearing-the-k-th-bit-set-it-to-0">Clearing the <code>k</code>-th Bit (Set It to 0)</h2>
+<section id="trick-2" class="level3">
+<h3 data-anchor-id="trick-2">Trick</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">&amp;=</span> <span class="op">~(</span><span class="dv">1</span> <span class="op">&lt;&lt;</span> k<span class="op">);</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ul>
+<li><code>1 &lt;&lt; k</code> → mask with bit <code>k</code> = 1.</li>
+<li><code>~(1 &lt;&lt; k)</code> → mask with bit <code>k</code> = 0, all others = 1.</li>
+<li><code>&amp;</code> with that mask clears bit <code>k</code>.</li>
+</ul>
+</section>
+<section id="example-2" class="level3">
+<h3 data-anchor-id="example-2">Example</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> x <span class="op">=</span> <span class="dv">13</span><span class="op">;</span> <span class="co">// 1101</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">&amp;=</span> <span class="op">~(</span><span class="dv">1</span> <span class="op">&lt;&lt;</span> <span class="dv">2</span><span class="op">);</span>     <span class="co">// ~(0100) = ...1011</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>                    <span class="co">// 1101 &amp; 1011 = 1001 = 9</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Now bit 2 is 0.</p>
+<hr>
+</section>
+</section>
+<section id="toggling-flipping-the-k-th-bit" class="level2">
+<h2 data-anchor-id="toggling-flipping-the-k-th-bit">Toggling (Flipping) the <code>k</code>-th Bit</h2>
+<section id="trick-3" class="level3">
+<h3 data-anchor-id="trick-3">Trick</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">^=</span> <span class="op">(</span><span class="dv">1</span> <span class="op">&lt;&lt;</span> k<span class="op">);</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ul>
+<li><p><code>^</code> (XOR) flips a bit if the mask has 1:</p>
+<ul>
+<li>0 ^ 1 = 1</li>
+<li>1 ^ 1 = 0</li>
+</ul></li>
+</ul>
+</section>
+<section id="example-3" class="level3">
+<h3 data-anchor-id="example-3">Example</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> x <span class="op">=</span> <span class="dv">5</span><span class="op">;</span> <span class="co">// 0101</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">^=</span> <span class="op">(</span><span class="dv">1</span> <span class="op">&lt;&lt;</span> <span class="dv">2</span><span class="op">);</span> <span class="co">// 0101 ^ 0100 = 0001 (1)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Bit 2 was 1 → now 0.</p>
+<hr>
+</section>
+</section>
+<section id="remove-the-lowest-set-bit" class="level2">
+<h2 data-anchor-id="remove-the-lowest-set-bit">Remove the Lowest Set Bit</h2>
+<p>This is a <strong>very famous</strong> trick.</p>
+<section id="trick-4" class="level3">
+<h3 data-anchor-id="trick-4">Trick</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> x <span class="op">&amp;</span> <span class="op">(</span>x <span class="op">-</span> <span class="dv">1</span><span class="op">);</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This clears the <strong>lowest (rightmost) 1-bit</strong> in <code>x</code>.</p>
+</section>
+<section id="example-4" class="level3">
+<h3 data-anchor-id="example-4">Example</h3>
+<pre class="text"><code>x      = 12 = 1100
+x - 1  = 11 = 1011
+x&amp;(x-1)=  8 = 1000</code></pre>
+<p>So we removed the lowest 1-bit (bit 2).</p>
+<hr>
+</section>
+</section>
+<section id="check-if-x-is-a-power-of-two" class="level2">
+<h2 data-anchor-id="check-if-x-is-a-power-of-two">Check if <code>x</code> Is a Power of Two</h2>
+<p>Uses the previous trick.</p>
+<section id="trick-5" class="level3">
+<h3 data-anchor-id="trick-5">Trick</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> isPowerOfTwo <span class="op">=</span> <span class="op">(</span>x <span class="op">&gt;</span> <span class="dv">0</span><span class="op">)</span> <span class="op">&amp;&amp;</span> <span class="op">((</span>x <span class="op">&amp;</span> <span class="op">(</span>x <span class="op">-</span> <span class="dv">1</span><span class="op">))</span> <span class="op">==</span> <span class="dv">0</span><span class="op">);</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Why this works:</p>
+<ul>
+<li><p>A power of two in binary: <code>1, 10, 100, 1000, ...</code></p>
+<ul>
+<li>Exactly <strong>one</strong> bit is set.</li>
+</ul></li>
+<li><p>If you do <code>x &amp; (x - 1)</code>:</p>
+<ul>
+<li>It removes the lowest set bit.</li>
+</ul></li>
+<li><p>If there was exactly one set bit → result becomes 0.</p></li>
+</ul>
+<p>So:</p>
+<ul>
+<li><code>x &amp; (x - 1)</code> is <strong>0</strong> ⇔ <code>x</code> has exactly one set bit.</li>
+</ul>
+</section>
+<section id="examples" class="level3">
+<h3 data-anchor-id="examples">Examples</h3>
+<ul>
+<li><code>x = 8 (1000)</code> → <code>x &amp; (x-1) = 1000 &amp; 0111 = 0000</code> → power of two.</li>
+<li><code>x = 12 (1100)</code> → <code>x &amp; (x-1) = 1100 &amp; 1011 = 1000</code> → not zero → not a power of two.</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="get-the-lowest-set-bit-only" class="level2">
+<h2 data-anchor-id="get-the-lowest-set-bit-only">Get the Lowest Set Bit Only</h2>
+<section id="trick-6" class="level3">
+<h3 data-anchor-id="trick-6">Trick</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> lowest <span class="op">=</span> x <span class="op">&amp;</span> <span class="op">-</span>x<span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Here <code>-x</code> is the two’s-complement negative of <code>x</code>.</p>
+<p>Pattern:</p>
+<ul>
+<li><code>x &amp; -x</code> isolates the rightmost 1-bit and zeroes everything else.</li>
+</ul>
+</section>
+<section id="example-5" class="level3">
+<h3 data-anchor-id="example-5">Example</h3>
+<pre class="text"><code>x                     = 12 = 1100
+-x (two's complement) = 0100 (in low bits)
+x &amp; -x                = 0100 = 4</code></pre>
+<p>So the <strong>lowest set bit</strong> corresponds to value 4 (bit 2).</p>
+<hr>
+</section>
 </section>
 <section id="quick-summary" class="level2">
-<h2 data-anchor-id="quick-summary">Quick summary</h2>
+<h2 data-anchor-id="quick-summary">Quick Summary</h2>
 <ul>
-<li>Case work means breaking a problem into smaller, simpler situations.</li>
-<li>Solve each case separately and combine results.</li>
-<li>It’s a thinking technique, not a special algorithm.</li>
-<li>Great for early problem-solving practice.</li>
+<li><strong>Check bit k:</strong> <code>isSet = (x &amp; (1 &lt;&lt; k)) != 0;</code></li>
+<li><strong>Set bit k:</strong> <code>x |= (1 &lt;&lt; k);</code></li>
+<li><strong>Clear bit k:</strong> <code>x &amp;= ~(1 &lt;&lt; k);</code></li>
+<li><strong>Toggle bit k:</strong> <code>x ^= (1 &lt;&lt; k);</code></li>
+<li><strong>Remove lowest set bit:</strong> <code>x &amp;= (x - 1);</code></li>
+<li><strong>Check power of two:</strong> <code>x &gt; 0 &amp;&amp; (x &amp; (x - 1)) == 0</code></li>
+<li><strong>Get lowest set bit:</strong> <code>lowest = x &amp; -x;</code></li>
 </ul>
-<blockquote class="blockquote">
-<p>Tip: When unsure how to start, think “What are the possible situations?” — that’s the beginning of case work.</p>
-</blockquote>
+<p>These are the the most important bit manipulation tricks.</p>
 
 
 </section>
@@ -882,13 +879,13 @@ window.Quarto = {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../b1/simulation.html" class="pagination-link" aria-label="Simulation">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Simulation</span>
+      <a href="../b2/cpp/structs.html" class="pagination-link" aria-label="**Data Structures with `struct`**">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><strong>Data Structures with <code>struct</code></strong></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../b1/greedy.html" class="pagination-link" aria-label="Greedy Algorithms">
-        <span class="nav-page-text">Greedy Algorithms</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../b2/dynamic-programming.html" class="pagination-link" aria-label="Dynamic Programming (DP)">
+        <span class="nav-page-text">Dynamic Programming (DP)</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

@@ -75,7 +75,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-707d8167ce6003fca903bfe2be84ab7f.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-6ca0fb2697fe3d78b539e946d72b137d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-5c3993218031af39509ca3cf88eb1c29.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -312,17 +312,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#maps" id="toc-maps" class="nav-link active" data-scroll-target="#maps">Maps</a>
   <ul class="collapse">
-  <li><a href="#what-is-a-map" id="toc-what-is-a-map" class="nav-link" data-scroll-target="#what-is-a-map">What is a map?</a></li>
   <li><a href="#creating-a-map" id="toc-creating-a-map" class="nav-link" data-scroll-target="#creating-a-map">Creating a map</a></li>
   <li><a href="#adding-and-accessing-elements" id="toc-adding-and-accessing-elements" class="nav-link" data-scroll-target="#adding-and-accessing-elements">Adding and accessing elements</a></li>
   <li><a href="#common-operations" id="toc-common-operations" class="nav-link" data-scroll-target="#common-operations">Common operations</a></li>
   <li><a href="#example-word-frequency-counter" id="toc-example-word-frequency-counter" class="nav-link" data-scroll-target="#example-word-frequency-counter">Example: word frequency counter</a></li>
   <li><a href="#iterating-through-a-map" id="toc-iterating-through-a-map" class="nav-link" data-scroll-target="#iterating-through-a-map">Iterating through a map</a></li>
   <li><a href="#kinds-of-maps" id="toc-kinds-of-maps" class="nav-link" data-scroll-target="#kinds-of-maps">Kinds of maps</a></li>
-  <li><a href="#advantages" id="toc-advantages" class="nav-link" data-scroll-target="#advantages">Advantages</a></li>
-  <li><a href="#disadvantages" id="toc-disadvantages" class="nav-link" data-scroll-target="#disadvantages">Disadvantages</a></li>
   <li><a href="#example-unordered_map" id="toc-example-unordered_map" class="nav-link" data-scroll-target="#example-unordered_map">Example: <code>unordered_map</code></a></li>
-  <li><a href="#quick-summary" id="toc-quick-summary" class="nav-link" data-scroll-target="#quick-summary">Quick summary</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -335,15 +331,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="maps" class="level1">
 <h1>Maps</h1>
-<p>A <strong>map</strong> in C++ is like a dictionary: it stores <strong>key–value pairs</strong>.<br>
-Each key is <strong>unique</strong>, and it points to a value.<br>
-If you know the key, you can instantly find its value.</p>
-<p>Think of it like a phonebook: each person’s name (key) points to their phone number (value).</p>
-<p>Also, you can think of a map as an array whose index can be any type (strings, negative numbers, characters, floats, …), not just a non-negative integer.</p>
-<section id="what-is-a-map" class="level2">
-<h2 data-anchor-id="what-is-a-map">What is a map?</h2>
-<p>A <code>map</code> is part of the Standard Template Library (STL).<br>
-It stores pairs of items like this:</p>
+<p>A <code>map</code> is a container in <code>C++</code> which stores pairs of items like this:</p>
 <pre><code>key -&gt; value</code></pre>
 <p>and keeps them <strong>sorted by key</strong> automatically.</p>
 <p>Example:</p>
@@ -366,7 +354,6 @@ It stores pairs of items like this:</p>
 Bob: 30
 Charlie: 22</code></pre>
 <p>Notice that the names are printed in alphabetical order — because a <code>map</code> sorts keys automatically.</p>
-</section>
 <section id="creating-a-map" class="level2">
 <h2 data-anchor-id="creating-a-map">Creating a map</h2>
 <p>To use a map, include:</p>
@@ -378,28 +365,20 @@ Charlie: 22</code></pre>
 </section>
 <section id="adding-and-accessing-elements" class="level2">
 <h2 data-anchor-id="adding-and-accessing-elements">Adding and accessing elements</h2>
-<p>You can add elements in several ways:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>map<span class="op">&lt;</span>string<span class="op">,</span> <span class="dt">int</span><span class="op">&gt;</span> scores<span class="op">;</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>scores<span class="op">[</span><span class="st">"Mark"</span><span class="op">]</span> <span class="op">=</span> <span class="dv">90</span><span class="op">;</span>          <span class="co">// add using []</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>scores<span class="op">.</span>insert<span class="op">({</span><span class="st">"Lena"</span><span class="op">,</span> <span class="dv">85</span><span class="op">});</span>  <span class="co">// add using insert()</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>scores<span class="op">.</span>emplace<span class="op">(</span><span class="st">"Tom"</span><span class="op">,</span> <span class="dv">78</span><span class="op">);</span>    <span class="co">// add using emplace()</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>cout <span class="op">&lt;&lt;</span> scores<span class="op">[</span><span class="st">"Mark"</span><span class="op">];</span>       <span class="co">// prints 90</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>scores<span class="op">[</span><span class="st">"Mark"</span><span class="op">]</span> <span class="op">=</span> <span class="dv">90</span><span class="op">;</span>          <span class="co">// add using [] </span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>cout <span class="op">&lt;&lt;</span> scores<span class="op">[</span><span class="st">"Mark"</span><span class="op">];</span>       <span class="co">// prints 90</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>If you access a key that doesn’t exist with <code>[]</code>, it will <strong>create</strong> it with a default value (like 0).</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>cout <span class="op">&lt;&lt;</span> scores<span class="op">[</span><span class="st">"Unknown"</span><span class="op">];</span>  <span class="co">// creates "Unknown" with value 0</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>If you don’t want that behavior, use <code>find()</code> instead (it doesn’t create anything).</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>scores<span class="op">.</span>find<span class="op">(</span><span class="st">"Tom"</span><span class="op">)</span> <span class="op">!=</span> scores<span class="op">.</span>end<span class="op">())</span></span>
+<p>If you don’t want that behavior, use <code>count()</code> to check first if it exists.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>scores<span class="op">.</span>count<span class="op">(</span><span class="st">"Tom"</span><span class="op">))</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    cout <span class="op">&lt;&lt;</span> <span class="st">"Tom found!"</span><span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="common-operations" class="level2">
 <h2 data-anchor-id="common-operations">Common operations</h2>
 <table class="caption-top table">
-<colgroup>
-<col style="width: 34%">
-<col style="width: 28%">
-<col style="width: 37%">
-</colgroup>
 <thead>
 <tr class="header">
 <th>Operation</th>
@@ -414,19 +393,9 @@ Charlie: 22</code></pre>
 <td>Access or create element</td>
 </tr>
 <tr class="even">
-<td><code>insert({k,v})</code></td>
-<td><code>m.insert({"Alice", 25})</code></td>
-<td>Adds a key–value pair</td>
-</tr>
-<tr class="odd">
 <td><code>erase(key)</code></td>
 <td><code>m.erase("Bob")</code></td>
 <td>Removes key and value</td>
-</tr>
-<tr class="even">
-<td><code>find(key)</code></td>
-<td><code>if (m.find("Bob") != m.end())</code></td>
-<td>Finds if a key exists</td>
 </tr>
 <tr class="odd">
 <td><code>count(key)</code></td>
@@ -519,13 +488,6 @@ orange: 1</code></pre>
 <td>Stores keys sorted (balanced tree)</td>
 </tr>
 <tr class="even">
-<td><code>multimap</code></td>
-<td>Yes</td>
-<td>Yes</td>
-<td>O(log n)</td>
-<td>Allows duplicate keys</td>
-</tr>
-<tr class="odd">
 <td><code>unordered_map</code></td>
 <td>No</td>
 <td>No</td>
@@ -534,31 +496,6 @@ orange: 1</code></pre>
 </tr>
 </tbody>
 </table>
-<p>Tip: If you need order — use <code>map</code>.<br>
-If you want speed — use <code>unordered_map</code>.<br>
-If you need multiple same keys — use <code>multimap</code>.</p>
-</section>
-<section id="advantages" class="level2">
-<h2 data-anchor-id="advantages">Advantages</h2>
-<ul>
-<li>Fast access to values by key (O(log n) for <code>map</code>, O(1) for <code>unordered_map</code>)<br>
-</li>
-<li>Keys automatically sorted in <code>map</code><br>
-</li>
-<li>Easy to check or update values<br>
-</li>
-<li>Cleaner than managing two arrays for keys and values</li>
-</ul>
-</section>
-<section id="disadvantages" class="level2">
-<h2 data-anchor-id="disadvantages">Disadvantages</h2>
-<ul>
-<li><code>map</code> is slower than arrays/vectors for simple data<br>
-</li>
-<li><code>unordered_map</code> doesn’t keep order<br>
-</li>
-<li>Slightly more memory usage</li>
-</ul>
 </section>
 <section id="example-unordered_map" class="level2">
 <h2 data-anchor-id="example-unordered_map">Example: <code>unordered_map</code></h2>
@@ -582,22 +519,6 @@ Bob: 30
 Tom: 28
 Alice: 25</code></pre>
 <p>So <code>unordered_map</code> is usually faster, but doesn’t sort keys.</p>
-</section>
-<section id="quick-summary" class="level2">
-<h2 data-anchor-id="quick-summary">Quick summary</h2>
-<ul>
-<li>A <code>map</code> connects <strong>keys to values</strong>.<br>
-</li>
-<li>Keys are <strong>unique</strong>.<br>
-</li>
-<li><code>map</code> keeps keys <strong>sorted</strong>, <code>unordered_map</code> doesn’t.<br>
-</li>
-<li>Use <code>[]</code> to add or get values.<br>
-</li>
-<li>Use <code>find()</code> to check safely if a key exists.<br>
-</li>
-<li>Use <code>erase()</code> to remove entries.</li>
-</ul>
 
 
 </section>

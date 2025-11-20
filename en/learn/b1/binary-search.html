@@ -75,7 +75,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-707d8167ce6003fca903bfe2be84ab7f.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-6ca0fb2697fe3d78b539e946d72b137d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-5c3993218031af39509ca3cf88eb1c29.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -347,12 +347,7 @@ window.Quarto = {
   <li><a href="#example-1-classic-binary-search" id="toc-example-1-classic-binary-search" class="nav-link" data-scroll-target="#example-1-classic-binary-search">Example 1: Classic binary search</a></li>
   <li><a href="#example-2-finding-first-element-greater-than-or-equal-to-x" id="toc-example-2-finding-first-element-greater-than-or-equal-to-x" class="nav-link" data-scroll-target="#example-2-finding-first-element-greater-than-or-equal-to-x">Example 2: Finding first element greater than or equal to X</a></li>
   <li><a href="#how-binary-search-works" id="toc-how-binary-search-works" class="nav-link" data-scroll-target="#how-binary-search-works">How binary search works</a></li>
-  <li><a href="#when-to-use-binary-search" id="toc-when-to-use-binary-search" class="nav-link" data-scroll-target="#when-to-use-binary-search">When to use binary search</a></li>
   <li><a href="#example-3-guessing-a-hidden-number" id="toc-example-3-guessing-a-hidden-number" class="nav-link" data-scroll-target="#example-3-guessing-a-hidden-number">Example 3: Guessing a hidden number</a></li>
-  <li><a href="#common-mistakes" id="toc-common-mistakes" class="nav-link" data-scroll-target="#common-mistakes">Common mistakes</a></li>
-  <li><a href="#advantages" id="toc-advantages" class="nav-link" data-scroll-target="#advantages">Advantages</a></li>
-  <li><a href="#disadvantages" id="toc-disadvantages" class="nav-link" data-scroll-target="#disadvantages">Disadvantages</a></li>
-  <li><a href="#quick-summary" id="toc-quick-summary" class="nav-link" data-scroll-target="#quick-summary">Quick summary</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -484,14 +479,6 @@ You can use it to find positions or boundaries.</p>
 <li>Repeat until <code>left &gt; right</code>.</li>
 </ol>
 </section>
-<section id="when-to-use-binary-search" class="level2">
-<h2 data-anchor-id="when-to-use-binary-search">When to use binary search</h2>
-<ul>
-<li>The array or range must be <strong>sorted</strong>.</li>
-<li>You need to find a specific value or boundary efficiently.</li>
-<li>You want to find the smallest or largest possible answer that meets a condition.</li>
-</ul>
-</section>
 <section id="example-3-guessing-a-hidden-number" class="level2">
 <h2 data-anchor-id="example-3-guessing-a-hidden-number">Example 3: Guessing a hidden number</h2>
 <p>Imagine a game where you must guess a number between 1 and 100.<br>
@@ -517,40 +504,6 @@ You can find the number in only about 7 tries.</p>
 <span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Output:</p>
 <pre><code>Found in 7 guesses</code></pre>
-</section>
-<section id="common-mistakes" class="level2">
-<h2 data-anchor-id="common-mistakes">Common mistakes</h2>
-<ul>
-<li>Forgetting to sort the array before searching.</li>
-<li>Wrong update of left/right boundaries.</li>
-<li>Infinite loops if the condition is slightly wrong.</li>
-<li>Integer overflow in <code>(left + right) / 2</code> (use <code>left + (right - left) / 2</code> for safety).</li>
-</ul>
-</section>
-<section id="advantages" class="level2">
-<h2 data-anchor-id="advantages">Advantages</h2>
-<ul>
-<li>Very fast (<span class="math inline">\(O(\log_2 n)\)</span>).<br>
-</li>
-<li>Easy to adapt to other problems (like finding minimum or maximum possible value).</li>
-</ul>
-</section>
-<section id="disadvantages" class="level2">
-<h2 data-anchor-id="disadvantages">Disadvantages</h2>
-<ul>
-<li>Only works on sorted data.<br>
-</li>
-<li>Can be tricky to get boundary conditions correct.</li>
-</ul>
-</section>
-<section id="quick-summary" class="level2">
-<h2 data-anchor-id="quick-summary">Quick summary</h2>
-<ul>
-<li>Start with linear search to understand the idea of finding something.</li>
-<li>Binary search improves it by halving the range each time.</li>
-<li>Works only when the list is sorted.</li>
-<li>Think of it like flipping through a phonebook — open in the middle and decide which half to keep.</li>
-</ul>
 
 
 </section>

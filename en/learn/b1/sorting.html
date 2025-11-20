@@ -73,7 +73,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-707d8167ce6003fca903bfe2be84ab7f.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-6ca0fb2697fe3d78b539e946d72b137d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-5c3993218031af39509ca3cf88eb1c29.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -197,13 +197,11 @@ window.Quarto = {
   <li><a href="#using-the-built-in-sort-function" id="toc-using-the-built-in-sort-function" class="nav-link" data-scroll-target="#using-the-built-in-sort-function">Using the built-in sort function</a>
   <ul class="collapse">
   <li><a href="#sorting-a-vector" id="toc-sorting-a-vector" class="nav-link" data-scroll-target="#sorting-a-vector">Sorting a vector</a></li>
-  <li><a href="#sorting-a-c-style-array" id="toc-sorting-a-c-style-array" class="nav-link" data-scroll-target="#sorting-a-c-style-array">Sorting a C-style array</a></li>
+  <li><a href="#sorting-an-array" id="toc-sorting-an-array" class="nav-link" data-scroll-target="#sorting-an-array">Sorting an array</a></li>
   <li><a href="#sorting-in-descending-order" id="toc-sorting-in-descending-order" class="nav-link" data-scroll-target="#sorting-in-descending-order">Sorting in descending order</a></li>
   <li><a href="#sorting-other-types" id="toc-sorting-other-types" class="nav-link" data-scroll-target="#sorting-other-types">Sorting other types</a></li>
   </ul></li>
   <li><a href="#complexity" id="toc-complexity" class="nav-link" data-scroll-target="#complexity">Complexity</a></li>
-  <li><a href="#when-to-use-sorting" id="toc-when-to-use-sorting" class="nav-link" data-scroll-target="#when-to-use-sorting">When to use sorting</a></li>
-  <li><a href="#quick-summary" id="toc-quick-summary" class="nav-link" data-scroll-target="#quick-summary">Quick summary</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -217,12 +215,10 @@ window.Quarto = {
 <section id="sorting" class="level1">
 <h1>Sorting</h1>
 <p>Sorting means arranging elements in a specific order, usually from smallest to largest, or alphabetically if they are strings.</p>
-<p>We sort things all the time in real life: numbers from lowest to highest, names alphabetically, or dates from earliest to latest.</p>
 <p>Sorting makes data easier to search, compare, and process efficiently.<br>
 Many algorithms like binary search only work if the data is sorted.</p>
 <section id="selection-sort" class="level2">
 <h2 data-anchor-id="selection-sort">Selection sort</h2>
-<p>To understand how sorting works, let’s start with a very simple method: selection sort.</p>
 <section id="the-idea" class="level3">
 <h3 data-anchor-id="the-idea">The idea</h3>
 <p>Selection sort repeatedly finds the smallest element from the unsorted part of the array and moves it to the beginning.</p>
@@ -270,7 +266,6 @@ Many algorithms like binary search only work if the data is sorted.</p>
 <ul>
 <li>There are two nested loops (one inside another).</li>
 <li>So it takes about <span class="math inline">\(n \cdot n\)</span> steps → <span class="math inline">\(O(n^2)\)</span> time.</li>
-<li>Works fine for small arrays but becomes slow for large ones.</li>
 </ul>
 </section>
 </section>
@@ -295,8 +290,8 @@ C++ provides a very fast sorting function in the standard library.</p>
 <pre><code>2 3 4 5 8</code></pre>
 <p>That one line <code>sort(arr.begin(), arr.end());</code> sorts the entire vector in ascending order.</p>
 </section>
-<section id="sorting-a-c-style-array" class="level3">
-<h3 data-anchor-id="sorting-a-c-style-array">Sorting a C-style array</h3>
+<section id="sorting-an-array" class="level3">
+<h3 data-anchor-id="sorting-an-array">Sorting an array</h3>
 <p>You can also use the same <code>sort</code> function with regular arrays.<br>
 You just need to give the starting and ending pointers.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
@@ -304,14 +299,15 @@ You just need to give the starting and ending pointers.</p>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> <span class="kw">namespace</span> std<span class="op">;</span></span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> arr<span class="op">[]</span> <span class="op">=</span> <span class="op">{</span><span class="dv">5</span><span class="op">,</span> <span class="dv">3</span><span class="op">,</span> <span class="dv">8</span><span class="op">,</span> <span class="dv">4</span><span class="op">,</span> <span class="dv">2</span><span class="op">};</span></span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> n <span class="op">=</span> <span class="kw">sizeof</span><span class="op">(</span>arr<span class="op">)</span> <span class="op">/</span> <span class="kw">sizeof</span><span class="op">(</span>arr<span class="op">[</span><span class="dv">0</span><span class="op">]);</span></span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>    sort<span class="op">(</span>arr<span class="op">,</span> arr <span class="op">+</span> n<span class="op">);</span></span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> n<span class="op">;</span> i<span class="op">++)</span></span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>        cout <span class="op">&lt;&lt;</span> arr<span class="op">[</span>i<span class="op">]</span> <span class="op">&lt;&lt;</span> <span class="st">" "</span><span class="op">;</span></span>
-<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> n <span class="op">=</span> <span class="dv">5</span><span class="op">;</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> arr<span class="op">[]</span> <span class="op">=</span> <span class="op">{</span><span class="dv">5</span><span class="op">,</span> <span class="dv">3</span><span class="op">,</span> <span class="dv">8</span><span class="op">,</span> <span class="dv">4</span><span class="op">,</span> <span class="dv">2</span><span class="op">};</span> </span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>    sort<span class="op">(</span>arr<span class="op">,</span> arr <span class="op">+</span> n<span class="op">);</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> n<span class="op">;</span> i<span class="op">++)</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>        cout <span class="op">&lt;&lt;</span> arr<span class="op">[</span>i<span class="op">]</span> <span class="op">&lt;&lt;</span> <span class="st">" "</span><span class="op">;</span></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Output:</p>
 <pre><code>2 3 4 5 8</code></pre>
 <p><code>sort(arr, arr + n);</code> means: sort starting from <code>arr</code> (first element) up to <code>arr + n</code> (just past the last one).</p>
@@ -337,31 +333,12 @@ You just need to give the starting and ending pointers.</p>
 </section>
 <section id="complexity" class="level2">
 <h2 data-anchor-id="complexity">Complexity</h2>
-<p>The library sort function uses an optimized mix of quicksort and heapsort internally.<br>
-Its time complexity is <strong><span class="math inline">\(O(n \log n)\)</span></strong>, which is much faster than <span class="math inline">\(O(n^2)\)</span> for large inputs.</p>
-<p>For example: - If n = 1,000, selection sort does about 1,000,000 operations. - If n = 1,000, library sort does about 10,000 operations — around 100 times faster.</p>
-</section>
-<section id="when-to-use-sorting" class="level2">
-<h2 data-anchor-id="when-to-use-sorting">When to use sorting</h2>
+<p>The library sort function uses an optimized algorithm. Its time complexity is <strong><span class="math inline">\(O(n \log n)\)</span></strong>, which is much faster than <span class="math inline">\(O(n^2)\)</span> for large inputs.</p>
+<p>For example:</p>
 <ul>
-<li>Before using binary search (you will see this later)</li>
-<li>When you need to remove duplicates easily</li>
-<li>When you want to find smallest or largest elements quickly</li>
-<li>When you want to print results in order</li>
+<li>If <span class="math inline">\(n = 1,000\)</span>, selection sort does about <span class="math inline">\(1,000,000\)</span> operations.</li>
+<li>If <span class="math inline">\(n = 1,000\)</span>, library sort does about <span class="math inline">\(10,000\)</span> operations — around <span class="math inline">\(100\)</span> times faster.</li>
 </ul>
-</section>
-<section id="quick-summary" class="level2">
-<h2 data-anchor-id="quick-summary">Quick summary</h2>
-<ul>
-<li>Sorting arranges elements in a defined order.</li>
-<li>Selection sort is simple but slow (<span class="math inline">\(O(n^2)\)</span>).</li>
-<li>Use the built-in <code>sort()</code> for O(<span class="math inline">\(n \log n\)</span>) performance.</li>
-<li>Works for both vectors and regular arrays.</li>
-<li>Can be customized for descending order or other data types.</li>
-</ul>
-<blockquote class="blockquote">
-<p>Tip: Learn to use <code>sort()</code> early — it’s one of the most powerful tools in competitive programming.</p>
-</blockquote>
 
 
 </section>
