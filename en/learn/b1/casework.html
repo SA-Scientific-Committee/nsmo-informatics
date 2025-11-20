@@ -231,6 +231,18 @@ window.Quarto = {
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../b1/time-complexity.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Time Complexity</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../b1/sorting.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Sorting</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../b1/binary-search.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Binary Search</span></a>
   </div>
@@ -441,7 +453,14 @@ window.Quarto = {
 <section id="example-3-coordinate-quadrant" class="level2">
 <h2 data-anchor-id="example-3-coordinate-quadrant">Example 3: Coordinate quadrant</h2>
 <p>Problem: Given <span class="math inline">\((x, y)\)</span>, print which quadrant the point belongs to.</p>
-<p>Cases: 1. <span class="math inline">\(x &gt; 0, y &gt; 0\)</span> → Quadrant I 2. <span class="math inline">\(x &lt; 0, y &gt; 0\)</span> → Quadrant II 3. <span class="math inline">\(x &lt; 0, y &lt; 0\)</span> → Quadrant III 4. <span class="math inline">\(x &gt; 0, y &lt; 0\)</span> → Quadrant IV 5. If <span class="math inline">\(x == 0\)</span> or <span class="math inline">\(y == 0\)</span> → on an axis</p>
+<p>Cases:</p>
+<ol type="1">
+<li><span class="math inline">\(x &gt; 0, y &gt; 0\)</span> → Quadrant I</li>
+<li><span class="math inline">\(x &lt; 0, y &gt; 0\)</span> → Quadrant II</li>
+<li><span class="math inline">\(x &lt; 0, y &lt; 0\)</span> → Quadrant III</li>
+<li><span class="math inline">\(x &gt; 0, y &lt; 0\)</span> → Quadrant IV</li>
+<li>If <span class="math inline">\(x = 0\)</span> or <span class="math inline">\(y = 0\)</span> → on an axis</li>
+</ol>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> <span class="kw">namespace</span> std<span class="op">;</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
