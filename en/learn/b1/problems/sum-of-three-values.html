@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>static-range-sum-queries</title>
+<title>sum-of-three-values</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -64,8 +64,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../b0/problems/theatre-square.html" rel="next">
-<link href="../../b0/problems/bit++.html" rel="prev">
+<link href="../../b1/problems/twins.html" rel="next">
+<link href="../../b1/problems/sum-of-two-values.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -155,11 +155,11 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="../../b0/cpp/hello-world.html" aria-current="page"> 
+    <a class="nav-link" href="../../b0/cpp/hello-world.html"> 
 <span class="menu-text">Stage 1</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../b1/cpp/sets.html"> 
+    <a class="nav-link active" href="../../b1/cpp/sets.html" aria-current="page"> 
 <span class="menu-text">Stage 2</span></a>
   </li>  
   <li class="nav-item">
@@ -205,7 +205,7 @@ window.Quarto = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text">C++ Basics</span></a>
+ <span class="menu-text">C++</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -213,94 +213,70 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../b0/cpp/hello-world.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Hello World!</span></a>
+  <a href="../../b1/cpp/sets.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Sets</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../b0/cpp/structure-of-a-program.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Structure of a Program</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../b0/cpp/variables-and-types.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Variables and Types</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../b0/cpp/constants.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Constants</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../b0/cpp/operators.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Operators</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../b0/cpp/input-output.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Input/Output</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../b0/cpp/statements.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Statements and Control Flow</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../b0/cpp/if.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">The <code>if</code> Statement</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../b0/cpp/while.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">The <code>while</code> Loop</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../b0/cpp/for.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">The <code>for</code> Loop</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../b0/cpp/functions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Functions</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../b0/cpp/name-visibility.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Name Visibility</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../b0/cpp/arrays.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Arrays</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../b0/cpp/vectors.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Vectors</span></a>
+  <a href="../../b1/cpp/maps.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Maps</span></a>
   </div>
 </li>
       </ul>
   </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../b1/time-complexity.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Time Complexity</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../b1/sorting.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Sorting</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../b1/binary-search.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Binary Search</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../b1/modular-arithmetics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Modular Arithmetics</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../b1/simulation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Simulation</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../b1/casework.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Case Work</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../b1/greedy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Greedy Algorithms</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../b1/adhoc.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Ad-hoc Problems</span></a>
+  </div>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
- <span class="menu-text">Competitive Programming</span></a>
+ <span class="menu-text">Problems</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -308,14 +284,44 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../b0/cp/contests-and-platforms.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Contests and Platforms</span></a>
+  <a href="../../b1/problems/domino-piling.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Domino piling</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../b0/cp/problems-with-subproblems.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Problems with Subproblems</span></a>
+  <a href="../../b1/problems/modular-exponentiation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Modular Exponentiation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../b1/problems/sum-of-two-values.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Sum Of Two Values</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../b1/problems/sum-of-three-values.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Sum Of Three Values</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../b1/problems/twins.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Twins</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../b1/problems/digit-queries.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Digit Queries</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../b1/problems/vanya-and-lanterns.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vanya and Lanterns</span></a>
   </div>
 </li>
       </ul>
@@ -323,7 +329,7 @@ window.Quarto = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
- <span class="menu-text">Problems</span></a>
+ <span class="menu-text">Practice Problems</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -331,133 +337,8 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../b0/problems/weird-algorithm.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Weird Algorithm</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../b0/problems/domino-piling.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Domino Piling</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../b0/problems/bit++.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Bit++</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../b0/problems/static-range-sum-queries.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Static Range Sum Queries</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../b0/problems/theatre-square.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Theatre Square</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../b0/problems/next-round.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Next Round</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../b0/problems/beautiful-matrix.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Beautiful Matrix</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../b0/problems/team.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Team</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../b0/problems/equator.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Equator</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../b0/problems/dislike-of-threes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Dislike of Threes</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../b0/problems/diverse-game.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Diverse Game</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../b0/problems/holiday-of-equality.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Holiday of Equality</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../b0/problems/beautiful-year.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Beautiful Year</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../b0/problems/your-digits.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Your Digits</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
- <span class="menu-text">Practice Problems</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../b0/problems/sum-product.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Sum Product</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../b0/problems/leap-year.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Leap Year</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../b0/problems/alternate.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Alternate</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../b0/problems/increasing-decreasing-digits.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Increasing Decreasing Digits</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../b0/problems/middle-digits.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Middle Digits</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../b0/problems/min-operations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Min Operations</span></a>
+  <a href="../../b1/problems/stick-lengths.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Stick Lengths</span></a>
   </div>
 </li>
       </ul>
@@ -472,7 +353,7 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#static-range-sum-queries" id="toc-static-range-sum-queries" class="nav-link active" data-scroll-target="#static-range-sum-queries">Static Range Sum Queries</a></li>
+  <li><a href="#sum-of-three-values" id="toc-sum-of-three-values" class="nav-link active" data-scroll-target="#sum-of-three-values">Sum of Three Values</a></li>
   </ul>
 </nav>
     </div>
@@ -482,18 +363,37 @@ window.Quarto = {
 
 
 
-<section id="static-range-sum-queries" class="level2 problem-toc-header">
-<h2 class="problem-toc-header" data-anchor-id="static-range-sum-queries">Static Range Sum Queries</h2>
+<section id="sum-of-three-values" class="level2 problem-toc-header">
+<h2 class="problem-toc-header" data-anchor-id="sum-of-three-values">Sum of Three Values</h2>
 <div class="problem-card">
 <div class="problem-header">
-<span class="problem-title">Static Range Sum Queries</span>
+<span class="problem-title">Sum of Three Values</span>
 <div class="problem-meta">
-<span class="problem-origin"><a href="https://cses.fi/problemset/task/1646">CSES</a></span>
+<span class="problem-origin"><a href="https://cses.fi/problemset/task/1641">CSES</a></span>
 <span class="problem-difficulty">medium</span>
 </div>
 </div>
 <div class="problem-body">
-<p>You are given an array of <span class="math inline">\(n\)</span> integers and <span class="math inline">\(q\)</span> queries. Each query asks for the sum of values in the inclusive range <span class="math inline">\([a,b]\)</span>. Print the answer for every query.</p>
+<p>You are given an array of <span class="math inline">\(n\)</span> integers, and your task is to find <strong>three values at distinct positions</strong> whose sum is <span class="math inline">\(x\)</span>.</p>
+<p>Input:</p>
+<ul>
+<li>First line: two integers <span class="math inline">\(n\)</span> and <span class="math inline">\(x\)</span> — the array size and the target sum.</li>
+<li>Second line: <span class="math inline">\(n\)</span> integers <span class="math inline">\(a_1,a_2,\dots,a_n\)</span> — the array values.</li>
+</ul>
+<p>Output:</p>
+<p>Print three integers: the <strong>positions</strong> (1-indexed) of the chosen values. If there are several valid triplets, you may print any of them. If there is <strong>no</strong> such triplet, print</p>
+<p><code>IMPOSSIBLE</code></p>
+<p>Constraints:</p>
+<ul>
+<li><span class="math inline">\(1 \le n \le 5000\)</span></li>
+<li><span class="math inline">\(1 \le x, a_i \le 10^9\)</span></li>
+</ul>
+<p>Example:</p>
+<p>Input:</p>
+<pre><code>4 8
+2 7 5 1</code></pre>
+<p>Output:</p>
+<pre><code>1 3 4</code></pre>
 </div>
 </div>
 </section>
@@ -501,48 +401,127 @@ window.Quarto = {
 <div class="solution-card">
 <p><span class="solution-title">Solution</span></p>
 <div class="problem-body">
-<p>Precompute <strong>prefix sums</strong> so any range sum can be answered in <span class="math inline">\(O(1)\)</span> time.</p>
-<p>Let <span class="math inline">\(S[0]=0\)</span> and for <span class="math inline">\(i\ge1\)</span>, <span class="math inline">\(S[i]=S[i-1]+x_i\)</span>.</p>
-<p>Then for a query <span class="math inline">\([a,b]\)</span> (1-indexed), the sum is: [ (a,b)=S[b]-S[a-1].]</p>
-<p>Building <span class="math inline">\(S\)</span> is <span class="math inline">\(O(n)\)</span>; answering all queries is <span class="math inline">\(O(q)\)</span>.</p>
+<p>We want three distinct indices <span class="math inline">\(i,j,k\)</span> such that <code>a_i + a_j + a_k = x</code>.</p>
+<p>A fully brute-force solution would check all triples in <span class="math inline">\(O(n^3)\)</span>, which is too slow for <span class="math inline">\(n = 5000\)</span>.</p>
+<p>Instead, we use the classic idea:</p>
+<blockquote class="blockquote">
+<p><strong>Brute-force two elements and binary search for the third.</strong></p>
+</blockquote>
+<hr>
+<section id="sort-while-keeping-original-positions" class="level3">
+<h3 data-anchor-id="sort-while-keeping-original-positions">1. Sort while keeping original positions</h3>
+<p>We first store each element together with its original index, then sort by value:</p>
+<ul>
+<li>Build an array of pairs: <span class="math inline">\((a_i, i)\)</span>.</li>
+<li>Sort by <span class="math inline">\(a_i\)</span>.</li>
+</ul>
+<p>This lets us use binary search / two-pointer style tricks on the <strong>values</strong>, while still being able to print the original indices.</p>
+<hr>
+</section>
+<section id="fix-two-indices-binary-search-the-third" class="level3">
+<h3 data-anchor-id="fix-two-indices-binary-search-the-third">2. Fix two indices, binary search the third</h3>
+<p>After sorting:</p>
+<ul>
+<li><p>Loop over all pairs <span class="math inline">\((i,j)\)</span> with <span class="math inline">\(0 \le i &lt; j &lt; n\)</span>:</p>
+<ul>
+<li>Let <span class="math inline">\(\text{need} = x - a_i - a_j\)</span>.</li>
+<li>Now we just need to see if there exists <span class="math inline">\(k &gt; j\)</span> with <span class="math inline">\(a_k = \text{need}\)</span>.</li>
+<li>Since the array is sorted, we can <strong>binary search</strong> for <code>need</code> in the range <span class="math inline">\((j+1, \dots, n-1)\)</span>.</li>
+</ul></li>
+</ul>
+<p>If the binary search finds such a <code>k</code>:</p>
+<ul>
+<li>We output the original positions of <span class="math inline">\(a_i, a_j, a_k\)</span>.</li>
+</ul>
+<p>If we finish checking all pairs with no success, we print <code>IMPOSSIBLE</code>.</p>
+<p>Because we always search only in indices strictly greater than <span class="math inline">\(j\)</span>, all three positions are automatically <strong>distinct</strong>.</p>
+<hr>
+</section>
+<section id="complexity" class="level3">
+<h3 data-anchor-id="complexity">3. Complexity</h3>
+<ul>
+<li>Sorting: <span class="math inline">\(O(n \log n)\)</span></li>
+<li>Double loop over <span class="math inline">\((i, j)\)</span>: <span class="math inline">\(O(n^2)\)</span> pairs</li>
+<li>For each pair, one binary search: <span class="math inline">\(O(\log n)\)</span></li>
+</ul>
+<p>Total time:</p>
+<p><code>O(n^2 \log n)</code></p>
+<p>which is fine for <span class="math inline">\(n \le 5000\)</span>.</p>
+<p>Memory usage is <span class="math inline">\(O(n)\)</span> to store the array of pairs.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Prefix sums (1-indexed)
+<span class="screen-reader-only">Note</span>Algorithm sketch
 </div>
 </div>
 <div class="callout-body-container callout-body">
+<ol type="1">
+<li><p>Read <span class="math inline">\(n\)</span>, <span class="math inline">\(x\)</span>, and the array.</p></li>
+<li><p>Build <code>vector&lt;(value, original_index)&gt;</code> and sort by value.</p></li>
+<li><p>For each <code>i</code> from <code>0</code> to <code>n-1</code>:</p>
 <ul>
-<li>Build once: <span class="math inline">\(S[i] = S[i-1] + x_i\)</span> for <span class="math inline">\(i = 1..n\)</span></li>
-<li>Query: <span class="math inline">\(S[b] - S[a-1]\)</span></li>
-</ul>
+<li><p>For each <code>j</code> from <code>i+1</code> to <code>n-1</code>:</p>
+<ul>
+<li>Let <code>need = x - value[i] - value[j]</code>.</li>
+<li>Binary search <code>need</code> in the range <code>[j+1, n-1]</code>.</li>
+<li>If found at <code>k</code>, print the three original indices and exit.</li>
+</ul></li>
+</ul></li>
+<li><p>If nothing found, print <code>IMPOSSIBLE</code>.</p></li>
+</ol>
 </div>
 </div>
 <div class="sol-code">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;vector&gt;</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> <span class="kw">namespace</span> std<span class="op">;</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> n<span class="op">,</span> q<span class="op">;</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    cin <span class="op">&gt;&gt;</span> n <span class="op">&gt;&gt;</span> q<span class="op">;</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    vector<span class="op">&lt;</span><span class="dt">long</span> <span class="dt">long</span><span class="op">&gt;</span> pref<span class="op">(</span>n <span class="op">+</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">0</span><span class="op">);</span> <span class="co">// pref[0] = 0</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> i <span class="op">&lt;=</span> n<span class="op">;</span> i<span class="op">++)</span> <span class="op">{</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>        <span class="dt">long</span> <span class="dt">long</span> x<span class="op">;</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>        cin <span class="op">&gt;&gt;</span> x<span class="op">;</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>        pref<span class="op">[</span>i<span class="op">]</span> <span class="op">=</span> pref<span class="op">[</span>i <span class="op">-</span> <span class="dv">1</span><span class="op">]</span> <span class="op">+</span> x<span class="op">;</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> <span class="op">(</span>q<span class="op">--)</span> <span class="op">{</span></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>        <span class="dt">int</span> a<span class="op">,</span> b<span class="op">;</span></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>        cin <span class="op">&gt;&gt;</span> a <span class="op">&gt;&gt;</span> b<span class="op">;</span>          <span class="co">// 1-indexed ranges</span></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>        cout <span class="op">&lt;&lt;</span> <span class="op">(</span>pref<span class="op">[</span>b<span class="op">]</span> <span class="op">-</span> pref<span class="op">[</span>a <span class="op">-</span> <span class="dv">1</span><span class="op">])</span> <span class="op">&lt;&lt;</span> <span class="ch">'</span><span class="sc">\n</span><span class="ch">'</span><span class="op">;</span></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;vector&gt;</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> <span class="kw">namespace</span> std<span class="op">;</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    ios<span class="op">::</span>sync_with_stdio<span class="op">(</span><span class="kw">false</span><span class="op">);</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    cin<span class="op">.</span>tie<span class="op">(</span><span class="kw">nullptr</span><span class="op">);</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> n<span class="op">;</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="dt">long</span> <span class="dt">long</span> x<span class="op">;</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    cin <span class="op">&gt;&gt;</span> n <span class="op">&gt;&gt;</span> x<span class="op">;</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    vector<span class="op">&lt;</span>pair<span class="op">&lt;</span><span class="dt">long</span> <span class="dt">long</span><span class="op">,</span><span class="dt">int</span><span class="op">&gt;&gt;</span> a<span class="op">(</span>n<span class="op">);</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> n<span class="op">;</span> <span class="op">++</span>i<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>        <span class="dt">long</span> <span class="dt">long</span> v<span class="op">;</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>        cin <span class="op">&gt;&gt;</span> v<span class="op">;</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>        a<span class="op">[</span>i<span class="op">]</span> <span class="op">=</span> <span class="op">{</span>v<span class="op">,</span> i <span class="op">+</span> <span class="dv">1</span><span class="op">};</span> <span class="co">// store value and original 1-based index</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>    sort<span class="op">(</span>a<span class="op">.</span>begin<span class="op">(),</span> a<span class="op">.</span>end<span class="op">());</span> <span class="co">// sort by value</span></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Fix two indices (i, j) and binary search for the third</span></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> n<span class="op">;</span> <span class="op">++</span>i<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> j <span class="op">=</span> i <span class="op">+</span> <span class="dv">1</span><span class="op">;</span> j <span class="op">&lt;</span> n<span class="op">;</span> <span class="op">++</span>j<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>            <span class="dt">long</span> <span class="dt">long</span> need <span class="op">=</span> x <span class="op">-</span> a<span class="op">[</span>i<span class="op">].</span>first <span class="op">-</span> a<span class="op">[</span>j<span class="op">].</span>first<span class="op">;</span></span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>            <span class="dt">int</span> lo <span class="op">=</span> j <span class="op">+</span> <span class="dv">1</span><span class="op">,</span> hi <span class="op">=</span> n <span class="op">-</span> <span class="dv">1</span><span class="op">;</span></span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>            <span class="cf">while</span> <span class="op">(</span>lo <span class="op">&lt;=</span> hi<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>                <span class="dt">int</span> mid <span class="op">=</span> <span class="op">(</span>lo <span class="op">+</span> hi<span class="op">)</span> <span class="op">/</span> <span class="dv">2</span><span class="op">;</span></span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> <span class="op">(</span>a<span class="op">[</span>mid<span class="op">].</span>first <span class="op">==</span> need<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>                    <span class="co">// Found a valid triple</span></span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>                    cout <span class="op">&lt;&lt;</span> a<span class="op">[</span>i<span class="op">].</span>second <span class="op">&lt;&lt;</span> <span class="st">" "</span></span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>                         <span class="op">&lt;&lt;</span> a<span class="op">[</span>j<span class="op">].</span>second <span class="op">&lt;&lt;</span> <span class="st">" "</span></span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>                         <span class="op">&lt;&lt;</span> a<span class="op">[</span>mid<span class="op">].</span>second <span class="op">&lt;&lt;</span> <span class="st">"</span><span class="sc">\n</span><span class="st">"</span><span class="op">;</span></span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>                <span class="op">}</span> <span class="cf">else</span> <span class="cf">if</span> <span class="op">(</span>a<span class="op">[</span>mid<span class="op">].</span>first <span class="op">&lt;</span> need<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>                    lo <span class="op">=</span> mid <span class="op">+</span> <span class="dv">1</span><span class="op">;</span></span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a>                <span class="op">}</span> <span class="cf">else</span> <span class="op">{</span></span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a>                    hi <span class="op">=</span> mid <span class="op">-</span> <span class="dv">1</span><span class="op">;</span></span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a>                <span class="op">}</span></span>
+<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a>            <span class="op">}</span></span>
+<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a>    cout <span class="op">&lt;&lt;</span> <span class="st">"IMPOSSIBLE</span><span class="sc">\n</span><span class="st">"</span><span class="op">;</span></span>
+<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="callout callout-style-default callout-caution callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -550,13 +529,17 @@ window.Quarto = {
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Caution</span>64-bit sums
+<span class="screen-reader-only">Caution</span>Watch out for integer types
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Values can reach <span class="math inline">\(2\cdot10^5 \times 10^9 = 2\cdot10^{14}\)</span>, so store prefix sums and results in <code>long long</code>.</p>
+<ul>
+<li>Use <code>long long</code> for the values and for <code>x</code>, since <span class="math inline">\(x\)</span> and <span class="math inline">\(a_i\)</span> are up to <span class="math inline">\(10^9\)</span>, and sums can reach up to <span class="math inline">\(3 \cdot 10^9\)</span>.</li>
+<li>Make sure to always search in the range <code>[j+1, n-1]</code> so that all three positions are distinct.</li>
+</ul>
 </div>
 </div>
+</section>
 </div>
 </div>
 </div>
@@ -964,13 +947,13 @@ window.Quarto = {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../b0/problems/bit++.html" class="pagination-link" aria-label="Bit++">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Bit++</span>
+      <a href="../../b1/problems/sum-of-two-values.html" class="pagination-link" aria-label="Sum Of Two Values">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Sum Of Two Values</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../b0/problems/theatre-square.html" class="pagination-link" aria-label="Theatre Square">
-        <span class="nav-page-text">Theatre Square</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../b1/problems/twins.html" class="pagination-link" aria-label="Twins">
+        <span class="nav-page-text">Twins</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

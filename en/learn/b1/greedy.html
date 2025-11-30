@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.25">
+<meta name="generator" content="quarto-1.8.26">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -72,10 +72,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-707d8167ce6003fca903bfe2be84ab7f.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b758ccaa5987ceb1b75504551e579abf.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-5c3993218031af39509ca3cf88eb1c29.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-554c5fc7eb394f0da0ff922119d371a0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -166,10 +166,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
-      <a href="../index.html" class="sidebar-logo-link">
-      </a>
-      </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
         <div id="quarto-search" class="" title="Search"></div>
@@ -259,26 +255,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../b1/problems/digit-queries.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Digit Queries</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../b1/problems/sum-of-two-values.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Sum Of Two Values</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../b1/problems/twins.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Twins</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../b1/problems/vanya-and-lanterns.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Vanya and Lanterns</span></a>
+  <a href="../b1/problems/domino-piling.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Domino piling</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -289,8 +267,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../b1/problems/domino-piling.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Domino piling</span></a>
+  <a href="../b1/problems/sum-of-two-values.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Sum Of Two Values</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../b1/problems/sum-of-three-values.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Sum Of Three Values</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../b1/problems/twins.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Twins</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../b1/problems/digit-queries.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Digit Queries</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../b1/problems/vanya-and-lanterns.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vanya and Lanterns</span></a>
   </div>
 </li>
       </ul>
@@ -326,8 +328,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#what-does-greedy-mean" id="toc-what-does-greedy-mean" class="nav-link" data-scroll-target="#what-does-greedy-mean">What does greedy mean?</a></li>
   <li><a href="#common-idea" id="toc-common-idea" class="nav-link" data-scroll-target="#common-idea">Common idea</a></li>
-  <li><a href="#example-1-coin-change" id="toc-example-1-coin-change" class="nav-link" data-scroll-target="#example-1-coin-change">Example 1: Coin change</a></li>
-  <li><a href="#example-2-activity-selection" id="toc-example-2-activity-selection" class="nav-link" data-scroll-target="#example-2-activity-selection">Example 2: Activity selection</a></li>
+  <li><a href="#example-problems" id="toc-example-problems" class="nav-link" data-scroll-target="#example-problems">Example problems</a></li>
+  <li><a href="#coin-change" id="toc-coin-change" class="nav-link" data-scroll-target="#coin-change">Coin change</a></li>
+  <li><a href="#activity-selection" id="toc-activity-selection" class="nav-link" data-scroll-target="#activity-selection">Activity selection</a></li>
   <li><a href="#when-greedy-works" id="toc-when-greedy-works" class="nav-link" data-scroll-target="#when-greedy-works">When greedy works</a>
   <ul class="collapse">
   <li><a href="#examples-that-work" id="toc-examples-that-work" class="nav-link" data-scroll-target="#examples-that-work">Examples that work</a></li>
@@ -355,8 +358,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="what-does-greedy-mean" class="level2">
 <h2 data-anchor-id="what-does-greedy-mean">What does greedy mean?</h2>
 <p>“Greedy” means <strong>locally optimal</strong> — at each step, you take the choice that looks best at that moment.</p>
-<p>Sometimes this also gives the global optimum (the overall best answer), but not always.<br>
-The trick is knowing when greediness actually works.</p>
+<p>Sometimes this also gives the global optimum (the overall best answer), but not always. The trick is knowing when greediness actually works.</p>
 </section>
 <section id="common-idea" class="level2">
 <h2 data-anchor-id="common-idea">Common idea</h2>
@@ -369,17 +371,32 @@ The trick is knowing when greediness actually works.</p>
 </ul>
 <p>You never go back or change previous decisions.</p>
 <p>Example pattern:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="op">(</span>problem <span class="kw">not</span> solved<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    pick the best possible option right now<span class="op">;</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    update the state<span class="op">;</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<pre><code>while (problem not solved) {
+    pick the best possible option right now;
+    update the state;
+}</code></pre>
 </section>
-<section id="example-1-coin-change" class="level2">
-<h2 data-anchor-id="example-1-coin-change">Example 1: Coin change</h2>
-<blockquote class="blockquote">
-<p>You have coins of 1, 5, 10, and 25.<br>
-Find the minimum number of coins to make 63.</p>
-</blockquote>
+<section id="example-problems" class="level2">
+<h2 data-anchor-id="example-problems">Example problems</h2>
+</section>
+<section id="coin-change" class="level2 problem-toc-header">
+<h2 class="problem-toc-header" data-anchor-id="coin-change">Coin change</h2>
+<div class="problem-card">
+<div class="problem-header">
+<span class="problem-title">Coin change</span>
+<div class="problem-meta">
+<span class="problem-origin"></span>
+</div>
+</div>
+<div class="problem-body">
+<p>You have coins of 1, 5, 10, and 25. Find the minimum number of coins to make 63.</p>
+</div>
+</div>
+</section>
+<div>
+<div class="solution-card">
+<p><span class="solution-title">Solution</span></p>
+<div class="problem-body">
 <p>Greedy idea: always take the <strong>largest coin</strong> possible.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;vector&gt;</span></span>
@@ -398,14 +415,27 @@ Find the minimum number of coins to make 63.</p>
 <span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>It picks: 25 + 25 + 10 + 1 + 1 + 1 = 63 → 6 coins.<br>
 This greedy strategy works for most real coin systems.</p>
+</div>
+</div>
+</div>
+<section id="activity-selection" class="level2 problem-toc-header">
+<h2 class="problem-toc-header" data-anchor-id="activity-selection">Activity selection</h2>
+<div class="problem-card">
+<div class="problem-header">
+<span class="problem-title">Activity selection</span>
+<div class="problem-meta">
+<span class="problem-origin"></span>
+</div>
+</div>
+<div class="problem-body">
+<p>You are given activities with start and end times. You can only do one at a time. What is the maximum number of activities you can complete?</p>
+</div>
+</div>
 </section>
-<section id="example-2-activity-selection" class="level2">
-<h2 data-anchor-id="example-2-activity-selection">Example 2: Activity selection</h2>
-<blockquote class="blockquote">
-<p>You’re given activities with start and end times.<br>
-You can only do one at a time.<br>
-What’s the maximum number of activities you can complete?</p>
-</blockquote>
+<div>
+<div class="solution-card">
+<p><span class="solution-title">Solution</span></p>
+<div class="problem-body">
 <p>Greedy idea: always pick the activity that finishes first.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;vector&gt;</span></span>
@@ -426,7 +456,9 @@ What’s the maximum number of activities you can complete?</p>
 <span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>    cout <span class="op">&lt;&lt;</span> count<span class="op">;</span> <span class="co">// 3</span></span>
 <span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>We always take the next available activity that ends earliest — leaving more time for the rest.</p>
-</section>
+</div>
+</div>
+</div>
 <section id="when-greedy-works" class="level2">
 <h2 data-anchor-id="when-greedy-works">When greedy works</h2>
 <p>Greedy algorithms work when local choices lead to the global best answer.<br>

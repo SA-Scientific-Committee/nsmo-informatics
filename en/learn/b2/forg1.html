@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>statements</title>
+<title>forg1</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -58,24 +58,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../">
-<link href="../../b0/cpp/if.html" rel="next">
-<link href="../../b0/cpp/input-output.html" rel="prev">
-<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b758ccaa5987ceb1b75504551e579abf.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-554c5fc7eb394f0da0ff922119d371a0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b758ccaa5987ceb1b75504551e579abf.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-554c5fc7eb394f0da0ff922119d371a0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -104,19 +102,48 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
-<body class="nav-sidebar floating nav-fixed quarto-light">
+<body class="nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
-    <img src="../../logo.png" alt="" class="navbar-logo light-content">
-    <img src="../../logo.png" alt="" class="navbar-logo dark-content">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../logo.png" alt="" class="navbar-logo light-content">
+    <img src="../logo.png" alt="" class="navbar-logo dark-content">
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -126,15 +153,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="../../b0/cpp/hello-world.html" aria-current="page"> 
+    <a class="nav-link" href="../b0/cpp/hello-world.html"> 
 <span class="menu-text">Stage 1</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../b1/cpp/sets.html"> 
+    <a class="nav-link" href="../b1/cpp/sets.html"> 
 <span class="menu-text">Stage 2</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../b2/cpp/bitwise-operations.html"> 
+    <a class="nav-link" href="../b2/cpp/bitwise-operations.html"> 
 <span class="menu-text">Stage 3</span></a>
   </li>  
   <li class="nav-item">
@@ -148,306 +175,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
       </div> <!-- /container-fluid -->
     </nav>
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-        <i class="bi bi-layout-text-sidebar-reverse"></i>
-      </button>
-        <a class="flex-grow-1 no-decor" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-          <h1 class="quarto-secondary-nav-title"></h1>
-        </a>     
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
-        <i class="bi bi-search"></i>
-      </button>
-    </div>
-  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-        <div class="mt-2 flex-shrink-0 align-items-center">
-        <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Search"></div>
-        </div>
-        </div>
-    <div class="sidebar-menu-container"> 
-    <ul class="list-unstyled mt-1">
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text">C++ Basics</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../b0/cpp/hello-world.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Hello World!</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../b0/cpp/structure-of-a-program.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Structure of a Program</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../b0/cpp/variables-and-types.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Variables and Types</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../b0/cpp/constants.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Constants</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../b0/cpp/operators.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Operators</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../b0/cpp/input-output.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Input/Output</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../b0/cpp/statements.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Statements and Control Flow</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../b0/cpp/if.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">The <code>if</code> Statement</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../b0/cpp/while.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">The <code>while</code> Loop</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../b0/cpp/for.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">The <code>for</code> Loop</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../b0/cpp/functions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Functions</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../b0/cpp/name-visibility.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Name Visibility</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../b0/cpp/arrays.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Arrays</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../b0/cpp/vectors.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Vectors</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
- <span class="menu-text">Competitive Programming</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../b0/cp/contests-and-platforms.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Contests and Platforms</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../b0/cp/problems-with-subproblems.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Problems with Subproblems</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
- <span class="menu-text">Problems</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../b0/problems/weird-algorithm.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Weird Algorithm</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../b0/problems/domino-piling.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Domino Piling</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../b0/problems/bit++.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Bit++</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../b0/problems/static-range-sum-queries.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Static Range Sum Queries</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../b0/problems/theatre-square.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Theatre Square</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../b0/problems/next-round.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Next Round</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../b0/problems/beautiful-matrix.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Beautiful Matrix</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../b0/problems/team.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Team</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../b0/problems/equator.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Equator</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../b0/problems/dislike-of-threes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Dislike of Threes</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../b0/problems/diverse-game.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Diverse Game</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../b0/problems/holiday-of-equality.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Holiday of Equality</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../b0/problems/beautiful-year.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Beautiful Year</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../b0/problems/your-digits.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Your Digits</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
- <span class="menu-text">Practice Problems</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../b0/problems/sum-product.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Sum Product</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../b0/problems/leap-year.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Leap Year</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../b0/problems/alternate.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Alternate</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../b0/problems/increasing-decreasing-digits.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Increasing Decreasing Digits</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../b0/problems/middle-digits.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Middle Digits</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../b0/problems/min-operations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Min Operations</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-    </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="10">
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#statements-and-control-flow" id="toc-statements-and-control-flow" class="nav-link active" data-scroll-target="#statements-and-control-flow">Statements and Control Flow</a>
-  <ul class="collapse">
-  <li><a href="#beyond-linear-execution" id="toc-beyond-linear-execution" class="nav-link" data-scroll-target="#beyond-linear-execution">Beyond Linear Execution</a></li>
-  <li><a href="#compound-statements" id="toc-compound-statements" class="nav-link" data-scroll-target="#compound-statements">Compound Statements</a></li>
-  </ul></li>
+  <li><a href="#frog-1" id="toc-frog-1" class="nav-link active" data-scroll-target="#frog-1">Frog 1</a></li>
   </ul>
 </nav>
     </div>
@@ -457,42 +195,110 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<section id="statements-and-control-flow" class="level1">
-<h1>Statements and Control Flow</h1>
-<p>A simple C++ <strong>statement</strong> is one of the individual instructions in a program — such as a variable declaration or an expression. Each simple statement <strong>ends with a semicolon</strong> (<code>;</code>) and is executed in the order it appears in the code.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> x <span class="op">=</span> <span class="dv">5</span><span class="op">;</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> x <span class="op">+</span> <span class="dv">2</span><span class="op">;</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>cout <span class="op">&lt;&lt;</span> x<span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>In the above example, each line is a simple statement that ends with a semicolon and runs sequentially from top to bottom.</p>
-<section id="beyond-linear-execution" class="level2">
-<h2 data-anchor-id="beyond-linear-execution">Beyond Linear Execution</h2>
-<p>Programs are <strong>not limited to a linear sequence</strong> of statements. In practice, a program might:</p>
+<section id="frog-1" class="level2 problem-toc-header">
+<h2 class="problem-toc-header" data-anchor-id="frog-1">Frog 1</h2>
+<div class="problem-card">
+<div class="problem-header">
+<span class="problem-title">Frog 1</span>
+<div class="problem-meta">
+<span class="problem-origin"><a href="https://atcoder.jp/contests/dp/tasks/dp_a">Atcoder</a></span>
+<span class="problem-difficulty">easy</span>
+</div>
+</div>
+<div class="problem-body">
+<p>You are given an array <span class="math inline">\(h\)</span> with <span class="math inline">\(N\)</span> elements. You start at the first element and must reach the last element using these moves:</p>
 <ul>
-<li>Repeat certain parts of its code (<strong>loops</strong>).</li>
-<li>Make decisions to execute different code paths (<strong>conditionals</strong>).</li>
+<li>Move from index <span class="math inline">\(i\)</span> to <span class="math inline">\(i + 1\)</span> with a cost of <span class="math inline">\(|h_i - h_{i + 1}|\)</span>.</li>
+<li>Move from index <span class="math inline">\(i\)</span> to <span class="math inline">\(i + 2\)</span> with a cost of <span class="math inline">\(|h_i - h_{i + 2}|\)</span>.</li>
 </ul>
-<p>To achieve this, C++ provides <strong>flow control statements</strong> - tools that tell the program <strong>what to do, when to do it, and under what conditions</strong>.</p>
-<p>Examples include:</p>
-<ul>
-<li><code>if</code> / <code>else</code> (conditional branching)</li>
-<li><code>switch</code> (multi-way branching)</li>
-<li><code>while</code>, <code>for</code>, and <code>do-while</code> (loops)</li>
-</ul>
+<p>Find the minimum total cost required to move from the first element to the last.</p>
+</div>
+</div>
 </section>
-<section id="compound-statements" class="level2">
-<h2 data-anchor-id="compound-statements">Compound Statements</h2>
-<p>A <strong>compound statement</strong> — a group of statements enclosed in curly braces <code>{}</code>. These grouped statements are treated as <strong>one single block</strong>.</p>
-<p>A compound statement looks like this:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    statement1<span class="op">;</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    statement2<span class="op">;</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    statement3<span class="op">;</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Each substatement inside the block ends with its own semicolon, and the <strong>entire block</strong> acts as a <strong>single statement</strong>.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In this task we’ll assume that everything is 0-indexed. That is, all arrays indexes will start with 0.</p>
+</div>
+</div>
+<div>
+<div class="solution-card">
+<p><span class="solution-title">Solution</span></p>
+<div class="problem-body">
+<p>We will solve this problem using dynamic programming.</p>
+<p>Define the state:</p>
+<pre><code>f(i): the minimum cost to reach index i starting from index 0.</code></pre>
+<p>Next we’ll define the transition. There are two ways to reach stone <span class="math inline">\(i\)</span>: from <span class="math inline">\(i - 1\)</span> and from <span class="math inline">\(i - 2\)</span>.</p>
+<p>If we reach index <span class="math inline">\(i\)</span> from <span class="math inline">\(i-1\)</span>, then <span class="math inline">\(f(i)\)</span> is the minimum cost to reach <span class="math inline">\(i-1\)</span> from <span class="math inline">\(0\)</span> plus the cost of moving from <span class="math inline">\(i-1\)</span> to <span class="math inline">\(i\)</span>.</p>
+<p><span class="math inline">\(f(i) = f(i - 1) + |h_{i - 1} - h_i|\)</span></p>
+<p>If we reach index <span class="math inline">\(i\)</span> from <span class="math inline">\(i-2\)</span>, then <span class="math inline">\(f(i)\)</span> is the minimum cost to reach <span class="math inline">\(i-2\)</span> from <span class="math inline">\(0\)</span> plus the cost of moving from <span class="math inline">\(i-2\)</span> to <span class="math inline">\(i\)</span>.</p>
+<p><span class="math inline">\(f(i) = f(i - 2) + |h_{i - 2} - h_i|\)</span></p>
+<p>Since we don’t know which option is optimal we’ll take the minimum of both costs as our transition.</p>
+<p><span class="math inline">\(f(i) = min(f(i - 1) + |h_{i - 1} - h_i| , f(i - 2) + |h_{i - 2} - h_i|)\)</span></p>
+<p>Our base case will be:</p>
+<p><span class="math inline">\(f(0) = 0\)</span></p>
+<p><span class="math inline">\(f(1) = |h_0 - h_1|\)</span></p>
+<p>The space complexity of the algorithm is determined by the number of states, which is <span class="math inline">\(O(N)\)</span>.</p>
+<p>The time complexity is the number of states <span class="math inline">\(N\)</span> multiplied by the complexity of each transition <span class="math inline">\(O(1)\)</span>, so the overall time complexity is <span class="math inline">\(O(N)\)</span>.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> <span class="kw">namespace</span> std<span class="op">;</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> a<span class="op">[</span><span class="dv">200000</span><span class="op">];</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">// the array dp is used for memoization</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> dp<span class="op">[</span><span class="dv">200000</span><span class="op">];</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> f<span class="op">(</span><span class="dt">int</span> i<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    <span class="co">// base cases</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>i <span class="op">==</span> <span class="dv">0</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>i <span class="op">==</span> <span class="dv">1</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> abs<span class="op">(</span>a<span class="op">[</span><span class="dv">1</span><span class="op">]</span> <span class="op">-</span> a<span class="op">[</span><span class="dv">0</span><span class="op">]);</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>    <span class="co">// if the solution has been already calculated</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>dp<span class="op">[</span>i<span class="op">]</span> <span class="op">!=</span> <span class="op">-</span><span class="dv">1</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> dp<span class="op">[</span>i<span class="op">];</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>    dp<span class="op">[</span>i<span class="op">]</span> <span class="op">=</span> min<span class="op">(</span></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>        f<span class="op">(</span>i <span class="op">-</span> <span class="dv">1</span><span class="op">)</span> <span class="op">+</span> abs<span class="op">(</span>a<span class="op">[</span>i<span class="op">]</span> <span class="op">-</span> a<span class="op">[</span>i <span class="op">-</span> <span class="dv">1</span><span class="op">]),</span></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>        f<span class="op">(</span>i <span class="op">-</span> <span class="dv">2</span><span class="op">)</span> <span class="op">+</span> abs<span class="op">(</span>a<span class="op">[</span>i<span class="op">]</span> <span class="op">-</span> a<span class="op">[</span>i <span class="op">-</span> <span class="dv">2</span><span class="op">])</span></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>    <span class="op">);</span></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> dp<span class="op">[</span>i<span class="op">];</span></span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>  <span class="co">// assign -1 to all elements to indicate no solution has been calculated</span></span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="dv">200000</span><span class="op">;</span> i<span class="op">++)</span> <span class="op">{</span></span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>        dp<span class="op">[</span>i<span class="op">]</span> <span class="op">=</span> <span class="op">-</span><span class="dv">1</span><span class="op">;</span></span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> n<span class="op">;</span></span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>    cin <span class="op">&gt;&gt;</span> n<span class="op">;</span></span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> n<span class="op">;</span> i<span class="op">++)</span> <span class="op">{</span></span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>        cin <span class="op">&gt;&gt;</span> a<span class="op">[</span>i<span class="op">];</span></span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>    cout <span class="op">&lt;&lt;</span> f<span class="op">(</span>n <span class="op">-</span> <span class="dv">1</span><span class="op">)</span> <span class="op">&lt;&lt;</span> <span class="st">"</span><span class="sc">\n</span><span class="st">"</span><span class="op">;</span></span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
 
 
-</section>
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -893,18 +699,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     }
   });
   </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-      <a href="../../b0/cpp/input-output.html" class="pagination-link" aria-label="Input/Output">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Input/Output</span>
-      </a>          
-  </div>
-  <div class="nav-page nav-page-next">
-      <a href="../../b0/cpp/if.html" class="pagination-link" aria-label="The `if` Statement">
-        <span class="nav-page-text">The <code>if</code> Statement</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
-  </div>
-</nav>
 </div> <!-- /content -->
 
 

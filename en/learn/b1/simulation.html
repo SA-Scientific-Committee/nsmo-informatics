@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.25">
+<meta name="generator" content="quarto-1.8.26">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -72,10 +72,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-707d8167ce6003fca903bfe2be84ab7f.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b758ccaa5987ceb1b75504551e579abf.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-5c3993218031af39509ca3cf88eb1c29.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-554c5fc7eb394f0da0ff922119d371a0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -104,6 +104,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -166,10 +195,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
-      <a href="../index.html" class="sidebar-logo-link">
-      </a>
-      </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
         <div id="quarto-search" class="" title="Search"></div>
@@ -259,26 +284,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../b1/problems/digit-queries.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Digit Queries</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../b1/problems/sum-of-two-values.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Sum Of Two Values</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../b1/problems/twins.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Twins</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../b1/problems/vanya-and-lanterns.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Vanya and Lanterns</span></a>
+  <a href="../b1/problems/domino-piling.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Domino piling</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -289,8 +296,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../b1/problems/domino-piling.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Domino piling</span></a>
+  <a href="../b1/problems/sum-of-two-values.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Sum Of Two Values</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../b1/problems/sum-of-three-values.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Sum Of Three Values</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../b1/problems/twins.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Twins</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../b1/problems/digit-queries.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Digit Queries</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../b1/problems/vanya-and-lanterns.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vanya and Lanterns</span></a>
   </div>
 </li>
       </ul>
@@ -325,11 +356,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#simulation" id="toc-simulation" class="nav-link active" data-scroll-target="#simulation">Simulation</a>
   <ul class="collapse">
   <li><a href="#what-does-simulation-mean" id="toc-what-does-simulation-mean" class="nav-link" data-scroll-target="#what-does-simulation-mean">What does simulation mean?</a></li>
-  <li><a href="#example-idea" id="toc-example-idea" class="nav-link" data-scroll-target="#example-idea">Example idea</a></li>
+  <li><a href="#collatz-conjecture" id="toc-collatz-conjecture" class="nav-link" data-scroll-target="#collatz-conjecture">Collatz conjecture</a></li>
   <li><a href="#when-to-use-simulation" id="toc-when-to-use-simulation" class="nav-link" data-scroll-target="#when-to-use-simulation">When to use simulation</a></li>
   <li><a href="#simulation-pattern" id="toc-simulation-pattern" class="nav-link" data-scroll-target="#simulation-pattern">Simulation pattern</a></li>
-  <li><a href="#example-robot-on-a-grid" id="toc-example-robot-on-a-grid" class="nav-link" data-scroll-target="#example-robot-on-a-grid">Example: Robot on a grid</a></li>
-  <li><a href="#example-game-simulation" id="toc-example-game-simulation" class="nav-link" data-scroll-target="#example-game-simulation">Example: Game simulation</a></li>
+  <li><a href="#exmple-problems" id="toc-exmple-problems" class="nav-link" data-scroll-target="#exmple-problems">Exmple Problems</a></li>
+  <li><a href="#robot-on-a-grid" id="toc-robot-on-a-grid" class="nav-link" data-scroll-target="#robot-on-a-grid">Robot on a grid</a></li>
+  <li><a href="#game-simulation" id="toc-game-simulation" class="nav-link" data-scroll-target="#game-simulation">Game simulation</a></li>
   <li><a href="#tips-for-simulation-problems" id="toc-tips-for-simulation-problems" class="nav-link" data-scroll-target="#tips-for-simulation-problems">Tips for simulation problems</a></li>
   <li><a href="#performance-tip" id="toc-performance-tip" class="nav-link" data-scroll-target="#performance-tip">Performance tip</a></li>
   <li><a href="#advantages" id="toc-advantages" class="nav-link" data-scroll-target="#advantages">Advantages</a></li>
@@ -353,130 +385,236 @@ You’re asked to “simulate” what happens — just like running a small prog
 <h2 data-anchor-id="what-does-simulation-mean">What does simulation mean?</h2>
 <p>In competitive programming, simulation means following the rules of a problem carefully and performing each step exactly as described.</p>
 <p>You don’t need a fancy algorithm — just replicate what happens, usually in loops.</p>
+<p>Here is a simple example of a problem solved with simulation.</p>
 </section>
-<section id="example-idea" class="level2">
-<h2 data-anchor-id="example-idea">Example idea</h2>
-<p>Let’s say a problem describes this process:</p>
-<blockquote class="blockquote">
-<p>You start with <code>x = 0</code>. Each second, you add <code>1</code> to <code>x</code>.<br>
-If <code>x</code> becomes divisible by <code>3</code>, reset it to <code>0</code>.<br>
-Do this for <code>n</code> seconds and print the final value.</p>
-</blockquote>
-<p>We can <em>simulate</em> these steps exactly as written.</p>
+<section id="collatz-conjecture" class="level2 problem-toc-header">
+<h2 class="problem-toc-header" data-anchor-id="collatz-conjecture">Collatz conjecture</h2>
+<div class="problem-card">
+<div class="problem-header">
+<span class="problem-title">Collatz conjecture</span>
+<div class="problem-meta">
+<span class="problem-origin"></span>
+</div>
+</div>
+<div class="problem-body">
+<p>Consider the following process.</p>
+<ul>
+<li>Start with some given number <span class="math inline">\(n\)</span>.</li>
+<li>In each step:
+<ul>
+<li>If <span class="math inline">\(n\)</span> is even, replace it with <span class="math inline">\(n/2\)</span>.</li>
+<li>If <span class="math inline">\(n\)</span> is odd, replace it with <span class="math inline">\(3n+1\)</span>.</li>
+</ul></li>
+<li>Print how many steps this process took before <span class="math inline">\(n\)</span> became <span class="math inline">\(1\)</span>.</li>
+</ul>
+</div>
+</div>
+</section>
+<p>You might wonder does this process even must reach <span class="math inline">\(1\)</span>. Well, nobody has an answer for that, as this is a famous mathematical unsolved problem! But we can try simulating it and seeing what happens.</p>
+<div>
+<div class="solution-card">
+<p><span class="solution-title">Solution</span></p>
+<div class="problem-body">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> <span class="kw">namespace</span> std<span class="op">;</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> n<span class="op">;</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">long</span> <span class="dt">long</span> n<span class="op">;</span></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    cin <span class="op">&gt;&gt;</span> n<span class="op">;</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> x <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> n<span class="op">;</span> i<span class="op">++)</span> <span class="op">{</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>        x <span class="op">+=</span> <span class="dv">1</span><span class="op">;</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>x <span class="op">%</span> <span class="dv">3</span> <span class="op">==</span> <span class="dv">0</span><span class="op">)</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>            x <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    cout <span class="op">&lt;&lt;</span> x<span class="op">;</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>If <code>n = 5</code>, the program goes like this:</p>
-<pre><code>Start: x = 0
-Step 1: x = 1
-Step 2: x = 2
-Step 3: x = 0 (divisible by 3)
-Step 4: x = 1
-Step 5: x = 2</code></pre>
-<p>So the answer is <code>2</code>.</p>
-</section>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> steps <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> <span class="op">(</span>n <span class="op">!=</span> <span class="dv">1</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>n <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>            n <span class="op">/=</span> <span class="dv">2</span><span class="op">;</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span> <span class="cf">else</span> <span class="op">{</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>            n <span class="op">=</span> <span class="dv">3</span><span class="op">*</span>n <span class="op">+</span> <span class="dv">1</span><span class="op">;</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>        steps<span class="op">++;</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    cout <span class="op">&lt;&lt;</span> steps <span class="op">&lt;&lt;</span> <span class="st">"</span><span class="sc">\n</span><span class="st">"</span><span class="op">;</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>If <code>n = 3</code>, the program goes like this:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>step</th>
+<th>n</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>10</td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td>16</td>
+</tr>
+<tr class="odd">
+<td>4</td>
+<td>8</td>
+</tr>
+<tr class="even">
+<td>5</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td>6</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td>7</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p>So the answer is <code>7</code>.</p>
+</div>
+</div>
+</div>
 <section id="when-to-use-simulation" class="level2">
 <h2 data-anchor-id="when-to-use-simulation">When to use simulation</h2>
-<p>Simulation is perfect when: - The problem gives you a list of detailed steps or actions. - There is no mathematical shortcut. - You can just follow the process directly.</p>
-<p>Common examples: - Games (like tic-tac-toe, snake, etc.) - Movements on a grid (robots, cars, people walking) - String transformations (editing text, rotations) - Managing objects (queues, stacks, or tasks over time)</p>
+<p>Simulation is perfect when:</p>
+<ul>
+<li>The problem gives you a list of detailed steps or actions.</li>
+<li>There is no mathematical shortcut.</li>
+<li>You can just follow the process directly.</li>
+</ul>
+<p>Common examples:</p>
+<ul>
+<li>Games (like tic-tac-toe, snake, etc.)</li>
+<li>Movements on a grid (robots, cars, people walking)</li>
+<li>String transformations (editing text, rotations)</li>
+<li>Managing objects (queues, stacks, or tasks over time)</li>
+</ul>
 </section>
 <section id="simulation-pattern" class="level2">
 <h2 data-anchor-id="simulation-pattern">Simulation pattern</h2>
 <p>Most simulation problems follow the same pattern:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>initialize variables</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="op">(</span>there are still actions left<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    read next action</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    update variables according to rules</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>print <span class="kw">final</span> result</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<pre><code>initialize variables
+while (there are still actions left) {
+    read next action
+    update variables according to rules
+}
+print final result</code></pre>
 <p>You’re basically “playing out” the rules one by one.</p>
 </section>
-<section id="example-robot-on-a-grid" class="level2">
-<h2 data-anchor-id="example-robot-on-a-grid">Example: Robot on a grid</h2>
-<blockquote class="blockquote">
-<p>A robot starts at (0, 0).<br>
-It receives a string of moves made of <code>N</code>, <code>S</code>, <code>E</code>, <code>W</code>.<br>
-Print its final coordinates.</p>
-</blockquote>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;string&gt;</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> <span class="kw">namespace</span> std<span class="op">;</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    string moves<span class="op">;</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    cin <span class="op">&gt;&gt;</span> moves<span class="op">;</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> x <span class="op">=</span> <span class="dv">0</span><span class="op">,</span> y <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">char</span> c <span class="op">:</span> moves<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>c <span class="op">==</span> <span class="ch">'N'</span><span class="op">)</span> y<span class="op">++;</span></span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span> <span class="cf">if</span> <span class="op">(</span>c <span class="op">==</span> <span class="ch">'S'</span><span class="op">)</span> y<span class="op">--;</span></span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span> <span class="cf">if</span> <span class="op">(</span>c <span class="op">==</span> <span class="ch">'E'</span><span class="op">)</span> x<span class="op">++;</span></span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span> <span class="cf">if</span> <span class="op">(</span>c <span class="op">==</span> <span class="ch">'W'</span><span class="op">)</span> x<span class="op">--;</span></span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>    cout <span class="op">&lt;&lt;</span> x <span class="op">&lt;&lt;</span> <span class="st">" "</span> <span class="op">&lt;&lt;</span> y<span class="op">;</span></span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="exmple-problems" class="level2">
+<h2 data-anchor-id="exmple-problems">Exmple Problems</h2>
+</section>
+<section id="robot-on-a-grid" class="level2 problem-toc-header">
+<h2 class="problem-toc-header" data-anchor-id="robot-on-a-grid">Robot on a grid</h2>
+<div class="problem-card">
+<div class="problem-header">
+<span class="problem-title">Robot on a grid</span>
+<div class="problem-meta">
+<span class="problem-origin"></span>
+</div>
+</div>
+<div class="problem-body">
+<p>A robot starts at <span class="math inline">\((0, 0)\)</span>. It receives a string of moves made of <code>N</code>, <code>S</code>, <code>E</code>, <code>W</code>. Print its final coordinates.</p>
+</div>
+</div>
+</section>
+<div>
+<div class="solution-card">
+<p><span class="solution-title">Solution</span></p>
+<div class="problem-body">
+<div class="sol-code">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;string&gt;</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> <span class="kw">namespace</span> std<span class="op">;</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    string moves<span class="op">;</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    cin <span class="op">&gt;&gt;</span> moves<span class="op">;</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> x <span class="op">=</span> <span class="dv">0</span><span class="op">,</span> y <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">char</span> c <span class="op">:</span> moves<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>c <span class="op">==</span> <span class="ch">'N'</span><span class="op">)</span> y<span class="op">++;</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span> <span class="cf">if</span> <span class="op">(</span>c <span class="op">==</span> <span class="ch">'S'</span><span class="op">)</span> y<span class="op">--;</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span> <span class="cf">if</span> <span class="op">(</span>c <span class="op">==</span> <span class="ch">'E'</span><span class="op">)</span> x<span class="op">++;</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span> <span class="cf">if</span> <span class="op">(</span>c <span class="op">==</span> <span class="ch">'W'</span><span class="op">)</span> x<span class="op">--;</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    cout <span class="op">&lt;&lt;</span> x <span class="op">&lt;&lt;</span> <span class="st">" "</span> <span class="op">&lt;&lt;</span> y<span class="op">;</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 <p>If input is <code>NNEEWS</code>, the robot ends up at <code>(1, 1)</code>.</p>
+</div>
+</div>
+</div>
+<section id="game-simulation" class="level2 problem-toc-header">
+<h2 class="problem-toc-header" data-anchor-id="game-simulation">Game simulation</h2>
+<div class="problem-card">
+<div class="problem-header">
+<span class="problem-title">Game simulation</span>
+<div class="problem-meta">
+<span class="problem-origin"></span>
+</div>
+</div>
+<div class="problem-body">
+<p>You are given an array of health points. Each second, the smallest value decreases by 1. Stop when one of them reaches 0. Print how many seconds it took.</p>
+</div>
+</div>
 </section>
-<section id="example-game-simulation" class="level2">
-<h2 data-anchor-id="example-game-simulation">Example: Game simulation</h2>
-<blockquote class="blockquote">
-<p>You are given an array of health points.<br>
-Each second, the smallest value decreases by 1.<br>
-Stop when one of them reaches 0. Print how many seconds it took.</p>
-</blockquote>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;vector&gt;</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;algorithm&gt;</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> <span class="kw">namespace</span> std<span class="op">;</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> n<span class="op">;</span> cin <span class="op">&gt;&gt;</span> n<span class="op">;</span></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    vector<span class="op">&lt;</span><span class="dt">int</span><span class="op">&gt;</span> hp<span class="op">(</span>n<span class="op">);</span></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> <span class="op">&amp;</span>x <span class="op">:</span> hp<span class="op">)</span> cin <span class="op">&gt;&gt;</span> x<span class="op">;</span></span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> seconds <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> <span class="op">(</span><span class="kw">true</span><span class="op">)</span> <span class="op">{</span></span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>        sort<span class="op">(</span>hp<span class="op">.</span>begin<span class="op">(),</span> hp<span class="op">.</span>end<span class="op">());</span></span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>        hp<span class="op">[</span><span class="dv">0</span><span class="op">]--;</span></span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>        seconds<span class="op">++;</span></span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>hp<span class="op">[</span><span class="dv">0</span><span class="op">]</span> <span class="op">==</span> <span class="dv">0</span><span class="op">)</span> <span class="cf">break</span><span class="op">;</span></span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>    cout <span class="op">&lt;&lt;</span> seconds<span class="op">;</span></span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div>
+<div class="solution-card">
+<p><span class="solution-title">Solution</span></p>
+<div class="problem-body">
+<div class="sol-code">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;vector&gt;</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;algorithm&gt;</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> <span class="kw">namespace</span> std<span class="op">;</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> n<span class="op">;</span> cin <span class="op">&gt;&gt;</span> n<span class="op">;</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    vector<span class="op">&lt;</span><span class="dt">int</span><span class="op">&gt;</span> hp<span class="op">(</span>n<span class="op">);</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> <span class="op">&amp;</span>x <span class="op">:</span> hp<span class="op">)</span> cin <span class="op">&gt;&gt;</span> x<span class="op">;</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> seconds <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> <span class="op">(</span><span class="kw">true</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>        sort<span class="op">(</span>hp<span class="op">.</span>begin<span class="op">(),</span> hp<span class="op">.</span>end<span class="op">());</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>        hp<span class="op">[</span><span class="dv">0</span><span class="op">]--;</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>        seconds<span class="op">++;</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>hp<span class="op">[</span><span class="dv">0</span><span class="op">]</span> <span class="op">==</span> <span class="dv">0</span><span class="op">)</span> <span class="cf">break</span><span class="op">;</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>    cout <span class="op">&lt;&lt;</span> seconds<span class="op">;</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 <p>This simulates the entire process exactly as described.</p>
-</section>
+</div>
+</div>
+</div>
 <section id="tips-for-simulation-problems" class="level2">
 <h2 data-anchor-id="tips-for-simulation-problems">Tips for simulation problems</h2>
 <ul>
-<li>Follow the rules literally. Don’t try to overthink — just do what the problem says.<br>
-</li>
-<li>Use loops and conditionals to handle different cases.<br>
-</li>
-<li>Print intermediate steps while debugging to make sure your logic matches the description.<br>
-</li>
-<li>Be careful with boundaries (e.g., going off the grid or using wrong indices).<br>
-</li>
+<li>Follow the rules literally. Don’t try to overthink — just do what the problem says.</li>
+<li>Use loops and conditionals to handle different cases.</li>
+<li>Print intermediate steps while debugging to make sure your logic matches the description.</li>
+<li>Be careful with boundaries (e.g., going off the grid or using wrong indices).</li>
 <li>Use small test cases to manually verify your code.</li>
-<li>Simulate the program with a pen on paper to understand what really happens and code it step-by-step</li>
+<li>Simulate the program with a pen on paper to understand what really happens and code it step-by-step.</li>
 </ul>
 </section>
 <section id="performance-tip" class="level2">
 <h2 data-anchor-id="performance-tip">Performance tip</h2>
-<p>Sometimes, simulation can be too slow if the process runs billions of steps.<br>
-In those cases, you need to find patterns or shortcuts.</p>
-<p>For example: - If a process repeats every few steps, use math to skip cycles. - If the outcome doesn’t change after a while, stop early.</p>
+<p>Sometimes, simulation can be too slow if the process runs billions of steps. In those cases, you need to find patterns or shortcuts.</p>
+<p>For example:</p>
+<ul>
+<li>If a process repeats after some number of steps, use math to skip cycles.</li>
+<li>If the outcome doesn’t change after a while, stop early.</li>
+</ul>
 </section>
 <section id="advantages" class="level2">
 <h2 data-anchor-id="advantages">Advantages</h2>

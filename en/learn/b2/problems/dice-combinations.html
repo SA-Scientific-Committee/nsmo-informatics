@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.25">
+<meta name="generator" content="quarto-1.8.26">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -64,17 +64,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../b2/dynamic-programming.html" rel="prev">
+<link href="../../b2/problems/bit-strings.html" rel="next">
+<link href="../../b2/rectangular-geometry.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-707d8167ce6003fca903bfe2be84ab7f.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b758ccaa5987ceb1b75504551e579abf.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-5c3993218031af39509ca3cf88eb1c29.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-554c5fc7eb394f0da0ff922119d371a0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -194,10 +195,6 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
-      <a href="../../index.html" class="sidebar-logo-link">
-      </a>
-      </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
         <div id="quarto-search" class="" title="Search"></div>
@@ -236,8 +233,41 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../b2/generating-subsets-using-bitmasks.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Generating Subsets Using Bitmasks</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../b2/backtracking.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Backtracking</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../b2/dynamic-programming.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Dynamic Programming (DP)</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+ <span class="menu-text">b2/frog1.qmd</span>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../b2/vacation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">vacation.html</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../b2/knapsack1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">knapsack1.html</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../b2/rectangular-geometry.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Rectangular Geometry</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -255,11 +285,36 @@ window.Quarto = {
  <span class="menu-text">Dice Combinations</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../b2/problems/bit-strings.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Bit Strings</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../b2/problems/grid-paths-I.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Grid Paths I</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
-      <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">Practice Problems</span></span>
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Practice Problems</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../b2/problems/coin-combinations-I.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Coin Combinations I</span></a>
+  </div>
+</li>
+      </ul>
   </li>
     </ul>
     </div>
@@ -272,7 +327,6 @@ window.Quarto = {
    
   <ul>
   <li><a href="#dice-combinations" id="toc-dice-combinations" class="nav-link active" data-scroll-target="#dice-combinations">Dice Combinations</a></li>
-  <li><a href="#solution" id="toc-solution" class="nav-link" data-scroll-target="#solution">Solution</a></li>
   </ul>
 </nav>
     </div>
@@ -323,9 +377,8 @@ window.Quarto = {
 </div>
 </div>
 </section>
-<section id="solution" class="level3 problem-toc-header">
-<h3 class="problem-toc-header" data-anchor-id="solution">Solution</h3>
-<div class="problem-card">
+<div>
+<div class="solution-card">
 <p><span class="solution-title">Solution</span></p>
 <div class="problem-body">
 <p>This is a classic <strong>1D dynamic programming</strong> problem.</p>
@@ -466,7 +519,7 @@ Caution
 </div>
 </div>
 </div>
-</section>
+</div>
 
 
 
@@ -871,11 +924,14 @@ Caution
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../b2/dynamic-programming.html" class="pagination-link" aria-label="Dynamic Programming (DP)">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Dynamic Programming (DP)</span>
+      <a href="../../b2/rectangular-geometry.html" class="pagination-link" aria-label="Rectangular Geometry">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Rectangular Geometry</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="../../b2/problems/bit-strings.html" class="pagination-link" aria-label="Bit Strings">
+        <span class="nav-page-text">Bit Strings</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->

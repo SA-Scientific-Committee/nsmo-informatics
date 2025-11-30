@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.25">
+<meta name="generator" content="quarto-1.8.26">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -72,10 +72,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-707d8167ce6003fca903bfe2be84ab7f.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b758ccaa5987ceb1b75504551e579abf.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-5c3993218031af39509ca3cf88eb1c29.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-554c5fc7eb394f0da0ff922119d371a0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -195,10 +195,6 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
-      <a href="../../index.html" class="sidebar-logo-link">
-      </a>
-      </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
         <div id="quarto-search" class="" title="Search"></div>
@@ -254,7 +250,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../b0/cpp/statements.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Statements and Flow Control</span></a>
+ <span class="menu-text">Statements and Control Flow</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -479,9 +475,6 @@ window.Quarto = {
   <li><a href="#problems-with-subproblems" id="toc-problems-with-subproblems" class="nav-link active" data-scroll-target="#problems-with-subproblems">Problems with Subproblems</a>
   <ul class="collapse">
   <li><a href="#iso-celestial" id="toc-iso-celestial" class="nav-link" data-scroll-target="#iso-celestial">Iso-celestial</a></li>
-  <li><a href="#solution-for-subproblem-1" id="toc-solution-for-subproblem-1" class="nav-link" data-scroll-target="#solution-for-subproblem-1">Solution for Subproblem 1</a></li>
-  <li><a href="#solution-for-subproblem-2" id="toc-solution-for-subproblem-2" class="nav-link" data-scroll-target="#solution-for-subproblem-2">Solution for Subproblem 2</a></li>
-  <li><a href="#solution-for-subproblem-3-(full-solution)" id="toc-solution-for-subproblem-3-(full-solution)" class="nav-link" data-scroll-target="#solution-for-subproblem-3-(full-solution)">Solution for Subproblem 3 (Full solution)</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -552,9 +545,8 @@ Note
 </div>
 </div>
 </section>
-<section id="solution-for-subproblem-1" class="level3 problem-toc-header">
-<h3 class="problem-toc-header" data-anchor-id="solution-for-subproblem-1">Solution for Subproblem 1</h3>
-<div class="problem-card">
+<div>
+<div class="solution-card">
 <p><span class="solution-title">Solution for Subproblem 1</span></p>
 <div class="problem-body">
 <p>Here we are only given 3 points so either they form an isosceles triangle or they don’t. For this we can check if any 2 edges have equal lengths:</p>
@@ -593,10 +585,9 @@ Note
 </div>
 </div>
 </div>
-</section>
-<section id="solution-for-subproblem-2" class="level3 problem-toc-header">
-<h3 class="problem-toc-header" data-anchor-id="solution-for-subproblem-2">Solution for Subproblem 2</h3>
-<div class="problem-card">
+</div>
+<div>
+<div class="solution-card">
 <p><span class="solution-title">Solution for Subproblem 2</span></p>
 <div class="problem-body">
 <p>Since <span class="math inline">\(N \leq 100\)</span> in this subproblem, we can loop over all triplets and test each one using the solution from the previous subproblem. This approach performs <span class="math inline">\(O(N^3)\)</span> checks, which is too slow for the full problem, where <span class="math inline">\(N \leq 3000\)</span>.</p>
@@ -634,10 +625,9 @@ Note
 </div>
 </div>
 </div>
-</section>
-<section id="solution-for-subproblem-3-(full-solution)" class="level3 problem-toc-header">
-<h3 class="problem-toc-header" data-anchor-id="solution-for-subproblem-3-(full-solution)">Solution for Subproblem 3 (Full solution)</h3>
-<div class="problem-card">
+</div>
+<div>
+<div class="solution-card">
 <p><span class="solution-title">Solution for Subproblem 3 (Full solution)</span></p>
 <div class="problem-body">
 <p>Here we need to think outside the box and make observations to come up with faster solutions. Lets consider a single point <span class="math inline">\(P\)</span> and calculate the distance between <span class="math inline">\(P\)</span> and every other point.</p>
@@ -691,7 +681,7 @@ Note
 <p>The looping over all distinct distances is done by sorting all the distances, and going through this sorted order, but taking an action only when the current distance is different to the previous one. To simplify the code, we are conveniently using the fact that the distance of the point to itself will be listed at the index <span class="math inline">\(0\)</span> in the sorted array, so the iteration can start from the index <span class="math inline">\(1\)</span>.</p>
 </div>
 </div>
-</section>
+</div>
 
 
 </section>

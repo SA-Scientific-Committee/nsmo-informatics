@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.25">
+<meta name="generator" content="quarto-1.8.26">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -72,10 +72,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-707d8167ce6003fca903bfe2be84ab7f.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b758ccaa5987ceb1b75504551e579abf.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-5c3993218031af39509ca3cf88eb1c29.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-554c5fc7eb394f0da0ff922119d371a0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -104,6 +104,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -166,10 +195,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
-      <a href="../index.html" class="sidebar-logo-link">
-      </a>
-      </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
         <div id="quarto-search" class="" title="Search"></div>
@@ -259,26 +284,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../b1/problems/digit-queries.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Digit Queries</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../b1/problems/sum-of-two-values.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Sum Of Two Values</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../b1/problems/twins.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Twins</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../b1/problems/vanya-and-lanterns.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Vanya and Lanterns</span></a>
+  <a href="../b1/problems/domino-piling.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Domino piling</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -289,8 +296,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../b1/problems/domino-piling.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Domino piling</span></a>
+  <a href="../b1/problems/sum-of-two-values.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Sum Of Two Values</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../b1/problems/sum-of-three-values.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Sum Of Three Values</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../b1/problems/twins.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Twins</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../b1/problems/digit-queries.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Digit Queries</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../b1/problems/vanya-and-lanterns.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vanya and Lanterns</span></a>
   </div>
 </li>
       </ul>
@@ -326,14 +357,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#what-does-mod-mean" id="toc-what-does-mod-mean" class="nav-link" data-scroll-target="#what-does-mod-mean">What does “mod” mean?</a></li>
   <li><a href="#modular-arithmetic-in-programming" id="toc-modular-arithmetic-in-programming" class="nav-link" data-scroll-target="#modular-arithmetic-in-programming">Modular arithmetic in programming</a></li>
-  <li><a href="#basic-modular-rules" id="toc-basic-modular-rules" class="nav-link" data-scroll-target="#basic-modular-rules">Basic modular rules</a></li>
+  <li><a href="#basic-modular-rules" id="toc-basic-modular-rules" class="nav-link" data-scroll-target="#basic-modular-rules">Basic modular rules</a>
+  <ul class="collapse">
+  <li><a href="#example-sum-of-big-numbers" id="toc-example-sum-of-big-numbers" class="nav-link" data-scroll-target="#example-sum-of-big-numbers">Example: Sum of big numbers</a></li>
+  </ul></li>
   <li><a href="#handling-negatives" id="toc-handling-negatives" class="nav-link" data-scroll-target="#handling-negatives">Handling negatives</a></li>
   <li><a href="#modular-exponentiation" id="toc-modular-exponentiation" class="nav-link" data-scroll-target="#modular-exponentiation">Modular exponentiation</a></li>
-  <li><a href="#modular-inverse-optionaladvanced" id="toc-modular-inverse-optionaladvanced" class="nav-link" data-scroll-target="#modular-inverse-optionaladvanced">Modular inverse (optional/advanced)</a></li>
+  <li><a href="#modular-inverse-optional-advanced" id="toc-modular-inverse-optional-advanced" class="nav-link" data-scroll-target="#modular-inverse-optional-advanced">Modular inverse (optional / advanced)</a></li>
   <li><a href="#when-do-we-use-modular-arithmetic" id="toc-when-do-we-use-modular-arithmetic" class="nav-link" data-scroll-target="#when-do-we-use-modular-arithmetic">When do we use modular arithmetic?</a></li>
   <li><a href="#advantages" id="toc-advantages" class="nav-link" data-scroll-target="#advantages">Advantages</a></li>
   <li><a href="#disadvantages" id="toc-disadvantages" class="nav-link" data-scroll-target="#disadvantages">Disadvantages</a></li>
-  <li><a href="#example-sum-of-big-numbers" id="toc-example-sum-of-big-numbers" class="nav-link" data-scroll-target="#example-sum-of-big-numbers">Example: sum of big numbers</a></li>
   <li><a href="#quick-summary" id="toc-quick-summary" class="nav-link" data-scroll-target="#quick-summary">Quick summary</a></li>
   </ul></li>
   </ul>
@@ -390,80 +423,102 @@ After 24 hours, it goes back to the same time again. That’s mod 24 arithmetic!
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> <span class="kw">namespace</span> std<span class="op">;</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    cout <span class="op">&lt;&lt;</span> <span class="dv">7</span> <span class="op">%</span> <span class="dv">3</span> <span class="op">&lt;&lt;</span> endl<span class="op">;</span>   <span class="co">// 1</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    cout <span class="op">&lt;&lt;</span> <span class="dv">10</span> <span class="op">%</span> <span class="dv">4</span> <span class="op">&lt;&lt;</span> endl<span class="op">;</span>  <span class="co">// 2</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    cout <span class="op">&lt;&lt;</span> <span class="dv">7</span> <span class="op">%</span> <span class="dv">3</span> <span class="op">&lt;&lt;</span> endl<span class="op">;</span>   <span class="co">// prints 1</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    cout <span class="op">&lt;&lt;</span> <span class="dv">10</span> <span class="op">%</span> <span class="dv">4</span> <span class="op">&lt;&lt;</span> endl<span class="op">;</span>  <span class="co">// prints 2</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    cout <span class="op">&lt;&lt;</span> <span class="dv">10</span> <span class="op">%</span> <span class="dv">5</span> <span class="op">&lt;&lt;</span> endl<span class="op">;</span>  <span class="co">// prints 0</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="modular-arithmetic-in-programming" class="level2">
 <h2 data-anchor-id="modular-arithmetic-in-programming">Modular arithmetic in programming</h2>
 <p>When we work with very large numbers (for example, in combinatorics or cryptography), results can become too big for normal data types.<br>
-To fix this, we take everything mod some number to keep it small and manageable.</p>
-<p>The most common modulus used in competitive programming is:</p>
-<pre><code>MOD = 1'000'000'007  // (a large prime number)</code></pre>
-<p>It’s used because: - It fits safely in 64-bit integers. - It avoids overflow. - It’s a prime number, which has nice math properties.</p>
+To get around this, we take everything modulo some number to keep it small and manageable.</p>
+<p>A common modulus used in competitive programming is:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>MOD <span class="op">=</span> <span class="dv">1'000'000'007</span>  <span class="co">// (a large prime number)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>It’s used because:</p>
+<ul>
+<li>It fits safely in 64-bit integers.</li>
+<li>It avoids overflow when adding up two remainders.</li>
+<li>It’s a prime number, which has nice math properties.</li>
+</ul>
 </section>
 <section id="basic-modular-rules" class="level2">
 <h2 data-anchor-id="basic-modular-rules">Basic modular rules</h2>
 <p>These rules make modular arithmetic simple to use:</p>
 <ol type="1">
 <li><p><strong>Addition</strong></p>
-<pre><code>(a + b) % m = (a % m + b % m) % m</code></pre></li>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="op">(</span>a <span class="op">+</span> b<span class="op">)</span> <span class="op">%</span> m <span class="op">=</span> <span class="op">(</span>a <span class="op">%</span> m <span class="op">+</span> b <span class="op">%</span> m<span class="op">)</span> <span class="op">%</span> m</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
 <li><p><strong>Subtraction</strong></p>
-<pre><code>(a - b) % m = ((a % m - b % m) + m) % m</code></pre>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="op">(</span>a <span class="op">-</span> b<span class="op">)</span> <span class="op">%</span> m <span class="op">=</span> <span class="op">((</span>a <span class="op">%</span> m <span class="op">-</span> b <span class="op">%</span> m<span class="op">)</span> <span class="op">+</span> m<span class="op">)</span> <span class="op">%</span> m</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>We add <code>+m</code> to make sure the result isn’t negative.</p></li>
 <li><p><strong>Multiplication</strong></p>
-<pre><code>(a * b) % m = (a % m * b % m) % m</code></pre></li>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="op">(</span>a <span class="op">*</span> b<span class="op">)</span> <span class="op">%</span> m <span class="op">=</span> <span class="op">(</span>a <span class="op">%</span> m <span class="op">*</span> b <span class="op">%</span> m<span class="op">)</span> <span class="op">%</span> m</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
 </ol>
 <p>Example:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> a <span class="op">=</span> <span class="dv">7</span><span class="op">,</span> b <span class="op">=</span> <span class="dv">5</span><span class="op">,</span> m <span class="op">=</span> <span class="dv">3</span><span class="op">;</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>cout <span class="op">&lt;&lt;</span> <span class="op">(</span>a <span class="op">+</span> b<span class="op">)</span> <span class="op">%</span> m <span class="op">&lt;&lt;</span> endl<span class="op">;</span>   <span class="co">// (7 + 5) % 3 = 12 % 3 = 0</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>cout <span class="op">&lt;&lt;</span> <span class="op">(</span>a <span class="op">*</span> b<span class="op">)</span> <span class="op">%</span> m <span class="op">&lt;&lt;</span> endl<span class="op">;</span>   <span class="co">// (7 * 5) % 3 = 35 % 3 = 2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="example-sum-of-big-numbers" class="level3">
+<h3 data-anchor-id="example-sum-of-big-numbers">Example: Sum of big numbers</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> <span class="kw">namespace</span> std<span class="op">;</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="dt">int</span> MOD <span class="op">=</span> <span class="dv">1'000'000'007</span><span class="op">;</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">long</span> <span class="dt">long</span> a <span class="op">=</span> <span class="fl">1e12</span><span class="op">,</span> b <span class="op">=</span> <span class="fl">1e12</span><span class="op">;</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    cout <span class="op">&lt;&lt;</span> <span class="op">(</span>a <span class="op">+</span> b<span class="op">)</span> <span class="op">%</span> MOD <span class="op">&lt;&lt;</span> endl<span class="op">;</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Output:</p>
+<pre><code>999999979</code></pre>
+<p>Even though the sum is <code>2e12</code>, we safely wrapped it inside MOD.</p>
+</section>
 </section>
 <section id="handling-negatives" class="level2">
 <h2 data-anchor-id="handling-negatives">Handling negatives</h2>
 <p>Be careful with negative numbers — in C++, <code>%</code> can give negative results.</p>
 <p>Example:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>cout <span class="op">&lt;&lt;</span> <span class="op">(-</span><span class="dv">5</span><span class="op">)</span> <span class="op">%</span> <span class="dv">3</span><span class="op">;</span> <span class="co">// prints -2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>cout <span class="op">&lt;&lt;</span> <span class="op">(-</span><span class="dv">5</span><span class="op">)</span> <span class="op">%</span> <span class="dv">3</span><span class="op">;</span> <span class="co">// prints -2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>To fix this, always use:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="op">((</span>a <span class="op">%</span> m<span class="op">)</span> <span class="op">+</span> m<span class="op">)</span> <span class="op">%</span> m</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="op">((</span>a <span class="op">%</span> m<span class="op">)</span> <span class="op">+</span> m<span class="op">)</span> <span class="op">%</span> m</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Example:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> a <span class="op">=</span> <span class="op">-</span><span class="dv">5</span><span class="op">,</span> m <span class="op">=</span> <span class="dv">3</span><span class="op">;</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>cout <span class="op">&lt;&lt;</span> <span class="op">((</span>a <span class="op">%</span> m<span class="op">)</span> <span class="op">+</span> m<span class="op">)</span> <span class="op">%</span> m<span class="op">;</span> <span class="co">// prints 1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> a <span class="op">=</span> <span class="op">-</span><span class="dv">5</span><span class="op">,</span> m <span class="op">=</span> <span class="dv">3</span><span class="op">;</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>cout <span class="op">&lt;&lt;</span> <span class="op">((</span>a <span class="op">%</span> m<span class="op">)</span> <span class="op">+</span> m<span class="op">)</span> <span class="op">%</span> m<span class="op">;</span> <span class="co">// prints 1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="modular-exponentiation" class="level2">
 <h2 data-anchor-id="modular-exponentiation">Modular exponentiation</h2>
-<p>If you want to compute <code>($a^b$) % m</code>, it’s not efficient to multiply <code>a</code> many times.<br>
-Instead, use <strong>fast exponentiation</strong>.</p>
-<p>Example (fast power function):</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="dt">long</span> <span class="dt">long</span> modpow<span class="op">(</span><span class="dt">long</span> <span class="dt">long</span> a<span class="op">,</span> <span class="dt">long</span> <span class="dt">long</span> b<span class="op">,</span> <span class="dt">long</span> <span class="dt">long</span> m<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">long</span> <span class="dt">long</span> res <span class="op">=</span> <span class="dv">1</span><span class="op">;</span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    a <span class="op">%=</span> m<span class="op">;</span></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> <span class="op">(</span>b <span class="op">&gt;</span> <span class="dv">0</span><span class="op">)</span> <span class="op">{</span></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>b <span class="op">&amp;</span> <span class="dv">1</span><span class="op">)</span> res <span class="op">=</span> <span class="op">(</span>res <span class="op">*</span> a<span class="op">)</span> <span class="op">%</span> m<span class="op">;</span></span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>        a <span class="op">=</span> <span class="op">(</span>a <span class="op">*</span> a<span class="op">)</span> <span class="op">%</span> m<span class="op">;</span></span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>        b <span class="op">&gt;&gt;=</span> <span class="dv">1</span><span class="op">;</span></span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> res<span class="op">;</span></span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>If you want to compute the remainder of <span class="math inline">\(a^b\)</span> when divided by <span class="math inline">\(m\)</span>, it’s not efficient to multiply <span class="math inline">\(a\)</span> many times. Instead, use <strong>fast exponentiation</strong>.</p>
+<p>Fast exponentiation is based on the following observation. If <span class="math inline">\(b\)</span> is even then <span class="math inline">\(a^b = (a^{b/2})^2\)</span>, and if <span class="math inline">\(b\)</span> is odd then <span class="math inline">\(a^b = a \cdot (a^{\lfloor b/2 \rfloor})^2\)</span>. This is why we can use a function that recursively calls itself, each time halving the exponent.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="dt">long</span> <span class="dt">long</span> modpow<span class="op">(</span><span class="dt">long</span> <span class="dt">long</span> a<span class="op">,</span> <span class="dt">long</span> <span class="dt">long</span> b<span class="op">,</span> <span class="dt">long</span> <span class="dt">long</span> m<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>b <span class="op">==</span> <span class="dv">0</span><span class="op">)</span> <span class="cf">return</span> <span class="dv">1</span><span class="op">;</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">long</span> <span class="dt">long</span> half <span class="op">=</span> modpow<span class="op">(</span>a<span class="op">,</span> b <span class="op">/</span> <span class="dv">2</span><span class="op">,</span> m<span class="op">);</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">long</span> <span class="dt">long</span> res <span class="op">=</span> <span class="op">(</span>half <span class="op">*</span> half<span class="op">)</span> <span class="op">%</span> m<span class="op">;</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>b <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">1</span><span class="op">)</span> <span class="op">{</span> <span class="co">// If b is odd</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>        res <span class="op">=</span> <span class="op">(</span>res <span class="op">*</span> <span class="op">(</span>a <span class="op">%</span> m<span class="op">))</span> <span class="op">%</span> m<span class="op">;</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> res<span class="op">;</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Since <span class="math inline">\(b\)</span> is halved each time the recursion is called, the total number of recursive calls is <span class="math inline">\(\lfloor \log_2 b \rfloor + 1\)</span>, hence the time complexity of this function is <span class="math inline">\(O(\log b)\)</span>.</p>
 <p>Usage:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>cout <span class="op">&lt;&lt;</span> modpow<span class="op">(</span><span class="dv">2</span><span class="op">,</span> <span class="dv">10</span><span class="op">,</span> <span class="dv">1000</span><span class="op">);</span> <span class="co">// 24 % 1000 = 24</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>cout <span class="op">&lt;&lt;</span> modpow<span class="op">(</span><span class="dv">2</span><span class="op">,</span> <span class="dv">10</span><span class="op">,</span> <span class="dv">1000</span><span class="op">);</span> <span class="co">// 1024 % 1000 = 24</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="modular-inverse-optionaladvanced" class="level2">
-<h2 data-anchor-id="modular-inverse-optionaladvanced">Modular inverse (optional/advanced)</h2>
-<p>Sometimes we need to divide numbers under modulo.<br>
-But division doesn’t work directly.<br>
-Instead, we multiply by the <strong>modular inverse</strong>.</p>
-<p>For prime modulus <code>m</code>, the inverse of <code>a</code> is:</p>
-<pre><code>$a^(m-2)$ mod m</code></pre>
-<p>(using Fermat’s little theorem)</p>
-<p>Example:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> inverse <span class="op">=</span> modpow<span class="op">(</span>a<span class="op">,</span> MOD <span class="op">-</span> <span class="dv">2</span><span class="op">,</span> MOD<span class="op">);</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Then <code>a / b % MOD</code> becomes:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="op">(</span>a <span class="op">*</span> modpow<span class="op">(</span>b<span class="op">,</span> MOD <span class="op">-</span> <span class="dv">2</span><span class="op">,</span> MOD<span class="op">))</span> <span class="op">%</span> MOD</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="modular-inverse-optional-advanced" class="level2">
+<h2 data-anchor-id="modular-inverse-optional-advanced">Modular inverse (optional / advanced)</h2>
+<p>Sometimes we need to divide numbers under modulo. However, modulo does not distribute over division as it does with the addition and multiplication. So, instead dividing, we multiply by the <strong>modular inverse</strong>.</p>
+<p>From the Fermat’s little theorem we can derive that for a prime modulus <span class="math inline">\(m\)</span>, the modular inverse of <span class="math inline">\(a\)</span> is</p>
+<p><span class="math inline">\(a^{-1} \equiv a^{m-2} \mod m\)</span></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> inverse <span class="op">=</span> modpow<span class="op">(</span>a<span class="op">,</span> MOD <span class="op">-</span> <span class="dv">2</span><span class="op">,</span> MOD<span class="op">);</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Then <code>a</code> divided by <code>b</code> with modulus <code>MOD</code> becomes</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="op">(</span>a <span class="op">*</span> modpow<span class="op">(</span>b<span class="op">,</span> MOD <span class="op">-</span> <span class="dv">2</span><span class="op">,</span> MOD<span class="op">))</span> <span class="op">%</span> MOD</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="when-do-we-use-modular-arithmetic" class="level2">
 <h2 data-anchor-id="when-do-we-use-modular-arithmetic">When do we use modular arithmetic?</h2>
-<p>You’ll see it in problems where: - Numbers grow extremely large (combinations, dynamic programming, etc.) - The result only needs to be given “mod 1e9+7” - You’re implementing math algorithms like power, inverse, or combinatorics</p>
+<p>You’ll see it in problems where:</p>
+<ul>
+<li>Numbers grow extremely large (combinations, dynamic programming, etc.)</li>
+<li>The result only needs to be given “mod 1e9+7”</li>
+<li>You’re implementing math algorithms like power, inverse, or combinatorics</li>
+</ul>
 </section>
 <section id="advantages" class="level2">
 <h2 data-anchor-id="advantages">Advantages</h2>
@@ -485,20 +540,6 @@ Instead, we multiply by the <strong>modular inverse</strong>.</p>
 <li>Negative results can be confusing in C++</li>
 </ul>
 </section>
-<section id="example-sum-of-big-numbers" class="level2">
-<h2 data-anchor-id="example-sum-of-big-numbers">Example: sum of big numbers</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> <span class="kw">namespace</span> std<span class="op">;</span></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="dt">int</span> MOD <span class="op">=</span> <span class="dv">1'000'000'007</span><span class="op">;</span></span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">long</span> <span class="dt">long</span> a <span class="op">=</span> <span class="fl">1e12</span><span class="op">,</span> b <span class="op">=</span> <span class="fl">1e12</span><span class="op">;</span></span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>    cout <span class="op">&lt;&lt;</span> <span class="op">(</span>a <span class="op">+</span> b<span class="op">)</span> <span class="op">%</span> MOD <span class="op">&lt;&lt;</span> endl<span class="op">;</span></span>
-<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Output:</p>
-<pre><code>999999979</code></pre>
-<p>Even though the sum is <code>2e12</code>, we safely wrapped it inside MOD.</p>
-</section>
 <section id="quick-summary" class="level2">
 <h2 data-anchor-id="quick-summary">Quick summary</h2>
 <ul>
@@ -510,7 +551,7 @@ Instead, we multiply by the <strong>modular inverse</strong>.</p>
 </li>
 <li>For exponentiation, use fast power<br>
 </li>
-<li>For division, use modular inverse when MOD is prime</li>
+<li>For division, use modular inverse when <code>MOD</code> is prime</li>
 </ul>
 
 
