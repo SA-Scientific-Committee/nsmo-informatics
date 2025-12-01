@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>vacation</title>
+<title>knapsack1</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -58,24 +58,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<link href="../b2/knapsack1.html" rel="next">
-<link href="../b2/dynamic-programming.html" rel="prev">
-<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b758ccaa5987ceb1b75504551e579abf.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-554c5fc7eb394f0da0ff922119d371a0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../b2/rectangular-geometry.html" rel="next">
+<link href="../../b2/dp-problems/vacation.html" rel="prev">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b758ccaa5987ceb1b75504551e579abf.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-554c5fc7eb394f0da0ff922119d371a0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -143,9 +143,9 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="../index.html" class="navbar-brand navbar-brand-logo">
-    <img src="../logo.png" alt="" class="navbar-logo light-content">
-    <img src="../logo.png" alt="" class="navbar-logo dark-content">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../logo.png" alt="" class="navbar-logo light-content">
+    <img src="../../logo.png" alt="" class="navbar-logo dark-content">
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -155,15 +155,15 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../b0/cpp/hello-world.html"> 
+    <a class="nav-link" href="../../b0/cpp/hello-world.html"> 
 <span class="menu-text">Stage 1</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../b1/cpp/sets.html"> 
+    <a class="nav-link" href="../../b1/cpp/sets.html"> 
 <span class="menu-text">Stage 2</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="../b2/cpp/bitwise-operations.html" aria-current="page"> 
+    <a class="nav-link active" href="../../b2/cpp/bitwise-operations.html" aria-current="page"> 
 <span class="menu-text">Stage 3</span></a>
   </li>  
   <li class="nav-item">
@@ -213,67 +213,46 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../b2/cpp/bitwise-operations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><strong>Bitwise Operators and Bitmasks</strong></span></a>
+  <a href="../../b2/cpp/bitwise-operations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Bitwise Operations</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../b2/cpp/structs.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><strong>Data Structures with <code>struct</code></strong></span></a>
+  <a href="../../b2/cpp/structs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Structures (<code>struct</code>)</span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../b2/bit-manipulation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Common Bit Manipulation Tricks</span></a>
+  <a href="../../b2/bit-manipulation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Bit Manipulation Tricks</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../b2/generating-subsets-using-bitmasks.html" class="sidebar-item-text sidebar-link">
+  <a href="../../b2/generating-subsets-using-bitmasks.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Generating Subsets Using Bitmasks</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../b2/backtracking.html" class="sidebar-item-text sidebar-link">
+  <a href="../../b2/backtracking.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Backtracking</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../b2/dynamic-programming.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Dynamic Programming (DP)</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
- <span class="menu-text">b2/frog1.qmd</span>
-  </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../b2/vacation.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">vacation.html</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../b2/knapsack1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">knapsack1.html</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../b2/rectangular-geometry.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Rectangular Geometry</span></a>
+  <a href="../../b2/dynamic-programming.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Dynamic Programming</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
- <span class="menu-text">Problems</span></a>
+ <span class="menu-text">DP problems</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -281,28 +260,34 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../b2/problems/dice-combinations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Dice Combinations</span></a>
+  <a href="../../b2/dp-problems/frog1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Frog 1</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../b2/problems/bit-strings.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Bit Strings</span></a>
+  <a href="../../b2/dp-problems/vacation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vacation</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../b2/problems/grid-paths-I.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Grid Paths I</span></a>
+  <a href="../../b2/dp-problems/knapsack1.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Knapsack 1</span></a>
   </div>
 </li>
       </ul>
   </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../b2/rectangular-geometry.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Rectangular Geometry</span></a>
+  </div>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
- <span class="menu-text">Practice Problems</span></a>
+ <span class="menu-text">Problems</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -310,7 +295,36 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../b2/problems/coin-combinations-I.html" class="sidebar-item-text sidebar-link">
+  <a href="../../b2/problems/dice-combinations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Dice Combinations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../b2/problems/bit-strings.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Bit Strings</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../b2/problems/grid-paths-I.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Grid Paths I</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Practice Problems</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../b2/problems/coin-combinations-I.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Coin Combinations I</span></a>
   </div>
 </li>
@@ -326,7 +340,7 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#vacation" id="toc-vacation" class="nav-link active" data-scroll-target="#vacation">Vacation</a></li>
+  <li><a href="#knapsack-1" id="toc-knapsack-1" class="nav-link active" data-scroll-target="#knapsack-1">Knapsack 1</a></li>
   </ul>
 </nav>
     </div>
@@ -336,102 +350,94 @@ window.Quarto = {
 
 
 
-<section id="vacation" class="level2 problem-toc-header">
-<h2 class="problem-toc-header" data-anchor-id="vacation">Vacation</h2>
+<section id="knapsack-1" class="level2 problem-toc-header">
+<h2 class="problem-toc-header" data-anchor-id="knapsack-1">Knapsack 1</h2>
 <div class="problem-card">
 <div class="problem-header">
-<span class="problem-title">Vacation</span>
+<span class="problem-title">Knapsack 1</span>
 <div class="problem-meta">
-<span class="problem-origin"><a href="https://atcoder.jp/contests/dp/tasks/dp_c">Atcoder</a></span>
-<span class="problem-difficulty">easy</span>
+<span class="problem-origin"><a href="https://atcoder.jp/contests/dp/tasks/dp_d">Atcoder</a></span>
+<span class="problem-difficulty">medium</span>
 </div>
 </div>
 <div class="problem-body">
-<p>Given three arrays <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span>, and <span class="math inline">\(c\)</span> of integers, each of length <span class="math inline">\(N\)</span>, you need to select one element from each index <span class="math inline">\(i\)</span> (where <span class="math inline">\(0 \le i &lt; N\)</span>) from either <span class="math inline">\(a_i\)</span>, <span class="math inline">\(b_i\)</span>, or <span class="math inline">\(c_i\)</span>.</p>
-<p>Constraint: For every index <span class="math inline">\(i\)</span> (where <span class="math inline">\(0 \le i &lt; N - 1\)</span>), the elements chosen at indices <span class="math inline">\(i\)</span> and <span class="math inline">\(i + 1\)</span> must come from different arrays.</p>
-<p>Determine and print the maximum possible sum achievable under this constraint.</p>
+<p>Given a set of <span class="math inline">\(N\)</span> elements, each element <span class="math inline">\(i\)</span> has a weight <span class="math inline">\(w_i\)</span> and value <span class="math inline">\(v_i\)</span>. Select a subset of elements such that the total weight does not exceed <span class="math inline">\(W\)</span>. Determine the maximum possible total value.</p>
 </div>
 </div>
 </section>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>To simplify the problem, we will represent the three arrays <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span>, and <span class="math inline">\(c\)</span> as a single 2D array <span class="math inline">\(d\)</span> with dimensions <span class="math inline">\(N \times 3\)</span>.<br>
-Here, the first dimension is of length <span class="math inline">\(N\)</span>, and the second dimension is of length <span class="math inline">\(3\)</span>, where <span class="math inline">\(d_i\)</span> is an array containing the values <span class="math inline">\([a_i, b_i, c_i]\)</span>.</p>
-</div>
-</div>
 <div>
 <div class="solution-card">
 <p><span class="solution-title">Solution</span></p>
 <div class="problem-body">
 <p>We will solve this problem using dynamic programming.</p>
-<p>Define the state:</p>
-<pre><code>f(i, type): the maximum sum possible if we consider the first i elements and at index i we choose d[i][type].</code></pre>
-<p>Next we’ll define the transition. There are three different transitions based on the <span class="math inline">\(type\)</span></p>
-<p><span class="math inline">\(f(i , 0) = max(f(i - 1, 1) , f(i - 1, 2)) + d_{i,0}\)</span></p>
-<p><span class="math inline">\(f(i , 1) = max(f(i - 1, 0) , f(i - 1, 2)) + d_{i,1}\)</span></p>
-<p><span class="math inline">\(f(i , 2) = max(f(i - 1, 0) , f(i - 1, 1)) + d_{i,2}\)</span></p>
-<p>Our base case will be:</p>
-<p><span class="math inline">\(f(0, type) = d_{0,type}\)</span></p>
-<p>The space complexity of the algorithm is determined by the number of states, which is <span class="math inline">\(O(N)\)</span>.</p>
-<p>The time complexity is the number of states <span class="math inline">\(N\)</span> multiplied by the complexity of each transition <span class="math inline">\(O(1)\)</span>, so the overall time complexity is <span class="math inline">\(O(N)\)</span> as well.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> <span class="kw">namespace</span> std<span class="op">;</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> dp<span class="op">[</span><span class="dv">200000</span><span class="op">][</span><span class="dv">3</span><span class="op">];</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> d<span class="op">[</span><span class="dv">200000</span><span class="op">][</span><span class="dv">3</span><span class="op">];</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> f <span class="op">(</span><span class="dt">int</span> i<span class="op">,</span> <span class="dt">int</span> type<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>i <span class="op">==</span> <span class="dv">0</span><span class="op">)</span> <span class="op">{</span></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> d<span class="op">[</span>i<span class="op">][</span>type<span class="op">];</span></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>dp<span class="op">[</span>i<span class="op">][</span>type<span class="op">]</span> <span class="op">!=</span> <span class="op">-</span><span class="dv">1</span><span class="op">)</span> <span class="op">{</span></span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> dp<span class="op">[</span>i<span class="op">][</span>type<span class="op">];</span></span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span><span class="op">(</span>type <span class="op">==</span> <span class="dv">0</span><span class="op">){</span></span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>    dp<span class="op">[</span>i<span class="op">][</span>type<span class="op">]</span> <span class="op">=</span> max<span class="op">(</span>f<span class="op">(</span>i <span class="op">-</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">),</span> f<span class="op">(</span>i <span class="op">-</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">))</span> <span class="op">+</span> d<span class="op">[</span>i<span class="op">][</span>type<span class="op">];</span></span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>  <span class="cf">else</span> <span class="cf">if</span><span class="op">(</span>type <span class="op">==</span> <span class="dv">1</span><span class="op">){</span></span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>    dp<span class="op">[</span>i<span class="op">][</span>type<span class="op">]</span> <span class="op">=</span> max<span class="op">(</span>f<span class="op">(</span>i <span class="op">-</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">0</span><span class="op">),</span> f<span class="op">(</span>i <span class="op">-</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">))</span> <span class="op">+</span> d<span class="op">[</span>i<span class="op">][</span>type<span class="op">];</span></span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>  <span class="cf">else</span> <span class="cf">if</span><span class="op">(</span>type <span class="op">==</span> <span class="dv">2</span><span class="op">){</span></span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>    dp<span class="op">[</span>i<span class="op">][</span>type<span class="op">]</span> <span class="op">=</span> max<span class="op">(</span>f<span class="op">(</span>i <span class="op">-</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">0</span><span class="op">),</span> f<span class="op">(</span>i <span class="op">-</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">))</span> <span class="op">+</span> d<span class="op">[</span>i<span class="op">][</span>type<span class="op">];</span></span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> dp<span class="op">[</span>i<span class="op">][</span>type<span class="op">];</span></span>
-<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
-<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="dv">200000</span><span class="op">;</span> i<span class="op">++)</span> <span class="op">{</span></span>
-<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> j <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> j <span class="op">&lt;</span> <span class="dv">3</span><span class="op">;</span> j<span class="op">++)</span> <span class="op">{</span></span>
-<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>          dp<span class="op">[</span>i<span class="op">][</span>j<span class="op">]</span> <span class="op">=</span> <span class="op">-</span><span class="dv">1</span><span class="op">;</span></span>
-<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> n<span class="op">;</span></span>
-<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>    cin <span class="op">&gt;&gt;</span> n<span class="op">;</span></span>
-<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> n<span class="op">;</span> i<span class="op">++)</span> <span class="op">{</span></span>
-<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> j <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> j <span class="op">&lt;</span> <span class="dv">3</span><span class="op">;</span> j<span class="op">++)</span> <span class="op">{</span></span>
-<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>      cin <span class="op">&gt;&gt;</span> d<span class="op">[</span>i<span class="op">][</span>j<span class="op">];</span></span>
-<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>    cout <span class="op">&lt;&lt;</span> max<span class="op">(</span>max<span class="op">(</span>f<span class="op">(</span>n <span class="op">-</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">0</span><span class="op">),</span> f<span class="op">(</span>n <span class="op">-</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">)),</span> f<span class="op">(</span>n <span class="op">-</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">))</span> <span class="op">&lt;&lt;</span> <span class="st">"</span><span class="sc">\n</span><span class="st">"</span><span class="op">;</span></span>
-<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Let’s define the state:</p>
+<p><span class="math inline">\(f(i, capacity)\)</span> is the maximum total value possible considering only elements up to i with maximum possible weight capacity.</p>
+<p>Next, we define the transition. At each step, we can either include element <span class="math inline">\(i\)</span> or skip it.</p>
+<p>In case we include element <span class="math inline">\(i\)</span>, the transition will be:</p>
+<p><span class="math inline">\(f(i, capacity) = f(i - 1, capacity - w_i) + v_i\)</span></p>
+<p>In case we skip it, the transition will be:</p>
+<p><span class="math inline">\(f(i, capacity) = f(i - 1, capacity)\)</span></p>
+<p>Since we cannot determine which option is better in advance, we take the maximum of the two possible transitions.</p>
+<p><span class="math inline">\(f(i, capacity) = max(f(i - 1, capacity ), f(i - 1, capacity - w_i) + v_i)\)</span></p>
+<p>In this problem our base case will be:</p>
+<p><span class="math inline">\(f(0,\text{capacity}) =
+\begin{cases}
+v_i, &amp; \text{if capacity} \ge w_i,\\[6pt]
+0,   &amp; \text{if capacity} &lt; w_i.
+\end{cases}\)</span></p>
+<p>The space complexity of the algorithm is determined by the number of states, which is <span class="math inline">\(O(N \cdot W)\)</span>.</p>
+<p>The time complexity is the number of states <span class="math inline">\(N \cdot W\)</span> multiplied by the complexity of each transition <span class="math inline">\(O(1)\)</span>, so the overall time complexity is <span class="math inline">\(O(N \cdot W)\)</span> as well.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> <span class="kw">namespace</span> std<span class="op">;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="dt">long</span> <span class="dt">long</span> dp<span class="op">[</span><span class="dv">200</span><span class="op">][</span><span class="dv">200000</span><span class="op">];</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> v<span class="op">[</span><span class="dv">200</span><span class="op">],</span> w<span class="op">[</span><span class="dv">200</span><span class="op">];</span> </span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="dt">long</span> <span class="dt">long</span> f <span class="op">(</span><span class="dt">int</span> i<span class="op">,</span> <span class="dt">int</span> capacity<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>i <span class="op">==</span> <span class="dv">0</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>capacity <span class="op">&lt;</span> w<span class="op">[</span>i<span class="op">])</span> <span class="op">{</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>      <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span> <span class="op">{</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>      <span class="cf">return</span> v<span class="op">[</span>i<span class="op">];</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> <span class="op">(</span>dp<span class="op">[</span>i<span class="op">][</span>capacity<span class="op">]</span> <span class="op">!=</span> <span class="op">-</span><span class="dv">1</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> dp<span class="op">[</span>i<span class="op">][</span>capacity<span class="op">];</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>  <span class="co">// case of not taking item i</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>  dp<span class="op">[</span>i<span class="op">][</span>capacity<span class="op">]</span> <span class="op">=</span> f<span class="op">(</span>i <span class="op">-</span> <span class="dv">1</span><span class="op">,</span> capacity<span class="op">);</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>  <span class="co">// case of taking item i</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> <span class="op">(</span>capacity <span class="op">&gt;=</span> w<span class="op">[</span>i<span class="op">])</span> <span class="op">{</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>    dp<span class="op">[</span>i<span class="op">][</span>capacity<span class="op">]</span> <span class="op">=</span> max<span class="op">(</span>dp<span class="op">[</span>i<span class="op">][</span>capacity<span class="op">],</span> f<span class="op">(</span>i <span class="op">-</span> <span class="dv">1</span><span class="op">,</span> capacity <span class="op">-</span> w<span class="op">[</span>i<span class="op">])</span> <span class="op">+</span> v<span class="op">[</span>i<span class="op">]);</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> dp<span class="op">[</span>i<span class="op">][</span>capacity<span class="op">];</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="dv">200</span><span class="op">;</span> i<span class="op">++)</span> <span class="op">{</span></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> j <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> j <span class="op">&lt;</span> <span class="dv">200000</span><span class="op">;</span> j<span class="op">++)</span> <span class="op">{</span></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>          dp<span class="op">[</span>i<span class="op">][</span>j<span class="op">]</span> <span class="op">=</span> <span class="op">-</span><span class="dv">1</span><span class="op">;</span></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> n<span class="op">,</span> weight<span class="op">;</span></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>    cin <span class="op">&gt;&gt;</span> n <span class="op">&gt;&gt;</span> weight<span class="op">;</span></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> n<span class="op">;</span> i<span class="op">++)</span> <span class="op">{</span></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>    cin <span class="op">&gt;&gt;</span> w<span class="op">[</span>i<span class="op">]</span> <span class="op">&gt;&gt;</span> v<span class="op">[</span>i<span class="op">];</span></span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>  cout <span class="op">&lt;&lt;</span> f<span class="op">(</span>n <span class="op">-</span> <span class="dv">1</span><span class="op">,</span> weight<span class="op">)</span> <span class="op">&lt;&lt;</span> endl<span class="op">;</span></span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
@@ -839,13 +845,13 @@ Here, the first dimension is of length <span class="math inline">\(N\)</span>, a
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../b2/dynamic-programming.html" class="pagination-link" aria-label="Dynamic Programming (DP)">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Dynamic Programming (DP)</span>
+      <a href="../../b2/dp-problems/vacation.html" class="pagination-link" aria-label="Vacation">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Vacation</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../b2/knapsack1.html" class="pagination-link" aria-label="knapsack1.html">
-        <span class="nav-page-text">knapsack1.html</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../b2/rectangular-geometry.html" class="pagination-link" aria-label="Rectangular Geometry">
+        <span class="nav-page-text">Rectangular Geometry</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

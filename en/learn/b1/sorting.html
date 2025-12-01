@@ -368,6 +368,7 @@ window.Quarto = {
   <li><a href="#sorting-an-array" id="toc-sorting-an-array" class="nav-link" data-scroll-target="#sorting-an-array">Sorting an array</a></li>
   <li><a href="#sorting-in-descending-order" id="toc-sorting-in-descending-order" class="nav-link" data-scroll-target="#sorting-in-descending-order">Sorting in descending order</a></li>
   <li><a href="#sorting-other-types" id="toc-sorting-other-types" class="nav-link" data-scroll-target="#sorting-other-types">Sorting other types</a></li>
+  <li><a href="#sorting-with-custom-comparator" id="toc-sorting-with-custom-comparator" class="nav-link" data-scroll-target="#sorting-with-custom-comparator">Sorting with custom comparator</a></li>
   </ul></li>
   <li><a href="#complexity" id="toc-complexity" class="nav-link" data-scroll-target="#complexity">Complexity</a></li>
   </ul></li>
@@ -384,7 +385,7 @@ window.Quarto = {
 <h1>Sorting</h1>
 <p>Sorting means arranging elements in a specific order, usually from smallest to largest, or alphabetically if they are strings.</p>
 <p>Sorting makes data easier to search, compare, and process efficiently.<br>
-Many algorithms like binary search only work if the data is sorted.</p>
+Many algorithms, like binary search, only work if the data is sorted.</p>
 <section id="selection-sort" class="level2">
 <h2 data-anchor-id="selection-sort">Selection sort</h2>
 <section id="the-idea" class="level3">
@@ -395,39 +396,42 @@ Many algorithms like binary search only work if the data is sorted.</p>
 <section id="example" class="level3">
 <h3 data-anchor-id="example">Example</h3>
 <p>Suppose we have:</p>
-<pre><code>[5, 3, 8, 4, 2]</code></pre>
-<p>After the first pass (find smallest = 2, swap with first):</p>
+<pre><code>[5, 8, 3, 4, 2]</code></pre>
+<p>We will find the smallest element, which is <span class="math inline">\(2\)</span>. Then, we swap it with the first element in the array, which is <span class="math inline">\(5\)</span>. The array now looks like this:</p>
+<pre><code>[2, 8, 3, 4, 5]</code></pre>
+<p>Now we want to set the second smallest element to the second position in the array. We find the smallest element among <span class="math inline">\([8,3,4,5]\)</span>, which is <span class="math inline">\(3\)</span>, and we swap it with the second element in the array, which is <span class="math inline">\(8\)</span>. After this, we have:</p>
 <pre><code>[2, 3, 8, 4, 5]</code></pre>
-<p>After the second pass (next smallest = 3, already in place):</p>
-<pre><code>[2, 3, 8, 4, 5]</code></pre>
-<p>Next, find smallest among [8, 4, 5] → 4 → swap:</p>
+<p>Next, we find the third smallest element, as the smallest element among <span class="math inline">\([8,4,5]\)</span>, which is <span class="math inline">\(4\)</span>. We swap it with the third element in the array, which is <span class="math inline">\(8\)</span> again:</p>
 <pre><code>[2, 3, 4, 8, 5]</code></pre>
-<p>Finally → [2, 3, 4, 5, 8]</p>
+<p>For the last step, we want to find the fourth smallest element, as the smallest element among <span class="math inline">\([5, 8]\)</span>, which is <span class="math inline">\(5\)</span>. We now need to swap it with the fourth element in the array, which turns out also to be <span class="math inline">\(5\)</span>. Swapping an element with itself doesn’t change the array, so finally the array is sorted:</p>
+<pre><code>[2, 3, 4, 5, 8]</code></pre>
 </section>
 <section id="code" class="level3">
 <h3 data-anchor-id="code">Code</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;vector&gt;</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> <span class="kw">namespace</span> std<span class="op">;</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    vector<span class="op">&lt;</span><span class="dt">int</span><span class="op">&gt;</span> arr <span class="op">=</span> <span class="op">{</span><span class="dv">5</span><span class="op">,</span> <span class="dv">3</span><span class="op">,</span> <span class="dv">8</span><span class="op">,</span> <span class="dv">4</span><span class="op">,</span> <span class="dv">2</span><span class="op">};</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> n <span class="op">=</span> arr<span class="op">.</span>size<span class="op">();</span></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> n <span class="op">-</span> <span class="dv">1</span><span class="op">;</span> i<span class="op">++)</span> <span class="op">{</span></span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>        <span class="dt">int</span> minIndex <span class="op">=</span> i<span class="op">;</span></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> j <span class="op">=</span> i <span class="op">+</span> <span class="dv">1</span><span class="op">;</span> j <span class="op">&lt;</span> n<span class="op">;</span> j<span class="op">++)</span> <span class="op">{</span></span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> <span class="op">(</span>arr<span class="op">[</span>j<span class="op">]</span> <span class="op">&lt;</span> arr<span class="op">[</span>minIndex<span class="op">])</span></span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>                minIndex <span class="op">=</span> j<span class="op">;</span></span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>        swap<span class="op">(</span>arr<span class="op">[</span>i<span class="op">],</span> arr<span class="op">[</span>minIndex<span class="op">]);</span></span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> x <span class="op">:</span> arr<span class="op">)</span> cout <span class="op">&lt;&lt;</span> x <span class="op">&lt;&lt;</span> <span class="st">" "</span><span class="op">;</span></span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;vector&gt;</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> <span class="kw">namespace</span> std<span class="op">;</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    vector<span class="op">&lt;</span><span class="dt">int</span><span class="op">&gt;</span> arr <span class="op">=</span> <span class="op">{</span><span class="dv">5</span><span class="op">,</span> <span class="dv">8</span><span class="op">,</span> <span class="dv">3</span><span class="op">,</span> <span class="dv">4</span><span class="op">,</span> <span class="dv">2</span><span class="op">};</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> n <span class="op">=</span> arr<span class="op">.</span>size<span class="op">();</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> n <span class="op">-</span> <span class="dv">1</span><span class="op">;</span> i<span class="op">++)</span> <span class="op">{</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>        <span class="dt">int</span> minIndex <span class="op">=</span> i<span class="op">;</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> j <span class="op">=</span> i <span class="op">+</span> <span class="dv">1</span><span class="op">;</span> j <span class="op">&lt;</span> n<span class="op">;</span> j<span class="op">++)</span> <span class="op">{</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> <span class="op">(</span>arr<span class="op">[</span>j<span class="op">]</span> <span class="op">&lt;</span> arr<span class="op">[</span>minIndex<span class="op">])</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>                minIndex <span class="op">=</span> j<span class="op">;</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>        swap<span class="op">(</span>arr<span class="op">[</span>i<span class="op">],</span> arr<span class="op">[</span>minIndex<span class="op">]);</span></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> x <span class="op">:</span> arr<span class="op">)</span> </span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>        cout <span class="op">&lt;&lt;</span> x <span class="op">&lt;&lt;</span> <span class="ch">' '</span><span class="op">;</span></span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>    cout <span class="op">&lt;&lt;</span> <span class="ch">'</span><span class="sc">\n</span><span class="ch">'</span><span class="op">;</span></span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Output:</p>
 <pre><code>2 3 4 5 8</code></pre>
-<p>Selection sort is easy to understand but not very efficient.</p>
+<p>Selection sort is easy to understand, but not very efficient.</p>
 </section>
 <section id="time-complexity" class="level3">
 <h3 data-anchor-id="time-complexity">Time complexity</h3>
@@ -443,17 +447,19 @@ Many algorithms like binary search only work if the data is sorted.</p>
 C++ provides a very fast sorting function in the standard library.</p>
 <section id="sorting-a-vector" class="level3">
 <h3 data-anchor-id="sorting-a-vector">Sorting a vector</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;vector&gt;</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;algorithm&gt;</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> <span class="kw">namespace</span> std<span class="op">;</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    vector<span class="op">&lt;</span><span class="dt">int</span><span class="op">&gt;</span> arr <span class="op">=</span> <span class="op">{</span><span class="dv">5</span><span class="op">,</span> <span class="dv">3</span><span class="op">,</span> <span class="dv">8</span><span class="op">,</span> <span class="dv">4</span><span class="op">,</span> <span class="dv">2</span><span class="op">};</span></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    sort<span class="op">(</span>arr<span class="op">.</span>begin<span class="op">(),</span> arr<span class="op">.</span>end<span class="op">());</span></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> x <span class="op">:</span> arr<span class="op">)</span> cout <span class="op">&lt;&lt;</span> x <span class="op">&lt;&lt;</span> <span class="st">" "</span><span class="op">;</span></span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;vector&gt;</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;algorithm&gt;</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> <span class="kw">namespace</span> std<span class="op">;</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    vector<span class="op">&lt;</span><span class="dt">int</span><span class="op">&gt;</span> arr <span class="op">=</span> <span class="op">{</span><span class="dv">5</span><span class="op">,</span> <span class="dv">8</span><span class="op">,</span> <span class="dv">3</span><span class="op">,</span> <span class="dv">4</span><span class="op">,</span> <span class="dv">2</span><span class="op">};</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    sort<span class="op">(</span>arr<span class="op">.</span>begin<span class="op">(),</span> arr<span class="op">.</span>end<span class="op">());</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> x <span class="op">:</span> arr<span class="op">)</span> </span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>        cout <span class="op">&lt;&lt;</span> x <span class="op">&lt;&lt;</span> <span class="ch">' '</span><span class="op">;</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>    cout <span class="op">&lt;&lt;</span> <span class="ch">'</span><span class="sc">\n</span><span class="ch">'</span><span class="op">;</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Output:</p>
 <pre><code>2 3 4 5 8</code></pre>
 <p>That one line <code>sort(arr.begin(), arr.end());</code> sorts the entire vector in ascending order.</p>
@@ -462,20 +468,21 @@ C++ provides a very fast sorting function in the standard library.</p>
 <h3 data-anchor-id="sorting-an-array">Sorting an array</h3>
 <p>You can also use the same <code>sort</code> function with regular arrays.<br>
 You just need to give the starting and ending pointers.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;algorithm&gt;</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> <span class="kw">namespace</span> std<span class="op">;</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> n <span class="op">=</span> <span class="dv">5</span><span class="op">;</span></span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> arr<span class="op">[]</span> <span class="op">=</span> <span class="op">{</span><span class="dv">5</span><span class="op">,</span> <span class="dv">3</span><span class="op">,</span> <span class="dv">8</span><span class="op">,</span> <span class="dv">4</span><span class="op">,</span> <span class="dv">2</span><span class="op">};</span> </span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>    sort<span class="op">(</span>arr<span class="op">,</span> arr <span class="op">+</span> n<span class="op">);</span></span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> n<span class="op">;</span> i<span class="op">++)</span></span>
-<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>        cout <span class="op">&lt;&lt;</span> arr<span class="op">[</span>i<span class="op">]</span> <span class="op">&lt;&lt;</span> <span class="st">" "</span><span class="op">;</span></span>
-<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;algorithm&gt;</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> <span class="kw">namespace</span> std<span class="op">;</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> n <span class="op">=</span> <span class="dv">5</span><span class="op">;</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> arr<span class="op">[]</span> <span class="op">=</span> <span class="op">{</span><span class="dv">5</span><span class="op">,</span> <span class="dv">8</span><span class="op">,</span> <span class="dv">3</span><span class="op">,</span> <span class="dv">4</span><span class="op">,</span> <span class="dv">2</span><span class="op">};</span> </span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>    sort<span class="op">(</span>arr<span class="op">,</span> arr <span class="op">+</span> n<span class="op">);</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> n<span class="op">;</span> i<span class="op">++)</span></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>        cout <span class="op">&lt;&lt;</span> arr<span class="op">[</span>i<span class="op">]</span> <span class="op">&lt;&lt;</span> <span class="ch">' '</span><span class="op">;</span></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>    cout <span class="op">&lt;&lt;</span> <span class="ch">'</span><span class="sc">\n</span><span class="ch">'</span><span class="op">;</span></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Output:</p>
 <pre><code>2 3 4 5 8</code></pre>
 <p><code>sort(arr, arr + n);</code> means: sort starting from <code>arr</code> (first element) up to <code>arr + n</code> (just past the last one).</p>
@@ -484,19 +491,42 @@ You just need to give the starting and ending pointers.</p>
 <h3 data-anchor-id="sorting-in-descending-order">Sorting in descending order</h3>
 <p>If you want to sort from largest to smallest, you can use a custom comparison:</p>
 <p>For vectors:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>sort<span class="op">(</span>arr<span class="op">.</span>begin<span class="op">(),</span> arr<span class="op">.</span>end<span class="op">(),</span> greater<span class="op">&lt;</span><span class="dt">int</span><span class="op">&gt;());</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>sort<span class="op">(</span>arr<span class="op">.</span>begin<span class="op">(),</span> arr<span class="op">.</span>end<span class="op">(),</span> greater<span class="op">&lt;</span><span class="dt">int</span><span class="op">&gt;());</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Another way to do so for vectors is to call sort on reverse iterators. This sorts the array in ascending order and then reverses it:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>sort<span class="op">(</span>arr<span class="op">.</span>rbegin<span class="op">(),</span> arr<span class="op">.</span>rend<span class="op">());</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>For C-arrays:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>sort<span class="op">(</span>arr<span class="op">,</span> arr <span class="op">+</span> n<span class="op">,</span> greater<span class="op">&lt;</span><span class="dt">int</span><span class="op">&gt;());</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>sort<span class="op">(</span>arr<span class="op">,</span> arr <span class="op">+</span> n<span class="op">,</span> greater<span class="op">&lt;</span><span class="dt">int</span><span class="op">&gt;());</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Output:</p>
 <pre><code>8 5 4 3 2</code></pre>
 </section>
 <section id="sorting-other-types" class="level3">
 <h3 data-anchor-id="sorting-other-types">Sorting other types</h3>
 <p>The same function works for strings, doubles, or any comparable type:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>vector<span class="op">&lt;</span>string<span class="op">&gt;</span> names <span class="op">=</span> <span class="op">{</span><span class="st">"Bob"</span><span class="op">,</span> <span class="st">"Alice"</span><span class="op">,</span> <span class="st">"Charlie"</span><span class="op">};</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>sort<span class="op">(</span>names<span class="op">.</span>begin<span class="op">(),</span> names<span class="op">.</span>end<span class="op">());</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>vector<span class="op">&lt;</span>string<span class="op">&gt;</span> names <span class="op">=</span> <span class="op">{</span><span class="st">"Bob"</span><span class="op">,</span> <span class="st">"Alice"</span><span class="op">,</span> <span class="st">"Charlie"</span><span class="op">};</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>sort<span class="op">(</span>names<span class="op">.</span>begin<span class="op">(),</span> names<span class="op">.</span>end<span class="op">());</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Output:</p>
 <pre><code>Alice Bob Charlie</code></pre>
+</section>
+<section id="sorting-with-custom-comparator" class="level3">
+<h3 data-anchor-id="sorting-with-custom-comparator">Sorting with custom comparator</h3>
+<p>We already mentioned that you can sort an array in descending order by adding a third parameter to the built-in sort function. This parameter is called the custom comparator. A comparator is a function that takes two elements, <code>a</code> and <code>b</code>, and returns <code>true</code> if <code>a</code> should come before <code>b</code> in the sorted array. This comes in handy when you want to sort your own data structure or sort an existing type with a different way of comparing elements.</p>
+<p>For example, let’s say that we don’t want to sort strings lexicographically, but by their length. In this case, we would write our own comparator:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> comparator_by_length<span class="op">(</span>string a<span class="op">,</span> string b<span class="op">){</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> len_a <span class="op">=</span> a<span class="op">.</span>length<span class="op">();</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> len_b <span class="op">=</span> b<span class="op">.</span>length<span class="op">();</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>len_a <span class="op">&lt;</span> len_b<span class="op">)</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="dv">1</span><span class="op">;</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Then, we would call the sort function the same as before, and add the custom comparator in the call parameters:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>vector<span class="op">&lt;</span>string<span class="op">&gt;</span> names <span class="op">=</span> <span class="op">{</span><span class="st">"Bob"</span><span class="op">,</span> <span class="st">"Alice"</span><span class="op">,</span> <span class="st">"Charlie"</span><span class="op">};</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>sort<span class="op">(</span>names<span class="op">.</span>begin<span class="op">(),</span> names<span class="op">.</span>end<span class="op">(),</span> comparator_by_length<span class="op">);</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Output:</p>
+<pre><code>Bob Alice Charlie</code></pre>
+<p><strong>Important note:</strong> Your comparator must behave like a real “less than” function: - No contradictions - No cycles like <code>a &lt; b</code>, <code>b &lt; c</code>, but also <code>c &lt; a</code></p>
+<p>If the comparator is inconsistent, <code>sort</code> will behave unpredictably.</p>
 </section>
 </section>
 <section id="complexity" class="level2">

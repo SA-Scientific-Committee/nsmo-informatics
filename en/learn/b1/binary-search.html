@@ -355,13 +355,13 @@ window.Quarto = {
   <ul>
   <li><a href="#binary-search" id="toc-binary-search" class="nav-link active" data-scroll-target="#binary-search">Binary Search</a>
   <ul class="collapse">
-  <li><a href="#starting-with-linear-search" id="toc-starting-with-linear-search" class="nav-link" data-scroll-target="#starting-with-linear-search">Starting with linear search</a></li>
-  <li><a href="#a-real-life-idea" id="toc-a-real-life-idea" class="nav-link" data-scroll-target="#a-real-life-idea">A real-life idea</a></li>
+  <li><a href="#linear-search" id="toc-linear-search" class="nav-link" data-scroll-target="#linear-search">Linear search</a></li>
   <li><a href="#the-idea-of-binary-search" id="toc-the-idea-of-binary-search" class="nav-link" data-scroll-target="#the-idea-of-binary-search">The idea of binary search</a></li>
-  <li><a href="#example-1-classic-binary-search" id="toc-example-1-classic-binary-search" class="nav-link" data-scroll-target="#example-1-classic-binary-search">Example 1: Classic binary search</a></li>
-  <li><a href="#example-2-finding-first-element-greater-than-or-equal-to-x" id="toc-example-2-finding-first-element-greater-than-or-equal-to-x" class="nav-link" data-scroll-target="#example-2-finding-first-element-greater-than-or-equal-to-x">Example 2: Finding first element greater than or equal to X</a></li>
-  <li><a href="#how-binary-search-works" id="toc-how-binary-search-works" class="nav-link" data-scroll-target="#how-binary-search-works">How binary search works</a></li>
-  <li><a href="#example-3-guessing-a-hidden-number" id="toc-example-3-guessing-a-hidden-number" class="nav-link" data-scroll-target="#example-3-guessing-a-hidden-number">Example 3: Guessing a hidden number</a></li>
+  <li><a href="#classic-binary-search" id="toc-classic-binary-search" class="nav-link" data-scroll-target="#classic-binary-search">Classic binary search</a></li>
+  <li><a href="#find-the-7" id="toc-find-the-7" class="nav-link" data-scroll-target="#find-the-7">Find the 7</a></li>
+  <li><a href="#finding-first-element-greater-than-or-equal-to-x" id="toc-finding-first-element-greater-than-or-equal-to-x" class="nav-link" data-scroll-target="#finding-first-element-greater-than-or-equal-to-x">Finding first element greater than or equal to X</a></li>
+  <li><a href="#position-hunt" id="toc-position-hunt" class="nav-link" data-scroll-target="#position-hunt">Position Hunt</a></li>
+  <li><a href="#algorithm" id="toc-algorithm" class="nav-link" data-scroll-target="#algorithm">Algorithm</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -376,9 +376,9 @@ window.Quarto = {
 <h1>Binary Search</h1>
 <p>Binary search is a fast way to find something in a <strong>sorted</strong> list or range.<br>
 But before we get to that, let’s start with something simpler — <strong>linear search</strong>.</p>
-<section id="starting-with-linear-search" class="level2">
-<h2 data-anchor-id="starting-with-linear-search">Starting with linear search</h2>
-<p>Imagine you have a list of numbers and you want to check if a number is there.<br>
+<section id="linear-search" class="level2">
+<h2 data-anchor-id="linear-search">Linear search</h2>
+<p>Imagine you have a list of numbers and you want to check if a number is in the list.<br>
 The most natural thing to do is to look through the list one by one.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;vector&gt;</span></span>
@@ -399,9 +399,6 @@ The most natural thing to do is to look through the list one by one.</p>
 <p>This is called <strong>linear search</strong> because you move linearly through the list.<br>
 It always works, but if the list is long, it can be slow — you might need to check every element.</p>
 <p>If there are a million numbers, that’s a million checks.</p>
-</section>
-<section id="a-real-life-idea" class="level2">
-<h2 data-anchor-id="a-real-life-idea">A real-life idea</h2>
 <p>Now imagine you’re looking for a name in a printed phone book.<br>
 You wouldn’t start from the first page and read one by one.<br>
 You’d open somewhere in the middle, see if you’re too early or too late alphabetically, and then skip half the pages.</p>
@@ -419,17 +416,40 @@ Each time, you pick the middle value and ask:</p>
 <p>Then you cut the search space in half.<br>
 This makes it <strong>much faster</strong> than linear search, but it only works if the data is <strong>sorted</strong>.</p>
 </section>
-<section id="example-1-classic-binary-search" class="level2">
-<h2 data-anchor-id="example-1-classic-binary-search">Example 1: Classic binary search</h2>
-<p>Let’s find number 7 in this sorted array:</p>
-<pre><code>[1, 3, 5, 7, 9, 11]</code></pre>
+<section id="classic-binary-search" class="level2">
+<h2 data-anchor-id="classic-binary-search">Classic binary search</h2>
+</section>
+<section id="find-the-7" class="level2 problem-toc-header">
+<h2 class="problem-toc-header" data-anchor-id="find-the-7">Find the 7</h2>
+<div class="problem-card">
+<div class="problem-header">
+<span class="problem-title">Find the 7</span>
+<div class="problem-meta">
+<span class="problem-origin"></span>
+</div>
+</div>
+<div class="problem-body">
+<p>We are given a sorted array</p>
+<pre><code>[1, 3, 5, 6, 7, 9, 11]</code></pre>
+<p>Find number 7 in the array if it exists and print the index it is on.</p>
+</div>
+</div>
+</section>
+<div>
+<div class="solution-card">
+<p><span class="solution-title">Solution</span></p>
+<div class="problem-body">
 <p>We start with the full range, then repeatedly narrow it down.</p>
+<p>First, we find the element in the middle. This happens to be number 6. We ask whether number 7 is smaller or greater than number 6 - and it is greater. Since the array is sorted, this means that number 7 will be strictly after number 6 in the array. We can discard the first half of the array, because we know 7 cannot be before 6.</p>
+<p>The array we are looking at now is [7, 9, 11]. The element in the middle is number 9. Number 7 is smaller than number 9. This means that 7 is before 9 in the sorted array. We can then discard 9 and anything that is right of 9.</p>
+<p>Finally, our array is [7]. The middle element is 7, which is exactly what we are looking for. We asked three times to compare numbers: - We compared 6 and 7 - We compared 9 and 7 - We compared 7 and 7</p>
+<p>So this is 3 comparisons. In the linear search, we would do at least 5. Already on smaller examples, we see that binary search brings significant improvement.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;vector&gt;</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> <span class="kw">namespace</span> std<span class="op">;</span></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    vector<span class="op">&lt;</span><span class="dt">int</span><span class="op">&gt;</span> arr <span class="op">=</span> <span class="op">{</span><span class="dv">1</span><span class="op">,</span> <span class="dv">3</span><span class="op">,</span> <span class="dv">5</span><span class="op">,</span> <span class="dv">7</span><span class="op">,</span> <span class="dv">9</span><span class="op">,</span> <span class="dv">11</span><span class="op">};</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    vector<span class="op">&lt;</span><span class="dt">int</span><span class="op">&gt;</span> arr <span class="op">=</span> <span class="op">{</span><span class="dv">1</span><span class="op">,</span> <span class="dv">3</span><span class="op">,</span> <span class="dv">5</span><span class="op">,</span> <span class="dv">6</span><span class="op">,</span> <span class="dv">7</span><span class="op">,</span> <span class="dv">9</span><span class="op">,</span> <span class="dv">11</span><span class="op">};</span></span>
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> target <span class="op">=</span> <span class="dv">7</span><span class="op">;</span></span>
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> left <span class="op">=</span> <span class="dv">0</span><span class="op">,</span> right <span class="op">=</span> arr<span class="op">.</span>size<span class="op">()</span> <span class="op">-</span> <span class="dv">1</span><span class="op">;</span></span>
 <span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
@@ -438,23 +458,45 @@ This makes it <strong>much faster</strong> than linear search, but it only works
 <span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>arr<span class="op">[</span>mid<span class="op">]</span> <span class="op">==</span> target<span class="op">)</span> <span class="op">{</span></span>
 <span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>            cout <span class="op">&lt;&lt;</span> <span class="st">"Found at index "</span> <span class="op">&lt;&lt;</span> mid<span class="op">;</span></span>
 <span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span> <span class="cf">if</span> <span class="op">(</span>arr<span class="op">[</span>mid<span class="op">]</span> <span class="op">&lt;</span> target<span class="op">)</span> left <span class="op">=</span> mid <span class="op">+</span> <span class="dv">1</span><span class="op">;</span></span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span> right <span class="op">=</span> mid <span class="op">-</span> <span class="dv">1</span><span class="op">;</span></span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>    cout <span class="op">&lt;&lt;</span> <span class="st">"Not found"</span><span class="op">;</span></span>
-<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span> <span class="cf">else</span> <span class="cf">if</span> <span class="op">(</span>arr<span class="op">[</span>mid<span class="op">]</span> <span class="op">&lt;</span> target<span class="op">)</span> </span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>            left <span class="op">=</span> mid <span class="op">+</span> <span class="dv">1</span><span class="op">;</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span> </span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>            right <span class="op">=</span> mid <span class="op">-</span> <span class="dv">1</span><span class="op">;</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>    cout <span class="op">&lt;&lt;</span> <span class="st">"Not found"</span><span class="op">;</span></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Output:</p>
-<pre><code>Found at index 3</code></pre>
+<pre><code>Found at index 4</code></pre>
+</div>
+</div>
+</div>
 <p>Each step cuts the range in half.<br>
 If there are n elements, binary search only needs about <span class="math inline">\(\log_2(n)\)</span> steps.<br>
-That’s around 20 checks even if there are a million numbers.</p>
-</section>
-<section id="example-2-finding-first-element-greater-than-or-equal-to-x" class="level2">
-<h2 data-anchor-id="example-2-finding-first-element-greater-than-or-equal-to-x">Example 2: Finding first element greater than or equal to X</h2>
+That’s around 20 checks, even if there are a million numbers.</p>
+<section id="finding-first-element-greater-than-or-equal-to-x" class="level2">
+<h2 data-anchor-id="finding-first-element-greater-than-or-equal-to-x">Finding first element greater than or equal to X</h2>
 <p>Binary search can do more than find a number.<br>
 You can use it to find positions or boundaries.</p>
+</section>
+<section id="position-hunt" class="level2 problem-toc-header">
+<h2 class="problem-toc-header" data-anchor-id="position-hunt">Position Hunt</h2>
+<div class="problem-card">
+<div class="problem-header">
+<span class="problem-title">Position Hunt</span>
+<div class="problem-meta">
+<span class="problem-origin"></span>
+</div>
+</div>
+<div class="problem-body">
+<p>You are given an array [2, 4, 6, 8, 10]. Find the first element greater than 7 using the binary search method.</p>
+</div>
+</div>
+</section>
+<div>
+<div class="solution-card">
+<p><span class="solution-title">Solution</span></p>
+<div class="problem-body">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;vector&gt;</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> <span class="kw">namespace</span> std<span class="op">;</span></span>
@@ -481,9 +523,11 @@ You can use it to find positions or boundaries.</p>
 <p>Output:</p>
 <pre><code>First element &gt;= 7 is at index 3</code></pre>
 <p>That means arr[3] = 8 is the first element greater than or equal to 7.</p>
-</section>
-<section id="how-binary-search-works" class="level2">
-<h2 data-anchor-id="how-binary-search-works">How binary search works</h2>
+</div>
+</div>
+</div>
+<section id="algorithm" class="level2">
+<h2 data-anchor-id="algorithm">Algorithm</h2>
 <ol type="1">
 <li>Start with two pointers, <code>left</code> and <code>right</code>.</li>
 <li>Find the middle index <code>mid</code>.</li>
@@ -492,32 +536,6 @@ You can use it to find positions or boundaries.</p>
 <li>If it’s too big, move <code>right</code> to <code>mid - 1</code>.</li>
 <li>Repeat until <code>left &gt; right</code>.</li>
 </ol>
-</section>
-<section id="example-3-guessing-a-hidden-number" class="level2">
-<h2 data-anchor-id="example-3-guessing-a-hidden-number">Example 3: Guessing a hidden number</h2>
-<p>Imagine a game where you must guess a number between 1 and 100.<br>
-After each guess, you’re told if it’s too high or too low.<br>
-You can find the number in only about 7 tries.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> <span class="kw">namespace</span> std<span class="op">;</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> secret <span class="op">=</span> <span class="dv">73</span><span class="op">;</span> <span class="co">// pretend this is hidden</span></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> left <span class="op">=</span> <span class="dv">1</span><span class="op">,</span> right <span class="op">=</span> <span class="dv">100</span><span class="op">;</span></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> guesses <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> <span class="op">(</span>left <span class="op">&lt;=</span> right<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>        <span class="dt">int</span> mid <span class="op">=</span> <span class="op">(</span>left <span class="op">+</span> right<span class="op">)</span> <span class="op">/</span> <span class="dv">2</span><span class="op">;</span></span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>        guesses<span class="op">++;</span></span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>mid <span class="op">==</span> secret<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>            cout <span class="op">&lt;&lt;</span> <span class="st">"Found in "</span> <span class="op">&lt;&lt;</span> guesses <span class="op">&lt;&lt;</span> <span class="st">" guesses"</span><span class="op">;</span></span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>            <span class="cf">break</span><span class="op">;</span></span>
-<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span> <span class="cf">else</span> <span class="cf">if</span> <span class="op">(</span>mid <span class="op">&lt;</span> secret<span class="op">)</span> left <span class="op">=</span> mid <span class="op">+</span> <span class="dv">1</span><span class="op">;</span></span>
-<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span> right <span class="op">=</span> mid <span class="op">-</span> <span class="dv">1</span><span class="op">;</span></span>
-<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Output:</p>
-<pre><code>Found in 7 guesses</code></pre>
 
 
 </section>

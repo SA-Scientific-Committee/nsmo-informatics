@@ -7,25 +7,27 @@
     "text": "National Olympiad in Science and Mathematics (NSMO)\nThe National Olympiad in Science and Mathematics (NSMO) is an annual national competition organized in collaboration with the Ministry of Education. The competition includes several stages throughout the academic year, targeting Saudi students in general education in the fields of Mathematics, Science, Informatics, Chemistry, Physics, and Biology.\nStages of the competition:\n\nStage 1: City and governorate.\nStage 2: General education administrations.\nStage 3: Selecting students to represent education administrations.\nStega 4: The major national competition at the Kingdom level.\n\n\n\nInformatics (Competitive Programming)\nInformatics is one of the subjects covered within NSMO. This website will prepare you for these contest, stage by stage. It introduces you to the world of competitive programming, no prior experience is required.\nCompetitive programming is a form of mind sport in which participants solve algorithmic problems through programming. These problems are presented in contests that typically last several hours. To solve them, you must design an efficient algorithm and implement it in a programming language.\nWe’ll start by learning C++, the most widely used language in competitive programming. After that, we’ll dive into solving problems and exploring fundamental algorithms and techniques.\nBeing skilled in mathematics goes a long way in competitive programming. As you progress, you’ll find that analytical thinking is the most important skill of all."
   },
   {
-    "objectID": "b2/knapsack1.html",
-    "href": "b2/knapsack1.html",
+    "objectID": "b2/dp-problems/knapsack1.html",
+    "href": "b2/dp-problems/knapsack1.html",
     "title": "",
     "section": "",
     "text": "Knapsack 1\n\nAtcoder\nmedium\n\n\n\nGiven a set of \\(N\\) elements, each element \\(i\\) has a weight \\(w_i\\) and value \\(v_i\\). Select a subset of elements such that the total weight does not exceed \\(W\\). Determine the maximum possible total value.",
     "crumbs": [
       "Stage 3",
-      "knapsack1.html"
+      "DP problems",
+      "Knapsack 1"
     ]
   },
   {
-    "objectID": "b2/knapsack1.html#knapsack-1",
-    "href": "b2/knapsack1.html#knapsack-1",
+    "objectID": "b2/dp-problems/knapsack1.html#knapsack-1",
+    "href": "b2/dp-problems/knapsack1.html#knapsack-1",
     "title": "",
     "section": "",
     "text": "Knapsack 1\n\nAtcoder\nmedium\n\n\n\nGiven a set of \\(N\\) elements, each element \\(i\\) has a weight \\(w_i\\) and value \\(v_i\\). Select a subset of elements such that the total weight does not exceed \\(W\\). Determine the maximum possible total value.",
     "crumbs": [
       "Stage 3",
-      "knapsack1.html"
+      "DP problems",
+      "Knapsack 1"
     ]
   },
   {
@@ -88,7 +90,7 @@
     "href": "b2/backtracking.html",
     "title": "Backtracking",
     "section": "",
-    "text": "Backtracking is a technique that explores all possible solutions to a problem. It builds solutions step by step and undoes choices whenever it finishes exploring a particular direction.\n\n\nA backtracking algorithm starts with an empty solution. In each step the algorithm goes recursively trying every possible step. After exploring all steps backtrack to the previous step by undoing a choice. The algorithm can be summarized as follows\n\nBegin with an empty solution.\nExtend the solution step by step.\nRecursively explore all different ways the solution can be constructed.\nUndo the last step done.\n\n\n\n\nTo generate all subsets of a sequence using backtracking, start with an empty solution. At each step, consider index i and try both possibilities: include a[i] in the subset or exclude it. After exploring each choice, undo the change. When i moves past the end of the sequence, record the current subset. An example of a code that prints all possible subsets is shown as follows:\n#include &lt;iostream&gt;\n#include &lt;vector&gt;\n\nusing namespace std;\n\nint n = 3;\nint a[3] = {5, 3, 1};\nvector&lt;int&gt; v;\n\nvoid backtracking(int i) {\n\n    // if i exceeded the array, print the current subset\n    if (i == n) {\n        cout &lt;&lt; \"subset: \";\n        for (int j = 0; j &lt; v.size(); j++) {\n            cout &lt;&lt; v[j] &lt;&lt; ' ';\n        }\n        cout &lt;&lt; \"\\n\";\n        return;\n    }\n\n    // try to include a[i] in v\n    v.push_back(a[i]);\n    backtracking(i + 1); // try all possible solutions while a[i] is included in v\n    v.pop_back();         // undo the step of adding a[i]\n\n    // try to exclude a[i]\n    backtracking(i + 1);\n\n    // no undo needed because we didn't add anything\n}\n\nint main() {\n\n    backtracking(0);\n}\n\n\n\nIn the task Apple Dvision - CSES states: given array p of n elements. we will divide elements into two groups such that their absolute difference is as small as possible. you are asked to print the minimum difference.\n\n\nWe’ll use backtracking to try every possible grouping and print the one with minimum difference\n#include &lt;iostream&gt;\n\nusing namespace std;\n\nint n;\nint a[20];\nlong long sum1 = 0;         // sum of the first group\nlong long sum2 = 0;         // sum of the second group\nlong long ans = 2000000000; // very large number initially\n\nvoid backtracking(int i) {\n    // if i exceededs the array, update the solution so far\n    if (i == n) {\n        ans = min(ans, abs(sum1 - sum2));\n        return;\n    }\n    //try all possible choices\n\n    // try to include a[i] in group1\n    sum1 += a[i];\n    backtracking(i + 1);\n    sum1 -= a[i];\n\n    // try to include a[i] in group2\n    sum2 += a[i];\n    backtracking(i + 1);\n    sum2 -= a[i];\n\n}\n\nint main() {\n\n    cin &gt;&gt; n;\n\n    for (int i = 0; i &lt; n; i++) {\n        cin &gt;&gt; a[i];\n    }\n\n    backtracking(0);\n\n    cout &lt;&lt; ans &lt;&lt; \"\\n\";\n}",
+    "text": "Backtracking is a technique that explores all possible solutions to a problem. It builds solutions step by step and undoes choices whenever it finishes exploring a particular direction.\n\n\nA backtracking algorithm starts with an empty solution. In each step the algorithm goes recursively trying every possible step. After exploring all steps backtrack to the previous step by undoing a choice. The algorithm can be summarized as follows\n\nBegin with an empty solution.\nExtend the solution step by step.\nRecursively explore all different ways the solution can be constructed.\nUndo the last step done.\n\n\n\n\nTo generate all subsets of a sequence using backtracking, start with an empty solution. At each step, consider index i and try both possibilities: include a[i] in the subset or exclude it. After exploring each choice, undo the change. When i moves past the end of the sequence, record the current subset. An example of a code that prints all possible subsets is shown as follows:\n#include &lt;iostream&gt;\n#include &lt;vector&gt;\n\nusing namespace std;\n\nint n = 3;\nint a[3] = {5, 3, 1};\nvector&lt;int&gt; v;\n\nvoid backtracking(int i) {\n\n    // if i == n, all the elements are considered, print the current subset\n    if (i == n) {\n        cout &lt;&lt; \"subset: \";\n        for (int j = 0; j &lt; v.size(); j++) {\n            cout &lt;&lt; v[j] &lt;&lt; ' ';\n        }\n        cout &lt;&lt; \"\\n\";\n        return;\n    }\n\n    // try when a[i] is included\n    v.push_back(a[i]);   // add it to v\n    backtracking(i + 1); // try all possible solutions where a[i] is in v\n\n    // try when a[i] is excluded\n    v.pop_back();        // undo the step of adding a[i]\n    backtracking(i + 1); // try all possible solutions where a[i] is not in v\n\n    // no undo needed because we didn't add anything\n}\n\nint main() {\n\n    backtracking(0);\n}\n\n\n\n\n\n\n\n\nApple Division\n\nCSES\n\n\n\nGiven array p of n elements. We want to divide elements into two groups such that the absolute difference of the sums of each group is as small as possible. You are asked to print the minimum difference.\n\n\n\n\n\nSolution\n\nWe’ll use backtracking to try every possible grouping and print the one with minimum difference\n#include &lt;iostream&gt;\n\nusing namespace std;\n\nint n;\nint a[20];\nlong long sum1 = 0;         // sum of the first group\nlong long sum2 = 0;         // sum of the second group\nlong long ans = 2000000000; // very large number initially\n\nvoid backtracking(int i) {\n    // if i exceededs the array, update the solution so far\n    if (i == n) {\n        ans = min(ans, abs(sum1 - sum2));\n        return;\n    }\n    //try all possible choices\n\n    // try to include a[i] in group1\n    sum1 += a[i];\n    backtracking(i + 1);\n    sum1 -= a[i];\n\n    // try to include a[i] in group2\n    sum2 += a[i];\n    backtracking(i + 1);\n    sum2 -= a[i];\n\n}\n\nint main() {\n\n    cin &gt;&gt; n;\n\n    for (int i = 0; i &lt; n; i++) {\n        cin &gt;&gt; a[i];\n    }\n\n    backtracking(0);\n\n    cout &lt;&lt; ans &lt;&lt; \"\\n\";\n}",
     "crumbs": [
       "Stage 3",
       "Backtracking"
@@ -110,18 +112,18 @@
     "href": "b2/backtracking.html#generating-subsets",
     "title": "Backtracking",
     "section": "",
-    "text": "To generate all subsets of a sequence using backtracking, start with an empty solution. At each step, consider index i and try both possibilities: include a[i] in the subset or exclude it. After exploring each choice, undo the change. When i moves past the end of the sequence, record the current subset. An example of a code that prints all possible subsets is shown as follows:\n#include &lt;iostream&gt;\n#include &lt;vector&gt;\n\nusing namespace std;\n\nint n = 3;\nint a[3] = {5, 3, 1};\nvector&lt;int&gt; v;\n\nvoid backtracking(int i) {\n\n    // if i exceeded the array, print the current subset\n    if (i == n) {\n        cout &lt;&lt; \"subset: \";\n        for (int j = 0; j &lt; v.size(); j++) {\n            cout &lt;&lt; v[j] &lt;&lt; ' ';\n        }\n        cout &lt;&lt; \"\\n\";\n        return;\n    }\n\n    // try to include a[i] in v\n    v.push_back(a[i]);\n    backtracking(i + 1); // try all possible solutions while a[i] is included in v\n    v.pop_back();         // undo the step of adding a[i]\n\n    // try to exclude a[i]\n    backtracking(i + 1);\n\n    // no undo needed because we didn't add anything\n}\n\nint main() {\n\n    backtracking(0);\n}",
+    "text": "To generate all subsets of a sequence using backtracking, start with an empty solution. At each step, consider index i and try both possibilities: include a[i] in the subset or exclude it. After exploring each choice, undo the change. When i moves past the end of the sequence, record the current subset. An example of a code that prints all possible subsets is shown as follows:\n#include &lt;iostream&gt;\n#include &lt;vector&gt;\n\nusing namespace std;\n\nint n = 3;\nint a[3] = {5, 3, 1};\nvector&lt;int&gt; v;\n\nvoid backtracking(int i) {\n\n    // if i == n, all the elements are considered, print the current subset\n    if (i == n) {\n        cout &lt;&lt; \"subset: \";\n        for (int j = 0; j &lt; v.size(); j++) {\n            cout &lt;&lt; v[j] &lt;&lt; ' ';\n        }\n        cout &lt;&lt; \"\\n\";\n        return;\n    }\n\n    // try when a[i] is included\n    v.push_back(a[i]);   // add it to v\n    backtracking(i + 1); // try all possible solutions where a[i] is in v\n\n    // try when a[i] is excluded\n    v.pop_back();        // undo the step of adding a[i]\n    backtracking(i + 1); // try all possible solutions where a[i] is not in v\n\n    // no undo needed because we didn't add anything\n}\n\nint main() {\n\n    backtracking(0);\n}",
     "crumbs": [
       "Stage 3",
       "Backtracking"
     ]
   },
   {
-    "objectID": "b2/backtracking.html#exmaple-problem",
-    "href": "b2/backtracking.html#exmaple-problem",
+    "objectID": "b2/backtracking.html#apple-division",
+    "href": "b2/backtracking.html#apple-division",
     "title": "Backtracking",
     "section": "",
-    "text": "In the task Apple Dvision - CSES states: given array p of n elements. we will divide elements into two groups such that their absolute difference is as small as possible. you are asked to print the minimum difference.\n\n\nWe’ll use backtracking to try every possible grouping and print the one with minimum difference\n#include &lt;iostream&gt;\n\nusing namespace std;\n\nint n;\nint a[20];\nlong long sum1 = 0;         // sum of the first group\nlong long sum2 = 0;         // sum of the second group\nlong long ans = 2000000000; // very large number initially\n\nvoid backtracking(int i) {\n    // if i exceededs the array, update the solution so far\n    if (i == n) {\n        ans = min(ans, abs(sum1 - sum2));\n        return;\n    }\n    //try all possible choices\n\n    // try to include a[i] in group1\n    sum1 += a[i];\n    backtracking(i + 1);\n    sum1 -= a[i];\n\n    // try to include a[i] in group2\n    sum2 += a[i];\n    backtracking(i + 1);\n    sum2 -= a[i];\n\n}\n\nint main() {\n\n    cin &gt;&gt; n;\n\n    for (int i = 0; i &lt; n; i++) {\n        cin &gt;&gt; a[i];\n    }\n\n    backtracking(0);\n\n    cout &lt;&lt; ans &lt;&lt; \"\\n\";\n}",
+    "text": "Apple Division\n\nCSES\n\n\n\nGiven array p of n elements. We want to divide elements into two groups such that the absolute difference of the sums of each group is as small as possible. You are asked to print the minimum difference.",
     "crumbs": [
       "Stage 3",
       "Backtracking"
@@ -156,7 +158,7 @@
     "href": "b2/problems/coin-combinations-I.html",
     "title": "",
     "section": "",
-    "text": "Coin Combinations I\n\nCSES\nmedium\n\n\n\nConsider a money system consisting of \\(n\\) coins. Each coin has a positive integer value. Your task is to calculate the number of distinct ways you can produce a money sum \\(x\\) using the available coins.\nOrder of coins matters in a combination. For example, if the coins are \\({2,3,5}\\) and the desired sum is \\(9\\), there are 8 ways:\n[ ]\nInput:\n\nThe first input line has two integers \\(n\\) and \\(x\\): the number of coins and the desired sum of money.\nThe second line has \\(n\\) distinct integers \\(c_1, c_2, \\dots, c_n\\): the value of each coin.\n\nOutput:\n\nPrint one integer: the number of ways to form the sum \\(x\\), modulo \\(10^9 + 7\\).\n\nConstraints:\n\n\\(1 \\le n \\le 100\\)\n\\(1 \\le x \\le 10^6\\)\n\\(1 \\le c_i \\le 10^6\\)\n\nExample:\nInput:\n3 9\n2 3 5\nOutput:\n8",
+    "text": "Coin Combinations I\n\nCSES\nmedium\n\n\n\nConsider a money system consisting of \\(n\\) coins. Each coin has a positive integer value. Your task is to calculate the number of distinct ways you can produce a money sum \\(x\\) using the available coins.\nOrder of coins matters in a combination. For example, if the coins are \\({2,3,5}\\) and the desired sum is \\(9\\), there are 8 ways:\n2 + 2 + 5\n2 + 5 + 2\n5 + 2 + 2\n3 + 3 + 3\n2 + 2 + 2 + 3\n2 + 2 + 3 + 2\n2 + 3 + 2 + 2\n3 + 2 + 2 + 2\nInput:\n\nThe first input line has two integers \\(n\\) and \\(x\\): the number of coins and the desired sum of money.\nThe second line has \\(n\\) distinct integers \\(c_1, c_2, \\dots, c_n\\): the value of each coin.\n\nOutput:\n\nPrint one integer: the number of ways to form the sum \\(x\\), modulo \\(10^9 + 7\\).\n\nConstraints:\n\n\\(1 \\le n \\le 100\\)\n\\(1 \\le x \\le 10^6\\)\n\\(1 \\le c_i \\le 10^6\\)\n\nExample:\nInput:\n3 9\n2 3 5\nOutput:\n8",
     "crumbs": [
       "Stage 3",
       "Practice Problems",
@@ -168,7 +170,7 @@
     "href": "b2/problems/coin-combinations-I.html#coin-combinations-i",
     "title": "",
     "section": "",
-    "text": "Coin Combinations I\n\nCSES\nmedium\n\n\n\nConsider a money system consisting of \\(n\\) coins. Each coin has a positive integer value. Your task is to calculate the number of distinct ways you can produce a money sum \\(x\\) using the available coins.\nOrder of coins matters in a combination. For example, if the coins are \\({2,3,5}\\) and the desired sum is \\(9\\), there are 8 ways:\n[ ]\nInput:\n\nThe first input line has two integers \\(n\\) and \\(x\\): the number of coins and the desired sum of money.\nThe second line has \\(n\\) distinct integers \\(c_1, c_2, \\dots, c_n\\): the value of each coin.\n\nOutput:\n\nPrint one integer: the number of ways to form the sum \\(x\\), modulo \\(10^9 + 7\\).\n\nConstraints:\n\n\\(1 \\le n \\le 100\\)\n\\(1 \\le x \\le 10^6\\)\n\\(1 \\le c_i \\le 10^6\\)\n\nExample:\nInput:\n3 9\n2 3 5\nOutput:\n8",
+    "text": "Coin Combinations I\n\nCSES\nmedium\n\n\n\nConsider a money system consisting of \\(n\\) coins. Each coin has a positive integer value. Your task is to calculate the number of distinct ways you can produce a money sum \\(x\\) using the available coins.\nOrder of coins matters in a combination. For example, if the coins are \\({2,3,5}\\) and the desired sum is \\(9\\), there are 8 ways:\n2 + 2 + 5\n2 + 5 + 2\n5 + 2 + 2\n3 + 3 + 3\n2 + 2 + 2 + 3\n2 + 2 + 3 + 2\n2 + 3 + 2 + 2\n3 + 2 + 2 + 2\nInput:\n\nThe first input line has two integers \\(n\\) and \\(x\\): the number of coins and the desired sum of money.\nThe second line has \\(n\\) distinct integers \\(c_1, c_2, \\dots, c_n\\): the value of each coin.\n\nOutput:\n\nPrint one integer: the number of ways to form the sum \\(x\\), modulo \\(10^9 + 7\\).\n\nConstraints:\n\n\\(1 \\le n \\le 100\\)\n\\(1 \\le x \\le 10^6\\)\n\\(1 \\le c_i \\le 10^6\\)\n\nExample:\nInput:\n3 9\n2 3 5\nOutput:\n8",
     "crumbs": [
       "Stage 3",
       "Practice Problems",
@@ -178,204 +180,237 @@
   {
     "objectID": "b2/dynamic-programming.html",
     "href": "b2/dynamic-programming.html",
-    "title": "Dynamic Programming (DP)",
+    "title": "Dynamic Programming",
     "section": "",
-    "text": "Dynamic Programming (DP) is a way to solve problems where:\n\nThe same subproblems repeat many times, and\nThe answer to the big problem can be built from answers to smaller subproblems.\n\nKey idea: Don’t recompute the same thing over and over. Instead, remember (memoize) results in an array or map and reuse them.\n\n\n\nWe define the Fibonacci sequence:\n\nF(0) = 0\nF(1) = 1\nF(n) = F(n-1) + F(n-2) for n ≥ 2\n\n\n\nint fib(int n) {\n    if (n == 0) return 0;\n    if (n == 1) return 1;\n    return fib(n - 1) + fib(n - 2);\n}\nWhat’s wrong with this?\n\nfib(5) calls fib(4) and fib(3)\nfib(4) calls fib(3) and fib(2)\nfib(3) gets called again and again\n\nThis creates an exponential number of calls: Time ≈ O(2^n) — too slow for large n.\n\n\n\n\n\nWe create an array dp[] where:\n\ndp[n] = the value of fib(n) once computed.\n\nBefore computing fib(n), we check if it was already computed.\n#include &lt;iostream&gt;\n#include &lt;vector&gt;\nusing namespace std;\n\nvector&lt;long long&gt; dp;\n\nlong long fib(int n) {\n    if (n == 0) return 0;\n    if (n == 1) return 1;\n\n    if (dp[n] != -1) return dp[n]; // already computed\n\n    dp[n] = fib(n - 1) + fib(n - 2);\n    return dp[n];\n}\n\nint main() {\n    int n = 50;\n    dp.assign(n + 1, -1);\n\n    cout &lt;&lt; \"F(\" &lt;&lt; n &lt;&lt; \") = \" &lt;&lt; fib(n) &lt;&lt; \"\\n\";\n}\nNow each fib(k) is computed once. All later calls just reuse the stored answer.\n\n\n\n\nLet’s use SRTBOT to organize our DP thinking:\n\n\nWhat does dp[i] represent?\n\ndp[i] = F(i), the i-th Fibonacci number.\n\n\n\n\n\nHow do we build big states from smaller ones?\n\ndp[i] = dp[i-1] + dp[i-2] for i ≥ 2\n\n\n\n\n\nTo compute dp[i], we use:\n\ndp[i-1]\ndp[i-2]\n\n\n\n\n\nWe must define the first values:\n\ndp[0] = 0\ndp[1] = 1\n\n\n\n\n\nFor bottom-up DP:\nfor (int i = 2; i &lt;= n; i++) {\n    dp[i] = dp[i - 1] + dp[i - 2];\n}\nWe compute from small to large (0 → 1 → 2 → ... → n).\n\n\n\n\n\nTime: each i from 0 to n is computed once → O(n)\nSpace: we store dp[0..n] → O(n) (can be reduced to O(1) by only keeping the last two values)\n\n\n\n\n\n\nProblem:\nYou are given an array cost[0..n-1], where cost[i] is the energy or money you pay when you step on position i.\nYou start before the array and want to go beyond the last index (to position n). From index i, you may move to:\n\ni + 1, or\ni + 2\n\nYou can start from index 0 or index 1.\nGoal: Find the minimum total cost to reach position n.\nExample:\ncost = [1, 100, 1, 1]\n\nPossible ways:\n\nStart at 0:\n  0 -&gt; 2 -&gt; n\n  cost = cost[0] + cost[2] = 1 + 1 = 2\n\nStart at 1:\n  1 -&gt; 3 -&gt; n\n  cost = 100 + 1 = 101\n\nAnswer = 2\n\n\n\nLet’s define a recursive function:\n\nsolve(i) = minimum cost to go from index i to the end (position n).\n\nTransitions:\n\nFrom i, you pay cost[i], then go to i+1 or i+2.\n\nint n;\nvector&lt;int&gt; cost;\n\nint solve(int i) {\n    if (i &gt;= n) return 0;\n\n    int take1 = solve(i + 1);\n    int take2 = solve(i + 2);\n    return cost[i] + min(take1, take2);\n}\n\nint main() {\n    cost = {1, 100, 1, 1};\n    n = cost.size();\n\n    int ans = min(solve(0), solve(1));  // can start from 0 or 1\n    cout &lt;&lt; ans &lt;&lt; \"\\n\";\n}\nWhy is this slow?\n\nsolve(i) calls solve(i+1) and solve(i+2).\nThose calls overlap heavily (same i recomputed many times).\nTime becomes exponential in n (O(2^n)).\n\n\n\n\n\n\nWe store the answer for each i in dp[i]:\n#include &lt;iostream&gt;\n#include &lt;vector&gt;\nusing namespace std;\n\nint n;\nvector&lt;int&gt; cost;\nvector&lt;int&gt; dp;\n\nint solve(int i) {\n    if (i &gt;= n) return 0;\n\n    if (dp[i] != -1) return dp[i]; // already computed\n\n    int take1 = solve(i + 1);\n    int take2 = solve(i + 2);\n    dp[i] = cost[i] + min(take1, take2);\n    return dp[i];\n}\n\nint main() {\n    cost = {1, 100, 1, 1};\n    n = cost.size();\n    dp.assign(n, -1);\n\n    int ans = min(solve(0), solve(1));\n    cout &lt;&lt; \"Minimum cost = \" &lt;&lt; ans &lt;&lt; \"\\n\";\n}\nNow:\n\nEach solve(i) is computed once.\nTotal time is O(n) instead of exponential.\n\n\n\n\n\nWe can also do it iteratively from the end to the beginning.\nDefine:\n\ndp[i] = minimum cost to go from index i to the end.\n\nThen:\n\nIf i &gt;= n, cost is 0.\nFor i &lt; n:\n\ndp[i] = cost[i] + min(dp[i+1], dp[i+2])\n\n\nWe usually make the array slightly larger (size n+2) to avoid bounds checks.\n#include &lt;iostream&gt;\n#include &lt;vector&gt;\nusing namespace std;\n\nint main() {\n    vector&lt;int&gt; cost = {1, 100, 1, 1};\n    int n = cost.size();\n\n    vector&lt;int&gt; dp(n + 2, 0); // dp[n] and dp[n+1] = 0 by default\n\n    for (int i = n - 1; i &gt;= 0; i--) {\n        dp[i] = cost[i] + min(dp[i + 1], dp[i + 2]);\n    }\n\n    int ans = min(dp[0], dp[1]); // can start from index 0 or 1\n    cout &lt;&lt; \"Minimum cost = \" &lt;&lt; ans &lt;&lt; \"\\n\";\n}\n\n\n\n\nLet’s apply the SRTBOT framework.\n\n\n\ndp[i] = minimum total cost to go from index i to position n (i.e., to reach or go beyond the end).\n\n\n\n\n\nFrom index i, you:\n\nPay cost[i]\nThen jump to i+1 or i+2\n\nSo:\n\ndp[i] = cost[i] + min(dp[i+1], dp[i+2])\n\n\n\n\n\nFrom state i, we can transition to:\n\ni + 1\ni + 2\n\nThose are the only “edges” in our DP graph.\n\n\n\n\nWe define:\n\ndp[n] = 0 (already at/beyond the end, no more cost)\ndp[n+1] = 0 (safe padding to use dp[i+2] when i = n-1)\n\nIn top-down:\n\nIf i &gt;= n, return 0.\n\n\n\n\n\nFor bottom-up:\n\nWe process i from n-1 down to 0, so that:\n\ndp[i+1] and dp[i+2] are already computed when we calculate dp[i].\n\n\nfor (int i = n - 1; i &gt;= 0; i--) {\n    dp[i] = cost[i] + min(dp[i + 1], dp[i + 2]);\n}\n\n\n\n\n\nTime: We compute dp[i] once for each i in [0..n-1], each in O(1) → total O(n).\nSpace: We use an array dp of size n+2 → O(n). (We can even reduce it to O(1) by only keeping the last two values.)\n\n\n\n\n\n\nDynamic Programming usually appears when:\n\nYou can write a recursive solution that:\n\nCombines answers to smaller subproblems\nBut recomputes the same subproblems many times\n\nYou then:\n\nDefine a state (dp[...])\nDerive a recurrence\nAdd memoization (top-down) or fill a table (bottom-up)\n\n\nSRTBOT helps you structure your thinking:\n\nState → Recurrence → Transitions → Base cases → Order of computation → Time/space complexity",
+    "text": "Dynamic Programming (DP) is a way to solve problems where:\n\nThe same subproblems repeat many times, and\nThe answer to the big problem can be built from answers to smaller subproblems.\n\nKey idea: Don’t recompute the same thing over and over. Instead, remember (memoize) results in an array or map and reuse them.\n\n\nWe define the Fibonacci sequence:\n\nF(0) = 0\nF(1) = 1\nF(n) = F(n-1) + F(n-2) for n ≥ 2\n\n\n\nint fib(int n) {\n    if (n == 0) return 0;\n    if (n == 1) return 1;\n    return fib(n - 1) + fib(n - 2);\n}\nWhat’s wrong with this?\n\nfib(5) calls fib(4) and fib(3)\nfib(4) calls fib(3) and fib(2)\nfib(3) gets called again and again\n\nThis creates an exponential number of calls: Time ≈ O(2^n) — too slow for large n.\n\n\n\n\nWe create an array dp[] where:\n\ndp[n] = the value of fib(n) once computed.\n\nBefore computing fib(n), we check if it was already computed.\n#include &lt;iostream&gt;\n#include &lt;vector&gt;\nusing namespace std;\n\nvector&lt;long long&gt; dp;\n\nlong long fib(int n) {\n    if (n == 0) return 0;\n    if (n == 1) return 1;\n\n    if (dp[n] != -1) return dp[n]; // already computed\n\n    dp[n] = fib(n - 1) + fib(n - 2);\n    return dp[n];\n}\n\nint main() {\n    int n = 50;\n    dp.assign(n + 1, -1);\n\n    cout &lt;&lt; \"F(\" &lt;&lt; n &lt;&lt; \") = \" &lt;&lt; fib(n) &lt;&lt; \"\\n\";\n}\nNow each fib(k) is computed once. All later calls just reuse the stored answer.\n\n\n\nLet’s use SRTBOT to organize our DP thinking:\n\n\nWhat does dp[i] represent?\n\ndp[i] = F(i), the i-th Fibonacci number.\n\n\n\n\nHow do we build big states from smaller ones?\n\ndp[i] = dp[i-1] + dp[i-2] for i ≥ 2\n\n\n\n\nTo compute dp[i], we use:\n\ndp[i-1]\ndp[i-2]\n\n\n\n\nWe must define the first values:\n\ndp[0] = 0\ndp[1] = 1\n\n\n\n\nFor bottom-up DP:\nfor (int i = 2; i &lt;= n; i++) {\n    dp[i] = dp[i - 1] + dp[i - 2];\n}\nWe compute from small to large (0 → 1 → 2 → ... → n).\n\n\n\n\nTime: each i from 0 to n is computed once → O(n)\nSpace: we store dp[0..n] → O(n) (can be reduced to O(1) by only keeping the last two values)\n\n\n\n\n\n\n\nYou are given an array cost[0..n-1], where cost[i] is the energy or money you pay when you step on position i.\nYou start before the array and want to go beyond the last index (to position n). From index i, you may move to:\n\ni + 1, or\ni + 2\n\nYou can start from index 0 or index 1.\nGoal: Find the minimum total cost to reach position n.\n\n\n\ncost = [1, 100, 1, 1]\n\nPossible ways:\n\nStart at 0:\n  0 -&gt; 2 -&gt; n\n  cost = cost[0] + cost[2] = 1 + 1 = 2\n\nStart at 1:\n  1 -&gt; 3 -&gt; n\n  cost = 100 + 1 = 101\n\nAnswer = 2\n\n\n\nLet’s define a recursive function:\n\nsolve(i) = minimum cost to go from index i to the end (position n).\n\nTransitions:\n\nFrom i, you pay cost[i], then go to i+1 or i+2.\n\nint n;\nvector&lt;int&gt; cost;\n\nint solve(int i) {\n    if (i &gt;= n) return 0;\n\n    int take1 = solve(i + 1);\n    int take2 = solve(i + 2);\n    return cost[i] + min(take1, take2);\n}\n\nint main() {\n    cost = {1, 100, 1, 1};\n    n = cost.size();\n\n    int ans = min(solve(0), solve(1));  // can start from 0 or 1\n    cout &lt;&lt; ans &lt;&lt; \"\\n\";\n}\nWhy is this slow?\n\nsolve(i) calls solve(i+1) and solve(i+2).\nThose calls overlap heavily (same i recomputed many times).\nTime becomes exponential in n (O(2^n)).\n\n\n\n\n\nWe store the answer for each i in dp[i]:\n#include &lt;iostream&gt;\n#include &lt;vector&gt;\nusing namespace std;\n\nint n;\nvector&lt;int&gt; cost;\nvector&lt;int&gt; dp;\n\nint solve(int i) {\n    if (i &gt;= n) return 0;\n\n    if (dp[i] != -1) return dp[i]; // already computed\n\n    int take1 = solve(i + 1);\n    int take2 = solve(i + 2);\n    dp[i] = cost[i] + min(take1, take2);\n    return dp[i];\n}\n\nint main() {\n    cost = {1, 100, 1, 1};\n    n = cost.size();\n    dp.assign(n, -1);\n\n    int ans = min(solve(0), solve(1));\n    cout &lt;&lt; \"Minimum cost = \" &lt;&lt; ans &lt;&lt; \"\\n\";\n}\nNow:\n\nEach solve(i) is computed once.\nTotal time is O(n) instead of exponential.\n\n\n\n\nWe can also do it iteratively from the end to the beginning.\nDefine:\n\ndp[i] = minimum cost to go from index i to the end.\n\nThen:\n\nIf i &gt;= n, cost is 0.\nFor i &lt; n:\n\ndp[i] = cost[i] + min(dp[i+1], dp[i+2])\n\n\nWe usually make the array slightly larger (size n+2) to avoid bounds checks.\n#include &lt;iostream&gt;\n#include &lt;vector&gt;\nusing namespace std;\n\nint main() {\n    vector&lt;int&gt; cost = {1, 100, 1, 1};\n    int n = cost.size();\n\n    vector&lt;int&gt; dp(n + 2, 0); // dp[n] and dp[n+1] = 0 by default\n\n    for (int i = n - 1; i &gt;= 0; i--) {\n        dp[i] = cost[i] + min(dp[i + 1], dp[i + 2]);\n    }\n\n    int ans = min(dp[0], dp[1]); // can start from index 0 or 1\n    cout &lt;&lt; \"Minimum cost = \" &lt;&lt; ans &lt;&lt; \"\\n\";\n}\n\n\n\nLet’s apply the SRTBOT framework.\n\n\n\ndp[i] = minimum total cost to go from index i to position n (i.e., to reach or go beyond the end).\n\n\n\n\nFrom index i, you:\n\nPay cost[i]\nThen jump to i+1 or i+2\n\nSo:\n\ndp[i] = cost[i] + min(dp[i+1], dp[i+2])\n\n\n\n\nFrom state i, we can transition to:\n\ni + 1\ni + 2\n\nThose are the only “edges” in our DP graph.\n\n\n\nWe define:\n\ndp[n] = 0 (already at/beyond the end, no more cost)\ndp[n+1] = 0 (safe padding to use dp[i+2] when i = n-1)\n\nIn top-down:\n\nIf i &gt;= n, return 0.\n\n\n\n\nFor bottom-up:\n\nWe process i from n-1 down to 0, so that:\n\ndp[i+1] and dp[i+2] are already computed when we calculate dp[i].\n\n\nfor (int i = n - 1; i &gt;= 0; i--) {\n    dp[i] = cost[i] + min(dp[i + 1], dp[i + 2]);\n}\n\n\n\n\nTime: We compute dp[i] once for each i in [0..n-1], each in O(1) → total O(n).\nSpace: We use an array dp of size n+2 → O(n). (We can even reduce it to O(1) by only keeping the last two values.)\n\n\n\n\n\nDynamic Programming usually appears when:\n\nYou can write a recursive solution that:\n\nCombines answers to smaller subproblems\nBut recomputes the same subproblems many times\n\nYou then:\n\nDefine a state (dp[...])\nDerive a *ecurrence\nAdd memoization (top-down) or fill a table (bottom-up)\n\n\nSRTBOT helps you structure your thinking:\n\nState → Recurrence → Transitions → Base cases → Order of computation → Time/space complexity",
     "crumbs": [
       "Stage 3",
-      "Dynamic Programming (DP)"
+      "Dynamic Programming"
     ]
   },
   {
     "objectID": "b2/dynamic-programming.html#warm-up-fibonacci-numbers",
     "href": "b2/dynamic-programming.html#warm-up-fibonacci-numbers",
-    "title": "Dynamic Programming (DP)",
+    "title": "Dynamic Programming",
     "section": "",
     "text": "We define the Fibonacci sequence:\n\nF(0) = 0\nF(1) = 1\nF(n) = F(n-1) + F(n-2) for n ≥ 2\n\n\n\nint fib(int n) {\n    if (n == 0) return 0;\n    if (n == 1) return 1;\n    return fib(n - 1) + fib(n - 2);\n}\nWhat’s wrong with this?\n\nfib(5) calls fib(4) and fib(3)\nfib(4) calls fib(3) and fib(2)\nfib(3) gets called again and again\n\nThis creates an exponential number of calls: Time ≈ O(2^n) — too slow for large n.",
     "crumbs": [
       "Stage 3",
-      "Dynamic Programming (DP)"
+      "Dynamic Programming"
     ]
   },
   {
     "objectID": "b2/dynamic-programming.html#fixing-it-with-memoization-top-down-dp",
     "href": "b2/dynamic-programming.html#fixing-it-with-memoization-top-down-dp",
-    "title": "Dynamic Programming (DP)",
+    "title": "Dynamic Programming",
     "section": "",
     "text": "We create an array dp[] where:\n\ndp[n] = the value of fib(n) once computed.\n\nBefore computing fib(n), we check if it was already computed.\n#include &lt;iostream&gt;\n#include &lt;vector&gt;\nusing namespace std;\n\nvector&lt;long long&gt; dp;\n\nlong long fib(int n) {\n    if (n == 0) return 0;\n    if (n == 1) return 1;\n\n    if (dp[n] != -1) return dp[n]; // already computed\n\n    dp[n] = fib(n - 1) + fib(n - 2);\n    return dp[n];\n}\n\nint main() {\n    int n = 50;\n    dp.assign(n + 1, -1);\n\n    cout &lt;&lt; \"F(\" &lt;&lt; n &lt;&lt; \") = \" &lt;&lt; fib(n) &lt;&lt; \"\\n\";\n}\nNow each fib(k) is computed once. All later calls just reuse the stored answer.",
     "crumbs": [
       "Stage 3",
-      "Dynamic Programming (DP)"
+      "Dynamic Programming"
     ]
   },
   {
     "objectID": "b2/dynamic-programming.html#srtbot-framework-for-dp",
     "href": "b2/dynamic-programming.html#srtbot-framework-for-dp",
-    "title": "Dynamic Programming (DP)",
+    "title": "Dynamic Programming",
     "section": "",
-    "text": "Let’s use SRTBOT to organize our DP thinking:\n\n\nWhat does dp[i] represent?\n\ndp[i] = F(i), the i-th Fibonacci number.\n\n\n\n\n\nHow do we build big states from smaller ones?\n\ndp[i] = dp[i-1] + dp[i-2] for i ≥ 2\n\n\n\n\n\nTo compute dp[i], we use:\n\ndp[i-1]\ndp[i-2]\n\n\n\n\n\nWe must define the first values:\n\ndp[0] = 0\ndp[1] = 1\n\n\n\n\n\nFor bottom-up DP:\nfor (int i = 2; i &lt;= n; i++) {\n    dp[i] = dp[i - 1] + dp[i - 2];\n}\nWe compute from small to large (0 → 1 → 2 → ... → n).\n\n\n\n\n\nTime: each i from 0 to n is computed once → O(n)\nSpace: we store dp[0..n] → O(n) (can be reduced to O(1) by only keeping the last two values)",
+    "text": "Let’s use SRTBOT to organize our DP thinking:\n\n\nWhat does dp[i] represent?\n\ndp[i] = F(i), the i-th Fibonacci number.\n\n\n\n\nHow do we build big states from smaller ones?\n\ndp[i] = dp[i-1] + dp[i-2] for i ≥ 2\n\n\n\n\nTo compute dp[i], we use:\n\ndp[i-1]\ndp[i-2]\n\n\n\n\nWe must define the first values:\n\ndp[0] = 0\ndp[1] = 1\n\n\n\n\nFor bottom-up DP:\nfor (int i = 2; i &lt;= n; i++) {\n    dp[i] = dp[i - 1] + dp[i - 2];\n}\nWe compute from small to large (0 → 1 → 2 → ... → n).\n\n\n\n\nTime: each i from 0 to n is computed once → O(n)\nSpace: we store dp[0..n] → O(n) (can be reduced to O(1) by only keeping the last two values)",
     "crumbs": [
       "Stage 3",
-      "Dynamic Programming (DP)"
+      "Dynamic Programming"
     ]
   },
   {
     "objectID": "b2/dynamic-programming.html#minimum-cost-to-reach-the-end",
     "href": "b2/dynamic-programming.html#minimum-cost-to-reach-the-end",
-    "title": "Dynamic Programming (DP)",
+    "title": "Dynamic Programming",
     "section": "",
-    "text": "Problem:\nYou are given an array cost[0..n-1], where cost[i] is the energy or money you pay when you step on position i.\nYou start before the array and want to go beyond the last index (to position n). From index i, you may move to:\n\ni + 1, or\ni + 2\n\nYou can start from index 0 or index 1.\nGoal: Find the minimum total cost to reach position n.\nExample:\ncost = [1, 100, 1, 1]\n\nPossible ways:\n\nStart at 0:\n  0 -&gt; 2 -&gt; n\n  cost = cost[0] + cost[2] = 1 + 1 = 2\n\nStart at 1:\n  1 -&gt; 3 -&gt; n\n  cost = 100 + 1 = 101\n\nAnswer = 2\n\n\n\nLet’s define a recursive function:\n\nsolve(i) = minimum cost to go from index i to the end (position n).\n\nTransitions:\n\nFrom i, you pay cost[i], then go to i+1 or i+2.\n\nint n;\nvector&lt;int&gt; cost;\n\nint solve(int i) {\n    if (i &gt;= n) return 0;\n\n    int take1 = solve(i + 1);\n    int take2 = solve(i + 2);\n    return cost[i] + min(take1, take2);\n}\n\nint main() {\n    cost = {1, 100, 1, 1};\n    n = cost.size();\n\n    int ans = min(solve(0), solve(1));  // can start from 0 or 1\n    cout &lt;&lt; ans &lt;&lt; \"\\n\";\n}\nWhy is this slow?\n\nsolve(i) calls solve(i+1) and solve(i+2).\nThose calls overlap heavily (same i recomputed many times).\nTime becomes exponential in n (O(2^n)).",
+    "text": "You are given an array cost[0..n-1], where cost[i] is the energy or money you pay when you step on position i.\nYou start before the array and want to go beyond the last index (to position n). From index i, you may move to:\n\ni + 1, or\ni + 2\n\nYou can start from index 0 or index 1.\nGoal: Find the minimum total cost to reach position n.\n\n\n\ncost = [1, 100, 1, 1]\n\nPossible ways:\n\nStart at 0:\n  0 -&gt; 2 -&gt; n\n  cost = cost[0] + cost[2] = 1 + 1 = 2\n\nStart at 1:\n  1 -&gt; 3 -&gt; n\n  cost = 100 + 1 = 101\n\nAnswer = 2\n\n\n\nLet’s define a recursive function:\n\nsolve(i) = minimum cost to go from index i to the end (position n).\n\nTransitions:\n\nFrom i, you pay cost[i], then go to i+1 or i+2.\n\nint n;\nvector&lt;int&gt; cost;\n\nint solve(int i) {\n    if (i &gt;= n) return 0;\n\n    int take1 = solve(i + 1);\n    int take2 = solve(i + 2);\n    return cost[i] + min(take1, take2);\n}\n\nint main() {\n    cost = {1, 100, 1, 1};\n    n = cost.size();\n\n    int ans = min(solve(0), solve(1));  // can start from 0 or 1\n    cout &lt;&lt; ans &lt;&lt; \"\\n\";\n}\nWhy is this slow?\n\nsolve(i) calls solve(i+1) and solve(i+2).\nThose calls overlap heavily (same i recomputed many times).\nTime becomes exponential in n (O(2^n)).",
     "crumbs": [
       "Stage 3",
-      "Dynamic Programming (DP)"
+      "Dynamic Programming"
     ]
   },
   {
     "objectID": "b2/dynamic-programming.html#add-memoization-top-down-dp",
     "href": "b2/dynamic-programming.html#add-memoization-top-down-dp",
-    "title": "Dynamic Programming (DP)",
+    "title": "Dynamic Programming",
     "section": "",
     "text": "We store the answer for each i in dp[i]:\n#include &lt;iostream&gt;\n#include &lt;vector&gt;\nusing namespace std;\n\nint n;\nvector&lt;int&gt; cost;\nvector&lt;int&gt; dp;\n\nint solve(int i) {\n    if (i &gt;= n) return 0;\n\n    if (dp[i] != -1) return dp[i]; // already computed\n\n    int take1 = solve(i + 1);\n    int take2 = solve(i + 2);\n    dp[i] = cost[i] + min(take1, take2);\n    return dp[i];\n}\n\nint main() {\n    cost = {1, 100, 1, 1};\n    n = cost.size();\n    dp.assign(n, -1);\n\n    int ans = min(solve(0), solve(1));\n    cout &lt;&lt; \"Minimum cost = \" &lt;&lt; ans &lt;&lt; \"\\n\";\n}\nNow:\n\nEach solve(i) is computed once.\nTotal time is O(n) instead of exponential.",
     "crumbs": [
       "Stage 3",
-      "Dynamic Programming (DP)"
+      "Dynamic Programming"
     ]
   },
   {
     "objectID": "b2/dynamic-programming.html#bottom-up-dp-version",
     "href": "b2/dynamic-programming.html#bottom-up-dp-version",
-    "title": "Dynamic Programming (DP)",
+    "title": "Dynamic Programming",
     "section": "",
     "text": "We can also do it iteratively from the end to the beginning.\nDefine:\n\ndp[i] = minimum cost to go from index i to the end.\n\nThen:\n\nIf i &gt;= n, cost is 0.\nFor i &lt; n:\n\ndp[i] = cost[i] + min(dp[i+1], dp[i+2])\n\n\nWe usually make the array slightly larger (size n+2) to avoid bounds checks.\n#include &lt;iostream&gt;\n#include &lt;vector&gt;\nusing namespace std;\n\nint main() {\n    vector&lt;int&gt; cost = {1, 100, 1, 1};\n    int n = cost.size();\n\n    vector&lt;int&gt; dp(n + 2, 0); // dp[n] and dp[n+1] = 0 by default\n\n    for (int i = n - 1; i &gt;= 0; i--) {\n        dp[i] = cost[i] + min(dp[i + 1], dp[i + 2]);\n    }\n\n    int ans = min(dp[0], dp[1]); // can start from index 0 or 1\n    cout &lt;&lt; \"Minimum cost = \" &lt;&lt; ans &lt;&lt; \"\\n\";\n}",
     "crumbs": [
       "Stage 3",
-      "Dynamic Programming (DP)"
+      "Dynamic Programming"
     ]
   },
   {
     "objectID": "b2/dynamic-programming.html#srtbot-for-minimum-cost-to-reach-the-end",
     "href": "b2/dynamic-programming.html#srtbot-for-minimum-cost-to-reach-the-end",
-    "title": "Dynamic Programming (DP)",
+    "title": "Dynamic Programming",
     "section": "",
-    "text": "Let’s apply the SRTBOT framework.\n\n\n\ndp[i] = minimum total cost to go from index i to position n (i.e., to reach or go beyond the end).\n\n\n\n\n\nFrom index i, you:\n\nPay cost[i]\nThen jump to i+1 or i+2\n\nSo:\n\ndp[i] = cost[i] + min(dp[i+1], dp[i+2])\n\n\n\n\n\nFrom state i, we can transition to:\n\ni + 1\ni + 2\n\nThose are the only “edges” in our DP graph.\n\n\n\n\nWe define:\n\ndp[n] = 0 (already at/beyond the end, no more cost)\ndp[n+1] = 0 (safe padding to use dp[i+2] when i = n-1)\n\nIn top-down:\n\nIf i &gt;= n, return 0.\n\n\n\n\n\nFor bottom-up:\n\nWe process i from n-1 down to 0, so that:\n\ndp[i+1] and dp[i+2] are already computed when we calculate dp[i].\n\n\nfor (int i = n - 1; i &gt;= 0; i--) {\n    dp[i] = cost[i] + min(dp[i + 1], dp[i + 2]);\n}\n\n\n\n\n\nTime: We compute dp[i] once for each i in [0..n-1], each in O(1) → total O(n).\nSpace: We use an array dp of size n+2 → O(n). (We can even reduce it to O(1) by only keeping the last two values.)",
+    "text": "Let’s apply the SRTBOT framework.\n\n\n\ndp[i] = minimum total cost to go from index i to position n (i.e., to reach or go beyond the end).\n\n\n\n\nFrom index i, you:\n\nPay cost[i]\nThen jump to i+1 or i+2\n\nSo:\n\ndp[i] = cost[i] + min(dp[i+1], dp[i+2])\n\n\n\n\nFrom state i, we can transition to:\n\ni + 1\ni + 2\n\nThose are the only “edges” in our DP graph.\n\n\n\nWe define:\n\ndp[n] = 0 (already at/beyond the end, no more cost)\ndp[n+1] = 0 (safe padding to use dp[i+2] when i = n-1)\n\nIn top-down:\n\nIf i &gt;= n, return 0.\n\n\n\n\nFor bottom-up:\n\nWe process i from n-1 down to 0, so that:\n\ndp[i+1] and dp[i+2] are already computed when we calculate dp[i].\n\n\nfor (int i = n - 1; i &gt;= 0; i--) {\n    dp[i] = cost[i] + min(dp[i + 1], dp[i + 2]);\n}\n\n\n\n\nTime: We compute dp[i] once for each i in [0..n-1], each in O(1) → total O(n).\nSpace: We use an array dp of size n+2 → O(n). (We can even reduce it to O(1) by only keeping the last two values.)",
     "crumbs": [
       "Stage 3",
-      "Dynamic Programming (DP)"
+      "Dynamic Programming"
     ]
   },
   {
     "objectID": "b2/dynamic-programming.html#big-picture-intuition-for-dp",
     "href": "b2/dynamic-programming.html#big-picture-intuition-for-dp",
-    "title": "Dynamic Programming (DP)",
+    "title": "Dynamic Programming",
     "section": "",
-    "text": "Dynamic Programming usually appears when:\n\nYou can write a recursive solution that:\n\nCombines answers to smaller subproblems\nBut recomputes the same subproblems many times\n\nYou then:\n\nDefine a state (dp[...])\nDerive a recurrence\nAdd memoization (top-down) or fill a table (bottom-up)\n\n\nSRTBOT helps you structure your thinking:\n\nState → Recurrence → Transitions → Base cases → Order of computation → Time/space complexity",
+    "text": "Dynamic Programming usually appears when:\n\nYou can write a recursive solution that:\n\nCombines answers to smaller subproblems\nBut recomputes the same subproblems many times\n\nYou then:\n\nDefine a state (dp[...])\nDerive a *ecurrence\nAdd memoization (top-down) or fill a table (bottom-up)\n\n\nSRTBOT helps you structure your thinking:\n\nState → Recurrence → Transitions → Base cases → Order of computation → Time/space complexity",
     "crumbs": [
       "Stage 3",
-      "Dynamic Programming (DP)"
+      "Dynamic Programming"
     ]
   },
   {
     "objectID": "b2/cpp/bitwise-operations.html",
     "href": "b2/cpp/bitwise-operations.html",
-    "title": "Bitwise Operators and Bitmasks",
+    "title": "Bitwise Operations",
     "section": "",
-    "text": "Bitwise operators let you work with the individual bits of an integer. They’re super powerful for bit manipulation, optimization tricks, and things like generating all subsets of a set.\n\n\nComputers store integers in binary — using only 0 and 1. Each position (bit) represents a power of 2:\nBit position:  7  6  5  4  3  2  1  0\nValue:       128 64 32 16  8  4  2  1\nTo get the value of a binary number, you add the powers of 2 where there is a 1.\n\n\n00000110  =  4 + 2       = 6\n00001010  =  8 + 2       = 10\n00001100  =  8 + 4       = 12\n00000001  =  1           = 1\n00000000  =  0           = 0\nSo when we do bitwise operations (&, |, ^, etc.), we are combining or modifying these individual bits.\n\n\n\n\n\nAll of these work on integer types (int, long long, etc.):\n\n\n\n\n\n\n\n\nOperator\nName\nWhat it does (bitwise)\n\n\n\n\n&\nAND\n1 if both bits are 1\n\n\n|\nOR\n1 if at least one bit is 1\n\n\n^\nXOR\n1 if bits are different\n\n\n~\nNOT / complement\nFlips all bits (1 → 0, 0 → 1)\n\n\n&lt;&lt;\nLeft shift\nShifts bits left (multiply by powers of 2)\n\n\n&gt;&gt;\nRight shift\nShifts bits right (divide by powers of 2)\n\n\n\n\n\n\n\nLet’s use small numbers and pretend they’re 8-bit for clarity:\na = 6   -&gt; 00000110\nb = 10  -&gt; 00001010\n\n\na & b   -&gt; 00000110\n           00001010\n           --------\n           00000010  = 2\n\n\n\na | b   -&gt; 00000110\n           00001010\n           --------\n           00001110  = 14\n\n\n\na ^ b   -&gt; 00000110\n           00001010\n           --------\n           00001100  = 12   (bits that are different become 1)\n\n\n\n~a      -&gt; 11111001   (on 8 bits, but in real C++ it’s on full `int`/`long long`)\n\n\n\na &lt;&lt; 1  -&gt; 00001100  = 12   (6 * 2)\na &lt;&lt; 2  -&gt; 00011000  = 24   (6 * 4)\n\nb &gt;&gt; 1  -&gt; 00000101  = 5    (10 / 2)\n\n\n\n\n\n#include &lt;iostream&gt;\nusing namespace std;\n\nvoid printBits(int x) {\n    for (int i = 7; i &gt;= 0; i--) {\n        cout &lt;&lt; ((x &gt;&gt; i) & 1);\n    }\n}\n\nint main() {\n    int a = 6;   // 00000110\n    int b = 10;  // 00001010\n\n    cout &lt;&lt; \"a = \"; printBits(a); cout &lt;&lt; \" (\" &lt;&lt; a &lt;&lt; \")\\n\";\n    cout &lt;&lt; \"b = \"; printBits(b); cout &lt;&lt; \" (\" &lt;&lt; b &lt;&lt; \")\\n\\n\";\n\n    cout &lt;&lt; \"a & b = \"; printBits(a & b); cout &lt;&lt; \" (\" &lt;&lt; (a & b) &lt;&lt; \")\\n\";\n    cout &lt;&lt; \"a | b = \"; printBits(a | b); cout &lt;&lt; \" (\" &lt;&lt; (a | b) &lt;&lt; \")\\n\";\n    cout &lt;&lt; \"a ^ b = \"; printBits(a ^ b); cout &lt;&lt; \" (\" &lt;&lt; (a ^ b) &lt;&lt; \")\\n\";\n    cout &lt;&lt; \"~a    = \"; printBits((unsigned char)~a); cout &lt;&lt; \" (only low 8 bits)\\n\";\n\n    cout &lt;&lt; \"a &lt;&lt; 1 = \"; printBits(a &lt;&lt; 1); cout &lt;&lt; \" (\" &lt;&lt; (a &lt;&lt; 1) &lt;&lt; \")\\n\";\n    cout &lt;&lt; \"b &gt;&gt; 1 = \"; printBits(b &gt;&gt; 1); cout &lt;&lt; \" (\" &lt;&lt; (b &gt;&gt; 1) &lt;&lt; \")\\n\";\n}",
+    "text": "Bitwise operations let you work with the individual bits of an integer. They’re super powerful for bit manipulation, optimization tricks, and things like generating all subsets of a set.\n\n\nComputers store integers in binary — using only 0 and 1. Each position (bit) represents a power of 2:\nBit position:  7  6  5  4  3  2  1  0\nValue:       128 64 32 16  8  4  2  1\nTo get the value of a binary number, you add the powers of 2 where there is a 1.\n\n\n00000110  =  4 + 2       = 6\n00001010  =  8 + 2       = 10\n00001100  =  8 + 4       = 12\n00000001  =  1           = 1\n00000000  =  0           = 0\nSo when we do bitwise operations (&, |, ^, etc.), we are combining or modifying these individual bits.\n\n\n\n\nAll of these work on integer types (int, long long, etc.):\n\n\n\n\n\n\n\n\nOperator\nName\nWhat it does (bitwise)\n\n\n\n\n&\nAND\n1 if both bits are 1, otherwise 0\n\n\n|\nOR\n1 if at least one bit is 1, otherwise 0\n\n\n^\nXOR\n1 if bits are different, otherwise 0\n\n\n~\nNOT / complement\nFlips all bits (1 → 0, 0 → 1)\n\n\n&lt;&lt;\nLeft shift\nShifts bits left (multiply by powers of 2)\n\n\n&gt;&gt;\nRight shift\nShifts bits right (divide by powers of 2)\n\n\n\n\n\n\nLet’s use small numbers and pretend they’re 8-bit for clarity:\na = 6   -&gt; 00000110\nb = 10  -&gt; 00001010\n\n\na & b   -&gt; 00000110\n           00001010\n           --------\n           00000010  = 2\n\n\n\na | b   -&gt; 00000110\n           00001010\n           --------\n           00001110  = 14\n\n\n\na ^ b   -&gt; 00000110\n           00001010\n           --------\n           00001100  = 12   (bits that are different become 1)\n\n\n\n~a      -&gt; 11111001   (on 8 bits, but in real C++ it’s on full `int`/`long long`)\n\n\n\na &lt;&lt; 1  -&gt; 00001100  = 12   (6 * 2)\na &lt;&lt; 2  -&gt; 00011000  = 24   (6 * 4)\n\nb &gt;&gt; 1  -&gt; 00000101  = 5    (10 / 2)\nb &gt;&gt; 2  -&gt; 00000010  = 2    (10 / 4, integer division)\n\n\n\n\n#include &lt;iostream&gt;\nusing namespace std;\n\nvoid printBits(int x) {\n    for (int i = 7; i &gt;= 0; i--) {\n        cout &lt;&lt; ((x &gt;&gt; i) & 1);\n    }\n}\n\nint main() {\n    int a = 6;   // 00000110\n    int b = 10;  // 00001010\n\n    cout &lt;&lt; \"a = \"; printBits(a); cout &lt;&lt; \" (\" &lt;&lt; a &lt;&lt; \")\\n\";\n    cout &lt;&lt; \"b = \"; printBits(b); cout &lt;&lt; \" (\" &lt;&lt; b &lt;&lt; \")\\n\\n\";\n\n    cout &lt;&lt; \"a & b = \"; printBits(a & b); cout &lt;&lt; \" (\" &lt;&lt; (a & b) &lt;&lt; \")\\n\";\n    cout &lt;&lt; \"a | b = \"; printBits(a | b); cout &lt;&lt; \" (\" &lt;&lt; (a | b) &lt;&lt; \")\\n\";\n    cout &lt;&lt; \"a ^ b = \"; printBits(a ^ b); cout &lt;&lt; \" (\" &lt;&lt; (a ^ b) &lt;&lt; \")\\n\";\n    cout &lt;&lt; \"~a    = \"; printBits((unsigned char)~a); cout &lt;&lt; \" (only low 8 bits)\\n\";\n\n    cout &lt;&lt; \"a &lt;&lt; 1 = \"; printBits(a &lt;&lt; 1); cout &lt;&lt; \" (\" &lt;&lt; (a &lt;&lt; 1) &lt;&lt; \")\\n\";\n    cout &lt;&lt; \"b &gt;&gt; 1 = \"; printBits(b &gt;&gt; 1); cout &lt;&lt; \" (\" &lt;&lt; (b &gt;&gt; 1) &lt;&lt; \")\\n\";\n}\nThe function printBits goes through all bit positions i (from 7 to 0), and does x &gt;&gt; i, which shifts the given value x that many positions to the right. This makes the i-th bit come to the rightmost position. Then it does & 1 which “ANDs” that value with 00000001, which has an effect of keeping only the rightmost bit of that value. So these two operations together result in extracting the bit at the i-th position.",
     "crumbs": [
       "Stage 3",
       "C++",
-      "**Bitwise Operators and Bitmasks**"
+      "Bitwise Operations"
     ]
   },
   {
     "objectID": "b2/cpp/bitwise-operations.html#binary-numbers",
     "href": "b2/cpp/bitwise-operations.html#binary-numbers",
-    "title": "Bitwise Operators and Bitmasks",
+    "title": "Bitwise Operations",
     "section": "",
     "text": "Computers store integers in binary — using only 0 and 1. Each position (bit) represents a power of 2:\nBit position:  7  6  5  4  3  2  1  0\nValue:       128 64 32 16  8  4  2  1\nTo get the value of a binary number, you add the powers of 2 where there is a 1.\n\n\n00000110  =  4 + 2       = 6\n00001010  =  8 + 2       = 10\n00001100  =  8 + 4       = 12\n00000001  =  1           = 1\n00000000  =  0           = 0\nSo when we do bitwise operations (&, |, ^, etc.), we are combining or modifying these individual bits.",
     "crumbs": [
       "Stage 3",
       "C++",
-      "**Bitwise Operators and Bitmasks**"
+      "Bitwise Operations"
     ]
   },
   {
     "objectID": "b2/cpp/bitwise-operations.html#the-main-bitwise-operators",
     "href": "b2/cpp/bitwise-operations.html#the-main-bitwise-operators",
-    "title": "Bitwise Operators and Bitmasks",
+    "title": "Bitwise Operations",
     "section": "",
-    "text": "All of these work on integer types (int, long long, etc.):\n\n\n\n\n\n\n\n\nOperator\nName\nWhat it does (bitwise)\n\n\n\n\n&\nAND\n1 if both bits are 1\n\n\n|\nOR\n1 if at least one bit is 1\n\n\n^\nXOR\n1 if bits are different\n\n\n~\nNOT / complement\nFlips all bits (1 → 0, 0 → 1)\n\n\n&lt;&lt;\nLeft shift\nShifts bits left (multiply by powers of 2)\n\n\n&gt;&gt;\nRight shift\nShifts bits right (divide by powers of 2)",
+    "text": "All of these work on integer types (int, long long, etc.):\n\n\n\n\n\n\n\n\nOperator\nName\nWhat it does (bitwise)\n\n\n\n\n&\nAND\n1 if both bits are 1, otherwise 0\n\n\n|\nOR\n1 if at least one bit is 1, otherwise 0\n\n\n^\nXOR\n1 if bits are different, otherwise 0\n\n\n~\nNOT / complement\nFlips all bits (1 → 0, 0 → 1)\n\n\n&lt;&lt;\nLeft shift\nShifts bits left (multiply by powers of 2)\n\n\n&gt;&gt;\nRight shift\nShifts bits right (divide by powers of 2)",
     "crumbs": [
       "Stage 3",
       "C++",
-      "**Bitwise Operators and Bitmasks**"
+      "Bitwise Operations"
     ]
   },
   {
     "objectID": "b2/cpp/bitwise-operations.html#seeing-bitwise-operations-in-binary",
     "href": "b2/cpp/bitwise-operations.html#seeing-bitwise-operations-in-binary",
-    "title": "Bitwise Operators and Bitmasks",
+    "title": "Bitwise Operations",
     "section": "",
-    "text": "Let’s use small numbers and pretend they’re 8-bit for clarity:\na = 6   -&gt; 00000110\nb = 10  -&gt; 00001010\n\n\na & b   -&gt; 00000110\n           00001010\n           --------\n           00000010  = 2\n\n\n\na | b   -&gt; 00000110\n           00001010\n           --------\n           00001110  = 14\n\n\n\na ^ b   -&gt; 00000110\n           00001010\n           --------\n           00001100  = 12   (bits that are different become 1)\n\n\n\n~a      -&gt; 11111001   (on 8 bits, but in real C++ it’s on full `int`/`long long`)\n\n\n\na &lt;&lt; 1  -&gt; 00001100  = 12   (6 * 2)\na &lt;&lt; 2  -&gt; 00011000  = 24   (6 * 4)\n\nb &gt;&gt; 1  -&gt; 00000101  = 5    (10 / 2)",
+    "text": "Let’s use small numbers and pretend they’re 8-bit for clarity:\na = 6   -&gt; 00000110\nb = 10  -&gt; 00001010\n\n\na & b   -&gt; 00000110\n           00001010\n           --------\n           00000010  = 2\n\n\n\na | b   -&gt; 00000110\n           00001010\n           --------\n           00001110  = 14\n\n\n\na ^ b   -&gt; 00000110\n           00001010\n           --------\n           00001100  = 12   (bits that are different become 1)\n\n\n\n~a      -&gt; 11111001   (on 8 bits, but in real C++ it’s on full `int`/`long long`)\n\n\n\na &lt;&lt; 1  -&gt; 00001100  = 12   (6 * 2)\na &lt;&lt; 2  -&gt; 00011000  = 24   (6 * 4)\n\nb &gt;&gt; 1  -&gt; 00000101  = 5    (10 / 2)\nb &gt;&gt; 2  -&gt; 00000010  = 2    (10 / 4, integer division)",
     "crumbs": [
       "Stage 3",
       "C++",
-      "**Bitwise Operators and Bitmasks**"
+      "Bitwise Operations"
     ]
   },
   {
     "objectID": "b2/cpp/bitwise-operations.html#simple-c-example",
     "href": "b2/cpp/bitwise-operations.html#simple-c-example",
-    "title": "Bitwise Operators and Bitmasks",
+    "title": "Bitwise Operations",
     "section": "",
-    "text": "#include &lt;iostream&gt;\nusing namespace std;\n\nvoid printBits(int x) {\n    for (int i = 7; i &gt;= 0; i--) {\n        cout &lt;&lt; ((x &gt;&gt; i) & 1);\n    }\n}\n\nint main() {\n    int a = 6;   // 00000110\n    int b = 10;  // 00001010\n\n    cout &lt;&lt; \"a = \"; printBits(a); cout &lt;&lt; \" (\" &lt;&lt; a &lt;&lt; \")\\n\";\n    cout &lt;&lt; \"b = \"; printBits(b); cout &lt;&lt; \" (\" &lt;&lt; b &lt;&lt; \")\\n\\n\";\n\n    cout &lt;&lt; \"a & b = \"; printBits(a & b); cout &lt;&lt; \" (\" &lt;&lt; (a & b) &lt;&lt; \")\\n\";\n    cout &lt;&lt; \"a | b = \"; printBits(a | b); cout &lt;&lt; \" (\" &lt;&lt; (a | b) &lt;&lt; \")\\n\";\n    cout &lt;&lt; \"a ^ b = \"; printBits(a ^ b); cout &lt;&lt; \" (\" &lt;&lt; (a ^ b) &lt;&lt; \")\\n\";\n    cout &lt;&lt; \"~a    = \"; printBits((unsigned char)~a); cout &lt;&lt; \" (only low 8 bits)\\n\";\n\n    cout &lt;&lt; \"a &lt;&lt; 1 = \"; printBits(a &lt;&lt; 1); cout &lt;&lt; \" (\" &lt;&lt; (a &lt;&lt; 1) &lt;&lt; \")\\n\";\n    cout &lt;&lt; \"b &gt;&gt; 1 = \"; printBits(b &gt;&gt; 1); cout &lt;&lt; \" (\" &lt;&lt; (b &gt;&gt; 1) &lt;&lt; \")\\n\";\n}",
+    "text": "#include &lt;iostream&gt;\nusing namespace std;\n\nvoid printBits(int x) {\n    for (int i = 7; i &gt;= 0; i--) {\n        cout &lt;&lt; ((x &gt;&gt; i) & 1);\n    }\n}\n\nint main() {\n    int a = 6;   // 00000110\n    int b = 10;  // 00001010\n\n    cout &lt;&lt; \"a = \"; printBits(a); cout &lt;&lt; \" (\" &lt;&lt; a &lt;&lt; \")\\n\";\n    cout &lt;&lt; \"b = \"; printBits(b); cout &lt;&lt; \" (\" &lt;&lt; b &lt;&lt; \")\\n\\n\";\n\n    cout &lt;&lt; \"a & b = \"; printBits(a & b); cout &lt;&lt; \" (\" &lt;&lt; (a & b) &lt;&lt; \")\\n\";\n    cout &lt;&lt; \"a | b = \"; printBits(a | b); cout &lt;&lt; \" (\" &lt;&lt; (a | b) &lt;&lt; \")\\n\";\n    cout &lt;&lt; \"a ^ b = \"; printBits(a ^ b); cout &lt;&lt; \" (\" &lt;&lt; (a ^ b) &lt;&lt; \")\\n\";\n    cout &lt;&lt; \"~a    = \"; printBits((unsigned char)~a); cout &lt;&lt; \" (only low 8 bits)\\n\";\n\n    cout &lt;&lt; \"a &lt;&lt; 1 = \"; printBits(a &lt;&lt; 1); cout &lt;&lt; \" (\" &lt;&lt; (a &lt;&lt; 1) &lt;&lt; \")\\n\";\n    cout &lt;&lt; \"b &gt;&gt; 1 = \"; printBits(b &gt;&gt; 1); cout &lt;&lt; \" (\" &lt;&lt; (b &gt;&gt; 1) &lt;&lt; \")\\n\";\n}\nThe function printBits goes through all bit positions i (from 7 to 0), and does x &gt;&gt; i, which shifts the given value x that many positions to the right. This makes the i-th bit come to the rightmost position. Then it does & 1 which “ANDs” that value with 00000001, which has an effect of keeping only the rightmost bit of that value. So these two operations together result in extracting the bit at the i-th position.",
     "crumbs": [
       "Stage 3",
       "C++",
-      "**Bitwise Operators and Bitmasks**"
+      "Bitwise Operations"
     ]
   },
   {
-    "objectID": "b1/sorting.html",
-    "href": "b1/sorting.html",
-    "title": "Sorting",
+    "objectID": "b1/binary-search.html",
+    "href": "b1/binary-search.html",
+    "title": "Binary Search",
     "section": "",
-    "text": "Sorting means arranging elements in a specific order, usually from smallest to largest, or alphabetically if they are strings.\nSorting makes data easier to search, compare, and process efficiently.\nMany algorithms like binary search only work if the data is sorted.\n\n\n\n\nSelection sort repeatedly finds the smallest element from the unsorted part of the array and moves it to the beginning.\nStep by step: 1. Find the smallest element in the array. 2. Swap it with the first element. 3. Find the next smallest and swap it with the second element. 4. Keep going until the array is sorted.\n\n\n\nSuppose we have:\n[5, 3, 8, 4, 2]\nAfter the first pass (find smallest = 2, swap with first):\n[2, 3, 8, 4, 5]\nAfter the second pass (next smallest = 3, already in place):\n[2, 3, 8, 4, 5]\nNext, find smallest among [8, 4, 5] → 4 → swap:\n[2, 3, 4, 8, 5]\nFinally → [2, 3, 4, 5, 8]\n\n\n\n#include &lt;iostream&gt;\n#include &lt;vector&gt;\nusing namespace std;\n\nint main() {\n    vector&lt;int&gt; arr = {5, 3, 8, 4, 2};\n    int n = arr.size();\n\n    for (int i = 0; i &lt; n - 1; i++) {\n        int minIndex = i;\n        for (int j = i + 1; j &lt; n; j++) {\n            if (arr[j] &lt; arr[minIndex])\n                minIndex = j;\n        }\n        swap(arr[i], arr[minIndex]);\n    }\n\n    for (int x : arr) cout &lt;&lt; x &lt;&lt; \" \";\n}\nOutput:\n2 3 4 5 8\nSelection sort is easy to understand but not very efficient.\n\n\n\n\nThere are two nested loops (one inside another).\nSo it takes about \\(n \\cdot n\\) steps → \\(O(n^2)\\) time.\n\n\n\n\n\nIn real programs and competitive programming, we rarely write sort manually.\nC++ provides a very fast sorting function in the standard library.\n\n\n#include &lt;iostream&gt;\n#include &lt;vector&gt;\n#include &lt;algorithm&gt;\nusing namespace std;\n\nint main() {\n    vector&lt;int&gt; arr = {5, 3, 8, 4, 2};\n    sort(arr.begin(), arr.end());\n\n    for (int x : arr) cout &lt;&lt; x &lt;&lt; \" \";\n}\nOutput:\n2 3 4 5 8\nThat one line sort(arr.begin(), arr.end()); sorts the entire vector in ascending order.\n\n\n\nYou can also use the same sort function with regular arrays.\nYou just need to give the starting and ending pointers.\n#include &lt;iostream&gt;\n#include &lt;algorithm&gt;\nusing namespace std;\n\nint main() {\n    int n = 5;\n\n    int arr[] = {5, 3, 8, 4, 2}; \n\n    sort(arr, arr + n);\n\n    for (int i = 0; i &lt; n; i++)\n        cout &lt;&lt; arr[i] &lt;&lt; \" \";\n}\nOutput:\n2 3 4 5 8\nsort(arr, arr + n); means: sort starting from arr (first element) up to arr + n (just past the last one).\n\n\n\nIf you want to sort from largest to smallest, you can use a custom comparison:\nFor vectors:\nsort(arr.begin(), arr.end(), greater&lt;int&gt;());\nFor C-arrays:\nsort(arr, arr + n, greater&lt;int&gt;());\nOutput:\n8 5 4 3 2\n\n\n\nThe same function works for strings, doubles, or any comparable type:\nvector&lt;string&gt; names = {\"Bob\", \"Alice\", \"Charlie\"};\nsort(names.begin(), names.end());\nOutput:\nAlice Bob Charlie\n\n\n\n\nThe library sort function uses an optimized algorithm. Its time complexity is \\(O(n \\log n)\\), which is much faster than \\(O(n^2)\\) for large inputs.\nFor example:\n\nIf \\(n = 1,000\\), selection sort does about \\(1,000,000\\) operations.\nIf \\(n = 1,000\\), library sort does about \\(10,000\\) operations — around \\(100\\) times faster.",
+    "text": "Binary search is a fast way to find something in a sorted list or range.\nBut before we get to that, let’s start with something simpler — linear search.\n\n\nImagine you have a list of numbers and you want to check if a number is in the list.\nThe most natural thing to do is to look through the list one by one.\n#include &lt;iostream&gt;\n#include &lt;vector&gt;\nusing namespace std;\n\nint main() {\n    vector&lt;int&gt; arr = {4, 8, 15, 16, 23, 42};\n    int target = 15;\n\n    for (int i = 0; i &lt; arr.size(); i++) {\n        if (arr[i] == target) {\n            cout &lt;&lt; \"Found at index \" &lt;&lt; i;\n            return 0;\n        }\n    }\n    cout &lt;&lt; \"Not found\";\n}\nThis is called linear search because you move linearly through the list.\nIt always works, but if the list is long, it can be slow — you might need to check every element.\nIf there are a million numbers, that’s a million checks.\nNow imagine you’re looking for a name in a printed phone book.\nYou wouldn’t start from the first page and read one by one.\nYou’d open somewhere in the middle, see if you’re too early or too late alphabetically, and then skip half the pages.\nThat’s binary search.\n\n\n\nBinary search is like playing the ‘guess the number’ game.\nEach time, you pick the middle value and ask:\n\nIs this too small?\nToo big?\nOr exactly right?\n\nThen you cut the search space in half.\nThis makes it much faster than linear search, but it only works if the data is sorted.\n\n\n\n\n\n\n\n\nFind the 7\n\n\n\n\n\nWe are given a sorted array\n[1, 3, 5, 6, 7, 9, 11]\nFind number 7 in the array if it exists and print the index it is on.\n\n\n\n\n\nSolution\n\nWe start with the full range, then repeatedly narrow it down.\nFirst, we find the element in the middle. This happens to be number 6. We ask whether number 7 is smaller or greater than number 6 - and it is greater. Since the array is sorted, this means that number 7 will be strictly after number 6 in the array. We can discard the first half of the array, because we know 7 cannot be before 6.\nThe array we are looking at now is [7, 9, 11]. The element in the middle is number 9. Number 7 is smaller than number 9. This means that 7 is before 9 in the sorted array. We can then discard 9 and anything that is right of 9.\nFinally, our array is [7]. The middle element is 7, which is exactly what we are looking for. We asked three times to compare numbers: - We compared 6 and 7 - We compared 9 and 7 - We compared 7 and 7\nSo this is 3 comparisons. In the linear search, we would do at least 5. Already on smaller examples, we see that binary search brings significant improvement.\n#include &lt;iostream&gt;\n#include &lt;vector&gt;\nusing namespace std;\n\nint main() {\n    vector&lt;int&gt; arr = {1, 3, 5, 6, 7, 9, 11};\n    int target = 7;\n    int left = 0, right = arr.size() - 1;\n\n    while (left &lt;= right) {\n        int mid = (left + right) / 2;\n        if (arr[mid] == target) {\n            cout &lt;&lt; \"Found at index \" &lt;&lt; mid;\n            return 0;\n        } else if (arr[mid] &lt; target) \n            left = mid + 1;\n        else \n            right = mid - 1;\n    }\n\n    cout &lt;&lt; \"Not found\";\n}\nOutput:\nFound at index 4\n\n\n\nEach step cuts the range in half.\nIf there are n elements, binary search only needs about \\(\\log_2(n)\\) steps.\nThat’s around 20 checks, even if there are a million numbers.\n\n\nBinary search can do more than find a number.\nYou can use it to find positions or boundaries.\n\n\n\n\n\nPosition Hunt\n\n\n\n\n\nYou are given an array [2, 4, 6, 8, 10]. Find the first element greater than 7 using the binary search method.\n\n\n\n\n\nSolution\n\n#include &lt;iostream&gt;\n#include &lt;vector&gt;\nusing namespace std;\n\nint main() {\n    vector&lt;int&gt; arr = {2, 4, 6, 8, 10};\n    int x = 7;\n\n    int left = 0, right = arr.size() - 1;\n    int ans = -1;\n\n    while (left &lt;= right) {\n        int mid = (left + right) / 2;\n        if (arr[mid] &gt;= x) {\n            ans = mid;\n            right = mid - 1;\n        } else {\n            left = mid + 1;\n        }\n    }\n    if (ans == -1) cout &lt;&lt; \"No element found\";\n    else cout &lt;&lt; \"First element &gt;= \" &lt;&lt; x &lt;&lt; \" is at index \" &lt;&lt; ans;\n}\nOutput:\nFirst element &gt;= 7 is at index 3\nThat means arr[3] = 8 is the first element greater than or equal to 7.\n\n\n\n\n\n\nStart with two pointers, left and right.\nFind the middle index mid.\nIf the middle value is the answer, stop.\nIf it’s too small, move left to mid + 1.\nIf it’s too big, move right to mid - 1.\nRepeat until left &gt; right.",
     "crumbs": [
       "Stage 2",
-      "Sorting"
+      "Binary Search"
     ]
   },
   {
-    "objectID": "b1/sorting.html#selection-sort",
-    "href": "b1/sorting.html#selection-sort",
-    "title": "Sorting",
+    "objectID": "b1/binary-search.html#linear-search",
+    "href": "b1/binary-search.html#linear-search",
+    "title": "Binary Search",
     "section": "",
-    "text": "Selection sort repeatedly finds the smallest element from the unsorted part of the array and moves it to the beginning.\nStep by step: 1. Find the smallest element in the array. 2. Swap it with the first element. 3. Find the next smallest and swap it with the second element. 4. Keep going until the array is sorted.\n\n\n\nSuppose we have:\n[5, 3, 8, 4, 2]\nAfter the first pass (find smallest = 2, swap with first):\n[2, 3, 8, 4, 5]\nAfter the second pass (next smallest = 3, already in place):\n[2, 3, 8, 4, 5]\nNext, find smallest among [8, 4, 5] → 4 → swap:\n[2, 3, 4, 8, 5]\nFinally → [2, 3, 4, 5, 8]\n\n\n\n#include &lt;iostream&gt;\n#include &lt;vector&gt;\nusing namespace std;\n\nint main() {\n    vector&lt;int&gt; arr = {5, 3, 8, 4, 2};\n    int n = arr.size();\n\n    for (int i = 0; i &lt; n - 1; i++) {\n        int minIndex = i;\n        for (int j = i + 1; j &lt; n; j++) {\n            if (arr[j] &lt; arr[minIndex])\n                minIndex = j;\n        }\n        swap(arr[i], arr[minIndex]);\n    }\n\n    for (int x : arr) cout &lt;&lt; x &lt;&lt; \" \";\n}\nOutput:\n2 3 4 5 8\nSelection sort is easy to understand but not very efficient.\n\n\n\n\nThere are two nested loops (one inside another).\nSo it takes about \\(n \\cdot n\\) steps → \\(O(n^2)\\) time.",
+    "text": "Imagine you have a list of numbers and you want to check if a number is in the list.\nThe most natural thing to do is to look through the list one by one.\n#include &lt;iostream&gt;\n#include &lt;vector&gt;\nusing namespace std;\n\nint main() {\n    vector&lt;int&gt; arr = {4, 8, 15, 16, 23, 42};\n    int target = 15;\n\n    for (int i = 0; i &lt; arr.size(); i++) {\n        if (arr[i] == target) {\n            cout &lt;&lt; \"Found at index \" &lt;&lt; i;\n            return 0;\n        }\n    }\n    cout &lt;&lt; \"Not found\";\n}\nThis is called linear search because you move linearly through the list.\nIt always works, but if the list is long, it can be slow — you might need to check every element.\nIf there are a million numbers, that’s a million checks.\nNow imagine you’re looking for a name in a printed phone book.\nYou wouldn’t start from the first page and read one by one.\nYou’d open somewhere in the middle, see if you’re too early or too late alphabetically, and then skip half the pages.\nThat’s binary search.",
     "crumbs": [
       "Stage 2",
-      "Sorting"
+      "Binary Search"
     ]
   },
   {
-    "objectID": "b1/sorting.html#using-the-built-in-sort-function",
-    "href": "b1/sorting.html#using-the-built-in-sort-function",
-    "title": "Sorting",
+    "objectID": "b1/binary-search.html#the-idea-of-binary-search",
+    "href": "b1/binary-search.html#the-idea-of-binary-search",
+    "title": "Binary Search",
     "section": "",
-    "text": "In real programs and competitive programming, we rarely write sort manually.\nC++ provides a very fast sorting function in the standard library.\n\n\n#include &lt;iostream&gt;\n#include &lt;vector&gt;\n#include &lt;algorithm&gt;\nusing namespace std;\n\nint main() {\n    vector&lt;int&gt; arr = {5, 3, 8, 4, 2};\n    sort(arr.begin(), arr.end());\n\n    for (int x : arr) cout &lt;&lt; x &lt;&lt; \" \";\n}\nOutput:\n2 3 4 5 8\nThat one line sort(arr.begin(), arr.end()); sorts the entire vector in ascending order.\n\n\n\nYou can also use the same sort function with regular arrays.\nYou just need to give the starting and ending pointers.\n#include &lt;iostream&gt;\n#include &lt;algorithm&gt;\nusing namespace std;\n\nint main() {\n    int n = 5;\n\n    int arr[] = {5, 3, 8, 4, 2}; \n\n    sort(arr, arr + n);\n\n    for (int i = 0; i &lt; n; i++)\n        cout &lt;&lt; arr[i] &lt;&lt; \" \";\n}\nOutput:\n2 3 4 5 8\nsort(arr, arr + n); means: sort starting from arr (first element) up to arr + n (just past the last one).\n\n\n\nIf you want to sort from largest to smallest, you can use a custom comparison:\nFor vectors:\nsort(arr.begin(), arr.end(), greater&lt;int&gt;());\nFor C-arrays:\nsort(arr, arr + n, greater&lt;int&gt;());\nOutput:\n8 5 4 3 2\n\n\n\nThe same function works for strings, doubles, or any comparable type:\nvector&lt;string&gt; names = {\"Bob\", \"Alice\", \"Charlie\"};\nsort(names.begin(), names.end());\nOutput:\nAlice Bob Charlie",
+    "text": "Binary search is like playing the ‘guess the number’ game.\nEach time, you pick the middle value and ask:\n\nIs this too small?\nToo big?\nOr exactly right?\n\nThen you cut the search space in half.\nThis makes it much faster than linear search, but it only works if the data is sorted.",
     "crumbs": [
       "Stage 2",
-      "Sorting"
+      "Binary Search"
     ]
   },
   {
-    "objectID": "b1/sorting.html#complexity",
-    "href": "b1/sorting.html#complexity",
-    "title": "Sorting",
+    "objectID": "b1/binary-search.html#find-the-7",
+    "href": "b1/binary-search.html#find-the-7",
+    "title": "Binary Search",
     "section": "",
-    "text": "The library sort function uses an optimized algorithm. Its time complexity is \\(O(n \\log n)\\), which is much faster than \\(O(n^2)\\) for large inputs.\nFor example:\n\nIf \\(n = 1,000\\), selection sort does about \\(1,000,000\\) operations.\nIf \\(n = 1,000\\), library sort does about \\(10,000\\) operations — around \\(100\\) times faster.",
+    "text": "Find the 7\n\n\n\n\n\nWe are given a sorted array\n[1, 3, 5, 6, 7, 9, 11]\nFind number 7 in the array if it exists and print the index it is on.",
     "crumbs": [
       "Stage 2",
-      "Sorting"
+      "Binary Search"
+    ]
+  },
+  {
+    "objectID": "b1/binary-search.html#finding-first-element-greater-than-or-equal-to-x",
+    "href": "b1/binary-search.html#finding-first-element-greater-than-or-equal-to-x",
+    "title": "Binary Search",
+    "section": "",
+    "text": "Binary search can do more than find a number.\nYou can use it to find positions or boundaries.",
+    "crumbs": [
+      "Stage 2",
+      "Binary Search"
+    ]
+  },
+  {
+    "objectID": "b1/binary-search.html#position-hunt",
+    "href": "b1/binary-search.html#position-hunt",
+    "title": "Binary Search",
+    "section": "",
+    "text": "Position Hunt\n\n\n\n\n\nYou are given an array [2, 4, 6, 8, 10]. Find the first element greater than 7 using the binary search method.",
+    "crumbs": [
+      "Stage 2",
+      "Binary Search"
+    ]
+  },
+  {
+    "objectID": "b1/binary-search.html#algorithm",
+    "href": "b1/binary-search.html#algorithm",
+    "title": "Binary Search",
+    "section": "",
+    "text": "Start with two pointers, left and right.\nFind the middle index mid.\nIf the middle value is the answer, stop.\nIf it’s too small, move left to mid + 1.\nIf it’s too big, move right to mid - 1.\nRepeat until left &gt; right.",
+    "crumbs": [
+      "Stage 2",
+      "Binary Search"
     ]
   },
   {
@@ -3013,91 +3048,47 @@
     ]
   },
   {
-    "objectID": "b1/binary-search.html",
-    "href": "b1/binary-search.html",
-    "title": "Binary Search",
+    "objectID": "b1/sorting.html",
+    "href": "b1/sorting.html",
+    "title": "Sorting",
     "section": "",
-    "text": "Binary search is a fast way to find something in a sorted list or range.\nBut before we get to that, let’s start with something simpler — linear search.\n\n\nImagine you have a list of numbers and you want to check if a number is there.\nThe most natural thing to do is to look through the list one by one.\n#include &lt;iostream&gt;\n#include &lt;vector&gt;\nusing namespace std;\n\nint main() {\n    vector&lt;int&gt; arr = {4, 8, 15, 16, 23, 42};\n    int target = 15;\n\n    for (int i = 0; i &lt; arr.size(); i++) {\n        if (arr[i] == target) {\n            cout &lt;&lt; \"Found at index \" &lt;&lt; i;\n            return 0;\n        }\n    }\n    cout &lt;&lt; \"Not found\";\n}\nThis is called linear search because you move linearly through the list.\nIt always works, but if the list is long, it can be slow — you might need to check every element.\nIf there are a million numbers, that’s a million checks.\n\n\n\nNow imagine you’re looking for a name in a printed phone book.\nYou wouldn’t start from the first page and read one by one.\nYou’d open somewhere in the middle, see if you’re too early or too late alphabetically, and then skip half the pages.\nThat’s binary search.\n\n\n\nBinary search is like playing the ‘guess the number’ game.\nEach time, you pick the middle value and ask:\n\nIs this too small?\nToo big?\nOr exactly right?\n\nThen you cut the search space in half.\nThis makes it much faster than linear search, but it only works if the data is sorted.\n\n\n\nLet’s find number 7 in this sorted array:\n[1, 3, 5, 7, 9, 11]\nWe start with the full range, then repeatedly narrow it down.\n#include &lt;iostream&gt;\n#include &lt;vector&gt;\nusing namespace std;\n\nint main() {\n    vector&lt;int&gt; arr = {1, 3, 5, 7, 9, 11};\n    int target = 7;\n    int left = 0, right = arr.size() - 1;\n\n    while (left &lt;= right) {\n        int mid = (left + right) / 2;\n        if (arr[mid] == target) {\n            cout &lt;&lt; \"Found at index \" &lt;&lt; mid;\n            return 0;\n        }\n        else if (arr[mid] &lt; target) left = mid + 1;\n        else right = mid - 1;\n    }\n\n    cout &lt;&lt; \"Not found\";\n}\nOutput:\nFound at index 3\nEach step cuts the range in half.\nIf there are n elements, binary search only needs about \\(\\log_2(n)\\) steps.\nThat’s around 20 checks even if there are a million numbers.\n\n\n\nBinary search can do more than find a number.\nYou can use it to find positions or boundaries.\n#include &lt;iostream&gt;\n#include &lt;vector&gt;\nusing namespace std;\n\nint main() {\n    vector&lt;int&gt; arr = {2, 4, 6, 8, 10};\n    int x = 7;\n\n    int left = 0, right = arr.size() - 1;\n    int ans = -1;\n\n    while (left &lt;= right) {\n        int mid = (left + right) / 2;\n        if (arr[mid] &gt;= x) {\n            ans = mid;\n            right = mid - 1;\n        } else {\n            left = mid + 1;\n        }\n    }\n    if (ans == -1) cout &lt;&lt; \"No element found\";\n    else cout &lt;&lt; \"First element &gt;= \" &lt;&lt; x &lt;&lt; \" is at index \" &lt;&lt; ans;\n}\nOutput:\nFirst element &gt;= 7 is at index 3\nThat means arr[3] = 8 is the first element greater than or equal to 7.\n\n\n\n\nStart with two pointers, left and right.\nFind the middle index mid.\nIf the middle value is the answer, stop.\nIf it’s too small, move left to mid + 1.\nIf it’s too big, move right to mid - 1.\nRepeat until left &gt; right.\n\n\n\n\nImagine a game where you must guess a number between 1 and 100.\nAfter each guess, you’re told if it’s too high or too low.\nYou can find the number in only about 7 tries.\n#include &lt;iostream&gt;\nusing namespace std;\n\nint main() {\n    int secret = 73; // pretend this is hidden\n    int left = 1, right = 100;\n    int guesses = 0;\n\n    while (left &lt;= right) {\n        int mid = (left + right) / 2;\n        guesses++;\n        if (mid == secret) {\n            cout &lt;&lt; \"Found in \" &lt;&lt; guesses &lt;&lt; \" guesses\";\n            break;\n        } else if (mid &lt; secret) left = mid + 1;\n        else right = mid - 1;\n    }\n}\nOutput:\nFound in 7 guesses",
+    "text": "Sorting means arranging elements in a specific order, usually from smallest to largest, or alphabetically if they are strings.\nSorting makes data easier to search, compare, and process efficiently.\nMany algorithms, like binary search, only work if the data is sorted.\n\n\n\n\nSelection sort repeatedly finds the smallest element from the unsorted part of the array and moves it to the beginning.\nStep by step: 1. Find the smallest element in the array. 2. Swap it with the first element. 3. Find the next smallest and swap it with the second element. 4. Keep going until the array is sorted.\n\n\n\nSuppose we have:\n[5, 8, 3, 4, 2]\nWe will find the smallest element, which is \\(2\\). Then, we swap it with the first element in the array, which is \\(5\\). The array now looks like this:\n[2, 8, 3, 4, 5]\nNow we want to set the second smallest element to the second position in the array. We find the smallest element among \\([8,3,4,5]\\), which is \\(3\\), and we swap it with the second element in the array, which is \\(8\\). After this, we have:\n[2, 3, 8, 4, 5]\nNext, we find the third smallest element, as the smallest element among \\([8,4,5]\\), which is \\(4\\). We swap it with the third element in the array, which is \\(8\\) again:\n[2, 3, 4, 8, 5]\nFor the last step, we want to find the fourth smallest element, as the smallest element among \\([5, 8]\\), which is \\(5\\). We now need to swap it with the fourth element in the array, which turns out also to be \\(5\\). Swapping an element with itself doesn’t change the array, so finally the array is sorted:\n[2, 3, 4, 5, 8]\n\n\n\n#include &lt;iostream&gt;\n#include &lt;vector&gt;\nusing namespace std;\n\nint main() {\n    vector&lt;int&gt; arr = {5, 8, 3, 4, 2};\n    int n = arr.size();\n\n    for (int i = 0; i &lt; n - 1; i++) {\n        int minIndex = i;\n        for (int j = i + 1; j &lt; n; j++) {\n            if (arr[j] &lt; arr[minIndex])\n                minIndex = j;\n        }\n        swap(arr[i], arr[minIndex]);\n    }\n\n    for (int x : arr) \n        cout &lt;&lt; x &lt;&lt; ' ';\n    cout &lt;&lt; '\\n';\n}\nOutput:\n2 3 4 5 8\nSelection sort is easy to understand, but not very efficient.\n\n\n\n\nThere are two nested loops (one inside another).\nSo it takes about \\(n \\cdot n\\) steps → \\(O(n^2)\\) time.\n\n\n\n\n\nIn real programs and competitive programming, we rarely write sort manually.\nC++ provides a very fast sorting function in the standard library.\n\n\n#include &lt;iostream&gt;\n#include &lt;vector&gt;\n#include &lt;algorithm&gt;\nusing namespace std;\n\nint main() {\n    vector&lt;int&gt; arr = {5, 8, 3, 4, 2};\n    sort(arr.begin(), arr.end());\n\n    for (int x : arr) \n        cout &lt;&lt; x &lt;&lt; ' ';\n    cout &lt;&lt; '\\n';\n}\nOutput:\n2 3 4 5 8\nThat one line sort(arr.begin(), arr.end()); sorts the entire vector in ascending order.\n\n\n\nYou can also use the same sort function with regular arrays.\nYou just need to give the starting and ending pointers.\n#include &lt;iostream&gt;\n#include &lt;algorithm&gt;\nusing namespace std;\n\nint main() {\n    int n = 5;\n\n    int arr[] = {5, 8, 3, 4, 2}; \n\n    sort(arr, arr + n);\n\n    for (int i = 0; i &lt; n; i++)\n        cout &lt;&lt; arr[i] &lt;&lt; ' ';\n    cout &lt;&lt; '\\n';\n}\nOutput:\n2 3 4 5 8\nsort(arr, arr + n); means: sort starting from arr (first element) up to arr + n (just past the last one).\n\n\n\nIf you want to sort from largest to smallest, you can use a custom comparison:\nFor vectors:\nsort(arr.begin(), arr.end(), greater&lt;int&gt;());\nAnother way to do so for vectors is to call sort on reverse iterators. This sorts the array in ascending order and then reverses it:\nsort(arr.rbegin(), arr.rend());\nFor C-arrays:\nsort(arr, arr + n, greater&lt;int&gt;());\nOutput:\n8 5 4 3 2\n\n\n\nThe same function works for strings, doubles, or any comparable type:\nvector&lt;string&gt; names = {\"Bob\", \"Alice\", \"Charlie\"};\nsort(names.begin(), names.end());\nOutput:\nAlice Bob Charlie\n\n\n\nWe already mentioned that you can sort an array in descending order by adding a third parameter to the built-in sort function. This parameter is called the custom comparator. A comparator is a function that takes two elements, a and b, and returns true if a should come before b in the sorted array. This comes in handy when you want to sort your own data structure or sort an existing type with a different way of comparing elements.\nFor example, let’s say that we don’t want to sort strings lexicographically, but by their length. In this case, we would write our own comparator:\nbool comparator_by_length(string a, string b){\n    int len_a = a.length();\n    int len_b = b.length();\n\n    if (len_a &lt; len_b)\n        return 1;\n    else\n        return 0;\n}\nThen, we would call the sort function the same as before, and add the custom comparator in the call parameters:\nvector&lt;string&gt; names = {\"Bob\", \"Alice\", \"Charlie\"};\nsort(names.begin(), names.end(), comparator_by_length);\nOutput:\nBob Alice Charlie\nImportant note: Your comparator must behave like a real “less than” function: - No contradictions - No cycles like a &lt; b, b &lt; c, but also c &lt; a\nIf the comparator is inconsistent, sort will behave unpredictably.\n\n\n\n\nThe library sort function uses an optimized algorithm. Its time complexity is \\(O(n \\log n)\\), which is much faster than \\(O(n^2)\\) for large inputs.\nFor example:\n\nIf \\(n = 1,000\\), selection sort does about \\(1,000,000\\) operations.\nIf \\(n = 1,000\\), library sort does about \\(10,000\\) operations — around \\(100\\) times faster.",
     "crumbs": [
       "Stage 2",
-      "Binary Search"
+      "Sorting"
     ]
   },
   {
-    "objectID": "b1/binary-search.html#starting-with-linear-search",
-    "href": "b1/binary-search.html#starting-with-linear-search",
-    "title": "Binary Search",
+    "objectID": "b1/sorting.html#selection-sort",
+    "href": "b1/sorting.html#selection-sort",
+    "title": "Sorting",
     "section": "",
-    "text": "Imagine you have a list of numbers and you want to check if a number is there.\nThe most natural thing to do is to look through the list one by one.\n#include &lt;iostream&gt;\n#include &lt;vector&gt;\nusing namespace std;\n\nint main() {\n    vector&lt;int&gt; arr = {4, 8, 15, 16, 23, 42};\n    int target = 15;\n\n    for (int i = 0; i &lt; arr.size(); i++) {\n        if (arr[i] == target) {\n            cout &lt;&lt; \"Found at index \" &lt;&lt; i;\n            return 0;\n        }\n    }\n    cout &lt;&lt; \"Not found\";\n}\nThis is called linear search because you move linearly through the list.\nIt always works, but if the list is long, it can be slow — you might need to check every element.\nIf there are a million numbers, that’s a million checks.",
+    "text": "Selection sort repeatedly finds the smallest element from the unsorted part of the array and moves it to the beginning.\nStep by step: 1. Find the smallest element in the array. 2. Swap it with the first element. 3. Find the next smallest and swap it with the second element. 4. Keep going until the array is sorted.\n\n\n\nSuppose we have:\n[5, 8, 3, 4, 2]\nWe will find the smallest element, which is \\(2\\). Then, we swap it with the first element in the array, which is \\(5\\). The array now looks like this:\n[2, 8, 3, 4, 5]\nNow we want to set the second smallest element to the second position in the array. We find the smallest element among \\([8,3,4,5]\\), which is \\(3\\), and we swap it with the second element in the array, which is \\(8\\). After this, we have:\n[2, 3, 8, 4, 5]\nNext, we find the third smallest element, as the smallest element among \\([8,4,5]\\), which is \\(4\\). We swap it with the third element in the array, which is \\(8\\) again:\n[2, 3, 4, 8, 5]\nFor the last step, we want to find the fourth smallest element, as the smallest element among \\([5, 8]\\), which is \\(5\\). We now need to swap it with the fourth element in the array, which turns out also to be \\(5\\). Swapping an element with itself doesn’t change the array, so finally the array is sorted:\n[2, 3, 4, 5, 8]\n\n\n\n#include &lt;iostream&gt;\n#include &lt;vector&gt;\nusing namespace std;\n\nint main() {\n    vector&lt;int&gt; arr = {5, 8, 3, 4, 2};\n    int n = arr.size();\n\n    for (int i = 0; i &lt; n - 1; i++) {\n        int minIndex = i;\n        for (int j = i + 1; j &lt; n; j++) {\n            if (arr[j] &lt; arr[minIndex])\n                minIndex = j;\n        }\n        swap(arr[i], arr[minIndex]);\n    }\n\n    for (int x : arr) \n        cout &lt;&lt; x &lt;&lt; ' ';\n    cout &lt;&lt; '\\n';\n}\nOutput:\n2 3 4 5 8\nSelection sort is easy to understand, but not very efficient.\n\n\n\n\nThere are two nested loops (one inside another).\nSo it takes about \\(n \\cdot n\\) steps → \\(O(n^2)\\) time.",
     "crumbs": [
       "Stage 2",
-      "Binary Search"
+      "Sorting"
     ]
   },
   {
-    "objectID": "b1/binary-search.html#a-real-life-idea",
-    "href": "b1/binary-search.html#a-real-life-idea",
-    "title": "Binary Search",
+    "objectID": "b1/sorting.html#using-the-built-in-sort-function",
+    "href": "b1/sorting.html#using-the-built-in-sort-function",
+    "title": "Sorting",
     "section": "",
-    "text": "Now imagine you’re looking for a name in a printed phone book.\nYou wouldn’t start from the first page and read one by one.\nYou’d open somewhere in the middle, see if you’re too early or too late alphabetically, and then skip half the pages.\nThat’s binary search.",
+    "text": "In real programs and competitive programming, we rarely write sort manually.\nC++ provides a very fast sorting function in the standard library.\n\n\n#include &lt;iostream&gt;\n#include &lt;vector&gt;\n#include &lt;algorithm&gt;\nusing namespace std;\n\nint main() {\n    vector&lt;int&gt; arr = {5, 8, 3, 4, 2};\n    sort(arr.begin(), arr.end());\n\n    for (int x : arr) \n        cout &lt;&lt; x &lt;&lt; ' ';\n    cout &lt;&lt; '\\n';\n}\nOutput:\n2 3 4 5 8\nThat one line sort(arr.begin(), arr.end()); sorts the entire vector in ascending order.\n\n\n\nYou can also use the same sort function with regular arrays.\nYou just need to give the starting and ending pointers.\n#include &lt;iostream&gt;\n#include &lt;algorithm&gt;\nusing namespace std;\n\nint main() {\n    int n = 5;\n\n    int arr[] = {5, 8, 3, 4, 2}; \n\n    sort(arr, arr + n);\n\n    for (int i = 0; i &lt; n; i++)\n        cout &lt;&lt; arr[i] &lt;&lt; ' ';\n    cout &lt;&lt; '\\n';\n}\nOutput:\n2 3 4 5 8\nsort(arr, arr + n); means: sort starting from arr (first element) up to arr + n (just past the last one).\n\n\n\nIf you want to sort from largest to smallest, you can use a custom comparison:\nFor vectors:\nsort(arr.begin(), arr.end(), greater&lt;int&gt;());\nAnother way to do so for vectors is to call sort on reverse iterators. This sorts the array in ascending order and then reverses it:\nsort(arr.rbegin(), arr.rend());\nFor C-arrays:\nsort(arr, arr + n, greater&lt;int&gt;());\nOutput:\n8 5 4 3 2\n\n\n\nThe same function works for strings, doubles, or any comparable type:\nvector&lt;string&gt; names = {\"Bob\", \"Alice\", \"Charlie\"};\nsort(names.begin(), names.end());\nOutput:\nAlice Bob Charlie\n\n\n\nWe already mentioned that you can sort an array in descending order by adding a third parameter to the built-in sort function. This parameter is called the custom comparator. A comparator is a function that takes two elements, a and b, and returns true if a should come before b in the sorted array. This comes in handy when you want to sort your own data structure or sort an existing type with a different way of comparing elements.\nFor example, let’s say that we don’t want to sort strings lexicographically, but by their length. In this case, we would write our own comparator:\nbool comparator_by_length(string a, string b){\n    int len_a = a.length();\n    int len_b = b.length();\n\n    if (len_a &lt; len_b)\n        return 1;\n    else\n        return 0;\n}\nThen, we would call the sort function the same as before, and add the custom comparator in the call parameters:\nvector&lt;string&gt; names = {\"Bob\", \"Alice\", \"Charlie\"};\nsort(names.begin(), names.end(), comparator_by_length);\nOutput:\nBob Alice Charlie\nImportant note: Your comparator must behave like a real “less than” function: - No contradictions - No cycles like a &lt; b, b &lt; c, but also c &lt; a\nIf the comparator is inconsistent, sort will behave unpredictably.",
     "crumbs": [
       "Stage 2",
-      "Binary Search"
+      "Sorting"
     ]
   },
   {
-    "objectID": "b1/binary-search.html#the-idea-of-binary-search",
-    "href": "b1/binary-search.html#the-idea-of-binary-search",
-    "title": "Binary Search",
+    "objectID": "b1/sorting.html#complexity",
+    "href": "b1/sorting.html#complexity",
+    "title": "Sorting",
     "section": "",
-    "text": "Binary search is like playing the ‘guess the number’ game.\nEach time, you pick the middle value and ask:\n\nIs this too small?\nToo big?\nOr exactly right?\n\nThen you cut the search space in half.\nThis makes it much faster than linear search, but it only works if the data is sorted.",
+    "text": "The library sort function uses an optimized algorithm. Its time complexity is \\(O(n \\log n)\\), which is much faster than \\(O(n^2)\\) for large inputs.\nFor example:\n\nIf \\(n = 1,000\\), selection sort does about \\(1,000,000\\) operations.\nIf \\(n = 1,000\\), library sort does about \\(10,000\\) operations — around \\(100\\) times faster.",
     "crumbs": [
       "Stage 2",
-      "Binary Search"
-    ]
-  },
-  {
-    "objectID": "b1/binary-search.html#example-1-classic-binary-search",
-    "href": "b1/binary-search.html#example-1-classic-binary-search",
-    "title": "Binary Search",
-    "section": "",
-    "text": "Let’s find number 7 in this sorted array:\n[1, 3, 5, 7, 9, 11]\nWe start with the full range, then repeatedly narrow it down.\n#include &lt;iostream&gt;\n#include &lt;vector&gt;\nusing namespace std;\n\nint main() {\n    vector&lt;int&gt; arr = {1, 3, 5, 7, 9, 11};\n    int target = 7;\n    int left = 0, right = arr.size() - 1;\n\n    while (left &lt;= right) {\n        int mid = (left + right) / 2;\n        if (arr[mid] == target) {\n            cout &lt;&lt; \"Found at index \" &lt;&lt; mid;\n            return 0;\n        }\n        else if (arr[mid] &lt; target) left = mid + 1;\n        else right = mid - 1;\n    }\n\n    cout &lt;&lt; \"Not found\";\n}\nOutput:\nFound at index 3\nEach step cuts the range in half.\nIf there are n elements, binary search only needs about \\(\\log_2(n)\\) steps.\nThat’s around 20 checks even if there are a million numbers.",
-    "crumbs": [
-      "Stage 2",
-      "Binary Search"
-    ]
-  },
-  {
-    "objectID": "b1/binary-search.html#example-2-finding-first-element-greater-than-or-equal-to-x",
-    "href": "b1/binary-search.html#example-2-finding-first-element-greater-than-or-equal-to-x",
-    "title": "Binary Search",
-    "section": "",
-    "text": "Binary search can do more than find a number.\nYou can use it to find positions or boundaries.\n#include &lt;iostream&gt;\n#include &lt;vector&gt;\nusing namespace std;\n\nint main() {\n    vector&lt;int&gt; arr = {2, 4, 6, 8, 10};\n    int x = 7;\n\n    int left = 0, right = arr.size() - 1;\n    int ans = -1;\n\n    while (left &lt;= right) {\n        int mid = (left + right) / 2;\n        if (arr[mid] &gt;= x) {\n            ans = mid;\n            right = mid - 1;\n        } else {\n            left = mid + 1;\n        }\n    }\n    if (ans == -1) cout &lt;&lt; \"No element found\";\n    else cout &lt;&lt; \"First element &gt;= \" &lt;&lt; x &lt;&lt; \" is at index \" &lt;&lt; ans;\n}\nOutput:\nFirst element &gt;= 7 is at index 3\nThat means arr[3] = 8 is the first element greater than or equal to 7.",
-    "crumbs": [
-      "Stage 2",
-      "Binary Search"
-    ]
-  },
-  {
-    "objectID": "b1/binary-search.html#how-binary-search-works",
-    "href": "b1/binary-search.html#how-binary-search-works",
-    "title": "Binary Search",
-    "section": "",
-    "text": "Start with two pointers, left and right.\nFind the middle index mid.\nIf the middle value is the answer, stop.\nIf it’s too small, move left to mid + 1.\nIf it’s too big, move right to mid - 1.\nRepeat until left &gt; right.",
-    "crumbs": [
-      "Stage 2",
-      "Binary Search"
-    ]
-  },
-  {
-    "objectID": "b1/binary-search.html#example-3-guessing-a-hidden-number",
-    "href": "b1/binary-search.html#example-3-guessing-a-hidden-number",
-    "title": "Binary Search",
-    "section": "",
-    "text": "Imagine a game where you must guess a number between 1 and 100.\nAfter each guess, you’re told if it’s too high or too low.\nYou can find the number in only about 7 tries.\n#include &lt;iostream&gt;\nusing namespace std;\n\nint main() {\n    int secret = 73; // pretend this is hidden\n    int left = 1, right = 100;\n    int guesses = 0;\n\n    while (left &lt;= right) {\n        int mid = (left + right) / 2;\n        guesses++;\n        if (mid == secret) {\n            cout &lt;&lt; \"Found in \" &lt;&lt; guesses &lt;&lt; \" guesses\";\n            break;\n        } else if (mid &lt; secret) left = mid + 1;\n        else right = mid - 1;\n    }\n}\nOutput:\nFound in 7 guesses",
-    "crumbs": [
-      "Stage 2",
-      "Binary Search"
+      "Sorting"
     ]
   },
   {
@@ -3105,18 +3096,7 @@
     "href": "b1/time-complexity.html",
     "title": "Time Complexity",
     "section": "",
-    "text": "When we write programs, some solutions run faster than others.\nTime complexity is a way to measure how fast an algorithm grows as the input gets larger.\nYou don’t measure it in seconds. You measure it in how the number of steps increases when the input size increases.\nTime complexity helps you compare algorithms without actually running them.\n\n\nLet’s say we have this code:\nfor (int i = 0; i &lt; n; i++)\n    cout &lt;&lt; i &lt;&lt; \" \";\nIf \\(n = 10\\), it prints \\(10\\) numbers.\nIf \\(n = 1000\\), it prints \\(1000\\) numbers.\nIf \\(n\\) doubles, the number of steps also doubles.\nWe say this code runs in \\(O(n)\\) time.\nThat means the time grows linearly with the size of the input.\n\n\n\nBig \\(O\\) notation (read as “big oh”) shows how the number of steps grows as \\(n\\) grows.\nWe only care about the main growth, not constants or small details.\n\n\n\n\n\n\n\n\nName\nExample\nDescription\n\n\n\n\n\\(O(1)\\)\nx = a + b;\nConstant time – runs instantly no matter how big n is\n\n\n\\(O(\\log n)\\)\nset::insert\nEach step cuts the problem in half\n\n\n\\(O(n)\\)\nLoop over array\nTime grows linearly\n\n\n\\(O(n \\log n)\\)\nSorting\nSlightly slower than \\(O(n)\\), but much faster than \\(O(n^2)\\)\n\n\n\\(O(n^2)\\)\nNested loops\nTime grows very fast as n increases\n\n\n\\(O(2^n)\\)\nTrying all combinations\nExponential – gets huge very quickly\n\n\n\nThe smaller the complexity, the faster it scales.\n\n\n\nint a = arr[0] + 10;\nNo matter how big arr is, this takes one step.\n\\(O(1)\\) means instant — independent of input size.\n\n\n\nfor (int i = 0; i &lt; n; i++)\n    sum += arr[i];\nThe loop runs once per element.\nIf the array doubles in size, time doubles too.\n\n\n\nfor (int i = 0; i &lt; n; i++)\n    for (int j = 0; j &lt; n; j++)\n        cout &lt;&lt; i &lt;&lt; \" \" &lt;&lt; j &lt;&lt; endl;\nThere are \\(n \\cdot n\\) pairs.\nIf \\(n = 10\\), it does 100 steps. If \\(n = 1000\\), it does a million steps.\nThat’s why \\(O(n^2)\\) algorithms can get very slow fast.\n\n\n\nLet’s see how fast they grow as n increases:\n\n\n\n\\(n\\)\n\\(O(1)\\)\n\\(O(\\log n)\\)\n\\(O(n)\\)\n\\(O(n^2)\\)\n\n\n\n\n10\n1\n3\n10\n100\n\n\n100\n1\n7\n100\n10,000\n\n\n1000\n1\n10\n1000\n1,000,000\n\n\n\nEven though the differences seem small for small \\(n\\), they explode for big \\(n\\).\n\n\n\n\n\n\n\\(n\\)\nSafe maximum complexity\n\n\n\n\n\\(\\leq 10\\)\n\\(O(n!)\\)\n\n\n\\(\\leq 20\\)\n\\(O(2^n)\\) usually fine\n\n\n\\(\\leq 1000\\)\n\\(O(n^2)\\) usually fine\n\n\n\\(\\leq 10^5\\)\n\\(O(n \\log n)\\) or better\n\n\n\\(\\leq 10^7\\)\n\\(O(n)\\) or better\n\n\n\\(\\geq 10^9\\)\nOnly \\(O(1)\\) or \\(O(\\log n)\\)\n\n\n\nThis helps you guess what kind of solution is acceptable for a given input size.\n\n\n\nSometimes we also care about how much memory the program uses.\nThat’s called space complexity.\nThe idea is the same: how memory usage grows as input size grows.\nExample:\nint arr[n];  // O(n) space\nint x;       // O(1) space\n\n\n\nIf you have 10 papers to sort, you can look at each one by hand — that’s \\(O(n)\\).\nIf you have a million, you’ll need a smarter way — like sorting them in halves — that’s closer to \\(O(n \\log n)\\).",
-    "crumbs": [
-      "Stage 2",
-      "Time Complexity"
-    ]
-  },
-  {
-    "objectID": "b1/time-complexity.html#a-simple-example",
-    "href": "b1/time-complexity.html#a-simple-example",
-    "title": "Time Complexity",
-    "section": "",
-    "text": "Let’s say we have this code:\nfor (int i = 0; i &lt; n; i++)\n    cout &lt;&lt; i &lt;&lt; \" \";\nIf \\(n = 10\\), it prints \\(10\\) numbers.\nIf \\(n = 1000\\), it prints \\(1000\\) numbers.\nIf \\(n\\) doubles, the number of steps also doubles.\nWe say this code runs in \\(O(n)\\) time.\nThat means the time grows linearly with the size of the input.",
+    "text": "When we write programs, some solutions run faster than others.\nTime complexity is a way to measure how fast an algorithm grows as the input gets larger.\nYou don’t measure it in seconds. You measure it in how the number of steps increases when the input size increases.\nTime complexity helps you compare algorithms without actually running them.\nLet’s say we have this code:\nfor (int i = 0; i &lt; n; i++)\n    cout &lt;&lt; i &lt;&lt; \" \";\nIf \\(n = 10\\), it prints \\(10\\) numbers.\nIf \\(n = 1000\\), it prints \\(1000\\) numbers.\nIf \\(n\\) doubles, the number of steps also doubles.\nWe say this code runs in \\(O(n)\\) time, because it has \\(n\\) steps/operations it does.\nThat means the time grows linearly with the size of the input.\n\n\nBig \\(O\\) notation (read as “big oh”) shows how the number of steps grows as \\(n\\) grows.\nWe only care about the main growth, not constants or small details.\n\n\n\n\n\n\n\n\nName\nExample\nDescription\n\n\n\n\n\\(O(1)\\)\nx = a + b;\nConstant time – runs instantly, no matter how big n is\n\n\n\\(O(\\log n)\\)\nset::insert\nEach step cuts the problem in half\n\n\n\\(O(n)\\)\nLoop over array\nTime grows linearly\n\n\n\\(O(n \\log n)\\)\nSorting\nSlightly slower than \\(O(n)\\), but much faster than \\(O(n^2)\\)\n\n\n\\(O(n^2)\\)\nNested loops\nTime grows very fast as n increases\n\n\n\\(O(2^n)\\)\nTrying all combinations\nExponential – gets huge very quickly\n\n\n\nThe smaller the complexity, the faster it scales.\n\n\n\n\n\n\n\n\nIncrease the Number\n\n\n\n\n\nYou are given a number \\(x\\). Increase \\(x\\) by \\(1\\), and then print it.\n\n\n\n\n\nSolution\n\n#include &lt;iostream&gt;\n\nusing namespace std;\n\nint main(){\n    int x;\n    cin &gt;&gt; x;\n\n    x += 1;\n\n    cout &lt;&lt; x &lt;&lt; '\\n';\n}\n\n\n\nHere, we did three things: - read an integer from the input - increase an integer by one - output an integer\nThese are all simple operations. However, we wouldn’t say that this is \\(O(3)\\) time complexity. We do not care about constants; we just care about the main value. So this here is \\(O(1)\\) time complexity.\n\n\n\n\n\n\n\nMoney Sum\n\n\n\n\n\nYou are given \\(n\\) bills worth \\(arr[0]\\) riyals, \\(arr[1]\\) riyals, …, \\(arr[n-1]\\) riyals. How many riyals do you have in total?\n\n\n\n\n\nSolution\n\n#include &lt;iostream&gt;\n\nusing namespace std;\n\nint main(){\n    int n;\n    cin &gt;&gt; n;\n\n    int arr[n];\n\n    for (int i = 0; i &lt; n; i++)\n        cin &gt;&gt; arr[i];\n\n    long long sum = 0;\n    for (int i = 0; i &lt; n; i++)\n        sum += arr[i];\n\n    cout &lt;&lt; sum &lt;&lt; '\\n';\n}\n\n\n\nThe loop runs once per element.\nIf the array doubles in size, time doubles too.\nNotice that we also create an array and input the elements; this takes two operations per element. Also, we input the number of elements, we set the \\(sum\\) variable to zero, and at the end we print the variable sum. In total we have \\(1 + n + n + 1 + n + 1 = 3n + 3\\). However, we said that we don’t care about constants, so this is simply just \\(O(3n+3) = O(n)\\) - a linear time algorithm.\n\n\n\n\n\n\n\nCopying\n\n\n\n\n\nYou are given \\(n\\) bills worth \\(arr[0]\\) riyals, \\(arr[1]\\) riyals, …, \\(arr[n-1]\\) riyals. For \\(n\\) days, you increase the value of each bill by one. So, after first day you have bills worth \\(arr[0]+1\\) riyals, \\(arr[1]+1\\) riyals, …, \\(arr[n-1]+1\\) riyals. After second day you have bills worth \\(arr[0]+2\\) riyals, \\(arr[1]+2\\) riyals, …, \\(arr[n-1]+2\\) riyals. After \\(n\\) days you will have bills worth \\(arr[0]+n\\) riyals, \\(arr[1]+n\\) riyals, …, \\(arr[n-1]+n\\) riyals.\nYou should output the values of all bills for each of the \\(n\\) days.\n\n\n\n\n#include &lt;iostream&gt;\n\nusing namespace std;\n\nint main(){\n    int n;\n    cin &gt;&gt; n;\n\n    int arr[n];\n    for (int i = 0; i &lt; n; i++)\n        cin &gt;&gt; arr[i];\n\n    for (int days = 1; days &lt;= n; days++){\n        for (int i = 0; i &lt; n; i++){\n            cout &lt;&lt; arr[i] + days &lt;&lt; ' ';\n        }\n        cout &lt;&lt; '\\n';\n    }\n}\n\nThere are \\(n\\) days, and \\(n\\) bills in each day that we should increase. In total, we do \\(O(n^2)\\) operations (again ignoring constants).\nIf \\(n = 10\\), it does 100 steps. If \\(n = 1000\\), it does a million steps.\nThat’s why \\(O(n^2)\\) algorithms can get very slow fast.\n\n\nLet’s see how fast they grow as n increases:\n\n\n\n\\(n\\)\n\\(O(1)\\)\n\\(O(\\log n)\\)\n\\(O(n)\\)\n\\(O(n^2)\\)\n\n\n\n\n10\n1\n3\n10\n100\n\n\n100\n1\n7\n100\n10,000\n\n\n1000\n1\n10\n1000\n1,000,000\n\n\n\nEven though the differences seem small for small \\(n\\), they explode for big \\(n\\).\n\n\n\n\n\n\n\\(n\\)\nSafe maximum complexity\n\n\n\n\n\\(\\leq 10\\)\n\\(O(n!)\\)\n\n\n\\(\\leq 20\\)\n\\(O(2^n)\\) usually fine\n\n\n\\(\\leq 1000\\)\n\\(O(n^2)\\) usually fine\n\n\n\\(\\leq 10^5\\)\n\\(O(n \\log n)\\) or better\n\n\n\\(\\leq 10^7\\)\n\\(O(n)\\) or better\n\n\n\\(\\geq 10^9\\)\nOnly \\(O(1)\\) or \\(O(\\log n)\\)\n\n\n\nThis helps you guess what kind of solution is acceptable for a given input size.\n\n\n\nSometimes it is not obvious, but you can make your program faster just by thinking about more clever solutions.\n\n\n\n\n\nSimple Sum\n\n\n\n\n\nYou are given a number \\(n\\). Output the sum \\(-n + (-n+1) + (-n+2) + \\ldots + -1 + 0 + 1 + \\ldots + (n-2) + (n-1) + n\\).\n\n\n\n\n\nSolution\n\nA naive solution would be the following:\n#include &lt;iostream&gt;\n\nusing namespace std;\n\nint main(){\n    int n;\n    cin &gt;&gt; n;\n\n    long long sum = 0;\n    for (int i = -n; i &lt;= n; i++)\n        sum += i;\n\n    cout &lt;&lt; sum &lt;&lt; '\\n';\n}\nThis solution is linear in time \\(O(n)\\).\n\n\n\n\n\nSolution\n\nNotice that we can do much better. Each integer appears once with a positive sign and once with a negative sign - \\(+n\\) and \\(-n\\). This means that in the end, all numbers will cancel out and we will be left only with zero. This leads us to a much simpler solution:\n#include &lt;iostream&gt;\n\nusing namespace std;\n\nint main(){\n    int n;\n    cin &gt;&gt; n;\n\n    cout &lt;&lt; 0 &lt;&lt; '\\n';\n}\nThis solution is \\(O(1)\\), which is constant time and much faster than the naive solution. Always try to think about the fastest possible solution.\n\n\n\n\n\nSometimes we also care about how much memory the program uses.\nThat’s called space complexity.\nThe idea is the same: how memory usage grows as input size grows.\nExample:\nint arr[n];  // O(n) space\nint x;       // O(1) space",
     "crumbs": [
       "Stage 2",
       "Time Complexity"
@@ -3127,40 +3107,40 @@
     "href": "b1/time-complexity.html#what-oldots-means",
     "title": "Time Complexity",
     "section": "",
-    "text": "Big \\(O\\) notation (read as “big oh”) shows how the number of steps grows as \\(n\\) grows.\nWe only care about the main growth, not constants or small details.\n\n\n\n\n\n\n\n\nName\nExample\nDescription\n\n\n\n\n\\(O(1)\\)\nx = a + b;\nConstant time – runs instantly no matter how big n is\n\n\n\\(O(\\log n)\\)\nset::insert\nEach step cuts the problem in half\n\n\n\\(O(n)\\)\nLoop over array\nTime grows linearly\n\n\n\\(O(n \\log n)\\)\nSorting\nSlightly slower than \\(O(n)\\), but much faster than \\(O(n^2)\\)\n\n\n\\(O(n^2)\\)\nNested loops\nTime grows very fast as n increases\n\n\n\\(O(2^n)\\)\nTrying all combinations\nExponential – gets huge very quickly\n\n\n\nThe smaller the complexity, the faster it scales.",
+    "text": "Big \\(O\\) notation (read as “big oh”) shows how the number of steps grows as \\(n\\) grows.\nWe only care about the main growth, not constants or small details.\n\n\n\n\n\n\n\n\nName\nExample\nDescription\n\n\n\n\n\\(O(1)\\)\nx = a + b;\nConstant time – runs instantly, no matter how big n is\n\n\n\\(O(\\log n)\\)\nset::insert\nEach step cuts the problem in half\n\n\n\\(O(n)\\)\nLoop over array\nTime grows linearly\n\n\n\\(O(n \\log n)\\)\nSorting\nSlightly slower than \\(O(n)\\), but much faster than \\(O(n^2)\\)\n\n\n\\(O(n^2)\\)\nNested loops\nTime grows very fast as n increases\n\n\n\\(O(2^n)\\)\nTrying all combinations\nExponential – gets huge very quickly\n\n\n\nThe smaller the complexity, the faster it scales.",
     "crumbs": [
       "Stage 2",
       "Time Complexity"
     ]
   },
   {
-    "objectID": "b1/time-complexity.html#example-1-constant-time-o1",
-    "href": "b1/time-complexity.html#example-1-constant-time-o1",
+    "objectID": "b1/time-complexity.html#increase-the-number",
+    "href": "b1/time-complexity.html#increase-the-number",
     "title": "Time Complexity",
     "section": "",
-    "text": "int a = arr[0] + 10;\nNo matter how big arr is, this takes one step.\n\\(O(1)\\) means instant — independent of input size.",
+    "text": "Increase the Number\n\n\n\n\n\nYou are given a number \\(x\\). Increase \\(x\\) by \\(1\\), and then print it.",
     "crumbs": [
       "Stage 2",
       "Time Complexity"
     ]
   },
   {
-    "objectID": "b1/time-complexity.html#example-2-linear-time-on",
-    "href": "b1/time-complexity.html#example-2-linear-time-on",
+    "objectID": "b1/time-complexity.html#money-sum",
+    "href": "b1/time-complexity.html#money-sum",
     "title": "Time Complexity",
     "section": "",
-    "text": "for (int i = 0; i &lt; n; i++)\n    sum += arr[i];\nThe loop runs once per element.\nIf the array doubles in size, time doubles too.",
+    "text": "Money Sum\n\n\n\n\n\nYou are given \\(n\\) bills worth \\(arr[0]\\) riyals, \\(arr[1]\\) riyals, …, \\(arr[n-1]\\) riyals. How many riyals do you have in total?",
     "crumbs": [
       "Stage 2",
       "Time Complexity"
     ]
   },
   {
-    "objectID": "b1/time-complexity.html#example-3-quadratic-time-on2",
-    "href": "b1/time-complexity.html#example-3-quadratic-time-on2",
+    "objectID": "b1/time-complexity.html#copying",
+    "href": "b1/time-complexity.html#copying",
     "title": "Time Complexity",
     "section": "",
-    "text": "for (int i = 0; i &lt; n; i++)\n    for (int j = 0; j &lt; n; j++)\n        cout &lt;&lt; i &lt;&lt; \" \" &lt;&lt; j &lt;&lt; endl;\nThere are \\(n \\cdot n\\) pairs.\nIf \\(n = 10\\), it does 100 steps. If \\(n = 1000\\), it does a million steps.\nThat’s why \\(O(n^2)\\) algorithms can get very slow fast.",
+    "text": "Copying\n\n\n\n\n\nYou are given \\(n\\) bills worth \\(arr[0]\\) riyals, \\(arr[1]\\) riyals, …, \\(arr[n-1]\\) riyals. For \\(n\\) days, you increase the value of each bill by one. So, after first day you have bills worth \\(arr[0]+1\\) riyals, \\(arr[1]+1\\) riyals, …, \\(arr[n-1]+1\\) riyals. After second day you have bills worth \\(arr[0]+2\\) riyals, \\(arr[1]+2\\) riyals, …, \\(arr[n-1]+2\\) riyals. After \\(n\\) days you will have bills worth \\(arr[0]+n\\) riyals, \\(arr[1]+n\\) riyals, …, \\(arr[n-1]+n\\) riyals.\nYou should output the values of all bills for each of the \\(n\\) days.",
     "crumbs": [
       "Stage 2",
       "Time Complexity"
@@ -3189,6 +3169,28 @@
     ]
   },
   {
+    "objectID": "b1/time-complexity.html#optimizing",
+    "href": "b1/time-complexity.html#optimizing",
+    "title": "Time Complexity",
+    "section": "",
+    "text": "Sometimes it is not obvious, but you can make your program faster just by thinking about more clever solutions.",
+    "crumbs": [
+      "Stage 2",
+      "Time Complexity"
+    ]
+  },
+  {
+    "objectID": "b1/time-complexity.html#simple-sum",
+    "href": "b1/time-complexity.html#simple-sum",
+    "title": "Time Complexity",
+    "section": "",
+    "text": "Simple Sum\n\n\n\n\n\nYou are given a number \\(n\\). Output the sum \\(-n + (-n+1) + (-n+2) + \\ldots + -1 + 0 + 1 + \\ldots + (n-2) + (n-1) + n\\).",
+    "crumbs": [
+      "Stage 2",
+      "Time Complexity"
+    ]
+  },
+  {
     "objectID": "b1/time-complexity.html#space-complexity",
     "href": "b1/time-complexity.html#space-complexity",
     "title": "Time Complexity",
@@ -3200,86 +3202,75 @@
     ]
   },
   {
-    "objectID": "b1/time-complexity.html#real-life-analogy",
-    "href": "b1/time-complexity.html#real-life-analogy",
-    "title": "Time Complexity",
-    "section": "",
-    "text": "If you have 10 papers to sort, you can look at each one by hand — that’s \\(O(n)\\).\nIf you have a million, you’ll need a smarter way — like sorting them in halves — that’s closer to \\(O(n \\log n)\\).",
-    "crumbs": [
-      "Stage 2",
-      "Time Complexity"
-    ]
-  },
-  {
     "objectID": "b2/cpp/structs.html",
     "href": "b2/cpp/structs.html",
-    "title": "Data Structures with struct",
+    "title": "Structures (struct)",
     "section": "",
-    "text": "In C++, a structure (struct) lets you group different pieces of data together under one name. You can think of it like a custom data type that you design yourself.\n\n\n\nA struct groups related variables (called members) of possibly different types.\n\n\nstruct TypeName {\n    member_type1 member_name1;\n    member_type2 member_name2;\n    // ...\n};\n\nTypeName → the name of your new type\nInside { } → the members (variables) that belong to this type\n\n\n\n\n\n\n#include &lt;iostream&gt;\nusing namespace std;\n\nstruct product {\n    int weight;\n    double price;\n};\n\nint main() {\n    product apple;\n    product banana, melon;\n\n    apple.weight = 150;      // grams\n    apple.price  = 1.99;     // riyals\n\n    banana.weight = 120;\n    banana.price  = 0.99;\n\n    cout &lt;&lt; \"Apple: \"  &lt;&lt; apple.weight  &lt;&lt; \"g, $\" &lt;&lt; apple.price  &lt;&lt; endl;\n    cout &lt;&lt; \"Banana: \" &lt;&lt; banana.weight &lt;&lt; \"g, $\" &lt;&lt; banana.price &lt;&lt; endl;\n}\n\n\nUse the dot operator .:\n\napple.weight → int\napple.price → double\n\nYou can read/write them just like normal variables.\n\n\n\n\n\nYou can declare variables at the end of the struct definition:\nstruct product {\n    int weight;\n    double price;\n} apple, banana, melon;\nHere:\n\nproduct is the type name\napple, banana, melon are variables (objects) of that type\n\n\n\n\n\nJust like int* can point to an int, a product* can point to a product.\n#include &lt;iostream&gt;\n#include &lt;string&gt;\nusing namespace std;\n\nstruct product {\n    int weight;\n    double price;\n};\n\nint main() {\n    product aproduct;\n    product* pproduct = &aproduct;   // pointer to aproduct\n\n    string temp;\n\n    cout &lt;&lt; \"Enter weight: \";\n    getline(cin, temp);\n    pproduct-&gt;weight = stoi(temp);\n\n    cout &lt;&lt; \"Enter price: \";\n    getline(cin, temp);\n    pmovie-&gt;price = stod(temp);\n\n    cout &lt;&lt; \"\\nYou have entered:\\n\";\n    cout &lt;&lt; pproduct-&gt;weight &lt;&lt; \" (\" &lt;&lt; pmovie-&gt;price &lt;&lt; \")\\n\";\n}\n\n\n\n\n\nExpression\nMeaning\n\n\n\n\nobj.member\nMember of the object obj\n\n\nptr-&gt;member\nMember of the object pointed to by ptr\n\n\n(*ptr).member\nSame as ptr-&gt;member\n\n\n\n\n\n\n\n\nA member of a structure can itself be another structure.\n#include &lt;iostream&gt;\n#include &lt;string&gt;\nusing namespace std;\n\nstruct movies_t {\n    string title;\n    int year;\n};\n\nstruct friends_t {\n    string name;\n    string email;\n    movies_t favorite_movie;\n};\n\nint main() {\n    friends_t charlie;\n\n    charlie.name = \"Charlie\";\n    charlie.email = \"charlie@example.com\";\n    charlie.favorite_movie.title = \"The Matrix\";\n    charlie.favorite_movie.year  = 1999;\n\n    cout &lt;&lt; charlie.name &lt;&lt; \"'s favorite movie is \"\n         &lt;&lt; charlie.favorite_movie.title\n         &lt;&lt; \" (\" &lt;&lt; charlie.favorite_movie.year &lt;&lt; \")\\n\";\n}\nYou can also use a pointer to friends_t:\nfriends_t charlie;\nfriends_t* pfriends = &charlie;\n\npfriends-&gt;favorite_movie.title = \"Inception\";\npfriends-&gt;favorite_movie.year  = 2010;\nHere:\n\npfriends-&gt;favorite_movie is a movies_t\npfriends-&gt;favorite_movie.title is a string\nYou can chain . and -&gt; depending on what you have (object vs pointer).",
+    "text": "In C++, a structure (struct) lets you group different pieces of data together under one name. You can think of it like a custom data type that you design yourself.\n\n\nA struct groups related variables (called members) of possibly different types.\n\n\nstruct TypeName {\n    member_type1 member_name1;\n    member_type2 member_name2;\n    // ...\n};\n\nTypeName → the name of your new type\nInside { } → the members (variables) that belong to this type\n\n\n\n\n\n#include &lt;iostream&gt;\nusing namespace std;\n\nstruct product {\n    int weight;     // in grams\n    double price;   // in riyals\n};\n\nint main() {\n    product apple;\n    product banana, melon;\n\n    apple.weight = 150;\n    apple.price  = 1.99;\n\n    banana.weight = 120;\n    banana.price  = 0.99;\n\n    cout &lt;&lt; \"Apple: \"  &lt;&lt; apple.weight  &lt;&lt; \" g, \" &lt;&lt; apple.price &lt;&lt; \" SAR\" &lt;&lt; endl;\n    cout &lt;&lt; \"Banana: \" &lt;&lt; banana.weight &lt;&lt; \" g, \" &lt;&lt; banana.price &lt;&lt; \" SAR\" &lt;&lt; endl;\n}\n\n\nUse the dot operator .:\n\napple.weight → int\napple.price → double\n\nYou can read/write them just like normal variables.\n\n\n\n\nYou can declare variables at the end of the struct definition:\nstruct product {\n    int weight;\n    double price;\n} apple, banana, melon;\nHere:\n\nproduct is the type name\napple, banana, melon are variables (objects) of that type\n\n\n\n\nJust like int* can point to an int, a product* can point to a product.\n#include &lt;iostream&gt;\n#include &lt;string&gt;\nusing namespace std;\n\nstruct product {\n    int weight;\n    double price;\n};\n\nint main() {\n    product aproduct;\n    product* pproduct = &aproduct;   // pointer to aproduct\n\n    string temp;\n\n    cout &lt;&lt; \"Enter weight (in g): \";\n    getline(cin, temp);\n    pproduct-&gt;weight = stoi(temp);\n\n    cout &lt;&lt; \"Enter price (in SAR): \";\n    getline(cin, temp);\n    pmovie-&gt;price = stod(temp);\n\n    cout &lt;&lt; \"\\nYou have entered:\\n\";\n    cout &lt;&lt; pproduct-&gt;weight &lt;&lt; \" (\" &lt;&lt; pmovie-&gt;price &lt;&lt; \")\\n\";\n}\n\n\n\n\n\nExpression\nMeaning\n\n\n\n\nobj.member\nMember of the object obj\n\n\nptr-&gt;member\nMember of the object pointed to by ptr\n\n\n(*ptr).member\nSame as ptr-&gt;member\n\n\n\n\n\n\n\nA member of a structure can itself be another structure.\n#include &lt;iostream&gt;\n#include &lt;string&gt;\nusing namespace std;\n\nstruct movies_t {\n    string title;\n    int year;\n};\n\nstruct friends_t {\n    string name;\n    string email;\n    movies_t favoriteMovie;\n};\n\nint main() {\n    friends_t charlie;\n\n    charlie.name = \"Charlie\";\n    charlie.email = \"charlie@example.com\";\n    charlie.favoriteMovie.title = \"The Matrix\";\n    charlie.favoriteMovie.year  = 1999;\n\n    cout &lt;&lt; charlie.name &lt;&lt; \"'s favorite movie is \"\n         &lt;&lt; charlie.favoriteMovie.title\n         &lt;&lt; \" (\" &lt;&lt; charlie.favoriteMovie.year &lt;&lt; \")\\n\";\n}\nYou can also use a pointer to friends_t:\nfriends_t charlie;\nfriends_t* pfriends = &charlie;\n\npfriends-&gt;favoriteMovie.title = \"Inception\";\npfriends-&gt;favoriteMovie.year  = 2010;\nHere:\n\npfriends-&gt;favorite_movie is a movies_t\npfriends-&gt;favorite_movie.title is a string\nYou can chain . and -&gt; depending on what you have (object vs pointer).",
     "crumbs": [
       "Stage 3",
       "C++",
-      "**Data Structures with `struct`**"
+      "Structures (`struct`)"
     ]
   },
   {
     "objectID": "b2/cpp/structs.html#what-is-a-struct",
     "href": "b2/cpp/structs.html#what-is-a-struct",
-    "title": "Data Structures with struct",
+    "title": "Structures (struct)",
     "section": "",
     "text": "A struct groups related variables (called members) of possibly different types.\n\n\nstruct TypeName {\n    member_type1 member_name1;\n    member_type2 member_name2;\n    // ...\n};\n\nTypeName → the name of your new type\nInside { } → the members (variables) that belong to this type",
     "crumbs": [
       "Stage 3",
       "C++",
-      "**Data Structures with `struct`**"
+      "Structures (`struct`)"
     ]
   },
   {
     "objectID": "b2/cpp/structs.html#example-a-product-structure",
     "href": "b2/cpp/structs.html#example-a-product-structure",
-    "title": "Data Structures with struct",
+    "title": "Structures (struct)",
     "section": "",
-    "text": "#include &lt;iostream&gt;\nusing namespace std;\n\nstruct product {\n    int weight;\n    double price;\n};\n\nint main() {\n    product apple;\n    product banana, melon;\n\n    apple.weight = 150;      // grams\n    apple.price  = 1.99;     // riyals\n\n    banana.weight = 120;\n    banana.price  = 0.99;\n\n    cout &lt;&lt; \"Apple: \"  &lt;&lt; apple.weight  &lt;&lt; \"g, $\" &lt;&lt; apple.price  &lt;&lt; endl;\n    cout &lt;&lt; \"Banana: \" &lt;&lt; banana.weight &lt;&lt; \"g, $\" &lt;&lt; banana.price &lt;&lt; endl;\n}\n\n\nUse the dot operator .:\n\napple.weight → int\napple.price → double\n\nYou can read/write them just like normal variables.",
+    "text": "#include &lt;iostream&gt;\nusing namespace std;\n\nstruct product {\n    int weight;     // in grams\n    double price;   // in riyals\n};\n\nint main() {\n    product apple;\n    product banana, melon;\n\n    apple.weight = 150;\n    apple.price  = 1.99;\n\n    banana.weight = 120;\n    banana.price  = 0.99;\n\n    cout &lt;&lt; \"Apple: \"  &lt;&lt; apple.weight  &lt;&lt; \" g, \" &lt;&lt; apple.price &lt;&lt; \" SAR\" &lt;&lt; endl;\n    cout &lt;&lt; \"Banana: \" &lt;&lt; banana.weight &lt;&lt; \" g, \" &lt;&lt; banana.price &lt;&lt; \" SAR\" &lt;&lt; endl;\n}\n\n\nUse the dot operator .:\n\napple.weight → int\napple.price → double\n\nYou can read/write them just like normal variables.",
     "crumbs": [
       "Stage 3",
       "C++",
-      "**Data Structures with `struct`**"
+      "Structures (`struct`)"
     ]
   },
   {
     "objectID": "b2/cpp/structs.html#declaring-objects-right-after-the-struct",
     "href": "b2/cpp/structs.html#declaring-objects-right-after-the-struct",
-    "title": "Data Structures with struct",
+    "title": "Structures (struct)",
     "section": "",
     "text": "You can declare variables at the end of the struct definition:\nstruct product {\n    int weight;\n    double price;\n} apple, banana, melon;\nHere:\n\nproduct is the type name\napple, banana, melon are variables (objects) of that type",
     "crumbs": [
       "Stage 3",
       "C++",
-      "**Data Structures with `struct`**"
+      "Structures (`struct`)"
     ]
   },
   {
     "objectID": "b2/cpp/structs.html#pointers-to-structures-and-the---operator",
     "href": "b2/cpp/structs.html#pointers-to-structures-and-the---operator",
-    "title": "Data Structures with struct",
+    "title": "Structures (struct)",
     "section": "",
-    "text": "Just like int* can point to an int, a product* can point to a product.\n#include &lt;iostream&gt;\n#include &lt;string&gt;\nusing namespace std;\n\nstruct product {\n    int weight;\n    double price;\n};\n\nint main() {\n    product aproduct;\n    product* pproduct = &aproduct;   // pointer to aproduct\n\n    string temp;\n\n    cout &lt;&lt; \"Enter weight: \";\n    getline(cin, temp);\n    pproduct-&gt;weight = stoi(temp);\n\n    cout &lt;&lt; \"Enter price: \";\n    getline(cin, temp);\n    pmovie-&gt;price = stod(temp);\n\n    cout &lt;&lt; \"\\nYou have entered:\\n\";\n    cout &lt;&lt; pproduct-&gt;weight &lt;&lt; \" (\" &lt;&lt; pmovie-&gt;price &lt;&lt; \")\\n\";\n}\n\n\n\n\n\nExpression\nMeaning\n\n\n\n\nobj.member\nMember of the object obj\n\n\nptr-&gt;member\nMember of the object pointed to by ptr\n\n\n(*ptr).member\nSame as ptr-&gt;member",
+    "text": "Just like int* can point to an int, a product* can point to a product.\n#include &lt;iostream&gt;\n#include &lt;string&gt;\nusing namespace std;\n\nstruct product {\n    int weight;\n    double price;\n};\n\nint main() {\n    product aproduct;\n    product* pproduct = &aproduct;   // pointer to aproduct\n\n    string temp;\n\n    cout &lt;&lt; \"Enter weight (in g): \";\n    getline(cin, temp);\n    pproduct-&gt;weight = stoi(temp);\n\n    cout &lt;&lt; \"Enter price (in SAR): \";\n    getline(cin, temp);\n    pmovie-&gt;price = stod(temp);\n\n    cout &lt;&lt; \"\\nYou have entered:\\n\";\n    cout &lt;&lt; pproduct-&gt;weight &lt;&lt; \" (\" &lt;&lt; pmovie-&gt;price &lt;&lt; \")\\n\";\n}\n\n\n\n\n\nExpression\nMeaning\n\n\n\n\nobj.member\nMember of the object obj\n\n\nptr-&gt;member\nMember of the object pointed to by ptr\n\n\n(*ptr).member\nSame as ptr-&gt;member",
     "crumbs": [
       "Stage 3",
       "C++",
-      "**Data Structures with `struct`**"
+      "Structures (`struct`)"
     ]
   },
   {
     "objectID": "b2/cpp/structs.html#nested-structures",
     "href": "b2/cpp/structs.html#nested-structures",
-    "title": "Data Structures with struct",
+    "title": "Structures (struct)",
     "section": "",
-    "text": "A member of a structure can itself be another structure.\n#include &lt;iostream&gt;\n#include &lt;string&gt;\nusing namespace std;\n\nstruct movies_t {\n    string title;\n    int year;\n};\n\nstruct friends_t {\n    string name;\n    string email;\n    movies_t favorite_movie;\n};\n\nint main() {\n    friends_t charlie;\n\n    charlie.name = \"Charlie\";\n    charlie.email = \"charlie@example.com\";\n    charlie.favorite_movie.title = \"The Matrix\";\n    charlie.favorite_movie.year  = 1999;\n\n    cout &lt;&lt; charlie.name &lt;&lt; \"'s favorite movie is \"\n         &lt;&lt; charlie.favorite_movie.title\n         &lt;&lt; \" (\" &lt;&lt; charlie.favorite_movie.year &lt;&lt; \")\\n\";\n}\nYou can also use a pointer to friends_t:\nfriends_t charlie;\nfriends_t* pfriends = &charlie;\n\npfriends-&gt;favorite_movie.title = \"Inception\";\npfriends-&gt;favorite_movie.year  = 2010;\nHere:\n\npfriends-&gt;favorite_movie is a movies_t\npfriends-&gt;favorite_movie.title is a string\nYou can chain . and -&gt; depending on what you have (object vs pointer).",
+    "text": "A member of a structure can itself be another structure.\n#include &lt;iostream&gt;\n#include &lt;string&gt;\nusing namespace std;\n\nstruct movies_t {\n    string title;\n    int year;\n};\n\nstruct friends_t {\n    string name;\n    string email;\n    movies_t favoriteMovie;\n};\n\nint main() {\n    friends_t charlie;\n\n    charlie.name = \"Charlie\";\n    charlie.email = \"charlie@example.com\";\n    charlie.favoriteMovie.title = \"The Matrix\";\n    charlie.favoriteMovie.year  = 1999;\n\n    cout &lt;&lt; charlie.name &lt;&lt; \"'s favorite movie is \"\n         &lt;&lt; charlie.favoriteMovie.title\n         &lt;&lt; \" (\" &lt;&lt; charlie.favoriteMovie.year &lt;&lt; \")\\n\";\n}\nYou can also use a pointer to friends_t:\nfriends_t charlie;\nfriends_t* pfriends = &charlie;\n\npfriends-&gt;favoriteMovie.title = \"Inception\";\npfriends-&gt;favoriteMovie.year  = 2010;\nHere:\n\npfriends-&gt;favorite_movie is a movies_t\npfriends-&gt;favorite_movie.title is a string\nYou can chain . and -&gt; depending on what you have (object vs pointer).",
     "crumbs": [
       "Stage 3",
       "C++",
-      "**Data Structures with `struct`**"
+      "Structures (`struct`)"
     ]
   },
   {
@@ -3311,7 +3302,7 @@
     "href": "b2/problems/bit-strings.html",
     "title": "",
     "section": "",
-    "text": "Bit Strings\n\nCSES\neasy\n\n\n\nYour task is to calculate the number of bit strings of length \\(n\\).\nA bit string is a sequence of \\(n\\) characters, each of which is either 0 or 1.\nFor example, if \\(n = 3\\), the bit strings are: [ 000, 001, 010, 011, 100, 101, 110, 111] so there are \\(8\\) such strings.\nInput:\n\nA single integer \\(n\\).\n\nOutput:\n\nPrint the total number of bit strings of length \\(n\\), modulo \\(10^9 + 7\\).\n\nConstraints:\n\n\\(1 \\le n \\le 10^6\\)\n\nExample:\nInput:\n3\nOutput:\n8",
+    "text": "Bit Strings\n\nCSES\neasy\n\n\n\nYour task is to calculate the number of bit strings of length \\(n\\).\nA bit string is a sequence of \\(n\\) characters, each of which is either 0 or 1.\nFor example, if \\(n = 3\\), the bit strings are [000, 001, 010, 011, 100, 101, 110, 111], so there are \\(8\\) such strings.\nInput:\n\nA single integer \\(n\\).\n\nOutput:\n\nPrint the total number of bit strings of length \\(n\\), modulo \\(10^9 + 7\\).\n\nConstraints:\n\n\\(1 \\le n \\le 10^6\\)\n\nExample:\nInput:\n3\nOutput:\n8",
     "crumbs": [
       "Stage 3",
       "Problems",
@@ -3323,7 +3314,7 @@
     "href": "b2/problems/bit-strings.html#bit-strings",
     "title": "",
     "section": "",
-    "text": "Bit Strings\n\nCSES\neasy\n\n\n\nYour task is to calculate the number of bit strings of length \\(n\\).\nA bit string is a sequence of \\(n\\) characters, each of which is either 0 or 1.\nFor example, if \\(n = 3\\), the bit strings are: [ 000, 001, 010, 011, 100, 101, 110, 111] so there are \\(8\\) such strings.\nInput:\n\nA single integer \\(n\\).\n\nOutput:\n\nPrint the total number of bit strings of length \\(n\\), modulo \\(10^9 + 7\\).\n\nConstraints:\n\n\\(1 \\le n \\le 10^6\\)\n\nExample:\nInput:\n3\nOutput:\n8",
+    "text": "Bit Strings\n\nCSES\neasy\n\n\n\nYour task is to calculate the number of bit strings of length \\(n\\).\nA bit string is a sequence of \\(n\\) characters, each of which is either 0 or 1.\nFor example, if \\(n = 3\\), the bit strings are [000, 001, 010, 011, 100, 101, 110, 111], so there are \\(8\\) such strings.\nInput:\n\nA single integer \\(n\\).\n\nOutput:\n\nPrint the total number of bit strings of length \\(n\\), modulo \\(10^9 + 7\\).\n\nConstraints:\n\n\\(1 \\le n \\le 10^6\\)\n\nExample:\nInput:\n3\nOutput:\n8",
     "crumbs": [
       "Stage 3",
       "Problems",
@@ -3333,100 +3324,100 @@
   {
     "objectID": "b2/bit-manipulation.html",
     "href": "b2/bit-manipulation.html",
-    "title": "Common Bit Manipulation Tricks",
+    "title": "Bit Manipulation Tricks",
     "section": "",
-    "text": "We’ll assume:\nint x;       // some non-negative integer\nint k;       // 0-based bit index (0 = least significant bit)\nand use masks like 1 &lt;&lt; k which has only bit k = 1.\n\n\n\n\n\nbool isSet = (x & (1 &lt;&lt; k)) != 0;\n\n1 &lt;&lt; k → binary number with only bit k = 1.\nx & (1 &lt;&lt; k) → keeps bit k, zeroes everything else.\nIf result is non-zero → bit k was 1.\n\n\n\n\n\nExample: Check if bit 1 of x is set.\n\nint x = 10;     // 10 = 1010 (in binary)\nint k = 1;\n\nbool isSet = (x & (1 &lt;&lt; k)) != 0; // (1010 & 0010) = 0010 != 0 → true\nSo bit 1 is set.\n\n\n\n\nProblem: Given n and k, determine if the k-th bit of n is set.\n\nIdea: Directly use the trick above.\nbool kthBitIsSet(int n, int k) {\n    return (n & (1 &lt;&lt; k)) != 0;\n}\nNo loops, constant time.\n\n\n\n\n\n\n\nx |= (1 &lt;&lt; k);\n\n| sets bits where either side has 1.\nSo we force bit k to 1, leave others unchanged.\n\n\n\n\nint x = 4; // 0100\nx |= (1 &lt;&lt; 0);  // 0100 | 0001 = 0101 (5)\n\n\n\n\n\n\n\nx &= ~(1 &lt;&lt; k);\n\n1 &lt;&lt; k → mask with bit k = 1.\n~(1 &lt;&lt; k) → mask with bit k = 0, all others = 1.\n& with that mask clears bit k.\n\n\n\n\nint x = 13; // 1101\nx &= ~(1 &lt;&lt; 2);     // ~(0100) = ...1011\n                    // 1101 & 1011 = 1001 = 9\nNow bit 2 is 0.\n\n\n\n\n\n\n\nx ^= (1 &lt;&lt; k);\n\n^ (XOR) flips a bit if the mask has 1:\n\n0 ^ 1 = 1\n1 ^ 1 = 0\n\n\n\n\n\nint x = 5; // 0101\nx ^= (1 &lt;&lt; 2); // 0101 ^ 0100 = 0001 (1)\nBit 2 was 1 → now 0.\n\n\n\n\n\nThis is a very famous trick.\n\n\nx = x & (x - 1);\nThis clears the lowest (rightmost) 1-bit in x.\n\n\n\nx      = 12 = 1100\nx - 1  = 11 = 1011\nx&(x-1)=  8 = 1000\nSo we removed the lowest 1-bit (bit 2).\n\n\n\n\n\nUses the previous trick.\n\n\nbool isPowerOfTwo = (x &gt; 0) && ((x & (x - 1)) == 0);\nWhy this works:\n\nA power of two in binary: 1, 10, 100, 1000, ...\n\nExactly one bit is set.\n\nIf you do x & (x - 1):\n\nIt removes the lowest set bit.\n\nIf there was exactly one set bit → result becomes 0.\n\nSo:\n\nx & (x - 1) is 0 ⇔ x has exactly one set bit.\n\n\n\n\n\nx = 8 (1000) → x & (x-1) = 1000 & 0111 = 0000 → power of two.\nx = 12 (1100) → x & (x-1) = 1100 & 1011 = 1000 → not zero → not a power of two.\n\n\n\n\n\n\n\n\nint lowest = x & -x;\nHere -x is the two’s-complement negative of x.\nPattern:\n\nx & -x isolates the rightmost 1-bit and zeroes everything else.\n\n\n\n\nx                     = 12 = 1100\n-x (two's complement) = 0100 (in low bits)\nx & -x                = 0100 = 4\nSo the lowest set bit corresponds to value 4 (bit 2).\n\n\n\n\n\n\nCheck bit k: isSet = (x & (1 &lt;&lt; k)) != 0;\nSet bit k: x |= (1 &lt;&lt; k);\nClear bit k: x &= ~(1 &lt;&lt; k);\nToggle bit k: x ^= (1 &lt;&lt; k);\nRemove lowest set bit: x &= (x - 1);\nCheck power of two: x &gt; 0 && (x & (x - 1)) == 0\nGet lowest set bit: lowest = x & -x;\n\nThese are the the most important bit manipulation tricks.",
+    "text": "We’ll assume:\nint x;       // some non-negative integer\nint k;       // 0-based bit index (0 = least significant bit)\nand use masks like 1 &lt;&lt; k which has only bit k equal 1.\n\n\nbool isSet = (x &gt;&gt; k) & 1;\n\nx &gt;&gt; k → shift right so that the k-th bit comes to the rightmost position.\n(x &gt;&gt; k) & 1 → keeps only the rightmost bit, zeroes everything else.\nThe result is 0 or 1, which is the same as false or true.\n\n\n\n\nCheck if bit 1 of x is set.\n\nint x = 10;     // 10 = 1010 (in binary)\nint k = 1;\n\nbool isSet = (x &gt;&gt; 1) & 1; // 1010 &gt;&gt; 1 = 101;  101 & 1 = 1 (true)\n\nGiven n and k, write a function that determines if the k-th bit of n is set.\n\nbool kthBitIsSet(int n, int k) {\n    return (n &gt;&gt; k) && 1;\n}\n\n\n\n\nx |= (1 &lt;&lt; k);\n\n| sets bits where either side has 1.\nSo we force bit k to 1, leave others unchanged.\n\n\n\nint x = 4;      // 0100\nx |= (1 &lt;&lt; 0);  // 0100 | 0001 = 0101 (5)\n\n\n\n\nx &= ~(1 &lt;&lt; k);\n\n1 &lt;&lt; k → mask with bit k equal 1.\n~(1 &lt;&lt; k) → mask with bit k equal 0, all others equal 1.\n& with that mask clears bit k.\n\n\n\nint x = 13;         // 1101\nx &= ~(1 &lt;&lt; 2);     // ~(0100) = ...1011\n                    // 1101 & 1011 = 1001 (9)\nNow bit 2 is 0.\n\n\n\n\nx ^= (1 &lt;&lt; k);\n\n^ (XOR) flips a bit if the mask has 1:\n\n0 ^ 1 = 1\n1 ^ 1 = 0\n\n\n\n\nint x = 5;     // 0101\nx ^= (1 &lt;&lt; 2); // 0101 ^ 0100 = 0001 (1)\nBit 2 was 1 → now 0.\n\n\n\n\nThis is a very famous trick.\nx = x & (x - 1);\nThis clears the lowest (rightmost) 1-bit in x.\n\n\nx           = 12 = 1100\nx - 1       = 11 = 1011\nx & (x - 1) =  8 = 1000\nSo we removed the lowest 1-bit (bit 2).\n\n\n\n\nWe assume x is a positive number, and use the previous trick.\nbool isPowerOfTwo = (x & (x - 1)) == 0;\nWhy this works:\n\nA power of two in binary (1, 10, 100, 1000, …) has exactly one bit set.\nIf you do x & (x - 1) it removes the lowest set bit.\nIf there was exactly one set bit, result becomes 0.\n\nSo:\n\n“x & (x - 1) is 0” ⇔ “x has exactly one set bit”.\n\n\n\n\nx = 8 (1000) → x & (x-1) = 1000 & 0111 = 0000 → power of two.\nx = 12 (1100) → x & (x-1) = 1100 & 1011 = 1000 → not zero → not a power of two.\n\n\n\n\n\nint lowest = x & -x;\nHere -x is the two’s-complement negative of x.\nPattern:\n\nx & -x isolates the rightmost 1-bit and zeroes everything else.\n\n\n\nx                = 12 = ...00001100\n-x (two's complement) = ...11110100\nx & -x                = ...00000100 = 4\nSo the lowest set bit corresponds to value 4 (bit 2).\n\n\n\n\n\nCheck bit k: isSet = (x &gt;&gt; k) & 1;\nSet bit k: x |= (1 &lt;&lt; k);\nClear bit k: x &= ~(1 &lt;&lt; k);\nToggle bit k: x ^= (1 &lt;&lt; k);\nRemove lowest set bit: x &= (x - 1);\nCheck power of two: x &gt; 0 && (x & (x - 1)) == 0\nGet lowest set bit: lowest = x & -x;\n\nThese are the the most important bit manipulation tricks.",
     "crumbs": [
       "Stage 3",
-      "Common Bit Manipulation Tricks"
+      "Bit Manipulation Tricks"
     ]
   },
   {
-    "objectID": "b2/bit-manipulation.html#checking-if-a-bit-is-set",
-    "href": "b2/bit-manipulation.html#checking-if-a-bit-is-set",
-    "title": "Common Bit Manipulation Tricks",
+    "objectID": "b2/bit-manipulation.html#checking-if-a-bit-is-1",
+    "href": "b2/bit-manipulation.html#checking-if-a-bit-is-1",
+    "title": "Bit Manipulation Tricks",
     "section": "",
-    "text": "bool isSet = (x & (1 &lt;&lt; k)) != 0;\n\n1 &lt;&lt; k → binary number with only bit k = 1.\nx & (1 &lt;&lt; k) → keeps bit k, zeroes everything else.\nIf result is non-zero → bit k was 1.\n\n\n\n\n\nExample: Check if bit 1 of x is set.\n\nint x = 10;     // 10 = 1010 (in binary)\nint k = 1;\n\nbool isSet = (x & (1 &lt;&lt; k)) != 0; // (1010 & 0010) = 0010 != 0 → true\nSo bit 1 is set.\n\n\n\n\nProblem: Given n and k, determine if the k-th bit of n is set.\n\nIdea: Directly use the trick above.\nbool kthBitIsSet(int n, int k) {\n    return (n & (1 &lt;&lt; k)) != 0;\n}\nNo loops, constant time.",
+    "text": "bool isSet = (x &gt;&gt; k) & 1;\n\nx &gt;&gt; k → shift right so that the k-th bit comes to the rightmost position.\n(x &gt;&gt; k) & 1 → keeps only the rightmost bit, zeroes everything else.\nThe result is 0 or 1, which is the same as false or true.\n\n\n\n\nCheck if bit 1 of x is set.\n\nint x = 10;     // 10 = 1010 (in binary)\nint k = 1;\n\nbool isSet = (x &gt;&gt; 1) & 1; // 1010 &gt;&gt; 1 = 101;  101 & 1 = 1 (true)\n\nGiven n and k, write a function that determines if the k-th bit of n is set.\n\nbool kthBitIsSet(int n, int k) {\n    return (n &gt;&gt; k) && 1;\n}",
     "crumbs": [
       "Stage 3",
-      "Common Bit Manipulation Tricks"
+      "Bit Manipulation Tricks"
     ]
   },
   {
     "objectID": "b2/bit-manipulation.html#setting-the-k-th-bit-to-1",
     "href": "b2/bit-manipulation.html#setting-the-k-th-bit-to-1",
-    "title": "Common Bit Manipulation Tricks",
+    "title": "Bit Manipulation Tricks",
     "section": "",
-    "text": "x |= (1 &lt;&lt; k);\n\n| sets bits where either side has 1.\nSo we force bit k to 1, leave others unchanged.\n\n\n\n\nint x = 4; // 0100\nx |= (1 &lt;&lt; 0);  // 0100 | 0001 = 0101 (5)",
+    "text": "x |= (1 &lt;&lt; k);\n\n| sets bits where either side has 1.\nSo we force bit k to 1, leave others unchanged.\n\n\n\nint x = 4;      // 0100\nx |= (1 &lt;&lt; 0);  // 0100 | 0001 = 0101 (5)",
     "crumbs": [
       "Stage 3",
-      "Common Bit Manipulation Tricks"
+      "Bit Manipulation Tricks"
     ]
   },
   {
     "objectID": "b2/bit-manipulation.html#clearing-the-k-th-bit-set-it-to-0",
     "href": "b2/bit-manipulation.html#clearing-the-k-th-bit-set-it-to-0",
-    "title": "Common Bit Manipulation Tricks",
+    "title": "Bit Manipulation Tricks",
     "section": "",
-    "text": "x &= ~(1 &lt;&lt; k);\n\n1 &lt;&lt; k → mask with bit k = 1.\n~(1 &lt;&lt; k) → mask with bit k = 0, all others = 1.\n& with that mask clears bit k.\n\n\n\n\nint x = 13; // 1101\nx &= ~(1 &lt;&lt; 2);     // ~(0100) = ...1011\n                    // 1101 & 1011 = 1001 = 9\nNow bit 2 is 0.",
+    "text": "x &= ~(1 &lt;&lt; k);\n\n1 &lt;&lt; k → mask with bit k equal 1.\n~(1 &lt;&lt; k) → mask with bit k equal 0, all others equal 1.\n& with that mask clears bit k.\n\n\n\nint x = 13;         // 1101\nx &= ~(1 &lt;&lt; 2);     // ~(0100) = ...1011\n                    // 1101 & 1011 = 1001 (9)\nNow bit 2 is 0.",
     "crumbs": [
       "Stage 3",
-      "Common Bit Manipulation Tricks"
+      "Bit Manipulation Tricks"
     ]
   },
   {
     "objectID": "b2/bit-manipulation.html#toggling-flipping-the-k-th-bit",
     "href": "b2/bit-manipulation.html#toggling-flipping-the-k-th-bit",
-    "title": "Common Bit Manipulation Tricks",
+    "title": "Bit Manipulation Tricks",
     "section": "",
-    "text": "x ^= (1 &lt;&lt; k);\n\n^ (XOR) flips a bit if the mask has 1:\n\n0 ^ 1 = 1\n1 ^ 1 = 0\n\n\n\n\n\nint x = 5; // 0101\nx ^= (1 &lt;&lt; 2); // 0101 ^ 0100 = 0001 (1)\nBit 2 was 1 → now 0.",
+    "text": "x ^= (1 &lt;&lt; k);\n\n^ (XOR) flips a bit if the mask has 1:\n\n0 ^ 1 = 1\n1 ^ 1 = 0\n\n\n\n\nint x = 5;     // 0101\nx ^= (1 &lt;&lt; 2); // 0101 ^ 0100 = 0001 (1)\nBit 2 was 1 → now 0.",
     "crumbs": [
       "Stage 3",
-      "Common Bit Manipulation Tricks"
+      "Bit Manipulation Tricks"
     ]
   },
   {
     "objectID": "b2/bit-manipulation.html#remove-the-lowest-set-bit",
     "href": "b2/bit-manipulation.html#remove-the-lowest-set-bit",
-    "title": "Common Bit Manipulation Tricks",
+    "title": "Bit Manipulation Tricks",
     "section": "",
-    "text": "This is a very famous trick.\n\n\nx = x & (x - 1);\nThis clears the lowest (rightmost) 1-bit in x.\n\n\n\nx      = 12 = 1100\nx - 1  = 11 = 1011\nx&(x-1)=  8 = 1000\nSo we removed the lowest 1-bit (bit 2).",
+    "text": "This is a very famous trick.\nx = x & (x - 1);\nThis clears the lowest (rightmost) 1-bit in x.\n\n\nx           = 12 = 1100\nx - 1       = 11 = 1011\nx & (x - 1) =  8 = 1000\nSo we removed the lowest 1-bit (bit 2).",
     "crumbs": [
       "Stage 3",
-      "Common Bit Manipulation Tricks"
+      "Bit Manipulation Tricks"
     ]
   },
   {
     "objectID": "b2/bit-manipulation.html#check-if-x-is-a-power-of-two",
     "href": "b2/bit-manipulation.html#check-if-x-is-a-power-of-two",
-    "title": "Common Bit Manipulation Tricks",
+    "title": "Bit Manipulation Tricks",
     "section": "",
-    "text": "Uses the previous trick.\n\n\nbool isPowerOfTwo = (x &gt; 0) && ((x & (x - 1)) == 0);\nWhy this works:\n\nA power of two in binary: 1, 10, 100, 1000, ...\n\nExactly one bit is set.\n\nIf you do x & (x - 1):\n\nIt removes the lowest set bit.\n\nIf there was exactly one set bit → result becomes 0.\n\nSo:\n\nx & (x - 1) is 0 ⇔ x has exactly one set bit.\n\n\n\n\n\nx = 8 (1000) → x & (x-1) = 1000 & 0111 = 0000 → power of two.\nx = 12 (1100) → x & (x-1) = 1100 & 1011 = 1000 → not zero → not a power of two.",
+    "text": "We assume x is a positive number, and use the previous trick.\nbool isPowerOfTwo = (x & (x - 1)) == 0;\nWhy this works:\n\nA power of two in binary (1, 10, 100, 1000, …) has exactly one bit set.\nIf you do x & (x - 1) it removes the lowest set bit.\nIf there was exactly one set bit, result becomes 0.\n\nSo:\n\n“x & (x - 1) is 0” ⇔ “x has exactly one set bit”.\n\n\n\n\nx = 8 (1000) → x & (x-1) = 1000 & 0111 = 0000 → power of two.\nx = 12 (1100) → x & (x-1) = 1100 & 1011 = 1000 → not zero → not a power of two.",
     "crumbs": [
       "Stage 3",
-      "Common Bit Manipulation Tricks"
+      "Bit Manipulation Tricks"
     ]
   },
   {
     "objectID": "b2/bit-manipulation.html#get-the-lowest-set-bit-only",
     "href": "b2/bit-manipulation.html#get-the-lowest-set-bit-only",
-    "title": "Common Bit Manipulation Tricks",
+    "title": "Bit Manipulation Tricks",
     "section": "",
-    "text": "int lowest = x & -x;\nHere -x is the two’s-complement negative of x.\nPattern:\n\nx & -x isolates the rightmost 1-bit and zeroes everything else.\n\n\n\n\nx                     = 12 = 1100\n-x (two's complement) = 0100 (in low bits)\nx & -x                = 0100 = 4\nSo the lowest set bit corresponds to value 4 (bit 2).",
+    "text": "int lowest = x & -x;\nHere -x is the two’s-complement negative of x.\nPattern:\n\nx & -x isolates the rightmost 1-bit and zeroes everything else.\n\n\n\nx                = 12 = ...00001100\n-x (two's complement) = ...11110100\nx & -x                = ...00000100 = 4\nSo the lowest set bit corresponds to value 4 (bit 2).",
     "crumbs": [
       "Stage 3",
-      "Common Bit Manipulation Tricks"
+      "Bit Manipulation Tricks"
     ]
   },
   {
     "objectID": "b2/bit-manipulation.html#quick-summary",
     "href": "b2/bit-manipulation.html#quick-summary",
-    "title": "Common Bit Manipulation Tricks",
+    "title": "Bit Manipulation Tricks",
     "section": "",
-    "text": "Check bit k: isSet = (x & (1 &lt;&lt; k)) != 0;\nSet bit k: x |= (1 &lt;&lt; k);\nClear bit k: x &= ~(1 &lt;&lt; k);\nToggle bit k: x ^= (1 &lt;&lt; k);\nRemove lowest set bit: x &= (x - 1);\nCheck power of two: x &gt; 0 && (x & (x - 1)) == 0\nGet lowest set bit: lowest = x & -x;\n\nThese are the the most important bit manipulation tricks.",
+    "text": "Check bit k: isSet = (x &gt;&gt; k) & 1;\nSet bit k: x |= (1 &lt;&lt; k);\nClear bit k: x &= ~(1 &lt;&lt; k);\nToggle bit k: x ^= (1 &lt;&lt; k);\nRemove lowest set bit: x &= (x - 1);\nCheck power of two: x &gt; 0 && (x & (x - 1)) == 0\nGet lowest set bit: lowest = x & -x;\n\nThese are the the most important bit manipulation tricks.",
     "crumbs": [
       "Stage 3",
-      "Common Bit Manipulation Tricks"
+      "Bit Manipulation Tricks"
     ]
   },
   {
@@ -3463,39 +3454,51 @@
     ]
   },
   {
-    "objectID": "b2/forg1.html",
-    "href": "b2/forg1.html",
+    "objectID": "b2/dp-problems/frog1.html",
+    "href": "b2/dp-problems/frog1.html",
     "title": "",
     "section": "",
-    "text": "Frog 1\n\nAtcoder\neasy\n\n\n\nYou are given an array \\(h\\) with \\(N\\) elements. You start at the first element and must reach the last element using these moves:\n\nMove from index \\(i\\) to \\(i + 1\\) with a cost of \\(|h_i - h_{i + 1}|\\).\nMove from index \\(i\\) to \\(i + 2\\) with a cost of \\(|h_i - h_{i + 2}|\\).\n\nFind the minimum total cost required to move from the first element to the last."
-  },
-  {
-    "objectID": "b2/forg1.html#frog-1",
-    "href": "b2/forg1.html#frog-1",
-    "title": "",
-    "section": "",
-    "text": "Frog 1\n\nAtcoder\neasy\n\n\n\nYou are given an array \\(h\\) with \\(N\\) elements. You start at the first element and must reach the last element using these moves:\n\nMove from index \\(i\\) to \\(i + 1\\) with a cost of \\(|h_i - h_{i + 1}|\\).\nMove from index \\(i\\) to \\(i + 2\\) with a cost of \\(|h_i - h_{i + 2}|\\).\n\nFind the minimum total cost required to move from the first element to the last."
-  },
-  {
-    "objectID": "b2/vacation.html",
-    "href": "b2/vacation.html",
-    "title": "",
-    "section": "",
-    "text": "Vacation\n\nAtcoder\neasy\n\n\n\nGiven three arrays \\(a\\), \\(b\\), and \\(c\\) of integers, each of length \\(N\\), you need to select one element from each index \\(i\\) (where \\(0 \\le i &lt; N\\)) from either \\(a_i\\), \\(b_i\\), or \\(c_i\\).\nConstraint: For every index \\(i\\) (where \\(0 \\le i &lt; N - 1\\)), the elements chosen at indices \\(i\\) and \\(i + 1\\) must come from different arrays.\nDetermine and print the maximum possible sum achievable under this constraint.",
+    "text": "Frog 1\n\nAtcoder\neasy\n\n\n\nYou are given an array \\(h\\) with \\(N\\) elements. You start at the first element and must reach the last element using these moves:\n\nMove from index \\(i\\) to \\(i + 1\\) with a cost of \\(|h_i - h_{i + 1}|\\).\nMove from index \\(i\\) to \\(i + 2\\) with a cost of \\(|h_i - h_{i + 2}|\\).\n\nFind the minimum total cost required to move from the first element to the last.",
     "crumbs": [
       "Stage 3",
-      "vacation.html"
+      "DP problems",
+      "Frog 1"
     ]
   },
   {
-    "objectID": "b2/vacation.html#vacation",
-    "href": "b2/vacation.html#vacation",
+    "objectID": "b2/dp-problems/frog1.html#frog-1",
+    "href": "b2/dp-problems/frog1.html#frog-1",
+    "title": "",
+    "section": "",
+    "text": "Frog 1\n\nAtcoder\neasy\n\n\n\nYou are given an array \\(h\\) with \\(N\\) elements. You start at the first element and must reach the last element using these moves:\n\nMove from index \\(i\\) to \\(i + 1\\) with a cost of \\(|h_i - h_{i + 1}|\\).\nMove from index \\(i\\) to \\(i + 2\\) with a cost of \\(|h_i - h_{i + 2}|\\).\n\nFind the minimum total cost required to move from the first element to the last.",
+    "crumbs": [
+      "Stage 3",
+      "DP problems",
+      "Frog 1"
+    ]
+  },
+  {
+    "objectID": "b2/dp-problems/vacation.html",
+    "href": "b2/dp-problems/vacation.html",
     "title": "",
     "section": "",
     "text": "Vacation\n\nAtcoder\neasy\n\n\n\nGiven three arrays \\(a\\), \\(b\\), and \\(c\\) of integers, each of length \\(N\\), you need to select one element from each index \\(i\\) (where \\(0 \\le i &lt; N\\)) from either \\(a_i\\), \\(b_i\\), or \\(c_i\\).\nConstraint: For every index \\(i\\) (where \\(0 \\le i &lt; N - 1\\)), the elements chosen at indices \\(i\\) and \\(i + 1\\) must come from different arrays.\nDetermine and print the maximum possible sum achievable under this constraint.",
     "crumbs": [
       "Stage 3",
-      "vacation.html"
+      "DP problems",
+      "Vacation"
+    ]
+  },
+  {
+    "objectID": "b2/dp-problems/vacation.html#vacation",
+    "href": "b2/dp-problems/vacation.html#vacation",
+    "title": "",
+    "section": "",
+    "text": "Vacation\n\nAtcoder\neasy\n\n\n\nGiven three arrays \\(a\\), \\(b\\), and \\(c\\) of integers, each of length \\(N\\), you need to select one element from each index \\(i\\) (where \\(0 \\le i &lt; N\\)) from either \\(a_i\\), \\(b_i\\), or \\(c_i\\).\nConstraint: For every index \\(i\\) (where \\(0 \\le i &lt; N - 1\\)), the elements chosen at indices \\(i\\) and \\(i + 1\\) must come from different arrays.\nDetermine and print the maximum possible sum achievable under this constraint.",
+    "crumbs": [
+      "Stage 3",
+      "DP problems",
+      "Vacation"
     ]
   }
 ]
