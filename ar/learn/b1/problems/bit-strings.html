@@ -64,8 +64,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../b2/problems/grid-paths-I.html" rel="next">
-<link href="../../b2/problems/dice-combinations.html" rel="prev">
+<link href="../../b1/problems/stick-lengths.html" rel="next">
+<link href="../../b1/problems/vanya-and-lanterns.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -75,7 +75,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b758ccaa5987ceb1b75504551e579abf.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-554c5fc7eb394f0da0ff922119d371a0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-489cfe02b1645a67addcbd5bc7b628ec.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -153,22 +153,22 @@ window.Quarto = {
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav navbar-nav-scroll me-auto">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link" href="../../b0/cpp/hello-world.html"> 
-<span class="menu-text">Stage 1</span></a>
+<span class="menu-text">المرحلة 1</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../b1/cpp/sets.html"> 
-<span class="menu-text">Stage 2</span></a>
+    <a class="nav-link active" href="../../b1/cpp/sets.html" aria-current="page"> 
+<span class="menu-text">المرحلة 2</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="../../b2/cpp/bitwise-operations.html" aria-current="page"> 
-<span class="menu-text">Stage 3</span></a>
+    <a class="nav-link" href="../../b2/cpp/bitwise-operations.html"> 
+<span class="menu-text">المرحلة 3</span></a>
   </li>  
   <li class="nav-item">
     <span class="nav-link">
-<span class="menu-text">Stage 4</span>
+<span class="menu-text">المرحلة 4</span>
     </span>
   </li>  
 </ul>
@@ -213,46 +213,64 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../b2/cpp/bitwise-operations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Bitwise Operations</span></a>
+  <a href="../../b1/cpp/sets.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">المجموعات (Sets)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../b2/cpp/structs.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Structures (<code>struct</code>)</span></a>
+  <a href="../../b1/cpp/maps.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">الخرائط (Maps)</span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../b2/bit-manipulation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Bit Manipulation Tricks</span></a>
+  <a href="../../b1/time-complexity.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">التعقيد الزمني (Time Complexity)</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../b2/generating-subsets-using-bitmasks.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Generating Subsets Using Bitmasks</span></a>
+  <a href="../../b1/sorting.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">الترتيب (Sorting)</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../b2/backtracking.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Backtracking</span></a>
+  <a href="../../b1/binary-search.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">البحث الثنائي (Binary Search)</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../b2/dynamic-programming.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Dynamic Programming</span></a>
+  <a href="../../b1/modular-arithmetics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">الحسابيات المعيارية (Modular Arithmetic)</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../b1/simulation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">المحاكاة</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../b1/casework.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">العمل على الحالات</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../b1/greedy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">الخوارزميات الجشعة (Greedy Algorithms)</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
- <span class="menu-text">DP problems</span></a>
+ <span class="menu-text">Problems</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -260,34 +278,58 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../b2/dp-problems/frog1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Frog 1</span></a>
+  <a href="../../b1/problems/domino-piling.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Domino piling</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../b2/dp-problems/vacation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Vacation</span></a>
+  <a href="../../b1/problems/modular-exponentiation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Modular Exponentiation</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../b2/dp-problems/knapsack1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Knapsack 1</span></a>
+  <a href="../../b1/problems/sum-of-two-values.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Sum Of Two Values</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../b1/problems/sum-of-three-values.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Sum Of Three Values</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../b1/problems/twins.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Twins</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../b1/problems/digit-queries.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Digit Queries</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../b1/problems/vanya-and-lanterns.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vanya and Lanterns</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../b1/problems/bit-strings.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Bit Strings</span></a>
   </div>
 </li>
       </ul>
   </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../b2/rectangular-geometry.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Rectangular Geometry</span></a>
-  </div>
-</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
- <span class="menu-text">Problems</span></a>
+ <span class="menu-text">Practice Problems</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -295,37 +337,8 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../b2/problems/dice-combinations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Dice Combinations</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../b2/problems/bit-strings.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Bit Strings</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../b2/problems/grid-paths-I.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Grid Paths I</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
- <span class="menu-text">Practice Problems</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../b2/problems/coin-combinations-I.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Coin Combinations I</span></a>
+  <a href="../../b1/problems/stick-lengths.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Stick Lengths</span></a>
   </div>
 </li>
       </ul>
@@ -335,14 +348,8 @@ window.Quarto = {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="10">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#bit-strings" id="toc-bit-strings" class="nav-link active" data-scroll-target="#bit-strings">Bit Strings</a></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
@@ -350,6 +357,7 @@ window.Quarto = {
 
 
 
+<div dir="rtl">
 <section id="bit-strings" class="level2 problem-toc-header">
 <h2 class="problem-toc-header" data-anchor-id="bit-strings">Bit Strings</h2>
 <div class="problem-card">
@@ -361,25 +369,25 @@ window.Quarto = {
 </div>
 </div>
 <div class="problem-body">
-<p>Your task is to calculate the number of bit strings of length <span class="math inline">\(n\)</span>.</p>
-<p>A bit string is a sequence of <span class="math inline">\(n\)</span> characters, each of which is either <code>0</code> or <code>1</code>.</p>
-<p>For example, if <span class="math inline">\(n = 3\)</span>, the bit strings are [000, 001, 010, 011, 100, 101, 110, 111], so there are <span class="math inline">\(8\)</span> such strings.</p>
-<p>Input:</p>
+<p>مهمتك هي حساب عدد سلاسل البت بطول <span dir="ltr"><span class="math inline">\(n\)</span></span>.</p>
+<p>سلسلة البت هي تسلسل بطول <span dir="ltr"><span class="math inline">\(n\)</span></span> ، كل واحد منها إما <code>0</code> أو <code>1</code>.</p>
+<p>على سبيل المثال، إذا كان <span dir="ltr"><span class="math inline">\(n = 3\)</span></span>، فإن سلاسل البت هي <span dir="ltr">[000, 001, 010, 011, 100, 101, 110, 111]</span>، أي أن عددها <span dir="ltr"><span class="math inline">\(8\)</span></span>.</p>
+<p>الإدخال:</p>
 <ul>
-<li>A single integer <span class="math inline">\(n\)</span>.</li>
+<li>عدد صحيح واحد <span dir="ltr"><span class="math inline">\(n\)</span></span>.</li>
 </ul>
-<p>Output:</p>
+<p>المخرجات:</p>
 <ul>
-<li>Print the total number of bit strings of length <span class="math inline">\(n\)</span>, modulo <span class="math inline">\(10^9 + 7\)</span>.</li>
+<li>اطبع العدد الكلي لسلاسل البت بطول <span dir="ltr"><span class="math inline">\(n\)</span></span>، بتطبيق باقي القسمة على <span dir="ltr"><span class="math inline">\(10^9 + 7\)</span></span>.</li>
 </ul>
-<p>Constraints:</p>
+<p>القيود:</p>
 <ul>
-<li><span class="math inline">\(1 \le n \le 10^6\)</span></li>
+<li><span dir="ltr"><span class="math inline">\(1 \le n \le 10^6\)</span></span></li>
 </ul>
-<p>Example:</p>
-<p>Input:</p>
+<p>مثال:</p>
+<p>الإدخال:</p>
 <pre class="text"><code>3</code></pre>
-<p>Output:</p>
+<p>المخرجات:</p>
 <pre class="text"><code>8</code></pre>
 </div>
 </div>
@@ -388,21 +396,27 @@ window.Quarto = {
 <div class="solution-card">
 <p><span class="solution-title">Solution</span></p>
 <div class="problem-body">
-<p>Each of the <span class="math inline">\(n\)</span> positions in the bit string has 2 independent choices: <code>0</code> or <code>1</code>. So, by the rule of product, the number of bit strings is <span class="math inline">\(2^n\)</span>. We must print this value modulo <span class="math inline">\(M = 10^9 + 7\)</span>.</p>
-<p>We can compute <span class="math inline">\(2^n \bmod M\)</span> sequentially with a simple loop:</p>
+<p>كل خانة من خانات السلسلة ذات الطول <span dir="ltr"><span class="math inline">\(n\)</span></span> لديها خياران مستقلان: <code>0</code> أو <code>1</code>. لذلك، حسب قاعدة الضرب، يكون عدد سلاسل البت مساويًا لـ <span dir="ltr"><span class="math inline">\(2^n\)</span></span>. علينا طباعة هذه القيمة بتطبيق باقي القسمة على <span dir="ltr"><span class="math inline">\(M = 10^9 + 7\)</span></span>.</p>
+<p>يمكننا حساب <span dir="ltr"><span class="math inline">\(2^n \bmod M\)</span></span> تدريجيًا باستخدام حلقة بسيطة:</p>
 <ul>
-<li><p>Start with <code>ans = 1</code>.</p></li>
-<li><p>Repeat <code>n</code> times:</p>
-<p><span class="math inline">\(\text{ans} = (2 \cdot \text{ans}) \bmod M.\)</span></p></li>
+<li><p>نبدأ بـ <code>ans = 1</code>.</p></li>
+<li><p>نكرر العملية <span dir="ltr"><span class="math inline">\(n\)</span></span> مرة:</p>
+<p><span dir="ltr"><span class="math inline">\(\text{ans} = (2 \cdot \text{ans}) \bmod M.\)</span></span></p></li>
 </ul>
-<p>After <span class="math inline">\(n\)</span> iterations, <code>ans</code> equals <span class="math inline">\(2^n \bmod M\)</span>.</p>
-<p>This runs in <span class="math inline">\(O(n)\)</span> time. Since <span class="math inline">\(n \le 10^6\)</span>, a loop with <span class="math inline">\(10^6\)</span> iterations is easily within the time limit.</p>
-<p>Sequential idea:</p>
-<pre><code>Initialize ans = 1
+<p>بعد <span dir="ltr"><span class="math inline">\(n\)</span></span> تكرارات، ستكون قيمة <code>ans</code> مساوية لـ <span dir="ltr"><span class="math inline">\(2^n \bmod M\)</span></span>.</p>
+<p>تعمل هذه الطريقة في زمن <span dir="ltr"><span class="math inline">\(O(n)\)</span></span>. وبما أن <span dir="ltr"><span class="math inline">\(n \le 10^6\)</span></span>، فإن حلقة بعدد تكرارات يصل إلى <span dir="ltr"><span class="math inline">\(10^6\)</span></span> مقبولة ضمن حدود الزمن.</p>
+<p>فكرة متسلسلة:</p>
+<div dir="ltr">
+<pre class="text"><code>Initialize ans = 1
 for i = 1 to n:
     ans = (ans * 2) % M
     output ans</code></pre>
+</div>
+</div>
+</div>
+</div>
 <div class="sol-code">
+<div dir="ltr">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> <span class="kw">namespace</span> std<span class="op">;</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -424,22 +438,23 @@ for i = 1 to n:
 <span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
 <span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
+</div>
 <div class="callout callout-style-default callout-caution callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Caution</span>Note on modular exponentiation (alternative)
+<span class="screen-reader-only">Caution</span>ملاحظة حول الأسّيات المعيارية (خيار بديل)
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>For this problem, an <span class="math inline">\(O(n)\)</span> loop is fast enough. In problems where <span class="math inline">\(n\)</span> can be much larger (e.g., up to <span class="math inline">\(10^{18}\)</span>), we cannot loop <span class="math inline">\(n\)</span> times.</p>
-<p>In those cases, we should use binary (fast) modular exponentiation to compute <span class="math inline">\(2^n \bmod M\)</span> in <span class="math inline">\(O(\log n)\)</span> time instead of <span class="math inline">\(O(n)\)</span>.</p>
+<p>في هذه المسألة، حلقة بزمن <span dir="ltr"><span class="math inline">\(O(n)\)</span></span> كافية وسريعة بما أن <span dir="ltr"><span class="math inline">\(n\)</span></span> ليس كبيرًا جدًا.</p>
+<p>في مسائل أخرى حيث يمكن أن تكون قيمة <span dir="ltr"><span class="math inline">\(n\)</span></span> كبيرة جدًا (مثلًا حتى <span dir="ltr"><span class="math inline">\(10^{18}\)</span></span>)، لا يمكننا تكرار الحلقة <span dir="ltr"><span class="math inline">\(n\)</span></span> مرة.</p>
+<p>في تلك الحالات، ينبغي استخدام خوارزمية الأسّ السريع (الأسّ الثنائي) لحساب <span dir="ltr"><span class="math inline">\(2^n \bmod M\)</span></span> بزمن <span dir="ltr"><span class="math inline">\(O(\log n)\)</span></span> بدلًا من <span dir="ltr"><span class="math inline">\(O(n)\)</span></span>.</p>
 </div>
 </div>
-</div>
-</div>
+<p>:::</p>
 </div>
 
 
@@ -845,13 +860,13 @@ for i = 1 to n:
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../b2/problems/dice-combinations.html" class="pagination-link" aria-label="Dice Combinations">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Dice Combinations</span>
+      <a href="../../b1/problems/vanya-and-lanterns.html" class="pagination-link" aria-label="Vanya and Lanterns">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Vanya and Lanterns</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../b2/problems/grid-paths-I.html" class="pagination-link" aria-label="Grid Paths I">
-        <span class="nav-page-text">Grid Paths I</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../b1/problems/stick-lengths.html" class="pagination-link" aria-label="Stick Lengths">
+        <span class="nav-page-text">Stick Lengths</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

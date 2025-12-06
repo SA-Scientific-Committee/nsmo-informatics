@@ -272,12 +272,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../b2/problems/bit-strings.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Bit Strings</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../../b2/problems/grid-paths-I.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Grid Paths I</span></a>
   </div>
@@ -322,11 +316,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#accessing-members" id="toc-accessing-members" class="nav-link" data-scroll-target="#accessing-members">Accessing Members</a></li>
   </ul></li>
   <li><a href="#declaring-objects-right-after-the-struct" id="toc-declaring-objects-right-after-the-struct" class="nav-link" data-scroll-target="#declaring-objects-right-after-the-struct">Declaring Objects Right After the <code>struct</code></a></li>
-  <li><a href="#pointers-to-structures-and-the---operator" id="toc-pointers-to-structures-and-the---operator" class="nav-link" data-scroll-target="#pointers-to-structures-and-the---operator">Pointers to Structures and the <code>-&gt;</code> Operator</a>
-  <ul class="collapse">
-  <li><a href="#dot-vs-arrow" id="toc-dot-vs-arrow" class="nav-link" data-scroll-target="#dot-vs-arrow">Dot vs Arrow</a></li>
-  </ul></li>
-  <li><a href="#nested-structures" id="toc-nested-structures" class="nav-link" data-scroll-target="#nested-structures">Nested Structures</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -400,104 +389,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li><code>product</code> is the type name</li>
 <li><code>apple</code>, <code>banana</code>, <code>melon</code> are variables (objects) of that type</li>
-</ul>
-</section>
-<section id="pointers-to-structures-and-the---operator" class="level2">
-<h2 data-anchor-id="pointers-to-structures-and-the---operator">Pointers to Structures and the <code>-&gt;</code> Operator</h2>
-<p>Just like <code>int*</code> can point to an <code>int</code>, a <code>product*</code> can point to a <code>product</code>.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;string&gt;</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> <span class="kw">namespace</span> std<span class="op">;</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="kw">struct</span> product <span class="op">{</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> weight<span class="op">;</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">double</span> price<span class="op">;</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    product aproduct<span class="op">;</span></span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    product<span class="op">*</span> pproduct <span class="op">=</span> <span class="op">&amp;</span>aproduct<span class="op">;</span>   <span class="co">// pointer to aproduct</span></span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    string temp<span class="op">;</span></span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>    cout <span class="op">&lt;&lt;</span> <span class="st">"Enter weight (in g): "</span><span class="op">;</span></span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>    getline<span class="op">(</span>cin<span class="op">,</span> temp<span class="op">);</span></span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>    pproduct<span class="op">-&gt;</span>weight <span class="op">=</span> stoi<span class="op">(</span>temp<span class="op">);</span></span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>    cout <span class="op">&lt;&lt;</span> <span class="st">"Enter price (in SAR): "</span><span class="op">;</span></span>
-<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>    getline<span class="op">(</span>cin<span class="op">,</span> temp<span class="op">);</span></span>
-<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>    pmovie<span class="op">-&gt;</span>price <span class="op">=</span> stod<span class="op">(</span>temp<span class="op">);</span></span>
-<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>    cout <span class="op">&lt;&lt;</span> <span class="st">"</span><span class="sc">\n</span><span class="st">You have entered:</span><span class="sc">\n</span><span class="st">"</span><span class="op">;</span></span>
-<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>    cout <span class="op">&lt;&lt;</span> pproduct<span class="op">-&gt;</span>weight <span class="op">&lt;&lt;</span> <span class="st">" ("</span> <span class="op">&lt;&lt;</span> pmovie<span class="op">-&gt;</span>price <span class="op">&lt;&lt;</span> <span class="st">")</span><span class="sc">\n</span><span class="st">"</span><span class="op">;</span></span>
-<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<section id="dot-vs-arrow" class="level3">
-<h3 data-anchor-id="dot-vs-arrow">Dot vs Arrow</h3>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Expression</th>
-<th>Meaning</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code>obj.member</code></td>
-<td>Member of the object <code>obj</code></td>
-</tr>
-<tr class="even">
-<td><code>ptr-&gt;member</code></td>
-<td>Member of the object <strong>pointed to by</strong> <code>ptr</code></td>
-</tr>
-<tr class="odd">
-<td><code>(*ptr).member</code></td>
-<td>Same as <code>ptr-&gt;member</code></td>
-</tr>
-</tbody>
-</table>
-</section>
-</section>
-<section id="nested-structures" class="level2">
-<h2 data-anchor-id="nested-structures">Nested Structures</h2>
-<p>A member of a structure can itself be another structure.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;string&gt;</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> <span class="kw">namespace</span> std<span class="op">;</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="kw">struct</span> <span class="dt">movies_t</span> <span class="op">{</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    string title<span class="op">;</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> year<span class="op">;</span></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="kw">struct</span> <span class="dt">friends_t</span> <span class="op">{</span></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    string name<span class="op">;</span></span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    string email<span class="op">;</span></span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>    <span class="dt">movies_t</span> favoriteMovie<span class="op">;</span></span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>    <span class="dt">friends_t</span> charlie<span class="op">;</span></span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>    charlie<span class="op">.</span>name <span class="op">=</span> <span class="st">"Charlie"</span><span class="op">;</span></span>
-<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>    charlie<span class="op">.</span>email <span class="op">=</span> <span class="st">"charlie@example.com"</span><span class="op">;</span></span>
-<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>    charlie<span class="op">.</span>favoriteMovie<span class="op">.</span>title <span class="op">=</span> <span class="st">"The Matrix"</span><span class="op">;</span></span>
-<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>    charlie<span class="op">.</span>favoriteMovie<span class="op">.</span>year  <span class="op">=</span> <span class="dv">1999</span><span class="op">;</span></span>
-<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>    cout <span class="op">&lt;&lt;</span> charlie<span class="op">.</span>name <span class="op">&lt;&lt;</span> <span class="st">"'s favorite movie is "</span></span>
-<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>         <span class="op">&lt;&lt;</span> charlie<span class="op">.</span>favoriteMovie<span class="op">.</span>title</span>
-<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>         <span class="op">&lt;&lt;</span> <span class="st">" ("</span> <span class="op">&lt;&lt;</span> charlie<span class="op">.</span>favoriteMovie<span class="op">.</span>year <span class="op">&lt;&lt;</span> <span class="st">")</span><span class="sc">\n</span><span class="st">"</span><span class="op">;</span></span>
-<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>You can also use a pointer to <code>friends_t</code>:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="dt">friends_t</span> charlie<span class="op">;</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="dt">friends_t</span><span class="op">*</span> pfriends <span class="op">=</span> <span class="op">&amp;</span>charlie<span class="op">;</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>pfriends<span class="op">-&gt;</span>favoriteMovie<span class="op">.</span>title <span class="op">=</span> <span class="st">"Inception"</span><span class="op">;</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>pfriends<span class="op">-&gt;</span>favoriteMovie<span class="op">.</span>year  <span class="op">=</span> <span class="dv">2010</span><span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Here:</p>
-<ul>
-<li><code>pfriends-&gt;favorite_movie</code> is a <code>movies_t</code></li>
-<li><code>pfriends-&gt;favorite_movie.title</code> is a <code>string</code></li>
-<li>You can chain <code>.</code> and <code>-&gt;</code> depending on what you have (object vs pointer).</li>
 </ul>
 
 

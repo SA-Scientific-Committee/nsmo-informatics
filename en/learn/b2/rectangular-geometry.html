@@ -301,12 +301,6 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../b2/problems/bit-strings.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Bit Strings</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../b2/problems/grid-paths-I.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Grid Paths I</span></a>
   </div>
@@ -354,10 +348,8 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#formulas" id="toc-formulas" class="nav-link" data-scroll-target="#formulas">Formulas</a></li>
   </ul></li>
-  <li><a href="#example-task" id="toc-example-task" class="nav-link" data-scroll-target="#example-task">Example Task</a>
-  <ul class="collapse">
-  <li><a href="#solution" id="toc-solution" class="nav-link" data-scroll-target="#solution">Solution</a></li>
-  </ul></li>
+  <li><a href="#example-task" id="toc-example-task" class="nav-link" data-scroll-target="#example-task">Example Task</a></li>
+  <li><a href="#fence-painting" id="toc-fence-painting" class="nav-link" data-scroll-target="#fence-painting">Fence Painting</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -466,7 +458,7 @@ Note
 <li><span class="math inline">\(a_{r} \le b_{l}\)</span> or <span class="math inline">\(b_{r} \le a_{l}\)</span></li>
 </ul>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> are_intersected<span class="op">(</span><span class="dt">int</span> a_l <span class="op">,</span> <span class="dt">int</span> a_r<span class="op">,</span> <span class="dt">int</span> b_l <span class="op">,</span> <span class="dt">int</span> b_r<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span><span class="op">(</span>b_l <span class="op">&lt;=</span> a_r <span class="op">||</span> a_l <span class="op">&lt;=</span> b_r<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span><span class="op">(</span>b_r <span class="op">&lt;=</span> a_l <span class="op">||</span> a_r <span class="op">&lt;=</span> b_l<span class="op">)</span> <span class="op">{</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="kw">false</span><span class="op">;</span></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">else</span> <span class="op">{</span></span>
@@ -477,16 +469,32 @@ Note
 <section id="finding-intersection-1" class="level4">
 <h4 data-anchor-id="finding-intersection-1">Finding Intersection</h4>
 <p>If two intervals <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> intersect then the interval <span class="math inline">\(c\)</span> that is the intersection of <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> will be:</p>
-<p><span class="math inline">\(c_{l} = max(a_{l}, b_{r})\)</span></p>
-<p><span class="math inline">\(c_{r} = min(a_{l}, b_{tr_y})\)</span></p>
+<p><span class="math inline">\(c_{l} = max(a_{l}, b_{l})\)</span></p>
+<p><span class="math inline">\(c_{r} = min(a_{r}, b_{r})\)</span></p>
 </section>
 </section>
 </section>
 <section id="example-task" class="level2">
 <h2 data-anchor-id="example-task">Example Task</h2>
-<p>In the task <a href="https://usaco.org/index.php?page=viewproblem2&amp;cpid=567">Fence Painting - USACO</a> we are given two intervals and are asked to print the total length covered by these intervals.</p>
-<section id="solution" class="level3">
-<h3 data-anchor-id="solution">Solution</h3>
+</section>
+<section id="fence-painting" class="level2 problem-toc-header">
+<h2 class="problem-toc-header" data-anchor-id="fence-painting">Fence Painting</h2>
+<div class="problem-card">
+<div class="problem-header">
+<span class="problem-title">Fence Painting</span>
+<div class="problem-meta">
+<span class="problem-origin"><a href="https://usaco.org/index.php?page=viewproblem2&amp;cpid=567">USACO</a></span>
+</div>
+</div>
+<div class="problem-body">
+<p>we are given two intervals and are asked to print the total length covered by these intervals.</p>
+</div>
+</div>
+</section>
+<div>
+<div class="solution-card">
+<p><span class="solution-title">Solution</span></p>
+<div class="problem-body">
 <p>If the two give intervals don’t intersect then the area cover is the sum of both lengths. Otherwise, the solution will be the sum of both lengths subtracted by the intersected area.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -515,10 +523,11 @@ Note
 <span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>    cout <span class="op">&lt;&lt;</span> total <span class="op">-</span> intersection <span class="op">&lt;&lt;</span> <span class="st">"</span><span class="sc">\n</span><span class="st">"</span><span class="op">;</span></span>
 <span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
 <span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
 
 
-</section>
-</section>
 </section>
 
 </main> <!-- /main -->

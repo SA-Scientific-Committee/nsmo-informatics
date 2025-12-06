@@ -272,12 +272,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../b2/problems/bit-strings.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Bit Strings</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../b2/problems/grid-paths-I.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Grid Paths I</span></a>
   </div>
@@ -331,6 +325,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul></li>
   <li><a href="#remove-the-lowest-set-bit" id="toc-remove-the-lowest-set-bit" class="nav-link" data-scroll-target="#remove-the-lowest-set-bit">Remove the Lowest Set Bit</a>
   <ul class="collapse">
+  <li><a href="#why-this-works" id="toc-why-this-works" class="nav-link" data-scroll-target="#why-this-works">Why This Works</a></li>
   <li><a href="#example-3" id="toc-example-3" class="nav-link" data-scroll-target="#example-3">Example</a></li>
   </ul></li>
   <li><a href="#check-if-x-is-a-power-of-two" id="toc-check-if-x-is-a-power-of-two" class="nav-link" data-scroll-target="#check-if-x-is-a-power-of-two">Check if <code>x</code> is a Power of Two</a>
@@ -434,6 +429,29 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>This is a very famous trick.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> x <span class="op">&amp;</span> <span class="op">(</span>x <span class="op">-</span> <span class="dv">1</span><span class="op">);</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>This clears the lowest (rightmost) 1-bit in <code>x</code>.</p>
+<section id="why-this-works" class="level3">
+<h3 data-anchor-id="why-this-works">Why This Works</h3>
+<p>Think about what happens to the bits when you subtract <code>1</code>:</p>
+<ul>
+<li>When you do <code>x - 1</code>, you scan from the right until you find the <strong>first 1-bit</strong>.</li>
+<li>That lowest 1-bit becomes <code>0</code>.</li>
+<li>All the bits <strong>to the right</strong> of it (which were <code>0</code>s) become <code>1</code>s (because of borrowing).</li>
+</ul>
+<p>So around the lowest set bit, the pattern looks like this:</p>
+<pre class="text"><code>x:       .... 1 0 0 0 0
+x - 1:   .... 0 1 1 1 1</code></pre>
+<p>Now AND them:</p>
+<pre class="text"><code>x        = .... 1 0 0 0 0
+x - 1    = .... 0 1 1 1 1
+-------------------------
+x&amp;(x-1)  = .... 0 0 0 0 0</code></pre>
+<ul>
+<li>The <strong>lowest 1-bit</strong> becomes <code>0</code> because it’s <code>1 &amp; 0</code>.</li>
+<li>All bits <strong>to the right</strong> are <code>0</code> in <code>x</code> and something in <code>x - 1</code>, so they also become <code>0</code>.</li>
+<li>All bits <strong>to the left</strong> of that position are unchanged, because subtraction didn’t touch them (same bits in both <code>x</code> and <code>x - 1</code>).</li>
+</ul>
+<p>So <code>x &amp; (x - 1)</code> is just <code>x</code> with its <strong>rightmost 1-bit cleared</strong>.</p>
+</section>
 <section id="example-3" class="level3">
 <h3 data-anchor-id="example-3">Example</h3>
 <pre class="text"><code>x           = 12 = 1100
@@ -445,7 +463,7 @@ x &amp; (x - 1) =  8 = 1000</code></pre>
 <section id="check-if-x-is-a-power-of-two" class="level2">
 <h2 data-anchor-id="check-if-x-is-a-power-of-two">Check if <code>x</code> is a Power of Two</h2>
 <p>We assume <code>x</code> is a positive number, and use the previous trick.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> isPowerOfTwo <span class="op">=</span> <span class="op">(</span>x <span class="op">&amp;</span> <span class="op">(</span>x <span class="op">-</span> <span class="dv">1</span><span class="op">))</span> <span class="op">==</span> <span class="dv">0</span><span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> isPowerOfTwo <span class="op">=</span> <span class="op">(</span>x <span class="op">&amp;</span> <span class="op">(</span>x <span class="op">-</span> <span class="dv">1</span><span class="op">))</span> <span class="op">==</span> <span class="dv">0</span><span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Why this works:</p>
 <ul>
 <li>A power of two in binary (<code>1</code>, <code>10</code>, <code>100</code>, <code>1000</code>, …) has exactly one bit set.</li>
@@ -466,7 +484,7 @@ x &amp; (x - 1) =  8 = 1000</code></pre>
 </section>
 <section id="get-the-lowest-set-bit-only" class="level2">
 <h2 data-anchor-id="get-the-lowest-set-bit-only">Get the Lowest Set Bit Only</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> lowest <span class="op">=</span> x <span class="op">&amp;</span> <span class="op">-</span>x<span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> lowest <span class="op">=</span> x <span class="op">&amp;</span> <span class="op">-</span>x<span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Here <code>-x</code> is the two’s-complement negative of <code>x</code>.</p>
 <p>Pattern:</p>
 <ul>

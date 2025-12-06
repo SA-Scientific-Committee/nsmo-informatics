@@ -271,12 +271,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../b2/problems/bit-strings.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Bit Strings</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../../b2/problems/grid-paths-I.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Grid Paths I</span></a>
   </div>
@@ -316,6 +310,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#examples" id="toc-examples" class="nav-link" data-scroll-target="#examples">Examples</a></li>
   </ul></li>
+  <li><a href="#twos-complement-and-negative-numbers" id="toc-twos-complement-and-negative-numbers" class="nav-link" data-scroll-target="#twos-complement-and-negative-numbers">Two’s Complement and Negative Numbers</a>
+  <ul class="collapse">
+  <li><a href="#how-positive-numbers-look" id="toc-how-positive-numbers-look" class="nav-link" data-scroll-target="#how-positive-numbers-look">How positive numbers look</a></li>
+  <li><a href="#how-negative-numbers-are-stored-twos-complement" id="toc-how-negative-numbers-are-stored-twos-complement" class="nav-link" data-scroll-target="#how-negative-numbers-are-stored-twos-complement">How negative numbers are stored (two’s complement)</a></li>
+  <li><a href="#why-this-is-nice" id="toc-why-this-is-nice" class="nav-link" data-scroll-target="#why-this-is-nice">Why this is nice</a></li>
+  <li><a href="#right-shift-and-negatives" id="toc-right-shift-and-negatives" class="nav-link" data-scroll-target="#right-shift-and-negatives">Right shift and negatives</a></li>
+  </ul></li>
   <li><a href="#the-main-bitwise-operators" id="toc-the-main-bitwise-operators" class="nav-link" data-scroll-target="#the-main-bitwise-operators">The Main Bitwise Operators</a></li>
   <li><a href="#seeing-bitwise-operations-in-binary" id="toc-seeing-bitwise-operations-in-binary" class="nav-link" data-scroll-target="#seeing-bitwise-operations-in-binary">Seeing Bitwise Operations in Binary</a>
   <ul class="collapse">
@@ -341,7 +342,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Bitwise operations let you work with the individual bits of an integer. They’re super powerful for bit manipulation, optimization tricks, and things like generating all subsets of a set.</p>
 <section id="binary-numbers" class="level2">
 <h2 data-anchor-id="binary-numbers">Binary Numbers</h2>
-<p>Computers store integers in <strong>binary</strong> — using only <code>0</code> and <code>1</code>. Each position (bit) represents a power of 2:</p>
+<p>Computers store integers in <strong>binary</strong> — using only <code>0</code> and <code>1</code>. We call a bit to be set if it is equal to 1. Each position (bit) represents a power of 2:</p>
 <pre class="text"><code>Bit position:  7  6  5  4  3  2  1  0
 Value:       128 64 32 16  8  4  2  1</code></pre>
 <p>To get the value of a binary number, you <strong>add the powers of 2</strong> where there is a <code>1</code>.</p>
@@ -353,6 +354,68 @@ Value:       128 64 32 16  8  4  2  1</code></pre>
 00000001  =  1           = 1
 00000000  =  0           = 0</code></pre>
 <p>So when we do bitwise operations (<code>&amp;</code>, <code>|</code>, <code>^</code>, etc.), we are combining or modifying these individual bits.</p>
+</section>
+</section>
+<section id="twos-complement-and-negative-numbers" class="level2">
+<h2 data-anchor-id="twos-complement-and-negative-numbers">Two’s Complement and Negative Numbers</h2>
+<p>So far we only talked about <strong>non-negative</strong> integers. But in C++ (and basically all modern CPUs), <strong>signed integers</strong> are stored in a format called <strong>two’s complement</strong>.</p>
+<p>Idea:</p>
+<ul>
+<li>Use the <strong>highest bit</strong> (most significant bit) as a <strong>sign bit</strong>.</li>
+</ul>
+<p>Let’s pretend we have 8-bit signed integers.</p>
+<pre class="text"><code>Bit position:  7  6  5  4   3  2  1  0
+Value:       -128 64 32 16  8  4  2  1</code></pre>
+<p>The range of an 8-bit <strong>signed</strong> number is:</p>
+<pre class="text"><code>-128 ... +127</code></pre>
+<section id="how-positive-numbers-look" class="level3">
+<h3 data-anchor-id="how-positive-numbers-look">How positive numbers look</h3>
+<p>Positive numbers (and zero) look the same as before:</p>
+<pre class="text"><code>00000101 = 5
+00000000 = 0
+00001010 = 10</code></pre>
+</section>
+<section id="how-negative-numbers-are-stored-twos-complement" class="level3">
+<h3 data-anchor-id="how-negative-numbers-are-stored-twos-complement">How negative numbers are stored (two’s complement)</h3>
+<p>To get <code>-x</code> in two’s complement:</p>
+<ol type="1">
+<li>Write <code>x</code> in binary.</li>
+<li>Flip all bits (<code>0 -&gt; 1</code>, <code>1 -&gt; 0</code>).</li>
+<li>Add 1.</li>
+</ol>
+<p>Example: <code>-5</code> on 8 bits.</p>
+<pre class="text"><code>+5        = 00000101
+flip      = 11111010
++ 1       = 11111011  = -5</code></pre>
+<p>Check <code>-1</code>:</p>
+<pre class="text"><code>+1        = 00000001
+flip      = 11111110
++ 1       = 11111111  = -1</code></pre>
+<p>So:</p>
+<pre class="text"><code>11111111 = -1
+11111011 = -5
+10000000 = -128</code></pre>
+</section>
+<section id="why-this-is-nice" class="level3">
+<h3 data-anchor-id="why-this-is-nice">Why this is nice</h3>
+<p>With two’s complement:</p>
+<ul>
+<li>Normal binary addition still works for negative numbers.</li>
+<li>There is only one representation of zero.</li>
+<li>Subtraction is just <code>a + (-b)</code>.</li>
+</ul>
+</section>
+<section id="right-shift-and-negatives" class="level3">
+<h3 data-anchor-id="right-shift-and-negatives">Right shift and negatives</h3>
+<p>For <strong>unsigned</strong> types, <code>&gt;&gt;</code> always shifts in <code>0</code> bits on the left.</p>
+<p>For <strong>signed</strong> types, most compilers perform an <strong>arithmetic right shift</strong>:</p>
+<ul>
+<li>They copy the sign bit (the top bit), so negative numbers stay negative as you shift.</li>
+</ul>
+<p>Example (assuming arithmetic shift):</p>
+<pre class="text"><code>x  = -4   -&gt; 11111100 (8-bit view)
+x &gt;&gt; 1    -&gt; 11111110 (still negative: -2)</code></pre>
+<p>This is why, when you care about raw bits, it’s often safer to use <strong>unsigned</strong> types (<code>uint32_t</code>, <code>unsigned long long</code>, etc.).</p>
 </section>
 </section>
 <section id="the-main-bitwise-operators" class="level2">
@@ -446,30 +509,30 @@ b &gt;&gt; 2  -&gt; 00000010  = 2    (10 / 4, integer division)</code></pre>
 </section>
 <section id="simple-c-example" class="level2">
 <h2 data-anchor-id="simple-c-example">Simple C++ Example</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> <span class="kw">namespace</span> std<span class="op">;</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> printBits<span class="op">(</span><span class="dt">int</span> x<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">7</span><span class="op">;</span> i <span class="op">&gt;=</span> <span class="dv">0</span><span class="op">;</span> i<span class="op">--)</span> <span class="op">{</span></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>        cout <span class="op">&lt;&lt;</span> <span class="op">((</span>x <span class="op">&gt;&gt;</span> i<span class="op">)</span> <span class="op">&amp;</span> <span class="dv">1</span><span class="op">);</span></span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> a <span class="op">=</span> <span class="dv">6</span><span class="op">;</span>   <span class="co">// 00000110</span></span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> b <span class="op">=</span> <span class="dv">10</span><span class="op">;</span>  <span class="co">// 00001010</span></span>
-<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>    cout <span class="op">&lt;&lt;</span> <span class="st">"a = "</span><span class="op">;</span> printBits<span class="op">(</span>a<span class="op">);</span> cout <span class="op">&lt;&lt;</span> <span class="st">" ("</span> <span class="op">&lt;&lt;</span> a <span class="op">&lt;&lt;</span> <span class="st">")</span><span class="sc">\n</span><span class="st">"</span><span class="op">;</span></span>
-<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>    cout <span class="op">&lt;&lt;</span> <span class="st">"b = "</span><span class="op">;</span> printBits<span class="op">(</span>b<span class="op">);</span> cout <span class="op">&lt;&lt;</span> <span class="st">" ("</span> <span class="op">&lt;&lt;</span> b <span class="op">&lt;&lt;</span> <span class="st">")</span><span class="sc">\n\n</span><span class="st">"</span><span class="op">;</span></span>
-<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>    cout <span class="op">&lt;&lt;</span> <span class="st">"a &amp; b = "</span><span class="op">;</span> printBits<span class="op">(</span>a <span class="op">&amp;</span> b<span class="op">);</span> cout <span class="op">&lt;&lt;</span> <span class="st">" ("</span> <span class="op">&lt;&lt;</span> <span class="op">(</span>a <span class="op">&amp;</span> b<span class="op">)</span> <span class="op">&lt;&lt;</span> <span class="st">")</span><span class="sc">\n</span><span class="st">"</span><span class="op">;</span></span>
-<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>    cout <span class="op">&lt;&lt;</span> <span class="st">"a | b = "</span><span class="op">;</span> printBits<span class="op">(</span>a <span class="op">|</span> b<span class="op">);</span> cout <span class="op">&lt;&lt;</span> <span class="st">" ("</span> <span class="op">&lt;&lt;</span> <span class="op">(</span>a <span class="op">|</span> b<span class="op">)</span> <span class="op">&lt;&lt;</span> <span class="st">")</span><span class="sc">\n</span><span class="st">"</span><span class="op">;</span></span>
-<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>    cout <span class="op">&lt;&lt;</span> <span class="st">"a ^ b = "</span><span class="op">;</span> printBits<span class="op">(</span>a <span class="op">^</span> b<span class="op">);</span> cout <span class="op">&lt;&lt;</span> <span class="st">" ("</span> <span class="op">&lt;&lt;</span> <span class="op">(</span>a <span class="op">^</span> b<span class="op">)</span> <span class="op">&lt;&lt;</span> <span class="st">")</span><span class="sc">\n</span><span class="st">"</span><span class="op">;</span></span>
-<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>    cout <span class="op">&lt;&lt;</span> <span class="st">"~a    = "</span><span class="op">;</span> printBits<span class="op">((</span><span class="dt">unsigned</span> <span class="dt">char</span><span class="op">)~</span>a<span class="op">);</span> cout <span class="op">&lt;&lt;</span> <span class="st">" (only low 8 bits)</span><span class="sc">\n</span><span class="st">"</span><span class="op">;</span></span>
-<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>    cout <span class="op">&lt;&lt;</span> <span class="st">"a &lt;&lt; 1 = "</span><span class="op">;</span> printBits<span class="op">(</span>a <span class="op">&lt;&lt;</span> <span class="dv">1</span><span class="op">);</span> cout <span class="op">&lt;&lt;</span> <span class="st">" ("</span> <span class="op">&lt;&lt;</span> <span class="op">(</span>a <span class="op">&lt;&lt;</span> <span class="dv">1</span><span class="op">)</span> <span class="op">&lt;&lt;</span> <span class="st">")</span><span class="sc">\n</span><span class="st">"</span><span class="op">;</span></span>
-<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>    cout <span class="op">&lt;&lt;</span> <span class="st">"b &gt;&gt; 1 = "</span><span class="op">;</span> printBits<span class="op">(</span>b <span class="op">&gt;&gt;</span> <span class="dv">1</span><span class="op">);</span> cout <span class="op">&lt;&lt;</span> <span class="st">" ("</span> <span class="op">&lt;&lt;</span> <span class="op">(</span>b <span class="op">&gt;&gt;</span> <span class="dv">1</span><span class="op">)</span> <span class="op">&lt;&lt;</span> <span class="st">")</span><span class="sc">\n</span><span class="st">"</span><span class="op">;</span></span>
-<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> <span class="kw">namespace</span> std<span class="op">;</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> printBits<span class="op">(</span><span class="dt">int</span> x<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">7</span><span class="op">;</span> i <span class="op">&gt;=</span> <span class="dv">0</span><span class="op">;</span> i<span class="op">--)</span> <span class="op">{</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>        cout <span class="op">&lt;&lt;</span> <span class="op">((</span>x <span class="op">&gt;&gt;</span> i<span class="op">)</span> <span class="op">&amp;</span> <span class="dv">1</span><span class="op">);</span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> a <span class="op">=</span> <span class="dv">6</span><span class="op">;</span>   <span class="co">// 00000110</span></span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> b <span class="op">=</span> <span class="dv">10</span><span class="op">;</span>  <span class="co">// 00001010</span></span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>    cout <span class="op">&lt;&lt;</span> <span class="st">"a = "</span><span class="op">;</span> printBits<span class="op">(</span>a<span class="op">);</span> cout <span class="op">&lt;&lt;</span> <span class="st">" ("</span> <span class="op">&lt;&lt;</span> a <span class="op">&lt;&lt;</span> <span class="st">")</span><span class="sc">\n</span><span class="st">"</span><span class="op">;</span></span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a>    cout <span class="op">&lt;&lt;</span> <span class="st">"b = "</span><span class="op">;</span> printBits<span class="op">(</span>b<span class="op">);</span> cout <span class="op">&lt;&lt;</span> <span class="st">" ("</span> <span class="op">&lt;&lt;</span> b <span class="op">&lt;&lt;</span> <span class="st">")</span><span class="sc">\n\n</span><span class="st">"</span><span class="op">;</span></span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a>    cout <span class="op">&lt;&lt;</span> <span class="st">"a &amp; b = "</span><span class="op">;</span> printBits<span class="op">(</span>a <span class="op">&amp;</span> b<span class="op">);</span> cout <span class="op">&lt;&lt;</span> <span class="st">" ("</span> <span class="op">&lt;&lt;</span> <span class="op">(</span>a <span class="op">&amp;</span> b<span class="op">)</span> <span class="op">&lt;&lt;</span> <span class="st">")</span><span class="sc">\n</span><span class="st">"</span><span class="op">;</span></span>
+<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a>    cout <span class="op">&lt;&lt;</span> <span class="st">"a | b = "</span><span class="op">;</span> printBits<span class="op">(</span>a <span class="op">|</span> b<span class="op">);</span> cout <span class="op">&lt;&lt;</span> <span class="st">" ("</span> <span class="op">&lt;&lt;</span> <span class="op">(</span>a <span class="op">|</span> b<span class="op">)</span> <span class="op">&lt;&lt;</span> <span class="st">")</span><span class="sc">\n</span><span class="st">"</span><span class="op">;</span></span>
+<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a>    cout <span class="op">&lt;&lt;</span> <span class="st">"a ^ b = "</span><span class="op">;</span> printBits<span class="op">(</span>a <span class="op">^</span> b<span class="op">);</span> cout <span class="op">&lt;&lt;</span> <span class="st">" ("</span> <span class="op">&lt;&lt;</span> <span class="op">(</span>a <span class="op">^</span> b<span class="op">)</span> <span class="op">&lt;&lt;</span> <span class="st">")</span><span class="sc">\n</span><span class="st">"</span><span class="op">;</span></span>
+<span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a>    cout <span class="op">&lt;&lt;</span> <span class="st">"~a    = "</span><span class="op">;</span> printBits<span class="op">((</span><span class="dt">unsigned</span> <span class="dt">char</span><span class="op">)~</span>a<span class="op">);</span> cout <span class="op">&lt;&lt;</span> <span class="st">" (only low 8 bits)</span><span class="sc">\n</span><span class="st">"</span><span class="op">;</span></span>
+<span id="cb16-21"><a href="#cb16-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-22"><a href="#cb16-22" aria-hidden="true" tabindex="-1"></a>    cout <span class="op">&lt;&lt;</span> <span class="st">"a &lt;&lt; 1 = "</span><span class="op">;</span> printBits<span class="op">(</span>a <span class="op">&lt;&lt;</span> <span class="dv">1</span><span class="op">);</span> cout <span class="op">&lt;&lt;</span> <span class="st">" ("</span> <span class="op">&lt;&lt;</span> <span class="op">(</span>a <span class="op">&lt;&lt;</span> <span class="dv">1</span><span class="op">)</span> <span class="op">&lt;&lt;</span> <span class="st">")</span><span class="sc">\n</span><span class="st">"</span><span class="op">;</span></span>
+<span id="cb16-23"><a href="#cb16-23" aria-hidden="true" tabindex="-1"></a>    cout <span class="op">&lt;&lt;</span> <span class="st">"b &gt;&gt; 1 = "</span><span class="op">;</span> printBits<span class="op">(</span>b <span class="op">&gt;&gt;</span> <span class="dv">1</span><span class="op">);</span> cout <span class="op">&lt;&lt;</span> <span class="st">" ("</span> <span class="op">&lt;&lt;</span> <span class="op">(</span>b <span class="op">&gt;&gt;</span> <span class="dv">1</span><span class="op">)</span> <span class="op">&lt;&lt;</span> <span class="st">")</span><span class="sc">\n</span><span class="st">"</span><span class="op">;</span></span>
+<span id="cb16-24"><a href="#cb16-24" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>The function <code>printBits</code> goes through all bit positions <code>i</code> (from 7 to 0), and does <code>x &gt;&gt; i</code>, which shifts the given value <code>x</code> that many positions to the right. This makes the i-th bit come to the rightmost position. Then it does <code>&amp; 1</code> which “ANDs” that value with <code>00000001</code>, which has an effect of keeping only the rightmost bit of that value. So these two operations together result in extracting the bit at the i-th position.</p>
 
 
