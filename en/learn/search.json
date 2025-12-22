@@ -259,459 +259,11 @@
     ]
   },
   {
-    "objectID": "b1/time-complexity.html",
-    "href": "b1/time-complexity.html",
-    "title": "Time Complexity",
-    "section": "",
-    "text": "When we write programs, some solutions run faster than others.\nTime complexity is a way to measure how fast an algorithm grows as the input gets larger.\nYou don’t measure it in seconds. You measure it in how the number of steps increases when the input size increases.\nTime complexity helps you compare algorithms without actually running them.\nLet’s say we have this code:\nfor (int i = 0; i &lt; n; i++)\n    cout &lt;&lt; i &lt;&lt; \" \";\nIf \\(n = 10\\), it prints \\(10\\) numbers.\nIf \\(n = 1000\\), it prints \\(1000\\) numbers.\nIf \\(n\\) doubles, the number of steps also doubles.\nWe say this code runs in \\(O(n)\\) time, because it has \\(n\\) steps/operations it does.\nThat means the time grows linearly with the size of the input.\n\n\nBig \\(O\\) notation (read as “big oh”) shows how the number of steps grows as \\(n\\) grows.\nWe only care about the main growth, not constants or small details.\n\n\n\n\n\n\n\n\nName\nExample\nDescription\n\n\n\n\n\\(O(1)\\)\nx = a + b;\nConstant time – runs instantly, no matter how big n is\n\n\n\\(O(\\log n)\\)\nset::insert\nEach step cuts the problem in half\n\n\n\\(O(n)\\)\nLoop over array\nTime grows linearly\n\n\n\\(O(n \\log n)\\)\nSorting\nSlightly slower than \\(O(n)\\), but much faster than \\(O(n^2)\\)\n\n\n\\(O(n^2)\\)\nNested loops\nTime grows very fast as n increases\n\n\n\\(O(2^n)\\)\nTrying all combinations\nExponential – gets huge very quickly\n\n\n\nThe smaller the complexity, the faster it scales.\n\n\n\n\n\n\n\n\nIncrease the Number\n\n\n\n\n\nYou are given a number \\(x\\). Increase \\(x\\) by \\(1\\), and then print it.\n\n\n\n\n\nSolution\n\n#include &lt;iostream&gt;\n\nusing namespace std;\n\nint main(){\n    int x;\n    cin &gt;&gt; x;\n\n    x += 1;\n\n    cout &lt;&lt; x &lt;&lt; '\\n';\n}\n\n\n\nHere, we did three things: - read an integer from the input - increase an integer by one - output an integer\nThese are all simple operations. However, we wouldn’t say that this is \\(O(3)\\) time complexity. We do not care about constants; we just care about the main value. So this here is \\(O(1)\\) time complexity.\n\n\n\n\n\n\n\nMoney Sum\n\n\n\n\n\nYou are given \\(n\\) bills worth \\(arr[0]\\) riyals, \\(arr[1]\\) riyals, …, \\(arr[n-1]\\) riyals. How many riyals do you have in total?\n\n\n\n\n\nSolution\n\n#include &lt;iostream&gt;\n\nusing namespace std;\n\nint main(){\n    int n;\n    cin &gt;&gt; n;\n\n    int arr[n];\n\n    for (int i = 0; i &lt; n; i++)\n        cin &gt;&gt; arr[i];\n\n    long long sum = 0;\n    for (int i = 0; i &lt; n; i++)\n        sum += arr[i];\n\n    cout &lt;&lt; sum &lt;&lt; '\\n';\n}\n\n\n\nThe loop runs once per element.\nIf the array doubles in size, time doubles too.\nNotice that we also create an array and input the elements; this takes two operations per element. Also, we input the number of elements, we set the \\(sum\\) variable to zero, and at the end we print the variable sum. In total we have \\(1 + n + n + 1 + n + 1 = 3n + 3\\). However, we said that we don’t care about constants, so this is simply just \\(O(3n+3) = O(n)\\) - a linear time algorithm.\n\n\n\n\n\n\n\nCopying\n\n\n\n\n\nYou are given \\(n\\) bills worth \\(arr[0]\\) riyals, \\(arr[1]\\) riyals, …, \\(arr[n-1]\\) riyals. For \\(n\\) days, you increase the value of each bill by one. So, after first day you have bills worth \\(arr[0]+1\\) riyals, \\(arr[1]+1\\) riyals, …, \\(arr[n-1]+1\\) riyals. After second day you have bills worth \\(arr[0]+2\\) riyals, \\(arr[1]+2\\) riyals, …, \\(arr[n-1]+2\\) riyals. After \\(n\\) days you will have bills worth \\(arr[0]+n\\) riyals, \\(arr[1]+n\\) riyals, …, \\(arr[n-1]+n\\) riyals.\nYou should output the values of all bills for each of the \\(n\\) days.\n\n\n\n\n#include &lt;iostream&gt;\n\nusing namespace std;\n\nint main(){\n    int n;\n    cin &gt;&gt; n;\n\n    int arr[n];\n    for (int i = 0; i &lt; n; i++)\n        cin &gt;&gt; arr[i];\n\n    for (int days = 1; days &lt;= n; days++){\n        for (int i = 0; i &lt; n; i++){\n            cout &lt;&lt; arr[i] + days &lt;&lt; ' ';\n        }\n        cout &lt;&lt; '\\n';\n    }\n}\n\nThere are \\(n\\) days, and \\(n\\) bills in each day that we should increase. In total, we do \\(O(n^2)\\) operations (again ignoring constants).\nIf \\(n = 10\\), it does 100 steps. If \\(n = 1000\\), it does a million steps.\nThat’s why \\(O(n^2)\\) algorithms can get very slow fast.\n\n\nLet’s see how fast they grow as n increases:\n\n\n\n\\(n\\)\n\\(O(1)\\)\n\\(O(\\log n)\\)\n\\(O(n)\\)\n\\(O(n^2)\\)\n\n\n\n\n10\n1\n3\n10\n100\n\n\n100\n1\n7\n100\n10,000\n\n\n1000\n1\n10\n1000\n1,000,000\n\n\n\nEven though the differences seem small for small \\(n\\), they explode for big \\(n\\).\n\n\n\n\n\n\n\\(n\\)\nSafe maximum complexity\n\n\n\n\n\\(\\leq 10\\)\n\\(O(n!)\\)\n\n\n\\(\\leq 20\\)\n\\(O(2^n)\\) usually fine\n\n\n\\(\\leq 1000\\)\n\\(O(n^2)\\) usually fine\n\n\n\\(\\leq 10^5\\)\n\\(O(n \\log n)\\) or better\n\n\n\\(\\leq 10^7\\)\n\\(O(n)\\) or better\n\n\n\\(\\geq 10^9\\)\nOnly \\(O(1)\\) or \\(O(\\log n)\\)\n\n\n\nThis helps you guess what kind of solution is acceptable for a given input size.\n\n\n\nSometimes it is not obvious, but you can make your program faster just by thinking about more clever solutions.\n\n\n\n\n\nSimple Sum\n\n\n\n\n\nYou are given a number \\(n\\). Output the sum \\(-n + (-n+1) + (-n+2) + \\ldots + -1 + 0 + 1 + \\ldots + (n-2) + (n-1) + n\\).\n\n\n\n\n\nSolution\n\nA naive solution would be the following:\n#include &lt;iostream&gt;\n\nusing namespace std;\n\nint main(){\n    int n;\n    cin &gt;&gt; n;\n\n    long long sum = 0;\n    for (int i = -n; i &lt;= n; i++)\n        sum += i;\n\n    cout &lt;&lt; sum &lt;&lt; '\\n';\n}\nThis solution is linear in time \\(O(n)\\).\n\n\n\n\n\nSolution\n\nNotice that we can do much better. Each integer appears once with a positive sign and once with a negative sign - \\(+n\\) and \\(-n\\). This means that in the end, all numbers will cancel out and we will be left only with zero. This leads us to a much simpler solution:\n#include &lt;iostream&gt;\n\nusing namespace std;\n\nint main(){\n    int n;\n    cin &gt;&gt; n;\n\n    cout &lt;&lt; 0 &lt;&lt; '\\n';\n}\nThis solution is \\(O(1)\\), which is constant time and much faster than the naive solution. Always try to think about the fastest possible solution.\n\n\n\n\n\nSometimes we also care about how much memory the program uses.\nThat’s called space complexity.\nThe idea is the same: how memory usage grows as input size grows.\nExample:\nint arr[n];  // O(n) space\nint x;       // O(1) space",
-    "crumbs": [
-      "Stage 2",
-      "Time Complexity"
-    ]
-  },
-  {
-    "objectID": "b1/time-complexity.html#what-oldots-means",
-    "href": "b1/time-complexity.html#what-oldots-means",
-    "title": "Time Complexity",
-    "section": "",
-    "text": "Big \\(O\\) notation (read as “big oh”) shows how the number of steps grows as \\(n\\) grows.\nWe only care about the main growth, not constants or small details.\n\n\n\n\n\n\n\n\nName\nExample\nDescription\n\n\n\n\n\\(O(1)\\)\nx = a + b;\nConstant time – runs instantly, no matter how big n is\n\n\n\\(O(\\log n)\\)\nset::insert\nEach step cuts the problem in half\n\n\n\\(O(n)\\)\nLoop over array\nTime grows linearly\n\n\n\\(O(n \\log n)\\)\nSorting\nSlightly slower than \\(O(n)\\), but much faster than \\(O(n^2)\\)\n\n\n\\(O(n^2)\\)\nNested loops\nTime grows very fast as n increases\n\n\n\\(O(2^n)\\)\nTrying all combinations\nExponential – gets huge very quickly\n\n\n\nThe smaller the complexity, the faster it scales.",
-    "crumbs": [
-      "Stage 2",
-      "Time Complexity"
-    ]
-  },
-  {
-    "objectID": "b1/time-complexity.html#increase-the-number",
-    "href": "b1/time-complexity.html#increase-the-number",
-    "title": "Time Complexity",
-    "section": "",
-    "text": "Increase the Number\n\n\n\n\n\nYou are given a number \\(x\\). Increase \\(x\\) by \\(1\\), and then print it.",
-    "crumbs": [
-      "Stage 2",
-      "Time Complexity"
-    ]
-  },
-  {
-    "objectID": "b1/time-complexity.html#money-sum",
-    "href": "b1/time-complexity.html#money-sum",
-    "title": "Time Complexity",
-    "section": "",
-    "text": "Money Sum\n\n\n\n\n\nYou are given \\(n\\) bills worth \\(arr[0]\\) riyals, \\(arr[1]\\) riyals, …, \\(arr[n-1]\\) riyals. How many riyals do you have in total?",
-    "crumbs": [
-      "Stage 2",
-      "Time Complexity"
-    ]
-  },
-  {
-    "objectID": "b1/time-complexity.html#copying",
-    "href": "b1/time-complexity.html#copying",
-    "title": "Time Complexity",
-    "section": "",
-    "text": "Copying\n\n\n\n\n\nYou are given \\(n\\) bills worth \\(arr[0]\\) riyals, \\(arr[1]\\) riyals, …, \\(arr[n-1]\\) riyals. For \\(n\\) days, you increase the value of each bill by one. So, after first day you have bills worth \\(arr[0]+1\\) riyals, \\(arr[1]+1\\) riyals, …, \\(arr[n-1]+1\\) riyals. After second day you have bills worth \\(arr[0]+2\\) riyals, \\(arr[1]+2\\) riyals, …, \\(arr[n-1]+2\\) riyals. After \\(n\\) days you will have bills worth \\(arr[0]+n\\) riyals, \\(arr[1]+n\\) riyals, …, \\(arr[n-1]+n\\) riyals.\nYou should output the values of all bills for each of the \\(n\\) days.",
-    "crumbs": [
-      "Stage 2",
-      "Time Complexity"
-    ]
-  },
-  {
-    "objectID": "b1/time-complexity.html#comparing-growth-rates",
-    "href": "b1/time-complexity.html#comparing-growth-rates",
-    "title": "Time Complexity",
-    "section": "",
-    "text": "Let’s see how fast they grow as n increases:\n\n\n\n\\(n\\)\n\\(O(1)\\)\n\\(O(\\log n)\\)\n\\(O(n)\\)\n\\(O(n^2)\\)\n\n\n\n\n10\n1\n3\n10\n100\n\n\n100\n1\n7\n100\n10,000\n\n\n1000\n1\n10\n1000\n1,000,000\n\n\n\nEven though the differences seem small for small \\(n\\), they explode for big \\(n\\).",
-    "crumbs": [
-      "Stage 2",
-      "Time Complexity"
-    ]
-  },
-  {
-    "objectID": "b1/time-complexity.html#a-quick-rule-of-thumb",
-    "href": "b1/time-complexity.html#a-quick-rule-of-thumb",
-    "title": "Time Complexity",
-    "section": "",
-    "text": "\\(n\\)\nSafe maximum complexity\n\n\n\n\n\\(\\leq 10\\)\n\\(O(n!)\\)\n\n\n\\(\\leq 20\\)\n\\(O(2^n)\\) usually fine\n\n\n\\(\\leq 1000\\)\n\\(O(n^2)\\) usually fine\n\n\n\\(\\leq 10^5\\)\n\\(O(n \\log n)\\) or better\n\n\n\\(\\leq 10^7\\)\n\\(O(n)\\) or better\n\n\n\\(\\geq 10^9\\)\nOnly \\(O(1)\\) or \\(O(\\log n)\\)\n\n\n\nThis helps you guess what kind of solution is acceptable for a given input size.",
-    "crumbs": [
-      "Stage 2",
-      "Time Complexity"
-    ]
-  },
-  {
-    "objectID": "b1/time-complexity.html#optimizing",
-    "href": "b1/time-complexity.html#optimizing",
-    "title": "Time Complexity",
-    "section": "",
-    "text": "Sometimes it is not obvious, but you can make your program faster just by thinking about more clever solutions.",
-    "crumbs": [
-      "Stage 2",
-      "Time Complexity"
-    ]
-  },
-  {
-    "objectID": "b1/time-complexity.html#simple-sum",
-    "href": "b1/time-complexity.html#simple-sum",
-    "title": "Time Complexity",
-    "section": "",
-    "text": "Simple Sum\n\n\n\n\n\nYou are given a number \\(n\\). Output the sum \\(-n + (-n+1) + (-n+2) + \\ldots + -1 + 0 + 1 + \\ldots + (n-2) + (n-1) + n\\).",
-    "crumbs": [
-      "Stage 2",
-      "Time Complexity"
-    ]
-  },
-  {
-    "objectID": "b1/time-complexity.html#space-complexity",
-    "href": "b1/time-complexity.html#space-complexity",
-    "title": "Time Complexity",
-    "section": "",
-    "text": "Sometimes we also care about how much memory the program uses.\nThat’s called space complexity.\nThe idea is the same: how memory usage grows as input size grows.\nExample:\nint arr[n];  // O(n) space\nint x;       // O(1) space",
-    "crumbs": [
-      "Stage 2",
-      "Time Complexity"
-    ]
-  },
-  {
-    "objectID": "b1/sorting.html",
-    "href": "b1/sorting.html",
-    "title": "Sorting",
-    "section": "",
-    "text": "Sorting means arranging elements in a specific order, usually from smallest to largest, or alphabetically if they are strings.\nSorting makes data easier to search, compare, and process efficiently.\nMany algorithms, like binary search, only work if the data is sorted.\n\n\n\n\nSelection sort repeatedly finds the smallest element from the unsorted part of the array and moves it to the beginning.\nStep by step: 1. Find the smallest element in the array. 2. Swap it with the first element. 3. Find the next smallest and swap it with the second element. 4. Keep going until the array is sorted.\n\n\n\nSuppose we have:\n[5, 8, 3, 4, 2]\nWe will find the smallest element, which is \\(2\\). Then, we swap it with the first element in the array, which is \\(5\\). The array now looks like this:\n[2, 8, 3, 4, 5]\nNow we want to set the second smallest element to the second position in the array. We find the smallest element among \\([8,3,4,5]\\), which is \\(3\\), and we swap it with the second element in the array, which is \\(8\\). After this, we have:\n[2, 3, 8, 4, 5]\nNext, we find the third smallest element, as the smallest element among \\([8,4,5]\\), which is \\(4\\). We swap it with the third element in the array, which is \\(8\\) again:\n[2, 3, 4, 8, 5]\nFor the last step, we want to find the fourth smallest element, as the smallest element among \\([5, 8]\\), which is \\(5\\). We now need to swap it with the fourth element in the array, which turns out also to be \\(5\\). Swapping an element with itself doesn’t change the array, so finally the array is sorted:\n[2, 3, 4, 5, 8]\n\n\n\n#include &lt;iostream&gt;\n#include &lt;vector&gt;\nusing namespace std;\n\nint main() {\n    vector&lt;int&gt; arr = {5, 8, 3, 4, 2};\n    int n = arr.size();\n\n    for (int i = 0; i &lt; n - 1; i++) {\n        int minIndex = i;\n        for (int j = i + 1; j &lt; n; j++) {\n            if (arr[j] &lt; arr[minIndex])\n                minIndex = j;\n        }\n        swap(arr[i], arr[minIndex]);\n    }\n\n    for (int x : arr) \n        cout &lt;&lt; x &lt;&lt; ' ';\n    cout &lt;&lt; '\\n';\n}\nOutput:\n2 3 4 5 8\nSelection sort is easy to understand, but not very efficient.\n\n\n\n\nThere are two nested loops (one inside another).\nSo it takes about \\(n \\cdot n\\) steps → \\(O(n^2)\\) time.\n\n\n\n\n\nIn real programs and competitive programming, we rarely write sort manually.\nC++ provides a very fast sorting function in the standard library.\n\n\n#include &lt;iostream&gt;\n#include &lt;vector&gt;\n#include &lt;algorithm&gt;\nusing namespace std;\n\nint main() {\n    vector&lt;int&gt; arr = {5, 8, 3, 4, 2};\n    sort(arr.begin(), arr.end());\n\n    for (int x : arr) \n        cout &lt;&lt; x &lt;&lt; ' ';\n    cout &lt;&lt; '\\n';\n}\nOutput:\n2 3 4 5 8\nThat one line sort(arr.begin(), arr.end()); sorts the entire vector in ascending order.\n\n\n\nYou can also use the same sort function with regular arrays.\nYou just need to give the starting and ending pointers.\n#include &lt;iostream&gt;\n#include &lt;algorithm&gt;\nusing namespace std;\n\nint main() {\n    int n = 5;\n\n    int arr[] = {5, 8, 3, 4, 2}; \n\n    sort(arr, arr + n);\n\n    for (int i = 0; i &lt; n; i++)\n        cout &lt;&lt; arr[i] &lt;&lt; ' ';\n    cout &lt;&lt; '\\n';\n}\nOutput:\n2 3 4 5 8\nsort(arr, arr + n); means: sort starting from arr (first element) up to arr + n (just past the last one).\n\n\n\nIf you want to sort from largest to smallest, you can use a custom comparison:\nFor vectors:\nsort(arr.begin(), arr.end(), greater&lt;int&gt;());\nAnother way to do so for vectors is to call sort on reverse iterators. This sorts the array in ascending order and then reverses it:\nsort(arr.rbegin(), arr.rend());\nFor C-arrays:\nsort(arr, arr + n, greater&lt;int&gt;());\nOutput:\n8 5 4 3 2\n\n\n\nThe same function works for strings, doubles, or any comparable type:\nvector&lt;string&gt; names = {\"Bob\", \"Alice\", \"Charlie\"};\nsort(names.begin(), names.end());\nOutput:\nAlice Bob Charlie\n\n\n\nWe already mentioned that you can sort an array in descending order by adding a third parameter to the built-in sort function. This parameter is called the custom comparator. A comparator is a function that takes two elements, a and b, and returns true if a should come before b in the sorted array. This comes in handy when you want to sort your own data structure or sort an existing type with a different way of comparing elements.\nFor example, let’s say that we don’t want to sort strings lexicographically, but by their length. In this case, we would write our own comparator:\nbool comparator_by_length(string a, string b){\n    int len_a = a.length();\n    int len_b = b.length();\n\n    if (len_a &lt; len_b)\n        return 1;\n    else\n        return 0;\n}\nThen, we would call the sort function the same as before, and add the custom comparator in the call parameters:\nvector&lt;string&gt; names = {\"Bob\", \"Alice\", \"Charlie\"};\nsort(names.begin(), names.end(), comparator_by_length);\nOutput:\nBob Alice Charlie\nImportant note: Your comparator must behave like a real “less than” function: - No contradictions - No cycles like a &lt; b, b &lt; c, but also c &lt; a\nIf the comparator is inconsistent, sort will behave unpredictably.\n\n\n\n\nThe library sort function uses an optimized algorithm. Its time complexity is \\(O(n \\log n)\\), which is much faster than \\(O(n^2)\\) for large inputs.\nFor example:\n\nIf \\(n = 1,000\\), selection sort does about \\(1,000,000\\) operations.\nIf \\(n = 1,000\\), library sort does about \\(10,000\\) operations — around \\(100\\) times faster.",
-    "crumbs": [
-      "Stage 2",
-      "Sorting"
-    ]
-  },
-  {
-    "objectID": "b1/sorting.html#selection-sort",
-    "href": "b1/sorting.html#selection-sort",
-    "title": "Sorting",
-    "section": "",
-    "text": "Selection sort repeatedly finds the smallest element from the unsorted part of the array and moves it to the beginning.\nStep by step: 1. Find the smallest element in the array. 2. Swap it with the first element. 3. Find the next smallest and swap it with the second element. 4. Keep going until the array is sorted.\n\n\n\nSuppose we have:\n[5, 8, 3, 4, 2]\nWe will find the smallest element, which is \\(2\\). Then, we swap it with the first element in the array, which is \\(5\\). The array now looks like this:\n[2, 8, 3, 4, 5]\nNow we want to set the second smallest element to the second position in the array. We find the smallest element among \\([8,3,4,5]\\), which is \\(3\\), and we swap it with the second element in the array, which is \\(8\\). After this, we have:\n[2, 3, 8, 4, 5]\nNext, we find the third smallest element, as the smallest element among \\([8,4,5]\\), which is \\(4\\). We swap it with the third element in the array, which is \\(8\\) again:\n[2, 3, 4, 8, 5]\nFor the last step, we want to find the fourth smallest element, as the smallest element among \\([5, 8]\\), which is \\(5\\). We now need to swap it with the fourth element in the array, which turns out also to be \\(5\\). Swapping an element with itself doesn’t change the array, so finally the array is sorted:\n[2, 3, 4, 5, 8]\n\n\n\n#include &lt;iostream&gt;\n#include &lt;vector&gt;\nusing namespace std;\n\nint main() {\n    vector&lt;int&gt; arr = {5, 8, 3, 4, 2};\n    int n = arr.size();\n\n    for (int i = 0; i &lt; n - 1; i++) {\n        int minIndex = i;\n        for (int j = i + 1; j &lt; n; j++) {\n            if (arr[j] &lt; arr[minIndex])\n                minIndex = j;\n        }\n        swap(arr[i], arr[minIndex]);\n    }\n\n    for (int x : arr) \n        cout &lt;&lt; x &lt;&lt; ' ';\n    cout &lt;&lt; '\\n';\n}\nOutput:\n2 3 4 5 8\nSelection sort is easy to understand, but not very efficient.\n\n\n\n\nThere are two nested loops (one inside another).\nSo it takes about \\(n \\cdot n\\) steps → \\(O(n^2)\\) time.",
-    "crumbs": [
-      "Stage 2",
-      "Sorting"
-    ]
-  },
-  {
-    "objectID": "b1/sorting.html#using-the-built-in-sort-function",
-    "href": "b1/sorting.html#using-the-built-in-sort-function",
-    "title": "Sorting",
-    "section": "",
-    "text": "In real programs and competitive programming, we rarely write sort manually.\nC++ provides a very fast sorting function in the standard library.\n\n\n#include &lt;iostream&gt;\n#include &lt;vector&gt;\n#include &lt;algorithm&gt;\nusing namespace std;\n\nint main() {\n    vector&lt;int&gt; arr = {5, 8, 3, 4, 2};\n    sort(arr.begin(), arr.end());\n\n    for (int x : arr) \n        cout &lt;&lt; x &lt;&lt; ' ';\n    cout &lt;&lt; '\\n';\n}\nOutput:\n2 3 4 5 8\nThat one line sort(arr.begin(), arr.end()); sorts the entire vector in ascending order.\n\n\n\nYou can also use the same sort function with regular arrays.\nYou just need to give the starting and ending pointers.\n#include &lt;iostream&gt;\n#include &lt;algorithm&gt;\nusing namespace std;\n\nint main() {\n    int n = 5;\n\n    int arr[] = {5, 8, 3, 4, 2}; \n\n    sort(arr, arr + n);\n\n    for (int i = 0; i &lt; n; i++)\n        cout &lt;&lt; arr[i] &lt;&lt; ' ';\n    cout &lt;&lt; '\\n';\n}\nOutput:\n2 3 4 5 8\nsort(arr, arr + n); means: sort starting from arr (first element) up to arr + n (just past the last one).\n\n\n\nIf you want to sort from largest to smallest, you can use a custom comparison:\nFor vectors:\nsort(arr.begin(), arr.end(), greater&lt;int&gt;());\nAnother way to do so for vectors is to call sort on reverse iterators. This sorts the array in ascending order and then reverses it:\nsort(arr.rbegin(), arr.rend());\nFor C-arrays:\nsort(arr, arr + n, greater&lt;int&gt;());\nOutput:\n8 5 4 3 2\n\n\n\nThe same function works for strings, doubles, or any comparable type:\nvector&lt;string&gt; names = {\"Bob\", \"Alice\", \"Charlie\"};\nsort(names.begin(), names.end());\nOutput:\nAlice Bob Charlie\n\n\n\nWe already mentioned that you can sort an array in descending order by adding a third parameter to the built-in sort function. This parameter is called the custom comparator. A comparator is a function that takes two elements, a and b, and returns true if a should come before b in the sorted array. This comes in handy when you want to sort your own data structure or sort an existing type with a different way of comparing elements.\nFor example, let’s say that we don’t want to sort strings lexicographically, but by their length. In this case, we would write our own comparator:\nbool comparator_by_length(string a, string b){\n    int len_a = a.length();\n    int len_b = b.length();\n\n    if (len_a &lt; len_b)\n        return 1;\n    else\n        return 0;\n}\nThen, we would call the sort function the same as before, and add the custom comparator in the call parameters:\nvector&lt;string&gt; names = {\"Bob\", \"Alice\", \"Charlie\"};\nsort(names.begin(), names.end(), comparator_by_length);\nOutput:\nBob Alice Charlie\nImportant note: Your comparator must behave like a real “less than” function: - No contradictions - No cycles like a &lt; b, b &lt; c, but also c &lt; a\nIf the comparator is inconsistent, sort will behave unpredictably.",
-    "crumbs": [
-      "Stage 2",
-      "Sorting"
-    ]
-  },
-  {
-    "objectID": "b1/sorting.html#complexity",
-    "href": "b1/sorting.html#complexity",
-    "title": "Sorting",
-    "section": "",
-    "text": "The library sort function uses an optimized algorithm. Its time complexity is \\(O(n \\log n)\\), which is much faster than \\(O(n^2)\\) for large inputs.\nFor example:\n\nIf \\(n = 1,000\\), selection sort does about \\(1,000,000\\) operations.\nIf \\(n = 1,000\\), library sort does about \\(10,000\\) operations — around \\(100\\) times faster.",
-    "crumbs": [
-      "Stage 2",
-      "Sorting"
-    ]
-  },
-  {
-    "objectID": "b1/problems/sum-of-three-values.html",
-    "href": "b1/problems/sum-of-three-values.html",
-    "title": "",
-    "section": "",
-    "text": "Sum of Three Values\n\nCSES\nmedium\n\n\n\nYou are given an array of \\(n\\) integers, and your task is to find three values at distinct positions whose sum is \\(x\\).\nInput:\n\nFirst line: two integers \\(n\\) and \\(x\\) — the array size and the target sum.\nSecond line: \\(n\\) integers \\(a_1,a_2,\\dots,a_n\\) — the array values.\n\nOutput:\nPrint three integers: the positions (1-indexed) of the chosen values. If there are several valid triplets, you may print any of them. If there is no such triplet, print\nIMPOSSIBLE\nConstraints:\n\n\\(1 \\le n \\le 5000\\)\n\\(1 \\le x, a_i \\le 10^9\\)\n\nExample:\nInput:\n4 8\n2 7 5 1\nOutput:\n1 3 4",
-    "crumbs": [
-      "Stage 2",
-      "Problems",
-      "Sum Of Three Values"
-    ]
-  },
-  {
-    "objectID": "b1/problems/sum-of-three-values.html#sum-of-three-values",
-    "href": "b1/problems/sum-of-three-values.html#sum-of-three-values",
-    "title": "",
-    "section": "",
-    "text": "Sum of Three Values\n\nCSES\nmedium\n\n\n\nYou are given an array of \\(n\\) integers, and your task is to find three values at distinct positions whose sum is \\(x\\).\nInput:\n\nFirst line: two integers \\(n\\) and \\(x\\) — the array size and the target sum.\nSecond line: \\(n\\) integers \\(a_1,a_2,\\dots,a_n\\) — the array values.\n\nOutput:\nPrint three integers: the positions (1-indexed) of the chosen values. If there are several valid triplets, you may print any of them. If there is no such triplet, print\nIMPOSSIBLE\nConstraints:\n\n\\(1 \\le n \\le 5000\\)\n\\(1 \\le x, a_i \\le 10^9\\)\n\nExample:\nInput:\n4 8\n2 7 5 1\nOutput:\n1 3 4",
-    "crumbs": [
-      "Stage 2",
-      "Problems",
-      "Sum Of Three Values"
-    ]
-  },
-  {
-    "objectID": "b1/problems/twins.html",
-    "href": "b1/problems/twins.html",
-    "title": "",
-    "section": "",
-    "text": "Twins\n\nCodeforces\neasy\n\n\n\nGiven an array \\(A\\) of \\(N\\) integers, determine the minimum number of elements to select from \\(A\\) such that the sum of the selected elements is strictly greater than the sum of the remaining elements.",
-    "crumbs": [
-      "Stage 2",
-      "Problems",
-      "Twins"
-    ]
-  },
-  {
-    "objectID": "b1/problems/twins.html#twins",
-    "href": "b1/problems/twins.html#twins",
-    "title": "",
-    "section": "",
-    "text": "Twins\n\nCodeforces\neasy\n\n\n\nGiven an array \\(A\\) of \\(N\\) integers, determine the minimum number of elements to select from \\(A\\) such that the sum of the selected elements is strictly greater than the sum of the remaining elements.",
-    "crumbs": [
-      "Stage 2",
-      "Problems",
-      "Twins"
-    ]
-  },
-  {
-    "objectID": "b1/problems/stick-lengths.html",
-    "href": "b1/problems/stick-lengths.html",
-    "title": "",
-    "section": "",
-    "text": "Stick Lengths\n\nCSES\nmedium\n\n\n\nYou are given \\(n\\) sticks with lengths \\(p_1, p_2, \\dots, p_n\\). You want to make all sticks the same length.\nYou may either lengthen or shorten each stick. Changing the length of a stick from \\(a\\) to \\(b\\) costs \\(|a-b|\\).\nTask: Find the minimum total cost to make all sticks have the same length.\nConstraints:\n\n\\(1 \\le n \\le 2 \\cdot 10^5\\)\n\\(1 \\le p_i \\le 10^9\\)\n\nInput:\n\nFirst line: integer \\(n\\) — number of sticks.\nSecond line: \\(n\\) integers \\(p_1, p_2, \\dots, p_n\\) — the stick lengths.\n\nOutput:\n\nOne integer — the minimum possible total cost.\n\nExample:\nInput:\n5\n2 3 1 5 2\nOutput:\n5",
-    "crumbs": [
-      "Stage 2",
-      "Practice Problems",
-      "Stick Lengths"
-    ]
-  },
-  {
-    "objectID": "b1/problems/stick-lengths.html#stick-lengths",
-    "href": "b1/problems/stick-lengths.html#stick-lengths",
-    "title": "",
-    "section": "",
-    "text": "Stick Lengths\n\nCSES\nmedium\n\n\n\nYou are given \\(n\\) sticks with lengths \\(p_1, p_2, \\dots, p_n\\). You want to make all sticks the same length.\nYou may either lengthen or shorten each stick. Changing the length of a stick from \\(a\\) to \\(b\\) costs \\(|a-b|\\).\nTask: Find the minimum total cost to make all sticks have the same length.\nConstraints:\n\n\\(1 \\le n \\le 2 \\cdot 10^5\\)\n\\(1 \\le p_i \\le 10^9\\)\n\nInput:\n\nFirst line: integer \\(n\\) — number of sticks.\nSecond line: \\(n\\) integers \\(p_1, p_2, \\dots, p_n\\) — the stick lengths.\n\nOutput:\n\nOne integer — the minimum possible total cost.\n\nExample:\nInput:\n5\n2 3 1 5 2\nOutput:\n5",
-    "crumbs": [
-      "Stage 2",
-      "Practice Problems",
-      "Stick Lengths"
-    ]
-  },
-  {
-    "objectID": "b1/problems/domino-piling.html",
-    "href": "b1/problems/domino-piling.html",
-    "title": "",
-    "section": "",
-    "text": "Domino piling\n\nCodeforces\neasy\n\n\n\nGiven a grid of \\(N\\) rows and \\(M\\) columns. You have an infinite amount of pieces of size \\(2 \\times 1\\) you want to put as many pieces in the grid as possible such that.\n\nEach piece completely covers two squares.\nNo two pieces overlap.\nEach piece lies entirely inside the grid.",
-    "crumbs": [
-      "Stage 2",
-      "Problems",
-      "Domino piling"
-    ]
-  },
-  {
-    "objectID": "b1/problems/domino-piling.html#domino-piling",
-    "href": "b1/problems/domino-piling.html#domino-piling",
-    "title": "",
-    "section": "",
-    "text": "Domino piling\n\nCodeforces\neasy\n\n\n\nGiven a grid of \\(N\\) rows and \\(M\\) columns. You have an infinite amount of pieces of size \\(2 \\times 1\\) you want to put as many pieces in the grid as possible such that.\n\nEach piece completely covers two squares.\nNo two pieces overlap.\nEach piece lies entirely inside the grid.",
-    "crumbs": [
-      "Stage 2",
-      "Problems",
-      "Domino piling"
-    ]
-  },
-  {
-    "objectID": "b1/adhoc.html",
-    "href": "b1/adhoc.html",
-    "title": "Ad-hoc Problems",
-    "section": "",
-    "text": "An ad-hoc problem is one that doesn’t fit into a standard category like greedy, sorting, simulation, or dynamic programming (you will learn about this later).\nIt’s usually solved by careful observation, simple logic, and a few clever steps — not by using a known algorithm.\nThink of ad-hoc problems as “puzzle problems” — each one has its own unique trick.\n\n\n“Ad-hoc” is Latin for “for this situation.”\nIn programming, it means you design a custom solution just for the given problem.\nThere’s no formula or template — you must read carefully, find what’s being asked, and come up with your own way to solve it.\n\n\n\n\nThe problem statement sounds strange or story-like.\n\nNo standard algorithm (like binary search or sorting) fits it.\n\nYou can solve it with basic logic, loops, and conditions.\n\nIt often involves counting, comparing, or simulating something directly.\n\nThese are the “think on your feet” problems.\n\n\n\n\n\nCounting wins\n\n\n\n\n\nYou are given results of a few matches: “A” if Alice wins, “B” if Bob wins. Print who won more games.\n\n\n\n\n\nSolution\n\n#include &lt;iostream&gt;\n#include &lt;string&gt;\nusing namespace std;\n\nint main() {\n    string s;\n    cin &gt;&gt; s;\n\n    int a = 0, b = 0;\n    for (char c : s) {\n        if (c == 'A') a++;\n        else if (c == 'B') b++;\n    }\n\n    if (a &gt; b) cout &lt;&lt; \"Alice\";\n    else if (b &gt; a) cout &lt;&lt; \"Bob\";\n    else cout &lt;&lt; \"Draw\";\n}\nThis problem has no formula or algorithm — you just follow the logic directly.\n\n\n\n\n\n\n\nRounding grades\n\n\n\n\n\nA student’s grade is rounded up to the next multiple of 5 if it’s within 2 points.\nOtherwise, it stays the same.\n\n\n\n\n\nSolution\n\n#include &lt;iostream&gt;\nusing namespace std;\n\nint main() {\n    int grade;\n    cin &gt;&gt; grade;\n\n    int next = ((grade / 5) + 1) * 5;\n    if (next - grade &lt; 3 && grade &gt;= 38)\n        cout &lt;&lt; next;\n    else\n        cout &lt;&lt; grade;\n}\nYou just follow the description exactly. This is pure ad-hoc logic.\n\n\n\n\n\n\n\nCounting digits\n\n\n\n\n\nGiven a number, count how many times digit 7 appears.\n\n\n\n\n\nSolution\n\n#include &lt;iostream&gt;\nusing namespace std;\n\nint main() {\n    int n; cin &gt;&gt; n;\n    int count = 0;\n    while (n &gt; 0) {\n        if (n % 10 == 7) count++;\n        n /= 10;\n    }\n    cout &lt;&lt; count;\n}\nThere’s no “digit counting algorithm” — you just do it manually. That’s ad-hoc.\n\n\n\n\n\n\nRead carefully. Understand exactly what happens step by step.\n\nSimulate with examples. Try small cases manually to see the pattern.\n\nFind the rule. Identify what changes and what stays the same.\n\nImplement directly. Use if-statements, loops, or arrays to match the logic.\n\nAd-hoc is about translating the description into code.\n\n\n\n\nTry writing out a few examples by hand before coding.\n\nDon’t overcomplicate — the solution is usually simpler than it looks.\n\nWatch out for small edge cases (empty input, negatives, ties).\n\nClean, clear code matters more than fancy tricks.\n\n\n\n\n\nOften very simple once you understand the logic\n\nDoesn’t need advanced algorithms or data structures\n\nGreat for beginners — builds careful thinking\n\n\n\n\n\nEach problem is unique — can’t reuse your old code\n\nHard to predict what kind of logic is needed\n\nCan be tricky to spot small exceptions or edge cases\n\n\n\n\n\nAd-hoc means solving a problem by direct reasoning, not by a standard algorithm.\n\nThey often involve small rules, conditions, or counting.\n\nRead carefully, simulate examples, and turn logic into code.\n\nStay calm — the simplest approach is usually the right one."
-  },
-  {
-    "objectID": "b1/adhoc.html#what-does-ad-hoc-mean",
-    "href": "b1/adhoc.html#what-does-ad-hoc-mean",
-    "title": "Ad-hoc Problems",
-    "section": "",
-    "text": "“Ad-hoc” is Latin for “for this situation.”\nIn programming, it means you design a custom solution just for the given problem.\nThere’s no formula or template — you must read carefully, find what’s being asked, and come up with your own way to solve it."
-  },
-  {
-    "objectID": "b1/adhoc.html#typical-signs-of-an-ad-hoc-problem",
-    "href": "b1/adhoc.html#typical-signs-of-an-ad-hoc-problem",
-    "title": "Ad-hoc Problems",
-    "section": "",
-    "text": "The problem statement sounds strange or story-like.\n\nNo standard algorithm (like binary search or sorting) fits it.\n\nYou can solve it with basic logic, loops, and conditions.\n\nIt often involves counting, comparing, or simulating something directly.\n\nThese are the “think on your feet” problems."
-  },
-  {
-    "objectID": "b1/adhoc.html#counting-wins",
-    "href": "b1/adhoc.html#counting-wins",
-    "title": "Ad-hoc Problems",
-    "section": "",
-    "text": "Counting wins\n\n\n\n\n\nYou are given results of a few matches: “A” if Alice wins, “B” if Bob wins. Print who won more games."
-  },
-  {
-    "objectID": "b1/adhoc.html#rounding-grades",
-    "href": "b1/adhoc.html#rounding-grades",
-    "title": "Ad-hoc Problems",
-    "section": "",
-    "text": "Rounding grades\n\n\n\n\n\nA student’s grade is rounded up to the next multiple of 5 if it’s within 2 points.\nOtherwise, it stays the same."
-  },
-  {
-    "objectID": "b1/adhoc.html#counting-digits",
-    "href": "b1/adhoc.html#counting-digits",
-    "title": "Ad-hoc Problems",
-    "section": "",
-    "text": "Counting digits\n\n\n\n\n\nGiven a number, count how many times digit 7 appears."
-  },
-  {
-    "objectID": "b1/adhoc.html#how-to-approach-ad-hoc-problems",
-    "href": "b1/adhoc.html#how-to-approach-ad-hoc-problems",
-    "title": "Ad-hoc Problems",
-    "section": "",
-    "text": "Read carefully. Understand exactly what happens step by step.\n\nSimulate with examples. Try small cases manually to see the pattern.\n\nFind the rule. Identify what changes and what stays the same.\n\nImplement directly. Use if-statements, loops, or arrays to match the logic.\n\nAd-hoc is about translating the description into code."
-  },
-  {
-    "objectID": "b1/adhoc.html#tips",
-    "href": "b1/adhoc.html#tips",
-    "title": "Ad-hoc Problems",
-    "section": "",
-    "text": "Try writing out a few examples by hand before coding.\n\nDon’t overcomplicate — the solution is usually simpler than it looks.\n\nWatch out for small edge cases (empty input, negatives, ties).\n\nClean, clear code matters more than fancy tricks."
-  },
-  {
-    "objectID": "b1/adhoc.html#advantages",
-    "href": "b1/adhoc.html#advantages",
-    "title": "Ad-hoc Problems",
-    "section": "",
-    "text": "Often very simple once you understand the logic\n\nDoesn’t need advanced algorithms or data structures\n\nGreat for beginners — builds careful thinking"
-  },
-  {
-    "objectID": "b1/adhoc.html#disadvantages",
-    "href": "b1/adhoc.html#disadvantages",
-    "title": "Ad-hoc Problems",
-    "section": "",
-    "text": "Each problem is unique — can’t reuse your old code\n\nHard to predict what kind of logic is needed\n\nCan be tricky to spot small exceptions or edge cases"
-  },
-  {
-    "objectID": "b1/adhoc.html#quick-summary",
-    "href": "b1/adhoc.html#quick-summary",
-    "title": "Ad-hoc Problems",
-    "section": "",
-    "text": "Ad-hoc means solving a problem by direct reasoning, not by a standard algorithm.\n\nThey often involve small rules, conditions, or counting.\n\nRead carefully, simulate examples, and turn logic into code.\n\nStay calm — the simplest approach is usually the right one."
-  },
-  {
-    "objectID": "b1/modular-arithmetics.html",
-    "href": "b1/modular-arithmetics.html",
-    "title": "Modular Arithmetics",
-    "section": "",
-    "text": "Modular arithmetic is a way of doing math where numbers “wrap around” after reaching a certain value — called the modulus.\nThink of it like a clock.\nAfter 24 hours, it goes back to the same time again. That’s mod 24 arithmetic!\n\n\nWhen we say a mod m, it means the remainder when a is divided by m.\nFor example:\n\n\n\nExpression\nMeaning\nResult\n\n\n\n\n7 mod 3\n7 divided by 3 leaves remainder 1\n1\n\n\n10 mod 4\n10 divided by 4 leaves remainder 2\n2\n\n\n15 mod 6\n15 divided by 6 leaves remainder 3\n3\n\n\n12 mod 12\n12 divided by 12 leaves remainder 0\n0\n\n\n\nIn C++, we use the % operator for this:\n#include &lt;iostream&gt;\nusing namespace std;\n\nint main() {\n    cout &lt;&lt; 7 % 3 &lt;&lt; endl;   // prints 1\n    cout &lt;&lt; 10 % 4 &lt;&lt; endl;  // prints 2\n    cout &lt;&lt; 10 % 5 &lt;&lt; endl;  // prints 0\n}\n\n\n\nWhen we work with very large numbers (for example, in combinatorics or cryptography), results can become too big for normal data types.\nTo get around this, we take everything modulo some number to keep it small and manageable.\nA common modulus used in competitive programming is:\nMOD = 1'000'000'007  // (a large prime number)\nIt’s used because:\n\nIt fits safely in 64-bit integers.\nIt avoids overflow when adding up two remainders.\nIt’s a prime number, which has nice math properties.\n\n\n\n\nThese rules make modular arithmetic simple to use:\n\nAddition\n(a + b) % m = (a % m + b % m) % m\nSubtraction\n(a - b) % m = ((a % m - b % m) + m) % m\nWe add +m to make sure the result isn’t negative.\nMultiplication\n(a * b) % m = (a % m * b % m) % m\n\nExample:\nint a = 7, b = 5, m = 3;\ncout &lt;&lt; (a + b) % m &lt;&lt; endl;   // (7 + 5) % 3 = 12 % 3 = 0\ncout &lt;&lt; (a * b) % m &lt;&lt; endl;   // (7 * 5) % 3 = 35 % 3 = 2\n\n\n#include &lt;iostream&gt;\nusing namespace std;\n\nint main() {\n    const int MOD = 1'000'000'007;\n    long long a = 1e12, b = 1e12;\n    cout &lt;&lt; (a + b) % MOD &lt;&lt; endl;\n}\nOutput:\n999999979\nEven though the sum is 2e12, we safely wrapped it inside MOD.\n\n\n\n\nBe careful with negative numbers — in C++, % can give negative results.\nExample:\ncout &lt;&lt; (-5) % 3; // prints -2\nTo fix this, always use:\n((a % m) + m) % m\nExample:\nint a = -5, m = 3;\ncout &lt;&lt; ((a % m) + m) % m; // prints 1\n\n\n\nIf you want to compute the remainder of \\(a^b\\) when divided by \\(m\\), it’s not efficient to multiply \\(a\\) many times. Instead, use fast exponentiation.\nFast exponentiation is based on the following observation. If \\(b\\) is even then \\(a^b = (a^{b/2})^2\\), and if \\(b\\) is odd then \\(a^b = a \\cdot (a^{\\lfloor b/2 \\rfloor})^2\\). This is why we can use a function that recursively calls itself, each time halving the exponent.\nlong long modpow(long long a, long long b, long long m) {\n    if (b == 0) return 1;\n\n    long long half = modpow(a, b / 2, m);\n    long long res = (half * half) % m;\n\n    if (b % 2 == 1) { // If b is odd\n        res = (res * (a % m)) % m;\n    }\n    return res;\n}\nSince \\(b\\) is halved each time the recursion is called, the total number of recursive calls is \\(\\lfloor \\log_2 b \\rfloor + 1\\), hence the time complexity of this function is \\(O(\\log b)\\).\nUsage:\ncout &lt;&lt; modpow(2, 10, 1000); // 1024 % 1000 = 24\n\n\n\nSometimes we need to divide numbers under modulo. However, modulo does not distribute over division as it does with the addition and multiplication. So, instead dividing, we multiply by the modular inverse.\nFrom the Fermat’s little theorem we can derive that for a prime modulus \\(m\\), the modular inverse of \\(a\\) is\n\\(a^{-1} \\equiv a^{m-2} \\mod m\\)\nint inverse = modpow(a, MOD - 2, MOD);\nThen a divided by b with modulus MOD becomes\n(a * modpow(b, MOD - 2, MOD)) % MOD\n\n\n\nYou’ll see it in problems where:\n\nNumbers grow extremely large (combinations, dynamic programming, etc.)\nThe result only needs to be given “mod 1e9+7”\nYou’re implementing math algorithms like power, inverse, or combinatorics\n\n\n\n\n\nKeeps numbers small and avoids overflow\n\nWorks with huge results easily\n\nGreat for competitive programming problems\n\n\n\n\n\nYou lose the exact value (only remainder is kept)\n\nDivision is tricky — requires modular inverse\n\nNegative results can be confusing in C++\n\n\n\n\n\na % m gives the remainder when dividing a by m\n\nKeep using % MOD to avoid overflow in large problems\n\nUse (a + b) % MOD, (a * b) % MOD, and ((a - b) % MOD + MOD) % MOD\n\nFor exponentiation, use fast power\n\nFor division, use modular inverse when MOD is prime",
-    "crumbs": [
-      "Stage 2",
-      "Modular Arithmetics"
-    ]
-  },
-  {
-    "objectID": "b1/modular-arithmetics.html#what-does-mod-mean",
-    "href": "b1/modular-arithmetics.html#what-does-mod-mean",
-    "title": "Modular Arithmetics",
-    "section": "",
-    "text": "When we say a mod m, it means the remainder when a is divided by m.\nFor example:\n\n\n\nExpression\nMeaning\nResult\n\n\n\n\n7 mod 3\n7 divided by 3 leaves remainder 1\n1\n\n\n10 mod 4\n10 divided by 4 leaves remainder 2\n2\n\n\n15 mod 6\n15 divided by 6 leaves remainder 3\n3\n\n\n12 mod 12\n12 divided by 12 leaves remainder 0\n0\n\n\n\nIn C++, we use the % operator for this:\n#include &lt;iostream&gt;\nusing namespace std;\n\nint main() {\n    cout &lt;&lt; 7 % 3 &lt;&lt; endl;   // prints 1\n    cout &lt;&lt; 10 % 4 &lt;&lt; endl;  // prints 2\n    cout &lt;&lt; 10 % 5 &lt;&lt; endl;  // prints 0\n}",
-    "crumbs": [
-      "Stage 2",
-      "Modular Arithmetics"
-    ]
-  },
-  {
-    "objectID": "b1/modular-arithmetics.html#modular-arithmetic-in-programming",
-    "href": "b1/modular-arithmetics.html#modular-arithmetic-in-programming",
-    "title": "Modular Arithmetics",
-    "section": "",
-    "text": "When we work with very large numbers (for example, in combinatorics or cryptography), results can become too big for normal data types.\nTo get around this, we take everything modulo some number to keep it small and manageable.\nA common modulus used in competitive programming is:\nMOD = 1'000'000'007  // (a large prime number)\nIt’s used because:\n\nIt fits safely in 64-bit integers.\nIt avoids overflow when adding up two remainders.\nIt’s a prime number, which has nice math properties.",
-    "crumbs": [
-      "Stage 2",
-      "Modular Arithmetics"
-    ]
-  },
-  {
-    "objectID": "b1/modular-arithmetics.html#basic-modular-rules",
-    "href": "b1/modular-arithmetics.html#basic-modular-rules",
-    "title": "Modular Arithmetics",
-    "section": "",
-    "text": "These rules make modular arithmetic simple to use:\n\nAddition\n(a + b) % m = (a % m + b % m) % m\nSubtraction\n(a - b) % m = ((a % m - b % m) + m) % m\nWe add +m to make sure the result isn’t negative.\nMultiplication\n(a * b) % m = (a % m * b % m) % m\n\nExample:\nint a = 7, b = 5, m = 3;\ncout &lt;&lt; (a + b) % m &lt;&lt; endl;   // (7 + 5) % 3 = 12 % 3 = 0\ncout &lt;&lt; (a * b) % m &lt;&lt; endl;   // (7 * 5) % 3 = 35 % 3 = 2\n\n\n#include &lt;iostream&gt;\nusing namespace std;\n\nint main() {\n    const int MOD = 1'000'000'007;\n    long long a = 1e12, b = 1e12;\n    cout &lt;&lt; (a + b) % MOD &lt;&lt; endl;\n}\nOutput:\n999999979\nEven though the sum is 2e12, we safely wrapped it inside MOD.",
-    "crumbs": [
-      "Stage 2",
-      "Modular Arithmetics"
-    ]
-  },
-  {
-    "objectID": "b1/modular-arithmetics.html#handling-negatives",
-    "href": "b1/modular-arithmetics.html#handling-negatives",
-    "title": "Modular Arithmetics",
-    "section": "",
-    "text": "Be careful with negative numbers — in C++, % can give negative results.\nExample:\ncout &lt;&lt; (-5) % 3; // prints -2\nTo fix this, always use:\n((a % m) + m) % m\nExample:\nint a = -5, m = 3;\ncout &lt;&lt; ((a % m) + m) % m; // prints 1",
-    "crumbs": [
-      "Stage 2",
-      "Modular Arithmetics"
-    ]
-  },
-  {
-    "objectID": "b1/modular-arithmetics.html#modular-exponentiation",
-    "href": "b1/modular-arithmetics.html#modular-exponentiation",
-    "title": "Modular Arithmetics",
-    "section": "",
-    "text": "If you want to compute the remainder of \\(a^b\\) when divided by \\(m\\), it’s not efficient to multiply \\(a\\) many times. Instead, use fast exponentiation.\nFast exponentiation is based on the following observation. If \\(b\\) is even then \\(a^b = (a^{b/2})^2\\), and if \\(b\\) is odd then \\(a^b = a \\cdot (a^{\\lfloor b/2 \\rfloor})^2\\). This is why we can use a function that recursively calls itself, each time halving the exponent.\nlong long modpow(long long a, long long b, long long m) {\n    if (b == 0) return 1;\n\n    long long half = modpow(a, b / 2, m);\n    long long res = (half * half) % m;\n\n    if (b % 2 == 1) { // If b is odd\n        res = (res * (a % m)) % m;\n    }\n    return res;\n}\nSince \\(b\\) is halved each time the recursion is called, the total number of recursive calls is \\(\\lfloor \\log_2 b \\rfloor + 1\\), hence the time complexity of this function is \\(O(\\log b)\\).\nUsage:\ncout &lt;&lt; modpow(2, 10, 1000); // 1024 % 1000 = 24",
-    "crumbs": [
-      "Stage 2",
-      "Modular Arithmetics"
-    ]
-  },
-  {
-    "objectID": "b1/modular-arithmetics.html#modular-inverse-optional-advanced",
-    "href": "b1/modular-arithmetics.html#modular-inverse-optional-advanced",
-    "title": "Modular Arithmetics",
-    "section": "",
-    "text": "Sometimes we need to divide numbers under modulo. However, modulo does not distribute over division as it does with the addition and multiplication. So, instead dividing, we multiply by the modular inverse.\nFrom the Fermat’s little theorem we can derive that for a prime modulus \\(m\\), the modular inverse of \\(a\\) is\n\\(a^{-1} \\equiv a^{m-2} \\mod m\\)\nint inverse = modpow(a, MOD - 2, MOD);\nThen a divided by b with modulus MOD becomes\n(a * modpow(b, MOD - 2, MOD)) % MOD",
-    "crumbs": [
-      "Stage 2",
-      "Modular Arithmetics"
-    ]
-  },
-  {
-    "objectID": "b1/modular-arithmetics.html#when-do-we-use-modular-arithmetic",
-    "href": "b1/modular-arithmetics.html#when-do-we-use-modular-arithmetic",
-    "title": "Modular Arithmetics",
-    "section": "",
-    "text": "You’ll see it in problems where:\n\nNumbers grow extremely large (combinations, dynamic programming, etc.)\nThe result only needs to be given “mod 1e9+7”\nYou’re implementing math algorithms like power, inverse, or combinatorics",
-    "crumbs": [
-      "Stage 2",
-      "Modular Arithmetics"
-    ]
-  },
-  {
-    "objectID": "b1/modular-arithmetics.html#advantages",
-    "href": "b1/modular-arithmetics.html#advantages",
-    "title": "Modular Arithmetics",
-    "section": "",
-    "text": "Keeps numbers small and avoids overflow\n\nWorks with huge results easily\n\nGreat for competitive programming problems",
-    "crumbs": [
-      "Stage 2",
-      "Modular Arithmetics"
-    ]
-  },
-  {
-    "objectID": "b1/modular-arithmetics.html#disadvantages",
-    "href": "b1/modular-arithmetics.html#disadvantages",
-    "title": "Modular Arithmetics",
-    "section": "",
-    "text": "You lose the exact value (only remainder is kept)\n\nDivision is tricky — requires modular inverse\n\nNegative results can be confusing in C++",
-    "crumbs": [
-      "Stage 2",
-      "Modular Arithmetics"
-    ]
-  },
-  {
-    "objectID": "b1/modular-arithmetics.html#quick-summary",
-    "href": "b1/modular-arithmetics.html#quick-summary",
-    "title": "Modular Arithmetics",
-    "section": "",
-    "text": "a % m gives the remainder when dividing a by m\n\nKeep using % MOD to avoid overflow in large problems\n\nUse (a + b) % MOD, (a * b) % MOD, and ((a - b) % MOD + MOD) % MOD\n\nFor exponentiation, use fast power\n\nFor division, use modular inverse when MOD is prime",
-    "crumbs": [
-      "Stage 2",
-      "Modular Arithmetics"
-    ]
-  },
-  {
     "objectID": "b1/casework.html",
     "href": "b1/casework.html",
     "title": "Case Work",
     "section": "",
-    "text": "Case work problems are those where the solution is found by splitting the problem into different cases, solving each one separately, and then combining the results.\n\n\nIn many problems you might try to write one formula or one loop to cover everything. In a case work problem, you notice that different situations behave differently. So instead of one generic rule, you say:\n\nIf case A happens, do this.\nIf case B happens, do that.\nMaybe also case C, case D, etc.\n\nThen you either add up the answers of all the cases, or pick the best one.\n\n\n\n\nIt allows you to handle special situations cleanly (when simple logic alone doesn’t work).\nIt helps you break down a tricky problem into manageable pieces.\nIt often appears in counting problems or problems with multiple outcomes.\n\n\n\n\n\nRead the problem carefully and look for places where things change (for example, small/large, positive/negative, even/odd).\nIdentify all distinct cases that cover all possibilities without overlap.\nFor each case, figure out how to compute the result.\nCombine the results if needed (add them or take min/max).\nDouble-check you didn’t miss any case or count something twice.\n\n\n\n\n\n\n\n\n\nEven or odd sum\n\n\n\n\n\nYou have two numbers \\(a\\) and \\(b\\). Count how many pairs \\((i, j)\\) with \\(1 \\leq i \\leq a\\) and \\(1 \\leq j \\leq b\\) have \\(i + j\\) even.\n\n\n\n\n\nSolution\n\nObservation: \\(i + j\\) is even if both are even or both are odd.\nSo there are two cases:\n\nCase 1: \\(i\\) even and \\(j\\) even\nCase 2: \\(i\\) odd and \\(j\\) odd\n\nCompute each count and add them together.\n#include &lt;iostream&gt;\nusing namespace std;\n\nint main() {\n    int a, b;\n    cin &gt;&gt; a &gt;&gt; b;\n\n    int evenA = a / 2;\n    int oddA = a - evenA;\n    int evenB = b / 2;\n    int oddB = b - evenB;\n\n    int pairs = evenA * evenB + oddA * oddB;\n    cout &lt;&lt; pairs;\n}\n\n\n\n\n\n\n\nTriangle validity\n\n\n\n\n\nGiven three side lengths \\(a, b, c\\), determine if they can form a triangle.\n\n\n\n\n\nSolution\n\nWe can test each case by checking which side might be the largest:\n\nCase 1: \\(a\\) is largest → check if \\(b + c &gt; a\\)\nCase 2: \\(b\\) is largest → check if \\(a + c &gt; b\\)\nCase 3: \\(c\\) is largest → check if \\(a + b &gt; c\\)\n\nIf any of these are true, a triangle is possible.\n#include &lt;iostream&gt;\nusing namespace std;\n\nint main() {\n    int a, b, c;\n    cin &gt;&gt; a &gt;&gt; b &gt;&gt; c;\n\n    bool ok = false;\n    if (b + c &gt; a) ok = true;\n    if (a + c &gt; b) ok = true;\n    if (a + b &gt; c) ok = true;\n\n    cout &lt;&lt; (ok ? \"YES\" : \"NO\");\n}\nThis checks all cases separately — a direct example of case work.\n\n\n\n\n\n\n\nCoordinate quadrant\n\n\n\n\n\nGiven \\((x, y)\\), print which quadrant the point belongs to.\n\n\n\n\n\nSolution\n\nCases:\n\n\\(x &gt; 0, y &gt; 0\\) → Quadrant I\n\\(x &lt; 0, y &gt; 0\\) → Quadrant II\n\\(x &lt; 0, y &lt; 0\\) → Quadrant III\n\\(x &gt; 0, y &lt; 0\\) → Quadrant IV\nIf \\(x = 0\\) or \\(y = 0\\) → on an axis\n\n#include &lt;iostream&gt;\nusing namespace std;\n\nint main() {\n    int x, y;\n    cin &gt;&gt; x &gt;&gt; y;\n\n    if (x &gt; 0 && y &gt; 0) cout &lt;&lt; \"Quadrant I\";\n    else if (x &lt; 0 && y &gt; 0) cout &lt;&lt; \"Quadrant II\";\n    else if (x &lt; 0 && y &lt; 0) cout &lt;&lt; \"Quadrant III\";\n    else if (x &gt; 0 && y &lt; 0) cout &lt;&lt; \"Quadrant IV\";\n    else cout &lt;&lt; \"On an axis\";\n}\n\n\n\n\n\n\nMake sure your cases don’t overlap.\nEnsure all possibilities are covered.\nWatch for boundaries (like 0 or equality).\nKeep the logic clear and simple.\n\n\n\n\n\nCase work means breaking a problem into smaller, simpler situations.\nSolve each case separately and combine results.\nIt’s a thinking technique, not a special algorithm.\nGreat for early problem-solving practice.\n\n\nTip: When unsure how to start, think “What are the possible situations?” — that’s the beginning of case work.",
+    "text": "Case work problems are those where the solution is found by splitting the problem into different cases, solving each one separately, and then combining the results.\n\n\nIn many problems you might try to write one formula or one loop to cover everything. In a case work problem, you notice that different situations behave differently. So instead of one generic rule, you say:\n\nIf case A happens, do this.\nIf case B happens, do that.\nMaybe also case C, case D, etc.\n\nThen you either add up the answers of all the cases, or pick the best one.\n\n\n\n\nIt allows you to handle special situations cleanly (when simple logic alone doesn’t work).\nIt helps you break down a tricky problem into manageable pieces.\nIt often appears in counting problems or problems with multiple outcomes.\n\n\n\n\n\nRead the problem carefully and look for places where things change (for example, small/large, positive/negative, even/odd).\nIdentify all distinct cases that cover all possibilities without overlap.\nFor each case, figure out how to compute the result.\nCombine the results if needed (add them or take min/max).\nDouble-check you didn’t miss any case or count something twice.\n\n\n\n\n\n\n\n\n\nEven or odd sum\n\n\n\n\n\nYou have two numbers \\(a\\) and \\(b\\). Count how many pairs \\((i, j)\\) with \\(1 \\leq i \\leq a\\) and \\(1 \\leq j \\leq b\\) have \\(i + j\\) even.\n\n\n\n\n\nSolution\n\nObservation: \\(i + j\\) is even if both are even or both are odd.\nSo there are two cases:\n\nCase 1: \\(i\\) even and \\(j\\) even\nCase 2: \\(i\\) odd and \\(j\\) odd\n\nCompute each count and add them together.\n#include &lt;iostream&gt;\nusing namespace std;\n\nint main() {\n    int a, b;\n    cin &gt;&gt; a &gt;&gt; b;\n\n    int evenA = a / 2;\n    int oddA = a - evenA;\n    int evenB = b / 2;\n    int oddB = b - evenB;\n\n    int pairs = evenA * evenB + oddA * oddB;\n    cout &lt;&lt; pairs;\n}\n\n\n\n\n\n\n\nTriangle validity\n\n\n\n\n\nGiven three side lengths \\(a, b, c\\), determine if they can form a triangle.\n\n\n\n\n\nSolution\n\nThree positive integers can be sides of some triangle if the sum of two is always greater than the third integer. One possible way is to check all three possibilities. Another, more sophisticated way, is to check only whether the sum of the smallest two integers is greater than the largest. This implies that all three inequalities hold.\nWe can test each case by checking which side might be the largest:\n\nCase 1: \\(a\\) is largest → check if \\(b + c &gt; a\\)\nCase 2: \\(b\\) is largest → check if \\(a + c &gt; b\\)\nCase 3: \\(c\\) is largest → check if \\(a + b &gt; c\\)\n\nIf any of these are true, a triangle is possible.\n#include &lt;iostream&gt;\nusing namespace std;\n\nint main() {\n    int a, b, c;\n    cin &gt;&gt; a &gt;&gt; b &gt;&gt; c;\n\n    bool ok = false;\n    if (b + c &gt; a) ok = true;\n    if (a + c &gt; b) ok = true;\n    if (a + b &gt; c) ok = true;\n\n    cout &lt;&lt; (ok ? \"YES\" : \"NO\");\n}\nThis checks all cases separately — a direct example of case work.\n\n\n\n\n\n\n\nCoordinate quadrant\n\n\n\n\n\nGiven \\((x, y)\\), print which quadrant the point belongs to.\n\n\n\n\n\nSolution\n\nCases:\n\n\\(x &gt; 0, y &gt; 0\\) → Quadrant I\n\\(x &lt; 0, y &gt; 0\\) → Quadrant II\n\\(x &lt; 0, y &lt; 0\\) → Quadrant III\n\\(x &gt; 0, y &lt; 0\\) → Quadrant IV\nIf \\(x = 0\\) or \\(y = 0\\) → on an axis\n\n#include &lt;iostream&gt;\nusing namespace std;\n\nint main() {\n    int x, y;\n    cin &gt;&gt; x &gt;&gt; y;\n\n    if (x &gt; 0 && y &gt; 0) cout &lt;&lt; \"Quadrant I\";\n    else if (x &lt; 0 && y &gt; 0) cout &lt;&lt; \"Quadrant II\";\n    else if (x &lt; 0 && y &lt; 0) cout &lt;&lt; \"Quadrant III\";\n    else if (x &gt; 0 && y &lt; 0) cout &lt;&lt; \"Quadrant IV\";\n    else cout &lt;&lt; \"On an axis\";\n}\n\n\n\n\n\n\nMake sure your cases don’t overlap.\nEnsure all possibilities are covered.\nWatch for boundaries (like 0 or equality).\nKeep the logic clear and simple.\n\n\n\n\n\nCase work means breaking a problem into smaller, simpler situations.\nSolve each case separately and combine results.\nIt’s a thinking technique, not a special algorithm.\nGreat for early problem-solving practice.\n\n\nTip: When unsure how to start, think “What are the possible situations?” — that’s the beginning of case work.",
     "crumbs": [
       "Stage 2",
       "Case Work"
@@ -803,6 +355,456 @@
     "crumbs": [
       "Stage 2",
       "Case Work"
+    ]
+  },
+  {
+    "objectID": "b1/binary-search.html",
+    "href": "b1/binary-search.html",
+    "title": "Binary Search",
+    "section": "",
+    "text": "Binary search is a fast way to find something in a sorted list or range.\nBut before we get to that, let’s start with something simpler — linear search.\n\n\nImagine you have a list of numbers and you want to check if a number is in the list.\nThe most natural thing to do is to look through the list one by one.\n#include &lt;iostream&gt;\n#include &lt;vector&gt;\nusing namespace std;\n\nint main() {\n    vector&lt;int&gt; arr = {4, 8, 15, 16, 23, 42};\n    int target = 15;\n\n    for (int i = 0; i &lt; arr.size(); i++) {\n        if (arr[i] == target) {\n            cout &lt;&lt; \"Found at index \" &lt;&lt; i;\n            return 0;\n        }\n    }\n    cout &lt;&lt; \"Not found\";\n}\nThis is called linear search because you move linearly through the list.\nIt always works, but if the list is long, it can be slow — you might need to check every element.\nIf there are a million numbers, that’s a million checks.\nNow imagine you’re looking for a name in a printed phone book.\nYou wouldn’t start from the first page and read one by one.\nYou’d open somewhere in the middle, see if you’re too early or too late alphabetically, and then skip half the pages.\nThat’s binary search.\n\n\n\nBinary search is like playing the ‘guess the number’ game.\nEach time, you pick the middle value and ask:\n\nIs this too small?\nToo big?\nOr exactly right?\n\nThen you cut the search space in half.\nThis makes it much faster than linear search, but it only works if the data is sorted.\n\n\n\n\n\n\n\n\nFind the 7\n\n\n\n\n\nWe are given a sorted array\n[1, 3, 5, 6, 7, 9, 11]\nFind number 7 in the array if it exists and print the index it is on.\n\n\n\n\n\nSolution\n\nWe start with the full range, then repeatedly narrow it down.\nFirst, we find the element in the middle. This happens to be number 6. We ask whether number 7 is smaller or greater than number 6 - and it is greater. Since the array is sorted, this means that number 7 will be strictly after number 6 in the array. We can discard the first half of the array, because we know 7 cannot be before 6.\nThe array we are looking at now is [7, 9, 11]. The element in the middle is number 9. Number 7 is smaller than number 9. This means that 7 is before 9 in the sorted array. We can then discard 9 and anything that is right of 9.\nFinally, our array is [7]. The middle element is 7, which is exactly what we are looking for. We asked three times to compare numbers: - We compared 6 and 7 - We compared 9 and 7 - We compared 7 and 7\nSo this is 3 comparisons. In the linear search, we would do at least 5. Already on smaller examples, we see that binary search brings significant improvement.\n#include &lt;iostream&gt;\n#include &lt;vector&gt;\nusing namespace std;\n\nint main() {\n    vector&lt;int&gt; arr = {1, 3, 5, 6, 7, 9, 11};\n    int target = 7;\n    int left = 0, right = arr.size() - 1;\n\n    while (left &lt;= right) {\n        int mid = (left + right) / 2;\n        if (arr[mid] == target) {\n            cout &lt;&lt; \"Found at index \" &lt;&lt; mid;\n            return 0;\n        } else if (arr[mid] &lt; target) \n            left = mid + 1;\n        else \n            right = mid - 1;\n    }\n\n    cout &lt;&lt; \"Not found\";\n}\nOutput:\nFound at index 4\n\n\n\nEach step cuts the range in half.\nIf there are n elements, binary search only needs about \\(\\log_2(n)\\) steps.\nThat’s around 20 checks, even if there are a million numbers.\n\n\nBinary search can do more than find a number.\nYou can use it to find positions or boundaries.\n\n\n\n\n\nPosition Hunt\n\n\n\n\n\nYou are given an array [2, 4, 6, 8, 10]. Find the first element greater than 7 using the binary search method.\n\n\n\n\n\nSolution\n\n#include &lt;iostream&gt;\n#include &lt;vector&gt;\nusing namespace std;\n\nint main() {\n    vector&lt;int&gt; arr = {2, 4, 6, 8, 10};\n    int x = 7;\n\n    int left = 0, right = arr.size() - 1;\n    int ans = -1;\n\n    while (left &lt;= right) {\n        int mid = (left + right) / 2;\n        if (arr[mid] &gt;= x) {\n            ans = mid;\n            right = mid - 1;\n        } else {\n            left = mid + 1;\n        }\n    }\n    if (ans == -1) cout &lt;&lt; \"No element found\";\n    else cout &lt;&lt; \"First element &gt;= \" &lt;&lt; x &lt;&lt; \" is at index \" &lt;&lt; ans;\n}\nOutput:\nFirst element &gt;= 7 is at index 3\nThat means arr[3] = 8 is the first element greater than or equal to 7.\n\n\n\n\n\n\nStart with two pointers, left and right.\nFind the middle index mid.\nIf the middle value is the answer, stop.\nIf it’s too small, move left to mid + 1.\nIf it’s too big, move right to mid - 1.\nRepeat until left &gt; right.",
+    "crumbs": [
+      "Stage 2",
+      "Binary Search"
+    ]
+  },
+  {
+    "objectID": "b1/binary-search.html#linear-search",
+    "href": "b1/binary-search.html#linear-search",
+    "title": "Binary Search",
+    "section": "",
+    "text": "Imagine you have a list of numbers and you want to check if a number is in the list.\nThe most natural thing to do is to look through the list one by one.\n#include &lt;iostream&gt;\n#include &lt;vector&gt;\nusing namespace std;\n\nint main() {\n    vector&lt;int&gt; arr = {4, 8, 15, 16, 23, 42};\n    int target = 15;\n\n    for (int i = 0; i &lt; arr.size(); i++) {\n        if (arr[i] == target) {\n            cout &lt;&lt; \"Found at index \" &lt;&lt; i;\n            return 0;\n        }\n    }\n    cout &lt;&lt; \"Not found\";\n}\nThis is called linear search because you move linearly through the list.\nIt always works, but if the list is long, it can be slow — you might need to check every element.\nIf there are a million numbers, that’s a million checks.\nNow imagine you’re looking for a name in a printed phone book.\nYou wouldn’t start from the first page and read one by one.\nYou’d open somewhere in the middle, see if you’re too early or too late alphabetically, and then skip half the pages.\nThat’s binary search.",
+    "crumbs": [
+      "Stage 2",
+      "Binary Search"
+    ]
+  },
+  {
+    "objectID": "b1/binary-search.html#the-idea-of-binary-search",
+    "href": "b1/binary-search.html#the-idea-of-binary-search",
+    "title": "Binary Search",
+    "section": "",
+    "text": "Binary search is like playing the ‘guess the number’ game.\nEach time, you pick the middle value and ask:\n\nIs this too small?\nToo big?\nOr exactly right?\n\nThen you cut the search space in half.\nThis makes it much faster than linear search, but it only works if the data is sorted.",
+    "crumbs": [
+      "Stage 2",
+      "Binary Search"
+    ]
+  },
+  {
+    "objectID": "b1/binary-search.html#find-the-7",
+    "href": "b1/binary-search.html#find-the-7",
+    "title": "Binary Search",
+    "section": "",
+    "text": "Find the 7\n\n\n\n\n\nWe are given a sorted array\n[1, 3, 5, 6, 7, 9, 11]\nFind number 7 in the array if it exists and print the index it is on.",
+    "crumbs": [
+      "Stage 2",
+      "Binary Search"
+    ]
+  },
+  {
+    "objectID": "b1/binary-search.html#finding-first-element-greater-than-or-equal-to-x",
+    "href": "b1/binary-search.html#finding-first-element-greater-than-or-equal-to-x",
+    "title": "Binary Search",
+    "section": "",
+    "text": "Binary search can do more than find a number.\nYou can use it to find positions or boundaries.",
+    "crumbs": [
+      "Stage 2",
+      "Binary Search"
+    ]
+  },
+  {
+    "objectID": "b1/binary-search.html#position-hunt",
+    "href": "b1/binary-search.html#position-hunt",
+    "title": "Binary Search",
+    "section": "",
+    "text": "Position Hunt\n\n\n\n\n\nYou are given an array [2, 4, 6, 8, 10]. Find the first element greater than 7 using the binary search method.",
+    "crumbs": [
+      "Stage 2",
+      "Binary Search"
+    ]
+  },
+  {
+    "objectID": "b1/binary-search.html#algorithm",
+    "href": "b1/binary-search.html#algorithm",
+    "title": "Binary Search",
+    "section": "",
+    "text": "Start with two pointers, left and right.\nFind the middle index mid.\nIf the middle value is the answer, stop.\nIf it’s too small, move left to mid + 1.\nIf it’s too big, move right to mid - 1.\nRepeat until left &gt; right.",
+    "crumbs": [
+      "Stage 2",
+      "Binary Search"
+    ]
+  },
+  {
+    "objectID": "b1/problems/bit-strings.html",
+    "href": "b1/problems/bit-strings.html",
+    "title": "",
+    "section": "",
+    "text": "Bit Strings\n\nCSES\neasy\n\n\n\nYour task is to calculate the number of bit strings of length \\(n\\).\nA bit string is a sequence of \\(n\\) characters, each of which is either 0 or 1.\nFor example, if \\(n = 3\\), the bit strings are [000, 001, 010, 011, 100, 101, 110, 111], so there are \\(8\\) such strings.\nInput:\n\nA single integer \\(n\\).\n\nOutput:\n\nPrint the total number of bit strings of length \\(n\\), modulo \\(10^9 + 7\\).\n\nConstraints:\n\n\\(1 \\le n \\le 10^6\\)\n\nExample:\nInput:\n3\nOutput:\n8",
+    "crumbs": [
+      "Stage 2",
+      "Problems",
+      "Bit Strings"
+    ]
+  },
+  {
+    "objectID": "b1/problems/bit-strings.html#bit-strings",
+    "href": "b1/problems/bit-strings.html#bit-strings",
+    "title": "",
+    "section": "",
+    "text": "Bit Strings\n\nCSES\neasy\n\n\n\nYour task is to calculate the number of bit strings of length \\(n\\).\nA bit string is a sequence of \\(n\\) characters, each of which is either 0 or 1.\nFor example, if \\(n = 3\\), the bit strings are [000, 001, 010, 011, 100, 101, 110, 111], so there are \\(8\\) such strings.\nInput:\n\nA single integer \\(n\\).\n\nOutput:\n\nPrint the total number of bit strings of length \\(n\\), modulo \\(10^9 + 7\\).\n\nConstraints:\n\n\\(1 \\le n \\le 10^6\\)\n\nExample:\nInput:\n3\nOutput:\n8",
+    "crumbs": [
+      "Stage 2",
+      "Problems",
+      "Bit Strings"
+    ]
+  },
+  {
+    "objectID": "b1/problems/vanya-and-lanterns.html",
+    "href": "b1/problems/vanya-and-lanterns.html",
+    "title": "",
+    "section": "",
+    "text": "Vanya and Lanterns\n\nCodeforces\nmedium\n\n\n\nYou are given a line of length \\(l\\) and \\(n\\) points on it at positions \\(a_1, a_2, \\dots, a_n\\). Each point can “cover” a distance \\(d\\) to the left and \\(d\\) to the right. Find the smallest \\(d\\) so that every point on the line from \\(0\\) to \\(l\\) is covered by at least one of these points.",
+    "crumbs": [
+      "Stage 2",
+      "Problems",
+      "Vanya and Lanterns"
+    ]
+  },
+  {
+    "objectID": "b1/problems/vanya-and-lanterns.html#vanya-and-lanterns",
+    "href": "b1/problems/vanya-and-lanterns.html#vanya-and-lanterns",
+    "title": "",
+    "section": "",
+    "text": "Vanya and Lanterns\n\nCodeforces\nmedium\n\n\n\nYou are given a line of length \\(l\\) and \\(n\\) points on it at positions \\(a_1, a_2, \\dots, a_n\\). Each point can “cover” a distance \\(d\\) to the left and \\(d\\) to the right. Find the smallest \\(d\\) so that every point on the line from \\(0\\) to \\(l\\) is covered by at least one of these points.",
+    "crumbs": [
+      "Stage 2",
+      "Problems",
+      "Vanya and Lanterns"
+    ]
+  },
+  {
+    "objectID": "b1/problems/sum-of-two-values.html",
+    "href": "b1/problems/sum-of-two-values.html",
+    "title": "",
+    "section": "",
+    "text": "Sum of Two Values\n\nCSES\neasy\n\n\n\nYou are given an array of \\(n\\) integers, and your task is to find two distinct positions \\(i \\ne j\\) such that:\n\n\\(a_i + a_j = x.\\)\n\nIf there are multiple valid pairs, you may output any of them. If no such pair exists, output IMPOSSIBLE.\nConstraints:\n\n\\(1 \\le n \\le 2 \\cdot 10^5\\)\n\\(1 \\le x, a_i \\le 10^9\\)\n\nInput:\n\nFirst line: two integers \\(n\\) and \\(x\\) — the array size and the target sum.\nSecond line: \\(n\\) integers \\(a_1, a_2, \\dots, a_n\\) — the array values.\n\nOutput:\n\nEither two 1-based positions i j with \\(a_i + a_j = x\\) and \\(i \\ne j\\),\nOr IMPOSSIBLE if no such pair exists.\n\nExample:\nInput:\n4 8\n2 7 5 1\nOutput:\n2 4\n(one valid pair is \\(7 + 1 = 8\\))",
+    "crumbs": [
+      "Stage 2",
+      "Problems",
+      "Sum Of Two Values"
+    ]
+  },
+  {
+    "objectID": "b1/problems/sum-of-two-values.html#sum-of-two-values",
+    "href": "b1/problems/sum-of-two-values.html#sum-of-two-values",
+    "title": "",
+    "section": "",
+    "text": "Sum of Two Values\n\nCSES\neasy\n\n\n\nYou are given an array of \\(n\\) integers, and your task is to find two distinct positions \\(i \\ne j\\) such that:\n\n\\(a_i + a_j = x.\\)\n\nIf there are multiple valid pairs, you may output any of them. If no such pair exists, output IMPOSSIBLE.\nConstraints:\n\n\\(1 \\le n \\le 2 \\cdot 10^5\\)\n\\(1 \\le x, a_i \\le 10^9\\)\n\nInput:\n\nFirst line: two integers \\(n\\) and \\(x\\) — the array size and the target sum.\nSecond line: \\(n\\) integers \\(a_1, a_2, \\dots, a_n\\) — the array values.\n\nOutput:\n\nEither two 1-based positions i j with \\(a_i + a_j = x\\) and \\(i \\ne j\\),\nOr IMPOSSIBLE if no such pair exists.\n\nExample:\nInput:\n4 8\n2 7 5 1\nOutput:\n2 4\n(one valid pair is \\(7 + 1 = 8\\))",
+    "crumbs": [
+      "Stage 2",
+      "Problems",
+      "Sum Of Two Values"
+    ]
+  },
+  {
+    "objectID": "b1/problems/modular-exponentiation.html",
+    "href": "b1/problems/modular-exponentiation.html",
+    "title": "",
+    "section": "",
+    "text": "Modular Exponentiation\n\nCodeforces\neasy\n\n\n\nGiven two number \\(n\\) and \\(m\\) print \\(m \\bmod 2 ^ n\\)",
+    "crumbs": [
+      "Stage 2",
+      "Problems",
+      "Modular Exponentiation"
+    ]
+  },
+  {
+    "objectID": "b1/problems/modular-exponentiation.html#modular-exponentiation",
+    "href": "b1/problems/modular-exponentiation.html#modular-exponentiation",
+    "title": "",
+    "section": "",
+    "text": "Modular Exponentiation\n\nCodeforces\neasy\n\n\n\nGiven two number \\(n\\) and \\(m\\) print \\(m \\bmod 2 ^ n\\)",
+    "crumbs": [
+      "Stage 2",
+      "Problems",
+      "Modular Exponentiation"
+    ]
+  },
+  {
+    "objectID": "b1/problems/digit-queries.html",
+    "href": "b1/problems/digit-queries.html",
+    "title": "",
+    "section": "",
+    "text": "Digit Queries\n\nCSES\nmedium\n\n\n\nConsider the infinite string formed by concatenating all positive integers in order:\n[ 1234567891011121314]\nYou are given \\(q\\) queries. For each query, you are given a position \\(k\\) (1-indexed) in this infinite string. Your task is to output the digit at position \\(k\\).\nConstraints:\n\n\\(1 \\le q \\le 1000\\)\n\\(1 \\le k \\le 10^{18}\\)",
+    "crumbs": [
+      "Stage 2",
+      "Problems",
+      "Digit Queries"
+    ]
+  },
+  {
+    "objectID": "b1/problems/digit-queries.html#digit-queries",
+    "href": "b1/problems/digit-queries.html#digit-queries",
+    "title": "",
+    "section": "",
+    "text": "Digit Queries\n\nCSES\nmedium\n\n\n\nConsider the infinite string formed by concatenating all positive integers in order:\n[ 1234567891011121314]\nYou are given \\(q\\) queries. For each query, you are given a position \\(k\\) (1-indexed) in this infinite string. Your task is to output the digit at position \\(k\\).\nConstraints:\n\n\\(1 \\le q \\le 1000\\)\n\\(1 \\le k \\le 10^{18}\\)",
+    "crumbs": [
+      "Stage 2",
+      "Problems",
+      "Digit Queries"
+    ]
+  },
+  {
+    "objectID": "b1/simulation.html",
+    "href": "b1/simulation.html",
+    "title": "Simulation",
+    "section": "",
+    "text": "Simulation problems are about imitating real or logical processes step by step.\nYou’re asked to “simulate” what happens — just like running a small program inside your program!\n\n\nIn competitive programming, simulation means following the rules of a problem carefully and performing each step exactly as described.\nYou don’t need a fancy algorithm — just replicate what happens, usually in loops.\nHere is a simple example of a problem solved with simulation.\n\n\n\n\n\nCollatz conjecture\n\n\n\n\n\nConsider the following process.\n\nStart with some given number \\(n\\).\nIn each step:\n\nIf \\(n\\) is even, replace it with \\(n/2\\).\nIf \\(n\\) is odd, replace it with \\(3n+1\\).\n\nPrint how many steps this process took before \\(n\\) became \\(1\\).\n\n\n\n\nYou might wonder does this process even must reach \\(1\\). Well, nobody has an answer for that, as this is a famous mathematical unsolved problem! But we can try simulating it and seeing what happens.\n\n\nSolution\n\n#include &lt;iostream&gt;\nusing namespace std;\n\nint main() {\n    long long n;\n    cin &gt;&gt; n;\n\n    int steps = 0;\n    while (n != 1) {\n        if (n % 2 == 0) {\n            n /= 2;\n        } else {\n            n = 3*n + 1;\n        }\n        steps++;\n    }\n\n    cout &lt;&lt; steps &lt;&lt; \"\\n\";\n    return 0;\n}\nIf n = 3, the program goes like this:\n\n\n\nstep\nn\n\n\n\n\n0\n3\n\n\n1\n10\n\n\n2\n5\n\n\n3\n16\n\n\n4\n8\n\n\n5\n4\n\n\n6\n2\n\n\n7\n1\n\n\n\nSo the answer is 7.\n\n\n\n\n\nSimulation is perfect when:\n\nThe problem gives you a list of detailed steps or actions.\nThere is no mathematical shortcut.\nYou can just follow the process directly.\n\nCommon examples:\n\nGames (like tic-tac-toe, snake, etc.)\nMovements on a grid (robots, cars, people walking)\nString transformations (editing text, rotations)\nManaging objects (queues, stacks, or tasks over time)\n\n\n\n\nMost simulation problems follow the same pattern:\ninitialize variables\nwhile (there are still actions left) {\n    read next action\n    update variables according to rules\n}\nprint final result\nYou’re basically “playing out” the rules one by one.\n\n\n\n\n\n\n\n\nRobot on a grid\n\n\n\n\n\nA robot starts at \\((0, 0)\\). It receives a string of moves made of N, S, E, W. Print its final coordinates.\n\n\n\n\n\nSolution\n\n\n#include &lt;iostream&gt;\n#include &lt;string&gt;\nusing namespace std;\n\nint main() {\n    string moves;\n    cin &gt;&gt; moves;\n\n    int x = 0, y = 0;\n    for (char c : moves) {\n        if (c == 'N') y++;\n        else if (c == 'S') y--;\n        else if (c == 'E') x++;\n        else if (c == 'W') x--;\n    }\n    cout &lt;&lt; x &lt;&lt; \" \" &lt;&lt; y;\n}\n\nIf input is NNEEWS, the robot ends up at (1, 1).\n\n\n\n\n\n\n\nGame simulation\n\n\n\n\n\nYou are given an array of health points. Each second, the smallest value decreases by 1. Stop when one of them reaches 0. Print how many seconds it took.\n\n\n\n\n\nSolution\n\n\n#include &lt;iostream&gt;\n#include &lt;vector&gt;\n#include &lt;algorithm&gt;\nusing namespace std;\n\nint main() {\n    int n; cin &gt;&gt; n;\n    vector&lt;int&gt; hp(n);\n    for (int &x : hp) cin &gt;&gt; x;\n\n    int seconds = 0;\n    while (true) {\n        sort(hp.begin(), hp.end());\n        hp[0]--;\n        seconds++;\n        if (hp[0] == 0) break;\n    }\n    cout &lt;&lt; seconds;\n}\n\nThis simulates the entire process exactly as described.\n\n\n\n\n\n\nFollow the rules literally. Don’t try to overthink — just do what the problem says.\nUse loops and conditionals to handle different cases.\nPrint intermediate steps while debugging to make sure your logic matches the description.\nBe careful with boundaries (e.g., going off the grid or using wrong indices).\nUse small test cases to manually verify your code.\nSimulate the program with a pen on paper to understand what really happens and code it step-by-step.\n\n\n\n\nSometimes, simulation can be too slow if the process runs billions of steps. In those cases, you need to find patterns or shortcuts.\nFor example:\n\nIf a process repeats after some number of steps, use math to skip cycles.\nIf the outcome doesn’t change after a while, stop early.\n\n\n\n\n\nVery straightforward — no fancy algorithms needed\n\nEasy to implement and understand\n\nWorks for almost any rule-based process\n\n\n\n\n\nCan be slow for large inputs\n\nEasy to make small mistakes when following many steps\n\nDebugging can take time if you don’t print intermediate results\n\n\n\n\n\nSimulation means mimicking a process step by step.\n\nPerfect for problems that describe exact rules or actions.\n\nFocus on loops, conditionals, and updating variables.\n\nAlways check small examples manually.\n\nWhen it’s too slow — look for repeating patterns!",
+    "crumbs": [
+      "Stage 2",
+      "Simulation"
+    ]
+  },
+  {
+    "objectID": "b1/simulation.html#what-does-simulation-mean",
+    "href": "b1/simulation.html#what-does-simulation-mean",
+    "title": "Simulation",
+    "section": "",
+    "text": "In competitive programming, simulation means following the rules of a problem carefully and performing each step exactly as described.\nYou don’t need a fancy algorithm — just replicate what happens, usually in loops.\nHere is a simple example of a problem solved with simulation.",
+    "crumbs": [
+      "Stage 2",
+      "Simulation"
+    ]
+  },
+  {
+    "objectID": "b1/simulation.html#collatz-conjecture",
+    "href": "b1/simulation.html#collatz-conjecture",
+    "title": "Simulation",
+    "section": "",
+    "text": "Collatz conjecture\n\n\n\n\n\nConsider the following process.\n\nStart with some given number \\(n\\).\nIn each step:\n\nIf \\(n\\) is even, replace it with \\(n/2\\).\nIf \\(n\\) is odd, replace it with \\(3n+1\\).\n\nPrint how many steps this process took before \\(n\\) became \\(1\\).",
+    "crumbs": [
+      "Stage 2",
+      "Simulation"
+    ]
+  },
+  {
+    "objectID": "b1/simulation.html#when-to-use-simulation",
+    "href": "b1/simulation.html#when-to-use-simulation",
+    "title": "Simulation",
+    "section": "",
+    "text": "Simulation is perfect when:\n\nThe problem gives you a list of detailed steps or actions.\nThere is no mathematical shortcut.\nYou can just follow the process directly.\n\nCommon examples:\n\nGames (like tic-tac-toe, snake, etc.)\nMovements on a grid (robots, cars, people walking)\nString transformations (editing text, rotations)\nManaging objects (queues, stacks, or tasks over time)",
+    "crumbs": [
+      "Stage 2",
+      "Simulation"
+    ]
+  },
+  {
+    "objectID": "b1/simulation.html#simulation-pattern",
+    "href": "b1/simulation.html#simulation-pattern",
+    "title": "Simulation",
+    "section": "",
+    "text": "Most simulation problems follow the same pattern:\ninitialize variables\nwhile (there are still actions left) {\n    read next action\n    update variables according to rules\n}\nprint final result\nYou’re basically “playing out” the rules one by one.",
+    "crumbs": [
+      "Stage 2",
+      "Simulation"
+    ]
+  },
+  {
+    "objectID": "b1/simulation.html#robot-on-a-grid",
+    "href": "b1/simulation.html#robot-on-a-grid",
+    "title": "Simulation",
+    "section": "",
+    "text": "Robot on a grid\n\n\n\n\n\nA robot starts at \\((0, 0)\\). It receives a string of moves made of N, S, E, W. Print its final coordinates.",
+    "crumbs": [
+      "Stage 2",
+      "Simulation"
+    ]
+  },
+  {
+    "objectID": "b1/simulation.html#game-simulation",
+    "href": "b1/simulation.html#game-simulation",
+    "title": "Simulation",
+    "section": "",
+    "text": "Game simulation\n\n\n\n\n\nYou are given an array of health points. Each second, the smallest value decreases by 1. Stop when one of them reaches 0. Print how many seconds it took.",
+    "crumbs": [
+      "Stage 2",
+      "Simulation"
+    ]
+  },
+  {
+    "objectID": "b1/simulation.html#tips-for-simulation-problems",
+    "href": "b1/simulation.html#tips-for-simulation-problems",
+    "title": "Simulation",
+    "section": "",
+    "text": "Follow the rules literally. Don’t try to overthink — just do what the problem says.\nUse loops and conditionals to handle different cases.\nPrint intermediate steps while debugging to make sure your logic matches the description.\nBe careful with boundaries (e.g., going off the grid or using wrong indices).\nUse small test cases to manually verify your code.\nSimulate the program with a pen on paper to understand what really happens and code it step-by-step.",
+    "crumbs": [
+      "Stage 2",
+      "Simulation"
+    ]
+  },
+  {
+    "objectID": "b1/simulation.html#performance-tip",
+    "href": "b1/simulation.html#performance-tip",
+    "title": "Simulation",
+    "section": "",
+    "text": "Sometimes, simulation can be too slow if the process runs billions of steps. In those cases, you need to find patterns or shortcuts.\nFor example:\n\nIf a process repeats after some number of steps, use math to skip cycles.\nIf the outcome doesn’t change after a while, stop early.",
+    "crumbs": [
+      "Stage 2",
+      "Simulation"
+    ]
+  },
+  {
+    "objectID": "b1/simulation.html#advantages",
+    "href": "b1/simulation.html#advantages",
+    "title": "Simulation",
+    "section": "",
+    "text": "Very straightforward — no fancy algorithms needed\n\nEasy to implement and understand\n\nWorks for almost any rule-based process",
+    "crumbs": [
+      "Stage 2",
+      "Simulation"
+    ]
+  },
+  {
+    "objectID": "b1/simulation.html#disadvantages",
+    "href": "b1/simulation.html#disadvantages",
+    "title": "Simulation",
+    "section": "",
+    "text": "Can be slow for large inputs\n\nEasy to make small mistakes when following many steps\n\nDebugging can take time if you don’t print intermediate results",
+    "crumbs": [
+      "Stage 2",
+      "Simulation"
+    ]
+  },
+  {
+    "objectID": "b1/simulation.html#quick-summary",
+    "href": "b1/simulation.html#quick-summary",
+    "title": "Simulation",
+    "section": "",
+    "text": "Simulation means mimicking a process step by step.\n\nPerfect for problems that describe exact rules or actions.\n\nFocus on loops, conditionals, and updating variables.\n\nAlways check small examples manually.\n\nWhen it’s too slow — look for repeating patterns!",
+    "crumbs": [
+      "Stage 2",
+      "Simulation"
+    ]
+  },
+  {
+    "objectID": "b1/greedy.html",
+    "href": "b1/greedy.html",
+    "title": "Greedy Algorithms",
+    "section": "",
+    "text": "A greedy algorithm builds a solution step by step, always choosing the best option right now, without worrying about future consequences.\nIt’s like always picking the biggest cookie first — hoping it leads to the best total outcome.\n\n\n“Greedy” means locally optimal — at each step, you take the choice that looks best at that moment.\nSometimes this also gives the global optimum (the overall best answer), but not always. The trick is knowing when greediness actually works.\n\n\n\n\nYou have a goal (like minimizing cost or maximizing value).\n\nYou make a choice that seems best right now.\n\nYou repeat until the job is done.\n\nYou never go back or change previous decisions.\nExample pattern:\nwhile (problem not solved) {\n    pick the best possible option right now;\n    update the state;\n}\n\n\n\n\n\n\n\n\nCoin change\n\n\n\n\n\nYou have coins of 1, 5, 10, and 25. Find the minimum number of coins to make 63.\n\n\n\n\n\nSolution\n\nGreedy idea: always take the largest coin possible.\n#include &lt;iostream&gt;\n#include &lt;vector&gt;\nusing namespace std;\n\nint main() {\n    int amount = 63;\n    vector&lt;int&gt; coins = {25, 10, 5, 1};\n    int count = 0;\n\n    for (int c : coins) {\n        count += amount / c;\n        amount %= c;\n    }\n    cout &lt;&lt; count; // 6 coins\n}\nIt picks: 25 + 25 + 10 + 1 + 1 + 1 = 63 → 6 coins.\nThis greedy strategy works for most real coin systems.\n\n\n\n\n\n\n\nActivity selection\n\n\n\n\n\nYou are given activities with start and end times. You can only do one at a time. What is the maximum number of activities you can complete?\n\n\n\n\n\nSolution\n\nGreedy idea: always pick the activity that finishes first.\n#include &lt;iostream&gt;\n#include &lt;vector&gt;\n#include &lt;algorithm&gt;\nusing namespace std;\n\nint main() {\n    vector&lt;pair&lt;int, int&gt;&gt; act = {{1, 3}, {2, 5}, {4, 6}, {6, 8}, {5, 7}};\n    sort(act.begin(), act.end(), [](auto &a, auto &b){ return a.second &lt; b.second; });\n\n    int count = 0, end = 0;\n    for (auto &p : act) {\n        if (p.first &gt;= end) {\n            count++;\n            end = p.second;\n        }\n    }\n    cout &lt;&lt; count; // 3\n}\nWe always take the next available activity that ends earliest — leaving more time for the rest.\n\n\n\n\n\nGreedy algorithms work when local choices lead to the global best answer.\nThis happens if the problem has the greedy choice property and optimal substructure.\nYou don’t need to memorize these terms — just test if greedy logic always works for all cases.\n\n\n\nCoin change (1, 2, 5 coins) — picking largest coin first always gives fewest coins.\n\nShortest tasks first — doing small jobs early fits more into limited time.\nMaximize sum with limit — picking largest positive numbers first.\n\n\n\n\n\nCoin change with coins {1, 3, 4}, amount = 6\n\nGreedy picks 4 + 1 + 1 = 3 coins, but best is 3 + 3 = 2 coins.\n\nSo greedy fails here — picking the biggest first wasn’t globally best\n\nPacking items by size — taking the biggest item first might block space for smaller ones that would fit better together.\n\n\n\n\n\n\nSort something (by value, end time, ratio, etc.)\n\nLoop through it\n\nPick the best valid choice each time\n\nUpdate state (remaining capacity, time, etc.)\n\nsort(items.begin(), items.end(), rule);\nfor (auto &item : items) {\n    if (can_take(item)) take(item);\n}\n\n\n\n\nVery simple and fast\n\nUsually O(n log n) or better\n\nOften works surprisingly well\n\nEasy to reason about\n\n\n\n\n\nDoesn’t always give the correct (optimal) result\n\nCan fail if future choices depend on earlier ones\n\nMust prove or test correctness carefully\n\n\n\n\n\nAlways check if a greedy choice can cause future problems\n\nTry building counterexamples to test if it’s safe\n\nMany problems combine greedy + sorting\n\n\n\n\n\nGreedy = choose the best local option at each step\n\nWorks when local choices guarantee a global optimum\n\nCommon in scheduling, graphs, and resource allocation\n\nUsually very fast and simple to code",
+    "crumbs": [
+      "Stage 2",
+      "Greedy Algorithms"
+    ]
+  },
+  {
+    "objectID": "b1/greedy.html#what-does-greedy-mean",
+    "href": "b1/greedy.html#what-does-greedy-mean",
+    "title": "Greedy Algorithms",
+    "section": "",
+    "text": "“Greedy” means locally optimal — at each step, you take the choice that looks best at that moment.\nSometimes this also gives the global optimum (the overall best answer), but not always. The trick is knowing when greediness actually works.",
+    "crumbs": [
+      "Stage 2",
+      "Greedy Algorithms"
+    ]
+  },
+  {
+    "objectID": "b1/greedy.html#common-idea",
+    "href": "b1/greedy.html#common-idea",
+    "title": "Greedy Algorithms",
+    "section": "",
+    "text": "You have a goal (like minimizing cost or maximizing value).\n\nYou make a choice that seems best right now.\n\nYou repeat until the job is done.\n\nYou never go back or change previous decisions.\nExample pattern:\nwhile (problem not solved) {\n    pick the best possible option right now;\n    update the state;\n}",
+    "crumbs": [
+      "Stage 2",
+      "Greedy Algorithms"
+    ]
+  },
+  {
+    "objectID": "b1/greedy.html#coin-change",
+    "href": "b1/greedy.html#coin-change",
+    "title": "Greedy Algorithms",
+    "section": "",
+    "text": "Coin change\n\n\n\n\n\nYou have coins of 1, 5, 10, and 25. Find the minimum number of coins to make 63.",
+    "crumbs": [
+      "Stage 2",
+      "Greedy Algorithms"
+    ]
+  },
+  {
+    "objectID": "b1/greedy.html#activity-selection",
+    "href": "b1/greedy.html#activity-selection",
+    "title": "Greedy Algorithms",
+    "section": "",
+    "text": "Activity selection\n\n\n\n\n\nYou are given activities with start and end times. You can only do one at a time. What is the maximum number of activities you can complete?",
+    "crumbs": [
+      "Stage 2",
+      "Greedy Algorithms"
+    ]
+  },
+  {
+    "objectID": "b1/greedy.html#when-greedy-works",
+    "href": "b1/greedy.html#when-greedy-works",
+    "title": "Greedy Algorithms",
+    "section": "",
+    "text": "Greedy algorithms work when local choices lead to the global best answer.\nThis happens if the problem has the greedy choice property and optimal substructure.\nYou don’t need to memorize these terms — just test if greedy logic always works for all cases.\n\n\n\nCoin change (1, 2, 5 coins) — picking largest coin first always gives fewest coins.\n\nShortest tasks first — doing small jobs early fits more into limited time.\nMaximize sum with limit — picking largest positive numbers first.\n\n\n\n\n\nCoin change with coins {1, 3, 4}, amount = 6\n\nGreedy picks 4 + 1 + 1 = 3 coins, but best is 3 + 3 = 2 coins.\n\nSo greedy fails here — picking the biggest first wasn’t globally best\n\nPacking items by size — taking the biggest item first might block space for smaller ones that would fit better together.",
+    "crumbs": [
+      "Stage 2",
+      "Greedy Algorithms"
+    ]
+  },
+  {
+    "objectID": "b1/greedy.html#greedy-steps-checklist",
+    "href": "b1/greedy.html#greedy-steps-checklist",
+    "title": "Greedy Algorithms",
+    "section": "",
+    "text": "Sort something (by value, end time, ratio, etc.)\n\nLoop through it\n\nPick the best valid choice each time\n\nUpdate state (remaining capacity, time, etc.)\n\nsort(items.begin(), items.end(), rule);\nfor (auto &item : items) {\n    if (can_take(item)) take(item);\n}",
+    "crumbs": [
+      "Stage 2",
+      "Greedy Algorithms"
+    ]
+  },
+  {
+    "objectID": "b1/greedy.html#advantages",
+    "href": "b1/greedy.html#advantages",
+    "title": "Greedy Algorithms",
+    "section": "",
+    "text": "Very simple and fast\n\nUsually O(n log n) or better\n\nOften works surprisingly well\n\nEasy to reason about",
+    "crumbs": [
+      "Stage 2",
+      "Greedy Algorithms"
+    ]
+  },
+  {
+    "objectID": "b1/greedy.html#disadvantages",
+    "href": "b1/greedy.html#disadvantages",
+    "title": "Greedy Algorithms",
+    "section": "",
+    "text": "Doesn’t always give the correct (optimal) result\n\nCan fail if future choices depend on earlier ones\n\nMust prove or test correctness carefully",
+    "crumbs": [
+      "Stage 2",
+      "Greedy Algorithms"
+    ]
+  },
+  {
+    "objectID": "b1/greedy.html#tips",
+    "href": "b1/greedy.html#tips",
+    "title": "Greedy Algorithms",
+    "section": "",
+    "text": "Always check if a greedy choice can cause future problems\n\nTry building counterexamples to test if it’s safe\n\nMany problems combine greedy + sorting",
+    "crumbs": [
+      "Stage 2",
+      "Greedy Algorithms"
+    ]
+  },
+  {
+    "objectID": "b1/greedy.html#quick-summary",
+    "href": "b1/greedy.html#quick-summary",
+    "title": "Greedy Algorithms",
+    "section": "",
+    "text": "Greedy = choose the best local option at each step\n\nWorks when local choices guarantee a global optimum\n\nCommon in scheduling, graphs, and resource allocation\n\nUsually very fast and simple to code",
+    "crumbs": [
+      "Stage 2",
+      "Greedy Algorithms"
     ]
   },
   {
@@ -2659,453 +2661,451 @@
     ]
   },
   {
-    "objectID": "b1/greedy.html",
-    "href": "b1/greedy.html",
-    "title": "Greedy Algorithms",
+    "objectID": "b1/modular-arithmetics.html",
+    "href": "b1/modular-arithmetics.html",
+    "title": "Modular Arithmetics",
     "section": "",
-    "text": "A greedy algorithm builds a solution step by step, always choosing the best option right now, without worrying about future consequences.\nIt’s like always picking the biggest cookie first — hoping it leads to the best total outcome.\n\n\n“Greedy” means locally optimal — at each step, you take the choice that looks best at that moment.\nSometimes this also gives the global optimum (the overall best answer), but not always. The trick is knowing when greediness actually works.\n\n\n\n\nYou have a goal (like minimizing cost or maximizing value).\n\nYou make a choice that seems best right now.\n\nYou repeat until the job is done.\n\nYou never go back or change previous decisions.\nExample pattern:\nwhile (problem not solved) {\n    pick the best possible option right now;\n    update the state;\n}\n\n\n\n\n\n\n\n\nCoin change\n\n\n\n\n\nYou have coins of 1, 5, 10, and 25. Find the minimum number of coins to make 63.\n\n\n\n\n\nSolution\n\nGreedy idea: always take the largest coin possible.\n#include &lt;iostream&gt;\n#include &lt;vector&gt;\nusing namespace std;\n\nint main() {\n    int amount = 63;\n    vector&lt;int&gt; coins = {25, 10, 5, 1};\n    int count = 0;\n\n    for (int c : coins) {\n        count += amount / c;\n        amount %= c;\n    }\n    cout &lt;&lt; count; // 6 coins\n}\nIt picks: 25 + 25 + 10 + 1 + 1 + 1 = 63 → 6 coins.\nThis greedy strategy works for most real coin systems.\n\n\n\n\n\n\n\nActivity selection\n\n\n\n\n\nYou are given activities with start and end times. You can only do one at a time. What is the maximum number of activities you can complete?\n\n\n\n\n\nSolution\n\nGreedy idea: always pick the activity that finishes first.\n#include &lt;iostream&gt;\n#include &lt;vector&gt;\n#include &lt;algorithm&gt;\nusing namespace std;\n\nint main() {\n    vector&lt;pair&lt;int, int&gt;&gt; act = {{1, 3}, {2, 5}, {4, 6}, {6, 8}, {5, 7}};\n    sort(act.begin(), act.end(), [](auto &a, auto &b){ return a.second &lt; b.second; });\n\n    int count = 0, end = 0;\n    for (auto &p : act) {\n        if (p.first &gt;= end) {\n            count++;\n            end = p.second;\n        }\n    }\n    cout &lt;&lt; count; // 3\n}\nWe always take the next available activity that ends earliest — leaving more time for the rest.\n\n\n\n\n\nGreedy algorithms work when local choices lead to the global best answer.\nThis happens if the problem has the greedy choice property and optimal substructure.\nYou don’t need to memorize these terms — just test if greedy logic always works for all cases.\n\n\n\nCoin change (1, 2, 5 coins) — picking largest coin first always gives fewest coins.\n\nShortest tasks first — doing small jobs early fits more into limited time.\nMaximize sum with limit — picking largest positive numbers first.\n\n\n\n\n\nCoin change with coins {1, 3, 4}, amount = 6\n\nGreedy picks 4 + 1 + 1 = 3 coins, but best is 3 + 3 = 2 coins.\n\nSo greedy fails here — picking the biggest first wasn’t globally best\n\nPacking items by size — taking the biggest item first might block space for smaller ones that would fit better together.\n\n\n\n\n\n\nSort something (by value, end time, ratio, etc.)\n\nLoop through it\n\nPick the best valid choice each time\n\nUpdate state (remaining capacity, time, etc.)\n\nsort(items.begin(), items.end(), rule);\nfor (auto &item : items) {\n    if (can_take(item)) take(item);\n}\n\n\n\n\nVery simple and fast\n\nUsually O(n log n) or better\n\nOften works surprisingly well\n\nEasy to reason about\n\n\n\n\n\nDoesn’t always give the correct (optimal) result\n\nCan fail if future choices depend on earlier ones\n\nMust prove or test correctness carefully\n\n\n\n\n\nAlways check if a greedy choice can cause future problems\n\nTry building counterexamples to test if it’s safe\n\nMany problems combine greedy + sorting\n\n\n\n\n\nGreedy = choose the best local option at each step\n\nWorks when local choices guarantee a global optimum\n\nCommon in scheduling, graphs, and resource allocation\n\nUsually very fast and simple to code",
+    "text": "Modular arithmetic is a way of doing math where numbers “wrap around” after reaching a certain value — called the modulus.\nThink of it like a clock.\nAfter 24 hours, it goes back to the same time again. That’s mod 24 arithmetic!\n\n\nWhen we say a mod m, it means the remainder when a is divided by m.\nFor example:\n\n\n\nExpression\nMeaning\nResult\n\n\n\n\n7 mod 3\n7 divided by 3 leaves remainder 1\n1\n\n\n10 mod 4\n10 divided by 4 leaves remainder 2\n2\n\n\n15 mod 6\n15 divided by 6 leaves remainder 3\n3\n\n\n12 mod 12\n12 divided by 12 leaves remainder 0\n0\n\n\n\nIn C++, we use the % operator for this:\n#include &lt;iostream&gt;\nusing namespace std;\n\nint main() {\n    cout &lt;&lt; 7 % 3 &lt;&lt; endl;   // prints 1\n    cout &lt;&lt; 10 % 4 &lt;&lt; endl;  // prints 2\n    cout &lt;&lt; 10 % 5 &lt;&lt; endl;  // prints 0\n}\n\n\n\nWhen we work with very large numbers (for example, in combinatorics or cryptography), results can become too big for normal data types.\nTo get around this, we take everything modulo some number to keep it small and manageable.\nA common modulus used in competitive programming is:\nMOD = 1'000'000'007  // (a large prime number)\nIt’s used because:\n\nIt fits safely in 64-bit integers.\nIt avoids overflow when adding up two remainders.\nIt’s a prime number, which has nice math properties.\n\n\n\n\nThese rules make modular arithmetic simple to use:\n\nAddition\n(a + b) % m = (a % m + b % m) % m\nSubtraction\n(a - b) % m = ((a % m - b % m) + m) % m\nWe add +m to make sure the result isn’t negative.\nMultiplication\n(a * b) % m = (a % m * b % m) % m\n\nExample:\nint a = 7, b = 5, m = 3;\ncout &lt;&lt; (a + b) % m &lt;&lt; endl;   // (7 + 5) % 3 = 12 % 3 = 0\ncout &lt;&lt; (a * b) % m &lt;&lt; endl;   // (7 * 5) % 3 = 35 % 3 = 2\n\n\n#include &lt;iostream&gt;\nusing namespace std;\n\nint main() {\n    const int MOD = 1'000'000'007;\n    long long a = 1e12, b = 1e12;\n    cout &lt;&lt; (a + b) % MOD &lt;&lt; endl;\n}\nOutput:\n999999979\nEven though the sum is 2e12, we safely wrapped it inside MOD.\n\n\n\n\nBe careful with negative numbers — in C++, % can give negative results.\nExample:\ncout &lt;&lt; (-5) % 3; // prints -2\nTo fix this, always use:\n((a % m) + m) % m\nExample:\nint a = -5, m = 3;\ncout &lt;&lt; ((a % m) + m) % m; // prints 1\n\n\n\nIf you want to compute the remainder of \\(a^b\\) when divided by \\(m\\), it’s not efficient to multiply \\(a\\) many times. Instead, use fast exponentiation.\nFast exponentiation is based on the following observation. If \\(b\\) is even then \\(a^b = (a^{b/2})^2\\), and if \\(b\\) is odd then \\(a^b = a \\cdot (a^{\\lfloor b/2 \\rfloor})^2\\). This is why we can use a function that recursively calls itself, each time halving the exponent.\nlong long modpow(long long a, long long b, long long m) {\n    if (b == 0) return 1;\n\n    long long half = modpow(a, b / 2, m);\n    long long res = (half * half) % m;\n\n    if (b % 2 == 1) { // If b is odd\n        res = (res * (a % m)) % m;\n    }\n    return res;\n}\nSince \\(b\\) is halved each time the recursion is called, the total number of recursive calls is \\(\\lfloor \\log_2 b \\rfloor + 1\\), hence the time complexity of this function is \\(O(\\log b)\\).\nUsage:\ncout &lt;&lt; modpow(2, 10, 1000); // 1024 % 1000 = 24\n\n\n\nSometimes we need to divide numbers under modulo. However, modulo does not distribute over division as it does with the addition and multiplication. So, instead dividing, we multiply by the modular inverse.\nFrom the Fermat’s little theorem we can derive that for a prime modulus \\(m\\), the modular inverse of \\(a\\) is\n\\(a^{-1} \\equiv a^{m-2} \\mod m\\)\nint inverse = modpow(a, MOD - 2, MOD);\nThen a divided by b with modulus MOD becomes\n(a * modpow(b, MOD - 2, MOD)) % MOD\n\n\n\nYou’ll see it in problems where:\n\nNumbers grow extremely large (combinations, dynamic programming, etc.)\nThe result only needs to be given “mod 1e9+7”\nYou’re implementing math algorithms like power, inverse, or combinatorics\n\n\n\n\n\nKeeps numbers small and avoids overflow\n\nWorks with huge results easily\n\nGreat for competitive programming problems\n\n\n\n\n\nYou lose the exact value (only remainder is kept)\n\nDivision is tricky — requires modular inverse\n\nNegative results can be confusing in C++\n\n\n\n\n\na % m gives the remainder when dividing a by m\n\nKeep using % MOD to avoid overflow in large problems\n\nUse (a + b) % MOD, (a * b) % MOD, and ((a - b) % MOD + MOD) % MOD\n\nFor exponentiation, use fast power\n\nFor division, use modular inverse when MOD is prime",
     "crumbs": [
       "Stage 2",
-      "Greedy Algorithms"
+      "Modular Arithmetics"
     ]
   },
   {
-    "objectID": "b1/greedy.html#what-does-greedy-mean",
-    "href": "b1/greedy.html#what-does-greedy-mean",
-    "title": "Greedy Algorithms",
+    "objectID": "b1/modular-arithmetics.html#what-does-mod-mean",
+    "href": "b1/modular-arithmetics.html#what-does-mod-mean",
+    "title": "Modular Arithmetics",
     "section": "",
-    "text": "“Greedy” means locally optimal — at each step, you take the choice that looks best at that moment.\nSometimes this also gives the global optimum (the overall best answer), but not always. The trick is knowing when greediness actually works.",
+    "text": "When we say a mod m, it means the remainder when a is divided by m.\nFor example:\n\n\n\nExpression\nMeaning\nResult\n\n\n\n\n7 mod 3\n7 divided by 3 leaves remainder 1\n1\n\n\n10 mod 4\n10 divided by 4 leaves remainder 2\n2\n\n\n15 mod 6\n15 divided by 6 leaves remainder 3\n3\n\n\n12 mod 12\n12 divided by 12 leaves remainder 0\n0\n\n\n\nIn C++, we use the % operator for this:\n#include &lt;iostream&gt;\nusing namespace std;\n\nint main() {\n    cout &lt;&lt; 7 % 3 &lt;&lt; endl;   // prints 1\n    cout &lt;&lt; 10 % 4 &lt;&lt; endl;  // prints 2\n    cout &lt;&lt; 10 % 5 &lt;&lt; endl;  // prints 0\n}",
     "crumbs": [
       "Stage 2",
-      "Greedy Algorithms"
+      "Modular Arithmetics"
     ]
   },
   {
-    "objectID": "b1/greedy.html#common-idea",
-    "href": "b1/greedy.html#common-idea",
-    "title": "Greedy Algorithms",
+    "objectID": "b1/modular-arithmetics.html#modular-arithmetic-in-programming",
+    "href": "b1/modular-arithmetics.html#modular-arithmetic-in-programming",
+    "title": "Modular Arithmetics",
     "section": "",
-    "text": "You have a goal (like minimizing cost or maximizing value).\n\nYou make a choice that seems best right now.\n\nYou repeat until the job is done.\n\nYou never go back or change previous decisions.\nExample pattern:\nwhile (problem not solved) {\n    pick the best possible option right now;\n    update the state;\n}",
+    "text": "When we work with very large numbers (for example, in combinatorics or cryptography), results can become too big for normal data types.\nTo get around this, we take everything modulo some number to keep it small and manageable.\nA common modulus used in competitive programming is:\nMOD = 1'000'000'007  // (a large prime number)\nIt’s used because:\n\nIt fits safely in 64-bit integers.\nIt avoids overflow when adding up two remainders.\nIt’s a prime number, which has nice math properties.",
     "crumbs": [
       "Stage 2",
-      "Greedy Algorithms"
+      "Modular Arithmetics"
     ]
   },
   {
-    "objectID": "b1/greedy.html#coin-change",
-    "href": "b1/greedy.html#coin-change",
-    "title": "Greedy Algorithms",
+    "objectID": "b1/modular-arithmetics.html#basic-modular-rules",
+    "href": "b1/modular-arithmetics.html#basic-modular-rules",
+    "title": "Modular Arithmetics",
     "section": "",
-    "text": "Coin change\n\n\n\n\n\nYou have coins of 1, 5, 10, and 25. Find the minimum number of coins to make 63.",
+    "text": "These rules make modular arithmetic simple to use:\n\nAddition\n(a + b) % m = (a % m + b % m) % m\nSubtraction\n(a - b) % m = ((a % m - b % m) + m) % m\nWe add +m to make sure the result isn’t negative.\nMultiplication\n(a * b) % m = (a % m * b % m) % m\n\nExample:\nint a = 7, b = 5, m = 3;\ncout &lt;&lt; (a + b) % m &lt;&lt; endl;   // (7 + 5) % 3 = 12 % 3 = 0\ncout &lt;&lt; (a * b) % m &lt;&lt; endl;   // (7 * 5) % 3 = 35 % 3 = 2\n\n\n#include &lt;iostream&gt;\nusing namespace std;\n\nint main() {\n    const int MOD = 1'000'000'007;\n    long long a = 1e12, b = 1e12;\n    cout &lt;&lt; (a + b) % MOD &lt;&lt; endl;\n}\nOutput:\n999999979\nEven though the sum is 2e12, we safely wrapped it inside MOD.",
     "crumbs": [
       "Stage 2",
-      "Greedy Algorithms"
+      "Modular Arithmetics"
     ]
   },
   {
-    "objectID": "b1/greedy.html#activity-selection",
-    "href": "b1/greedy.html#activity-selection",
-    "title": "Greedy Algorithms",
+    "objectID": "b1/modular-arithmetics.html#handling-negatives",
+    "href": "b1/modular-arithmetics.html#handling-negatives",
+    "title": "Modular Arithmetics",
     "section": "",
-    "text": "Activity selection\n\n\n\n\n\nYou are given activities with start and end times. You can only do one at a time. What is the maximum number of activities you can complete?",
+    "text": "Be careful with negative numbers — in C++, % can give negative results.\nExample:\ncout &lt;&lt; (-5) % 3; // prints -2\nTo fix this, always use:\n((a % m) + m) % m\nExample:\nint a = -5, m = 3;\ncout &lt;&lt; ((a % m) + m) % m; // prints 1",
     "crumbs": [
       "Stage 2",
-      "Greedy Algorithms"
+      "Modular Arithmetics"
     ]
   },
   {
-    "objectID": "b1/greedy.html#when-greedy-works",
-    "href": "b1/greedy.html#when-greedy-works",
-    "title": "Greedy Algorithms",
+    "objectID": "b1/modular-arithmetics.html#modular-exponentiation",
+    "href": "b1/modular-arithmetics.html#modular-exponentiation",
+    "title": "Modular Arithmetics",
     "section": "",
-    "text": "Greedy algorithms work when local choices lead to the global best answer.\nThis happens if the problem has the greedy choice property and optimal substructure.\nYou don’t need to memorize these terms — just test if greedy logic always works for all cases.\n\n\n\nCoin change (1, 2, 5 coins) — picking largest coin first always gives fewest coins.\n\nShortest tasks first — doing small jobs early fits more into limited time.\nMaximize sum with limit — picking largest positive numbers first.\n\n\n\n\n\nCoin change with coins {1, 3, 4}, amount = 6\n\nGreedy picks 4 + 1 + 1 = 3 coins, but best is 3 + 3 = 2 coins.\n\nSo greedy fails here — picking the biggest first wasn’t globally best\n\nPacking items by size — taking the biggest item first might block space for smaller ones that would fit better together.",
+    "text": "If you want to compute the remainder of \\(a^b\\) when divided by \\(m\\), it’s not efficient to multiply \\(a\\) many times. Instead, use fast exponentiation.\nFast exponentiation is based on the following observation. If \\(b\\) is even then \\(a^b = (a^{b/2})^2\\), and if \\(b\\) is odd then \\(a^b = a \\cdot (a^{\\lfloor b/2 \\rfloor})^2\\). This is why we can use a function that recursively calls itself, each time halving the exponent.\nlong long modpow(long long a, long long b, long long m) {\n    if (b == 0) return 1;\n\n    long long half = modpow(a, b / 2, m);\n    long long res = (half * half) % m;\n\n    if (b % 2 == 1) { // If b is odd\n        res = (res * (a % m)) % m;\n    }\n    return res;\n}\nSince \\(b\\) is halved each time the recursion is called, the total number of recursive calls is \\(\\lfloor \\log_2 b \\rfloor + 1\\), hence the time complexity of this function is \\(O(\\log b)\\).\nUsage:\ncout &lt;&lt; modpow(2, 10, 1000); // 1024 % 1000 = 24",
     "crumbs": [
       "Stage 2",
-      "Greedy Algorithms"
+      "Modular Arithmetics"
     ]
   },
   {
-    "objectID": "b1/greedy.html#greedy-steps-checklist",
-    "href": "b1/greedy.html#greedy-steps-checklist",
-    "title": "Greedy Algorithms",
+    "objectID": "b1/modular-arithmetics.html#modular-inverse-optional-advanced",
+    "href": "b1/modular-arithmetics.html#modular-inverse-optional-advanced",
+    "title": "Modular Arithmetics",
     "section": "",
-    "text": "Sort something (by value, end time, ratio, etc.)\n\nLoop through it\n\nPick the best valid choice each time\n\nUpdate state (remaining capacity, time, etc.)\n\nsort(items.begin(), items.end(), rule);\nfor (auto &item : items) {\n    if (can_take(item)) take(item);\n}",
+    "text": "Sometimes we need to divide numbers under modulo. However, modulo does not distribute over division as it does with the addition and multiplication. So, instead dividing, we multiply by the modular inverse.\nFrom the Fermat’s little theorem we can derive that for a prime modulus \\(m\\), the modular inverse of \\(a\\) is\n\\(a^{-1} \\equiv a^{m-2} \\mod m\\)\nint inverse = modpow(a, MOD - 2, MOD);\nThen a divided by b with modulus MOD becomes\n(a * modpow(b, MOD - 2, MOD)) % MOD",
     "crumbs": [
       "Stage 2",
-      "Greedy Algorithms"
+      "Modular Arithmetics"
     ]
   },
   {
-    "objectID": "b1/greedy.html#advantages",
-    "href": "b1/greedy.html#advantages",
-    "title": "Greedy Algorithms",
+    "objectID": "b1/modular-arithmetics.html#when-do-we-use-modular-arithmetic",
+    "href": "b1/modular-arithmetics.html#when-do-we-use-modular-arithmetic",
+    "title": "Modular Arithmetics",
     "section": "",
-    "text": "Very simple and fast\n\nUsually O(n log n) or better\n\nOften works surprisingly well\n\nEasy to reason about",
+    "text": "You’ll see it in problems where:\n\nNumbers grow extremely large (combinations, dynamic programming, etc.)\nThe result only needs to be given “mod 1e9+7”\nYou’re implementing math algorithms like power, inverse, or combinatorics",
     "crumbs": [
       "Stage 2",
-      "Greedy Algorithms"
+      "Modular Arithmetics"
     ]
   },
   {
-    "objectID": "b1/greedy.html#disadvantages",
-    "href": "b1/greedy.html#disadvantages",
-    "title": "Greedy Algorithms",
+    "objectID": "b1/modular-arithmetics.html#advantages",
+    "href": "b1/modular-arithmetics.html#advantages",
+    "title": "Modular Arithmetics",
     "section": "",
-    "text": "Doesn’t always give the correct (optimal) result\n\nCan fail if future choices depend on earlier ones\n\nMust prove or test correctness carefully",
+    "text": "Keeps numbers small and avoids overflow\n\nWorks with huge results easily\n\nGreat for competitive programming problems",
     "crumbs": [
       "Stage 2",
-      "Greedy Algorithms"
+      "Modular Arithmetics"
     ]
   },
   {
-    "objectID": "b1/greedy.html#tips",
-    "href": "b1/greedy.html#tips",
-    "title": "Greedy Algorithms",
+    "objectID": "b1/modular-arithmetics.html#disadvantages",
+    "href": "b1/modular-arithmetics.html#disadvantages",
+    "title": "Modular Arithmetics",
     "section": "",
-    "text": "Always check if a greedy choice can cause future problems\n\nTry building counterexamples to test if it’s safe\n\nMany problems combine greedy + sorting",
+    "text": "You lose the exact value (only remainder is kept)\n\nDivision is tricky — requires modular inverse\n\nNegative results can be confusing in C++",
     "crumbs": [
       "Stage 2",
-      "Greedy Algorithms"
+      "Modular Arithmetics"
     ]
   },
   {
-    "objectID": "b1/greedy.html#quick-summary",
-    "href": "b1/greedy.html#quick-summary",
-    "title": "Greedy Algorithms",
+    "objectID": "b1/modular-arithmetics.html#quick-summary",
+    "href": "b1/modular-arithmetics.html#quick-summary",
+    "title": "Modular Arithmetics",
     "section": "",
-    "text": "Greedy = choose the best local option at each step\n\nWorks when local choices guarantee a global optimum\n\nCommon in scheduling, graphs, and resource allocation\n\nUsually very fast and simple to code",
+    "text": "a % m gives the remainder when dividing a by m\n\nKeep using % MOD to avoid overflow in large problems\n\nUse (a + b) % MOD, (a * b) % MOD, and ((a - b) % MOD + MOD) % MOD\n\nFor exponentiation, use fast power\n\nFor division, use modular inverse when MOD is prime",
     "crumbs": [
       "Stage 2",
-      "Greedy Algorithms"
+      "Modular Arithmetics"
     ]
   },
   {
-    "objectID": "b1/simulation.html",
-    "href": "b1/simulation.html",
-    "title": "Simulation",
+    "objectID": "b1/adhoc.html",
+    "href": "b1/adhoc.html",
+    "title": "Ad-hoc Problems",
     "section": "",
-    "text": "Simulation problems are about imitating real or logical processes step by step.\nYou’re asked to “simulate” what happens — just like running a small program inside your program!\n\n\nIn competitive programming, simulation means following the rules of a problem carefully and performing each step exactly as described.\nYou don’t need a fancy algorithm — just replicate what happens, usually in loops.\nHere is a simple example of a problem solved with simulation.\n\n\n\n\n\nCollatz conjecture\n\n\n\n\n\nConsider the following process.\n\nStart with some given number \\(n\\).\nIn each step:\n\nIf \\(n\\) is even, replace it with \\(n/2\\).\nIf \\(n\\) is odd, replace it with \\(3n+1\\).\n\nPrint how many steps this process took before \\(n\\) became \\(1\\).\n\n\n\n\nYou might wonder does this process even must reach \\(1\\). Well, nobody has an answer for that, as this is a famous mathematical unsolved problem! But we can try simulating it and seeing what happens.\n\n\nSolution\n\n#include &lt;iostream&gt;\nusing namespace std;\n\nint main() {\n    long long n;\n    cin &gt;&gt; n;\n\n    int steps = 0;\n    while (n != 1) {\n        if (n % 2 == 0) {\n            n /= 2;\n        } else {\n            n = 3*n + 1;\n        }\n        steps++;\n    }\n\n    cout &lt;&lt; steps &lt;&lt; \"\\n\";\n    return 0;\n}\nIf n = 3, the program goes like this:\n\n\n\nstep\nn\n\n\n\n\n0\n3\n\n\n1\n10\n\n\n2\n5\n\n\n3\n16\n\n\n4\n8\n\n\n5\n4\n\n\n6\n2\n\n\n7\n1\n\n\n\nSo the answer is 7.\n\n\n\n\n\nSimulation is perfect when:\n\nThe problem gives you a list of detailed steps or actions.\nThere is no mathematical shortcut.\nYou can just follow the process directly.\n\nCommon examples:\n\nGames (like tic-tac-toe, snake, etc.)\nMovements on a grid (robots, cars, people walking)\nString transformations (editing text, rotations)\nManaging objects (queues, stacks, or tasks over time)\n\n\n\n\nMost simulation problems follow the same pattern:\ninitialize variables\nwhile (there are still actions left) {\n    read next action\n    update variables according to rules\n}\nprint final result\nYou’re basically “playing out” the rules one by one.\n\n\n\n\n\n\n\n\nRobot on a grid\n\n\n\n\n\nA robot starts at \\((0, 0)\\). It receives a string of moves made of N, S, E, W. Print its final coordinates.\n\n\n\n\n\nSolution\n\n\n#include &lt;iostream&gt;\n#include &lt;string&gt;\nusing namespace std;\n\nint main() {\n    string moves;\n    cin &gt;&gt; moves;\n\n    int x = 0, y = 0;\n    for (char c : moves) {\n        if (c == 'N') y++;\n        else if (c == 'S') y--;\n        else if (c == 'E') x++;\n        else if (c == 'W') x--;\n    }\n    cout &lt;&lt; x &lt;&lt; \" \" &lt;&lt; y;\n}\n\nIf input is NNEEWS, the robot ends up at (1, 1).\n\n\n\n\n\n\n\nGame simulation\n\n\n\n\n\nYou are given an array of health points. Each second, the smallest value decreases by 1. Stop when one of them reaches 0. Print how many seconds it took.\n\n\n\n\n\nSolution\n\n\n#include &lt;iostream&gt;\n#include &lt;vector&gt;\n#include &lt;algorithm&gt;\nusing namespace std;\n\nint main() {\n    int n; cin &gt;&gt; n;\n    vector&lt;int&gt; hp(n);\n    for (int &x : hp) cin &gt;&gt; x;\n\n    int seconds = 0;\n    while (true) {\n        sort(hp.begin(), hp.end());\n        hp[0]--;\n        seconds++;\n        if (hp[0] == 0) break;\n    }\n    cout &lt;&lt; seconds;\n}\n\nThis simulates the entire process exactly as described.\n\n\n\n\n\n\nFollow the rules literally. Don’t try to overthink — just do what the problem says.\nUse loops and conditionals to handle different cases.\nPrint intermediate steps while debugging to make sure your logic matches the description.\nBe careful with boundaries (e.g., going off the grid or using wrong indices).\nUse small test cases to manually verify your code.\nSimulate the program with a pen on paper to understand what really happens and code it step-by-step.\n\n\n\n\nSometimes, simulation can be too slow if the process runs billions of steps. In those cases, you need to find patterns or shortcuts.\nFor example:\n\nIf a process repeats after some number of steps, use math to skip cycles.\nIf the outcome doesn’t change after a while, stop early.\n\n\n\n\n\nVery straightforward — no fancy algorithms needed\n\nEasy to implement and understand\n\nWorks for almost any rule-based process\n\n\n\n\n\nCan be slow for large inputs\n\nEasy to make small mistakes when following many steps\n\nDebugging can take time if you don’t print intermediate results\n\n\n\n\n\nSimulation means mimicking a process step by step.\n\nPerfect for problems that describe exact rules or actions.\n\nFocus on loops, conditionals, and updating variables.\n\nAlways check small examples manually.\n\nWhen it’s too slow — look for repeating patterns!",
-    "crumbs": [
-      "Stage 2",
-      "Simulation"
-    ]
+    "text": "An ad-hoc problem is one that doesn’t fit into a standard category like greedy, sorting, simulation, or dynamic programming (you will learn about this later).\nIt’s usually solved by careful observation, simple logic, and a few clever steps — not by using a known algorithm.\nThink of ad-hoc problems as “puzzle problems” — each one has its own unique trick.\n\n\n“Ad-hoc” is Latin for “for this situation.”\nIn programming, it means you design a custom solution just for the given problem.\nThere’s no formula or template — you must read carefully, find what’s being asked, and come up with your own way to solve it.\n\n\n\n\nThe problem statement sounds strange or story-like.\n\nNo standard algorithm (like binary search or sorting) fits it.\n\nYou can solve it with basic logic, loops, and conditions.\n\nIt often involves counting, comparing, or simulating something directly.\n\nThese are the “think on your feet” problems.\n\n\n\n\n\nCounting wins\n\n\n\n\n\nYou are given results of a few matches: “A” if Alice wins, “B” if Bob wins. Print who won more games.\n\n\n\n\n\nSolution\n\n#include &lt;iostream&gt;\n#include &lt;string&gt;\nusing namespace std;\n\nint main() {\n    string s;\n    cin &gt;&gt; s;\n\n    int a = 0, b = 0;\n    for (char c : s) {\n        if (c == 'A') a++;\n        else if (c == 'B') b++;\n    }\n\n    if (a &gt; b) cout &lt;&lt; \"Alice\";\n    else if (b &gt; a) cout &lt;&lt; \"Bob\";\n    else cout &lt;&lt; \"Draw\";\n}\nThis problem has no formula or algorithm — you just follow the logic directly.\n\n\n\n\n\n\n\nRounding grades\n\n\n\n\n\nA student’s grade is rounded up to the next multiple of 5 if it’s within 2 points.\nOtherwise, it stays the same.\n\n\n\n\n\nSolution\n\n#include &lt;iostream&gt;\nusing namespace std;\n\nint main() {\n    int grade;\n    cin &gt;&gt; grade;\n\n    int next = ((grade / 5) + 1) * 5;\n    if (next - grade &lt; 3 && grade &gt;= 38)\n        cout &lt;&lt; next;\n    else\n        cout &lt;&lt; grade;\n}\nYou just follow the description exactly. This is pure ad-hoc logic.\n\n\n\n\n\n\n\nCounting digits\n\n\n\n\n\nGiven a number, count how many times digit 7 appears.\n\n\n\n\n\nSolution\n\n#include &lt;iostream&gt;\nusing namespace std;\n\nint main() {\n    int n; cin &gt;&gt; n;\n    int count = 0;\n    while (n &gt; 0) {\n        if (n % 10 == 7) count++;\n        n /= 10;\n    }\n    cout &lt;&lt; count;\n}\nThere’s no “digit counting algorithm” — you just do it manually. That’s ad-hoc.\n\n\n\n\n\n\nRead carefully. Understand exactly what happens step by step.\n\nSimulate with examples. Try small cases manually to see the pattern.\n\nFind the rule. Identify what changes and what stays the same.\n\nImplement directly. Use if-statements, loops, or arrays to match the logic.\n\nAd-hoc is about translating the description into code.\n\n\n\n\nTry writing out a few examples by hand before coding.\n\nDon’t overcomplicate — the solution is usually simpler than it looks.\n\nWatch out for small edge cases (empty input, negatives, ties).\n\nClean, clear code matters more than fancy tricks.\n\n\n\n\n\nOften very simple once you understand the logic\n\nDoesn’t need advanced algorithms or data structures\n\nGreat for beginners — builds careful thinking\n\n\n\n\n\nEach problem is unique — can’t reuse your old code\n\nHard to predict what kind of logic is needed\n\nCan be tricky to spot small exceptions or edge cases\n\n\n\n\n\nAd-hoc means solving a problem by direct reasoning, not by a standard algorithm.\n\nThey often involve small rules, conditions, or counting.\n\nRead carefully, simulate examples, and turn logic into code.\n\nStay calm — the simplest approach is usually the right one."
   },
   {
-    "objectID": "b1/simulation.html#what-does-simulation-mean",
-    "href": "b1/simulation.html#what-does-simulation-mean",
-    "title": "Simulation",
+    "objectID": "b1/adhoc.html#what-does-ad-hoc-mean",
+    "href": "b1/adhoc.html#what-does-ad-hoc-mean",
+    "title": "Ad-hoc Problems",
     "section": "",
-    "text": "In competitive programming, simulation means following the rules of a problem carefully and performing each step exactly as described.\nYou don’t need a fancy algorithm — just replicate what happens, usually in loops.\nHere is a simple example of a problem solved with simulation.",
-    "crumbs": [
-      "Stage 2",
-      "Simulation"
-    ]
+    "text": "“Ad-hoc” is Latin for “for this situation.”\nIn programming, it means you design a custom solution just for the given problem.\nThere’s no formula or template — you must read carefully, find what’s being asked, and come up with your own way to solve it."
   },
   {
-    "objectID": "b1/simulation.html#collatz-conjecture",
-    "href": "b1/simulation.html#collatz-conjecture",
-    "title": "Simulation",
+    "objectID": "b1/adhoc.html#typical-signs-of-an-ad-hoc-problem",
+    "href": "b1/adhoc.html#typical-signs-of-an-ad-hoc-problem",
+    "title": "Ad-hoc Problems",
     "section": "",
-    "text": "Collatz conjecture\n\n\n\n\n\nConsider the following process.\n\nStart with some given number \\(n\\).\nIn each step:\n\nIf \\(n\\) is even, replace it with \\(n/2\\).\nIf \\(n\\) is odd, replace it with \\(3n+1\\).\n\nPrint how many steps this process took before \\(n\\) became \\(1\\).",
-    "crumbs": [
-      "Stage 2",
-      "Simulation"
-    ]
+    "text": "The problem statement sounds strange or story-like.\n\nNo standard algorithm (like binary search or sorting) fits it.\n\nYou can solve it with basic logic, loops, and conditions.\n\nIt often involves counting, comparing, or simulating something directly.\n\nThese are the “think on your feet” problems."
   },
   {
-    "objectID": "b1/simulation.html#when-to-use-simulation",
-    "href": "b1/simulation.html#when-to-use-simulation",
-    "title": "Simulation",
+    "objectID": "b1/adhoc.html#counting-wins",
+    "href": "b1/adhoc.html#counting-wins",
+    "title": "Ad-hoc Problems",
     "section": "",
-    "text": "Simulation is perfect when:\n\nThe problem gives you a list of detailed steps or actions.\nThere is no mathematical shortcut.\nYou can just follow the process directly.\n\nCommon examples:\n\nGames (like tic-tac-toe, snake, etc.)\nMovements on a grid (robots, cars, people walking)\nString transformations (editing text, rotations)\nManaging objects (queues, stacks, or tasks over time)",
-    "crumbs": [
-      "Stage 2",
-      "Simulation"
-    ]
+    "text": "Counting wins\n\n\n\n\n\nYou are given results of a few matches: “A” if Alice wins, “B” if Bob wins. Print who won more games."
   },
   {
-    "objectID": "b1/simulation.html#simulation-pattern",
-    "href": "b1/simulation.html#simulation-pattern",
-    "title": "Simulation",
+    "objectID": "b1/adhoc.html#rounding-grades",
+    "href": "b1/adhoc.html#rounding-grades",
+    "title": "Ad-hoc Problems",
     "section": "",
-    "text": "Most simulation problems follow the same pattern:\ninitialize variables\nwhile (there are still actions left) {\n    read next action\n    update variables according to rules\n}\nprint final result\nYou’re basically “playing out” the rules one by one.",
-    "crumbs": [
-      "Stage 2",
-      "Simulation"
-    ]
+    "text": "Rounding grades\n\n\n\n\n\nA student’s grade is rounded up to the next multiple of 5 if it’s within 2 points.\nOtherwise, it stays the same."
   },
   {
-    "objectID": "b1/simulation.html#robot-on-a-grid",
-    "href": "b1/simulation.html#robot-on-a-grid",
-    "title": "Simulation",
+    "objectID": "b1/adhoc.html#counting-digits",
+    "href": "b1/adhoc.html#counting-digits",
+    "title": "Ad-hoc Problems",
     "section": "",
-    "text": "Robot on a grid\n\n\n\n\n\nA robot starts at \\((0, 0)\\). It receives a string of moves made of N, S, E, W. Print its final coordinates.",
-    "crumbs": [
-      "Stage 2",
-      "Simulation"
-    ]
+    "text": "Counting digits\n\n\n\n\n\nGiven a number, count how many times digit 7 appears."
   },
   {
-    "objectID": "b1/simulation.html#game-simulation",
-    "href": "b1/simulation.html#game-simulation",
-    "title": "Simulation",
+    "objectID": "b1/adhoc.html#how-to-approach-ad-hoc-problems",
+    "href": "b1/adhoc.html#how-to-approach-ad-hoc-problems",
+    "title": "Ad-hoc Problems",
     "section": "",
-    "text": "Game simulation\n\n\n\n\n\nYou are given an array of health points. Each second, the smallest value decreases by 1. Stop when one of them reaches 0. Print how many seconds it took.",
-    "crumbs": [
-      "Stage 2",
-      "Simulation"
-    ]
+    "text": "Read carefully. Understand exactly what happens step by step.\n\nSimulate with examples. Try small cases manually to see the pattern.\n\nFind the rule. Identify what changes and what stays the same.\n\nImplement directly. Use if-statements, loops, or arrays to match the logic.\n\nAd-hoc is about translating the description into code."
   },
   {
-    "objectID": "b1/simulation.html#tips-for-simulation-problems",
-    "href": "b1/simulation.html#tips-for-simulation-problems",
-    "title": "Simulation",
+    "objectID": "b1/adhoc.html#tips",
+    "href": "b1/adhoc.html#tips",
+    "title": "Ad-hoc Problems",
     "section": "",
-    "text": "Follow the rules literally. Don’t try to overthink — just do what the problem says.\nUse loops and conditionals to handle different cases.\nPrint intermediate steps while debugging to make sure your logic matches the description.\nBe careful with boundaries (e.g., going off the grid or using wrong indices).\nUse small test cases to manually verify your code.\nSimulate the program with a pen on paper to understand what really happens and code it step-by-step.",
-    "crumbs": [
-      "Stage 2",
-      "Simulation"
-    ]
+    "text": "Try writing out a few examples by hand before coding.\n\nDon’t overcomplicate — the solution is usually simpler than it looks.\n\nWatch out for small edge cases (empty input, negatives, ties).\n\nClean, clear code matters more than fancy tricks."
   },
   {
-    "objectID": "b1/simulation.html#performance-tip",
-    "href": "b1/simulation.html#performance-tip",
-    "title": "Simulation",
+    "objectID": "b1/adhoc.html#advantages",
+    "href": "b1/adhoc.html#advantages",
+    "title": "Ad-hoc Problems",
     "section": "",
-    "text": "Sometimes, simulation can be too slow if the process runs billions of steps. In those cases, you need to find patterns or shortcuts.\nFor example:\n\nIf a process repeats after some number of steps, use math to skip cycles.\nIf the outcome doesn’t change after a while, stop early.",
-    "crumbs": [
-      "Stage 2",
-      "Simulation"
-    ]
+    "text": "Often very simple once you understand the logic\n\nDoesn’t need advanced algorithms or data structures\n\nGreat for beginners — builds careful thinking"
   },
   {
-    "objectID": "b1/simulation.html#advantages",
-    "href": "b1/simulation.html#advantages",
-    "title": "Simulation",
+    "objectID": "b1/adhoc.html#disadvantages",
+    "href": "b1/adhoc.html#disadvantages",
+    "title": "Ad-hoc Problems",
     "section": "",
-    "text": "Very straightforward — no fancy algorithms needed\n\nEasy to implement and understand\n\nWorks for almost any rule-based process",
-    "crumbs": [
-      "Stage 2",
-      "Simulation"
-    ]
+    "text": "Each problem is unique — can’t reuse your old code\n\nHard to predict what kind of logic is needed\n\nCan be tricky to spot small exceptions or edge cases"
   },
   {
-    "objectID": "b1/simulation.html#disadvantages",
-    "href": "b1/simulation.html#disadvantages",
-    "title": "Simulation",
+    "objectID": "b1/adhoc.html#quick-summary",
+    "href": "b1/adhoc.html#quick-summary",
+    "title": "Ad-hoc Problems",
     "section": "",
-    "text": "Can be slow for large inputs\n\nEasy to make small mistakes when following many steps\n\nDebugging can take time if you don’t print intermediate results",
-    "crumbs": [
-      "Stage 2",
-      "Simulation"
-    ]
+    "text": "Ad-hoc means solving a problem by direct reasoning, not by a standard algorithm.\n\nThey often involve small rules, conditions, or counting.\n\nRead carefully, simulate examples, and turn logic into code.\n\nStay calm — the simplest approach is usually the right one."
   },
   {
-    "objectID": "b1/simulation.html#quick-summary",
-    "href": "b1/simulation.html#quick-summary",
-    "title": "Simulation",
-    "section": "",
-    "text": "Simulation means mimicking a process step by step.\n\nPerfect for problems that describe exact rules or actions.\n\nFocus on loops, conditionals, and updating variables.\n\nAlways check small examples manually.\n\nWhen it’s too slow — look for repeating patterns!",
-    "crumbs": [
-      "Stage 2",
-      "Simulation"
-    ]
-  },
-  {
-    "objectID": "b1/problems/digit-queries.html",
-    "href": "b1/problems/digit-queries.html",
+    "objectID": "b1/problems/domino-piling.html",
+    "href": "b1/problems/domino-piling.html",
     "title": "",
     "section": "",
-    "text": "Digit Queries\n\nCSES\nmedium\n\n\n\nConsider the infinite string formed by concatenating all positive integers in order:\n[ 1234567891011121314]\nYou are given \\(q\\) queries. For each query, you are given a position \\(k\\) (1-indexed) in this infinite string. Your task is to output the digit at position \\(k\\).\nConstraints:\n\n\\(1 \\le q \\le 1000\\)\n\\(1 \\le k \\le 10^{18}\\)",
+    "text": "Domino piling\n\nCodeforces\neasy\n\n\n\nGiven a grid of \\(N\\) rows and \\(M\\) columns. You have an infinite amount of pieces of size \\(2 \\times 1\\) you want to put as many pieces in the grid as possible such that.\n\nEach piece completely covers two squares.\nNo two pieces overlap.\nEach piece lies entirely inside the grid.",
     "crumbs": [
       "Stage 2",
       "Problems",
-      "Digit Queries"
+      "Domino piling"
     ]
   },
   {
-    "objectID": "b1/problems/digit-queries.html#digit-queries",
-    "href": "b1/problems/digit-queries.html#digit-queries",
+    "objectID": "b1/problems/domino-piling.html#domino-piling",
+    "href": "b1/problems/domino-piling.html#domino-piling",
     "title": "",
     "section": "",
-    "text": "Digit Queries\n\nCSES\nmedium\n\n\n\nConsider the infinite string formed by concatenating all positive integers in order:\n[ 1234567891011121314]\nYou are given \\(q\\) queries. For each query, you are given a position \\(k\\) (1-indexed) in this infinite string. Your task is to output the digit at position \\(k\\).\nConstraints:\n\n\\(1 \\le q \\le 1000\\)\n\\(1 \\le k \\le 10^{18}\\)",
+    "text": "Domino piling\n\nCodeforces\neasy\n\n\n\nGiven a grid of \\(N\\) rows and \\(M\\) columns. You have an infinite amount of pieces of size \\(2 \\times 1\\) you want to put as many pieces in the grid as possible such that.\n\nEach piece completely covers two squares.\nNo two pieces overlap.\nEach piece lies entirely inside the grid.",
     "crumbs": [
       "Stage 2",
       "Problems",
-      "Digit Queries"
+      "Domino piling"
     ]
   },
   {
-    "objectID": "b1/problems/modular-exponentiation.html",
-    "href": "b1/problems/modular-exponentiation.html",
+    "objectID": "b1/problems/stick-lengths.html",
+    "href": "b1/problems/stick-lengths.html",
     "title": "",
     "section": "",
-    "text": "Modular Exponentiation\n\nCodeforces\neasy\n\n\n\nGiven two number \\(n\\) and \\(m\\) print \\(m \\bmod 2 ^ n\\)",
+    "text": "Stick Lengths\n\nCSES\nmedium\n\n\n\nYou are given \\(n\\) sticks with lengths \\(p_1, p_2, \\dots, p_n\\). You want to make all sticks the same length.\nYou may either lengthen or shorten each stick. Changing the length of a stick from \\(a\\) to \\(b\\) costs \\(|a-b|\\).\nTask: Find the minimum total cost to make all sticks have the same length.\nConstraints:\n\n\\(1 \\le n \\le 2 \\cdot 10^5\\)\n\\(1 \\le p_i \\le 10^9\\)\n\nInput:\n\nFirst line: integer \\(n\\) — number of sticks.\nSecond line: \\(n\\) integers \\(p_1, p_2, \\dots, p_n\\) — the stick lengths.\n\nOutput:\n\nOne integer — the minimum possible total cost.\n\nExample:\nInput:\n5\n2 3 1 5 2\nOutput:\n5",
+    "crumbs": [
+      "Stage 2",
+      "Practice Problems",
+      "Stick Lengths"
+    ]
+  },
+  {
+    "objectID": "b1/problems/stick-lengths.html#stick-lengths",
+    "href": "b1/problems/stick-lengths.html#stick-lengths",
+    "title": "",
+    "section": "",
+    "text": "Stick Lengths\n\nCSES\nmedium\n\n\n\nYou are given \\(n\\) sticks with lengths \\(p_1, p_2, \\dots, p_n\\). You want to make all sticks the same length.\nYou may either lengthen or shorten each stick. Changing the length of a stick from \\(a\\) to \\(b\\) costs \\(|a-b|\\).\nTask: Find the minimum total cost to make all sticks have the same length.\nConstraints:\n\n\\(1 \\le n \\le 2 \\cdot 10^5\\)\n\\(1 \\le p_i \\le 10^9\\)\n\nInput:\n\nFirst line: integer \\(n\\) — number of sticks.\nSecond line: \\(n\\) integers \\(p_1, p_2, \\dots, p_n\\) — the stick lengths.\n\nOutput:\n\nOne integer — the minimum possible total cost.\n\nExample:\nInput:\n5\n2 3 1 5 2\nOutput:\n5",
+    "crumbs": [
+      "Stage 2",
+      "Practice Problems",
+      "Stick Lengths"
+    ]
+  },
+  {
+    "objectID": "b1/problems/twins.html",
+    "href": "b1/problems/twins.html",
+    "title": "",
+    "section": "",
+    "text": "Twins\n\nCodeforces\neasy\n\n\n\nGiven an array \\(A\\) of \\(N\\) integers, determine the minimum number of elements to select from \\(A\\) such that the sum of the selected elements is strictly greater than the sum of the remaining elements.",
     "crumbs": [
       "Stage 2",
       "Problems",
-      "Modular Exponentiation"
+      "Twins"
     ]
   },
   {
-    "objectID": "b1/problems/modular-exponentiation.html#modular-exponentiation",
-    "href": "b1/problems/modular-exponentiation.html#modular-exponentiation",
+    "objectID": "b1/problems/twins.html#twins",
+    "href": "b1/problems/twins.html#twins",
     "title": "",
     "section": "",
-    "text": "Modular Exponentiation\n\nCodeforces\neasy\n\n\n\nGiven two number \\(n\\) and \\(m\\) print \\(m \\bmod 2 ^ n\\)",
+    "text": "Twins\n\nCodeforces\neasy\n\n\n\nGiven an array \\(A\\) of \\(N\\) integers, determine the minimum number of elements to select from \\(A\\) such that the sum of the selected elements is strictly greater than the sum of the remaining elements.",
     "crumbs": [
       "Stage 2",
       "Problems",
-      "Modular Exponentiation"
+      "Twins"
     ]
   },
   {
-    "objectID": "b1/problems/sum-of-two-values.html",
-    "href": "b1/problems/sum-of-two-values.html",
+    "objectID": "b1/problems/sum-of-three-values.html",
+    "href": "b1/problems/sum-of-three-values.html",
     "title": "",
     "section": "",
-    "text": "Sum of Two Values\n\nCSES\neasy\n\n\n\nYou are given an array of \\(n\\) integers, and your task is to find two distinct positions \\(i \\ne j\\) such that:\n\n\\(a_i + a_j = x.\\)\n\nIf there are multiple valid pairs, you may output any of them. If no such pair exists, output IMPOSSIBLE.\nConstraints:\n\n\\(1 \\le n \\le 2 \\cdot 10^5\\)\n\\(1 \\le x, a_i \\le 10^9\\)\n\nInput:\n\nFirst line: two integers \\(n\\) and \\(x\\) — the array size and the target sum.\nSecond line: \\(n\\) integers \\(a_1, a_2, \\dots, a_n\\) — the array values.\n\nOutput:\n\nEither two 1-based positions i j with \\(a_i + a_j = x\\) and \\(i \\ne j\\),\nOr IMPOSSIBLE if no such pair exists.\n\nExample:\nInput:\n4 8\n2 7 5 1\nOutput:\n2 4\n(one valid pair is \\(7 + 1 = 8\\))",
+    "text": "Sum of Three Values\n\nCSES\nmedium\n\n\n\nYou are given an array of \\(n\\) integers, and your task is to find three values at distinct positions whose sum is \\(x\\).\nInput:\n\nFirst line: two integers \\(n\\) and \\(x\\) — the array size and the target sum.\nSecond line: \\(n\\) integers \\(a_1,a_2,\\dots,a_n\\) — the array values.\n\nOutput:\nPrint three integers: the positions (1-indexed) of the chosen values. If there are several valid triplets, you may print any of them. If there is no such triplet, print\nIMPOSSIBLE\nConstraints:\n\n\\(1 \\le n \\le 5000\\)\n\\(1 \\le x, a_i \\le 10^9\\)\n\nExample:\nInput:\n4 8\n2 7 5 1\nOutput:\n1 3 4",
     "crumbs": [
       "Stage 2",
       "Problems",
-      "Sum Of Two Values"
+      "Sum Of Three Values"
     ]
   },
   {
-    "objectID": "b1/problems/sum-of-two-values.html#sum-of-two-values",
-    "href": "b1/problems/sum-of-two-values.html#sum-of-two-values",
+    "objectID": "b1/problems/sum-of-three-values.html#sum-of-three-values",
+    "href": "b1/problems/sum-of-three-values.html#sum-of-three-values",
     "title": "",
     "section": "",
-    "text": "Sum of Two Values\n\nCSES\neasy\n\n\n\nYou are given an array of \\(n\\) integers, and your task is to find two distinct positions \\(i \\ne j\\) such that:\n\n\\(a_i + a_j = x.\\)\n\nIf there are multiple valid pairs, you may output any of them. If no such pair exists, output IMPOSSIBLE.\nConstraints:\n\n\\(1 \\le n \\le 2 \\cdot 10^5\\)\n\\(1 \\le x, a_i \\le 10^9\\)\n\nInput:\n\nFirst line: two integers \\(n\\) and \\(x\\) — the array size and the target sum.\nSecond line: \\(n\\) integers \\(a_1, a_2, \\dots, a_n\\) — the array values.\n\nOutput:\n\nEither two 1-based positions i j with \\(a_i + a_j = x\\) and \\(i \\ne j\\),\nOr IMPOSSIBLE if no such pair exists.\n\nExample:\nInput:\n4 8\n2 7 5 1\nOutput:\n2 4\n(one valid pair is \\(7 + 1 = 8\\))",
+    "text": "Sum of Three Values\n\nCSES\nmedium\n\n\n\nYou are given an array of \\(n\\) integers, and your task is to find three values at distinct positions whose sum is \\(x\\).\nInput:\n\nFirst line: two integers \\(n\\) and \\(x\\) — the array size and the target sum.\nSecond line: \\(n\\) integers \\(a_1,a_2,\\dots,a_n\\) — the array values.\n\nOutput:\nPrint three integers: the positions (1-indexed) of the chosen values. If there are several valid triplets, you may print any of them. If there is no such triplet, print\nIMPOSSIBLE\nConstraints:\n\n\\(1 \\le n \\le 5000\\)\n\\(1 \\le x, a_i \\le 10^9\\)\n\nExample:\nInput:\n4 8\n2 7 5 1\nOutput:\n1 3 4",
     "crumbs": [
       "Stage 2",
       "Problems",
-      "Sum Of Two Values"
+      "Sum Of Three Values"
     ]
   },
   {
-    "objectID": "b1/problems/vanya-and-lanterns.html",
-    "href": "b1/problems/vanya-and-lanterns.html",
-    "title": "",
+    "objectID": "b1/sorting.html",
+    "href": "b1/sorting.html",
+    "title": "Sorting",
     "section": "",
-    "text": "Vanya and Lanterns\n\nCodeforces\nmedium\n\n\n\nYou are given a line of length \\(l\\) and \\(n\\) points on it at positions \\(a_1, a_2, \\dots, a_n\\). Each point can “cover” a distance \\(d\\) to the left and \\(d\\) to the right. Find the smallest \\(d\\) so that every point on the line from \\(0\\) to \\(l\\) is covered by at least one of these points.",
+    "text": "Sorting means arranging elements in a specific order, usually from smallest to largest, or alphabetically if they are strings.\nSorting makes data easier to search, compare, and process efficiently.\nMany algorithms, like binary search, only work if the data is sorted.\n\n\n\n\nSelection sort repeatedly finds the smallest element from the unsorted part of the array and moves it to the beginning.\nStep by step: 1. Find the smallest element in the array. 2. Swap it with the first element. 3. Find the next smallest and swap it with the second element. 4. Keep going until the array is sorted.\n\n\n\nSuppose we have:\n[5, 8, 3, 4, 2]\nWe will find the smallest element, which is \\(2\\). Then, we swap it with the first element in the array, which is \\(5\\). The array now looks like this:\n[2, 8, 3, 4, 5]\nNow we want to set the second smallest element to the second position in the array. We find the smallest element among \\([8,3,4,5]\\), which is \\(3\\), and we swap it with the second element in the array, which is \\(8\\). After this, we have:\n[2, 3, 8, 4, 5]\nNext, we find the third smallest element, as the smallest element among \\([8,4,5]\\), which is \\(4\\). We swap it with the third element in the array, which is \\(8\\) again:\n[2, 3, 4, 8, 5]\nFor the last step, we want to find the fourth smallest element, as the smallest element among \\([5, 8]\\), which is \\(5\\). We now need to swap it with the fourth element in the array, which turns out also to be \\(5\\). Swapping an element with itself doesn’t change the array, so finally the array is sorted:\n[2, 3, 4, 5, 8]\n\n\n\n#include &lt;iostream&gt;\n#include &lt;vector&gt;\nusing namespace std;\n\nint main() {\n    vector&lt;int&gt; arr = {5, 8, 3, 4, 2};\n    int n = arr.size();\n\n    for (int i = 0; i &lt; n - 1; i++) {\n        int minIndex = i;\n        for (int j = i + 1; j &lt; n; j++) {\n            if (arr[j] &lt; arr[minIndex])\n                minIndex = j;\n        }\n        swap(arr[i], arr[minIndex]);\n    }\n\n    for (int x : arr) \n        cout &lt;&lt; x &lt;&lt; ' ';\n    cout &lt;&lt; '\\n';\n}\nOutput:\n2 3 4 5 8\nSelection sort is easy to understand, but not very efficient.\n\n\n\n\nThere are two nested loops (one inside another).\nSo it takes about \\(n \\cdot n\\) steps → \\(O(n^2)\\) time.\n\n\n\n\n\nIn real programs and competitive programming, we rarely write sort manually.\nC++ provides a very fast sorting function in the standard library.\n\n\n#include &lt;iostream&gt;\n#include &lt;vector&gt;\n#include &lt;algorithm&gt;\nusing namespace std;\n\nint main() {\n    vector&lt;int&gt; arr = {5, 8, 3, 4, 2};\n    sort(arr.begin(), arr.end());\n\n    for (int x : arr) \n        cout &lt;&lt; x &lt;&lt; ' ';\n    cout &lt;&lt; '\\n';\n}\nOutput:\n2 3 4 5 8\nThat one line sort(arr.begin(), arr.end()); sorts the entire vector in ascending order.\n\n\n\nYou can also use the same sort function with regular arrays.\nYou just need to give the starting and ending pointers.\n#include &lt;iostream&gt;\n#include &lt;algorithm&gt;\nusing namespace std;\n\nint main() {\n    int n = 5;\n\n    int arr[] = {5, 8, 3, 4, 2}; \n\n    sort(arr, arr + n);\n\n    for (int i = 0; i &lt; n; i++)\n        cout &lt;&lt; arr[i] &lt;&lt; ' ';\n    cout &lt;&lt; '\\n';\n}\nOutput:\n2 3 4 5 8\nsort(arr, arr + n); means: sort starting from arr (first element) up to arr + n (just past the last one).\n\n\n\nIf you want to sort from largest to smallest, you can use a custom comparison:\nFor vectors:\nsort(arr.begin(), arr.end(), greater&lt;int&gt;());\nAnother way to do so for vectors is to call sort on reverse iterators. This sorts the array in ascending order and then reverses it:\nsort(arr.rbegin(), arr.rend());\nFor C-arrays:\nsort(arr, arr + n, greater&lt;int&gt;());\nOutput:\n8 5 4 3 2\n\n\n\nThe same function works for strings, doubles, or any comparable type:\nvector&lt;string&gt; names = {\"Bob\", \"Alice\", \"Charlie\"};\nsort(names.begin(), names.end());\nOutput:\nAlice Bob Charlie\n\n\n\nWe already mentioned that you can sort an array in descending order by adding a third parameter to the built-in sort function. This parameter is called the custom comparator. A comparator is a function that takes two elements, a and b, and returns true if a should come before b in the sorted array. This comes in handy when you want to sort your own data structure or sort an existing type with a different way of comparing elements.\nFor example, let’s say that we don’t want to sort strings lexicographically, but by their length. In this case, we would write our own comparator:\nbool comparator_by_length(string a, string b){\n    int len_a = a.length();\n    int len_b = b.length();\n\n    if (len_a &lt; len_b)\n        return 1;\n    else\n        return 0;\n}\nThen, we would call the sort function the same as before, and add the custom comparator in the call parameters:\nvector&lt;string&gt; names = {\"Bob\", \"Alice\", \"Charlie\"};\nsort(names.begin(), names.end(), comparator_by_length);\nOutput:\nBob Alice Charlie\nImportant note: Your comparator must behave like a real “less than” function: - No contradictions - No cycles like a &lt; b, b &lt; c, but also c &lt; a\nIf the comparator is inconsistent, sort will behave unpredictably.\n\n\n\n\nThe library sort function uses an optimized algorithm. Its time complexity is \\(O(n \\log n)\\), which is much faster than \\(O(n^2)\\) for large inputs.\nFor example:\n\nIf \\(n = 1,000\\), selection sort does about \\(1,000,000\\) operations.\nIf \\(n = 1,000\\), library sort does about \\(10,000\\) operations — around \\(100\\) times faster.",
     "crumbs": [
       "Stage 2",
-      "Problems",
-      "Vanya and Lanterns"
+      "Sorting"
     ]
   },
   {
-    "objectID": "b1/problems/vanya-and-lanterns.html#vanya-and-lanterns",
-    "href": "b1/problems/vanya-and-lanterns.html#vanya-and-lanterns",
-    "title": "",
+    "objectID": "b1/sorting.html#selection-sort",
+    "href": "b1/sorting.html#selection-sort",
+    "title": "Sorting",
     "section": "",
-    "text": "Vanya and Lanterns\n\nCodeforces\nmedium\n\n\n\nYou are given a line of length \\(l\\) and \\(n\\) points on it at positions \\(a_1, a_2, \\dots, a_n\\). Each point can “cover” a distance \\(d\\) to the left and \\(d\\) to the right. Find the smallest \\(d\\) so that every point on the line from \\(0\\) to \\(l\\) is covered by at least one of these points.",
+    "text": "Selection sort repeatedly finds the smallest element from the unsorted part of the array and moves it to the beginning.\nStep by step: 1. Find the smallest element in the array. 2. Swap it with the first element. 3. Find the next smallest and swap it with the second element. 4. Keep going until the array is sorted.\n\n\n\nSuppose we have:\n[5, 8, 3, 4, 2]\nWe will find the smallest element, which is \\(2\\). Then, we swap it with the first element in the array, which is \\(5\\). The array now looks like this:\n[2, 8, 3, 4, 5]\nNow we want to set the second smallest element to the second position in the array. We find the smallest element among \\([8,3,4,5]\\), which is \\(3\\), and we swap it with the second element in the array, which is \\(8\\). After this, we have:\n[2, 3, 8, 4, 5]\nNext, we find the third smallest element, as the smallest element among \\([8,4,5]\\), which is \\(4\\). We swap it with the third element in the array, which is \\(8\\) again:\n[2, 3, 4, 8, 5]\nFor the last step, we want to find the fourth smallest element, as the smallest element among \\([5, 8]\\), which is \\(5\\). We now need to swap it with the fourth element in the array, which turns out also to be \\(5\\). Swapping an element with itself doesn’t change the array, so finally the array is sorted:\n[2, 3, 4, 5, 8]\n\n\n\n#include &lt;iostream&gt;\n#include &lt;vector&gt;\nusing namespace std;\n\nint main() {\n    vector&lt;int&gt; arr = {5, 8, 3, 4, 2};\n    int n = arr.size();\n\n    for (int i = 0; i &lt; n - 1; i++) {\n        int minIndex = i;\n        for (int j = i + 1; j &lt; n; j++) {\n            if (arr[j] &lt; arr[minIndex])\n                minIndex = j;\n        }\n        swap(arr[i], arr[minIndex]);\n    }\n\n    for (int x : arr) \n        cout &lt;&lt; x &lt;&lt; ' ';\n    cout &lt;&lt; '\\n';\n}\nOutput:\n2 3 4 5 8\nSelection sort is easy to understand, but not very efficient.\n\n\n\n\nThere are two nested loops (one inside another).\nSo it takes about \\(n \\cdot n\\) steps → \\(O(n^2)\\) time.",
     "crumbs": [
       "Stage 2",
-      "Problems",
-      "Vanya and Lanterns"
+      "Sorting"
     ]
   },
   {
-    "objectID": "b1/problems/bit-strings.html",
-    "href": "b1/problems/bit-strings.html",
-    "title": "",
+    "objectID": "b1/sorting.html#using-the-built-in-sort-function",
+    "href": "b1/sorting.html#using-the-built-in-sort-function",
+    "title": "Sorting",
     "section": "",
-    "text": "Bit Strings\n\nCSES\neasy\n\n\n\nYour task is to calculate the number of bit strings of length \\(n\\).\nA bit string is a sequence of \\(n\\) characters, each of which is either 0 or 1.\nFor example, if \\(n = 3\\), the bit strings are [000, 001, 010, 011, 100, 101, 110, 111], so there are \\(8\\) such strings.\nInput:\n\nA single integer \\(n\\).\n\nOutput:\n\nPrint the total number of bit strings of length \\(n\\), modulo \\(10^9 + 7\\).\n\nConstraints:\n\n\\(1 \\le n \\le 10^6\\)\n\nExample:\nInput:\n3\nOutput:\n8",
+    "text": "In real programs and competitive programming, we rarely write sort manually.\nC++ provides a very fast sorting function in the standard library.\n\n\n#include &lt;iostream&gt;\n#include &lt;vector&gt;\n#include &lt;algorithm&gt;\nusing namespace std;\n\nint main() {\n    vector&lt;int&gt; arr = {5, 8, 3, 4, 2};\n    sort(arr.begin(), arr.end());\n\n    for (int x : arr) \n        cout &lt;&lt; x &lt;&lt; ' ';\n    cout &lt;&lt; '\\n';\n}\nOutput:\n2 3 4 5 8\nThat one line sort(arr.begin(), arr.end()); sorts the entire vector in ascending order.\n\n\n\nYou can also use the same sort function with regular arrays.\nYou just need to give the starting and ending pointers.\n#include &lt;iostream&gt;\n#include &lt;algorithm&gt;\nusing namespace std;\n\nint main() {\n    int n = 5;\n\n    int arr[] = {5, 8, 3, 4, 2}; \n\n    sort(arr, arr + n);\n\n    for (int i = 0; i &lt; n; i++)\n        cout &lt;&lt; arr[i] &lt;&lt; ' ';\n    cout &lt;&lt; '\\n';\n}\nOutput:\n2 3 4 5 8\nsort(arr, arr + n); means: sort starting from arr (first element) up to arr + n (just past the last one).\n\n\n\nIf you want to sort from largest to smallest, you can use a custom comparison:\nFor vectors:\nsort(arr.begin(), arr.end(), greater&lt;int&gt;());\nAnother way to do so for vectors is to call sort on reverse iterators. This sorts the array in ascending order and then reverses it:\nsort(arr.rbegin(), arr.rend());\nFor C-arrays:\nsort(arr, arr + n, greater&lt;int&gt;());\nOutput:\n8 5 4 3 2\n\n\n\nThe same function works for strings, doubles, or any comparable type:\nvector&lt;string&gt; names = {\"Bob\", \"Alice\", \"Charlie\"};\nsort(names.begin(), names.end());\nOutput:\nAlice Bob Charlie\n\n\n\nWe already mentioned that you can sort an array in descending order by adding a third parameter to the built-in sort function. This parameter is called the custom comparator. A comparator is a function that takes two elements, a and b, and returns true if a should come before b in the sorted array. This comes in handy when you want to sort your own data structure or sort an existing type with a different way of comparing elements.\nFor example, let’s say that we don’t want to sort strings lexicographically, but by their length. In this case, we would write our own comparator:\nbool comparator_by_length(string a, string b){\n    int len_a = a.length();\n    int len_b = b.length();\n\n    if (len_a &lt; len_b)\n        return 1;\n    else\n        return 0;\n}\nThen, we would call the sort function the same as before, and add the custom comparator in the call parameters:\nvector&lt;string&gt; names = {\"Bob\", \"Alice\", \"Charlie\"};\nsort(names.begin(), names.end(), comparator_by_length);\nOutput:\nBob Alice Charlie\nImportant note: Your comparator must behave like a real “less than” function: - No contradictions - No cycles like a &lt; b, b &lt; c, but also c &lt; a\nIf the comparator is inconsistent, sort will behave unpredictably.",
     "crumbs": [
       "Stage 2",
-      "Problems",
-      "Bit Strings"
+      "Sorting"
     ]
   },
   {
-    "objectID": "b1/problems/bit-strings.html#bit-strings",
-    "href": "b1/problems/bit-strings.html#bit-strings",
-    "title": "",
+    "objectID": "b1/sorting.html#complexity",
+    "href": "b1/sorting.html#complexity",
+    "title": "Sorting",
     "section": "",
-    "text": "Bit Strings\n\nCSES\neasy\n\n\n\nYour task is to calculate the number of bit strings of length \\(n\\).\nA bit string is a sequence of \\(n\\) characters, each of which is either 0 or 1.\nFor example, if \\(n = 3\\), the bit strings are [000, 001, 010, 011, 100, 101, 110, 111], so there are \\(8\\) such strings.\nInput:\n\nA single integer \\(n\\).\n\nOutput:\n\nPrint the total number of bit strings of length \\(n\\), modulo \\(10^9 + 7\\).\n\nConstraints:\n\n\\(1 \\le n \\le 10^6\\)\n\nExample:\nInput:\n3\nOutput:\n8",
+    "text": "The library sort function uses an optimized algorithm. Its time complexity is \\(O(n \\log n)\\), which is much faster than \\(O(n^2)\\) for large inputs.\nFor example:\n\nIf \\(n = 1,000\\), selection sort does about \\(1,000,000\\) operations.\nIf \\(n = 1,000\\), library sort does about \\(10,000\\) operations — around \\(100\\) times faster.",
     "crumbs": [
       "Stage 2",
-      "Problems",
-      "Bit Strings"
+      "Sorting"
     ]
   },
   {
-    "objectID": "b1/binary-search.html",
-    "href": "b1/binary-search.html",
-    "title": "Binary Search",
+    "objectID": "b1/time-complexity.html",
+    "href": "b1/time-complexity.html",
+    "title": "Time Complexity",
     "section": "",
-    "text": "Binary search is a fast way to find something in a sorted list or range.\nBut before we get to that, let’s start with something simpler — linear search.\n\n\nImagine you have a list of numbers and you want to check if a number is in the list.\nThe most natural thing to do is to look through the list one by one.\n#include &lt;iostream&gt;\n#include &lt;vector&gt;\nusing namespace std;\n\nint main() {\n    vector&lt;int&gt; arr = {4, 8, 15, 16, 23, 42};\n    int target = 15;\n\n    for (int i = 0; i &lt; arr.size(); i++) {\n        if (arr[i] == target) {\n            cout &lt;&lt; \"Found at index \" &lt;&lt; i;\n            return 0;\n        }\n    }\n    cout &lt;&lt; \"Not found\";\n}\nThis is called linear search because you move linearly through the list.\nIt always works, but if the list is long, it can be slow — you might need to check every element.\nIf there are a million numbers, that’s a million checks.\nNow imagine you’re looking for a name in a printed phone book.\nYou wouldn’t start from the first page and read one by one.\nYou’d open somewhere in the middle, see if you’re too early or too late alphabetically, and then skip half the pages.\nThat’s binary search.\n\n\n\nBinary search is like playing the ‘guess the number’ game.\nEach time, you pick the middle value and ask:\n\nIs this too small?\nToo big?\nOr exactly right?\n\nThen you cut the search space in half.\nThis makes it much faster than linear search, but it only works if the data is sorted.\n\n\n\n\n\n\n\n\nFind the 7\n\n\n\n\n\nWe are given a sorted array\n[1, 3, 5, 6, 7, 9, 11]\nFind number 7 in the array if it exists and print the index it is on.\n\n\n\n\n\nSolution\n\nWe start with the full range, then repeatedly narrow it down.\nFirst, we find the element in the middle. This happens to be number 6. We ask whether number 7 is smaller or greater than number 6 - and it is greater. Since the array is sorted, this means that number 7 will be strictly after number 6 in the array. We can discard the first half of the array, because we know 7 cannot be before 6.\nThe array we are looking at now is [7, 9, 11]. The element in the middle is number 9. Number 7 is smaller than number 9. This means that 7 is before 9 in the sorted array. We can then discard 9 and anything that is right of 9.\nFinally, our array is [7]. The middle element is 7, which is exactly what we are looking for. We asked three times to compare numbers: - We compared 6 and 7 - We compared 9 and 7 - We compared 7 and 7\nSo this is 3 comparisons. In the linear search, we would do at least 5. Already on smaller examples, we see that binary search brings significant improvement.\n#include &lt;iostream&gt;\n#include &lt;vector&gt;\nusing namespace std;\n\nint main() {\n    vector&lt;int&gt; arr = {1, 3, 5, 6, 7, 9, 11};\n    int target = 7;\n    int left = 0, right = arr.size() - 1;\n\n    while (left &lt;= right) {\n        int mid = (left + right) / 2;\n        if (arr[mid] == target) {\n            cout &lt;&lt; \"Found at index \" &lt;&lt; mid;\n            return 0;\n        } else if (arr[mid] &lt; target) \n            left = mid + 1;\n        else \n            right = mid - 1;\n    }\n\n    cout &lt;&lt; \"Not found\";\n}\nOutput:\nFound at index 4\n\n\n\nEach step cuts the range in half.\nIf there are n elements, binary search only needs about \\(\\log_2(n)\\) steps.\nThat’s around 20 checks, even if there are a million numbers.\n\n\nBinary search can do more than find a number.\nYou can use it to find positions or boundaries.\n\n\n\n\n\nPosition Hunt\n\n\n\n\n\nYou are given an array [2, 4, 6, 8, 10]. Find the first element greater than 7 using the binary search method.\n\n\n\n\n\nSolution\n\n#include &lt;iostream&gt;\n#include &lt;vector&gt;\nusing namespace std;\n\nint main() {\n    vector&lt;int&gt; arr = {2, 4, 6, 8, 10};\n    int x = 7;\n\n    int left = 0, right = arr.size() - 1;\n    int ans = -1;\n\n    while (left &lt;= right) {\n        int mid = (left + right) / 2;\n        if (arr[mid] &gt;= x) {\n            ans = mid;\n            right = mid - 1;\n        } else {\n            left = mid + 1;\n        }\n    }\n    if (ans == -1) cout &lt;&lt; \"No element found\";\n    else cout &lt;&lt; \"First element &gt;= \" &lt;&lt; x &lt;&lt; \" is at index \" &lt;&lt; ans;\n}\nOutput:\nFirst element &gt;= 7 is at index 3\nThat means arr[3] = 8 is the first element greater than or equal to 7.\n\n\n\n\n\n\nStart with two pointers, left and right.\nFind the middle index mid.\nIf the middle value is the answer, stop.\nIf it’s too small, move left to mid + 1.\nIf it’s too big, move right to mid - 1.\nRepeat until left &gt; right.",
+    "text": "When we write programs, some solutions run faster than others.\nTime complexity is a way to measure how fast an algorithm grows as the input gets larger.\nYou don’t measure it in seconds. You measure it in how the number of steps increases when the input size increases.\nTime complexity helps you compare algorithms without actually running them.\nLet’s say we have this code:\nfor (int i = 0; i &lt; n; i++)\n    cout &lt;&lt; i &lt;&lt; \" \";\nIf \\(n = 10\\), it prints \\(10\\) numbers.\nIf \\(n = 1000\\), it prints \\(1000\\) numbers.\nIf \\(n\\) doubles, the number of steps also doubles.\nWe say this code runs in \\(O(n)\\) time, because it has \\(n\\) steps/operations it does.\nThat means the time grows linearly with the size of the input.\n\n\nBig \\(O\\) notation (read as “big oh”) shows how the number of steps grows as \\(n\\) grows.\nWe only care about the main growth, not constants or small details.\n\n\n\n\n\n\n\n\nName\nExample\nDescription\n\n\n\n\n\\(O(1)\\)\nx = a + b;\nConstant time – runs instantly, no matter how big n is\n\n\n\\(O(\\log n)\\)\nset::insert\nEach step cuts the problem in half\n\n\n\\(O(n)\\)\nLoop over array\nTime grows linearly\n\n\n\\(O(n \\log n)\\)\nSorting\nSlightly slower than \\(O(n)\\), but much faster than \\(O(n^2)\\)\n\n\n\\(O(n^2)\\)\nNested loops\nTime grows very fast as n increases\n\n\n\\(O(2^n)\\)\nTrying all combinations\nExponential – gets huge very quickly\n\n\n\nThe smaller the complexity, the faster it scales.\n\n\n\n\n\n\n\n\nIncrease the Number\n\n\n\n\n\nYou are given a number \\(x\\). Increase \\(x\\) by \\(1\\), and then print it.\n\n\n\n\n\nSolution\n\n#include &lt;iostream&gt;\n\nusing namespace std;\n\nint main(){\n    int x;\n    cin &gt;&gt; x;\n\n    x += 1;\n\n    cout &lt;&lt; x &lt;&lt; '\\n';\n}\n\n\n\nHere, we did three things: - read an integer from the input - increase an integer by one - output an integer\nThese are all simple operations. However, we wouldn’t say that this is \\(O(3)\\) time complexity. We do not care about constants; we just care about the main value. So this here is \\(O(1)\\) time complexity.\n\n\n\n\n\n\n\nMoney Sum\n\n\n\n\n\nYou are given \\(n\\) bills worth \\(arr[0]\\) riyals, \\(arr[1]\\) riyals, …, \\(arr[n-1]\\) riyals. How many riyals do you have in total?\n\n\n\n\n\nSolution\n\n#include &lt;iostream&gt;\n\nusing namespace std;\n\nint main(){\n    int n;\n    cin &gt;&gt; n;\n\n    int arr[n];\n\n    for (int i = 0; i &lt; n; i++)\n        cin &gt;&gt; arr[i];\n\n    long long sum = 0;\n    for (int i = 0; i &lt; n; i++)\n        sum += arr[i];\n\n    cout &lt;&lt; sum &lt;&lt; '\\n';\n}\n\n\n\nThe loop runs once per element.\nIf the array doubles in size, time doubles too.\nNotice that we also create an array and input the elements; this takes two operations per element. Also, we input the number of elements, we set the \\(sum\\) variable to zero, and at the end we print the variable sum. In total we have \\(1 + n + n + 1 + n + 1 = 3n + 3\\). However, we said that we don’t care about constants, so this is simply just \\(O(3n+3) = O(n)\\) - a linear time algorithm.\n\n\n\n\n\n\n\nCopying\n\n\n\n\n\nYou are given \\(n\\) bills worth \\(arr[0]\\) riyals, \\(arr[1]\\) riyals, …, \\(arr[n-1]\\) riyals. For \\(n\\) days, you increase the value of each bill by one. So, after first day you have bills worth \\(arr[0]+1\\) riyals, \\(arr[1]+1\\) riyals, …, \\(arr[n-1]+1\\) riyals. After second day you have bills worth \\(arr[0]+2\\) riyals, \\(arr[1]+2\\) riyals, …, \\(arr[n-1]+2\\) riyals. After \\(n\\) days you will have bills worth \\(arr[0]+n\\) riyals, \\(arr[1]+n\\) riyals, …, \\(arr[n-1]+n\\) riyals.\nYou should output the values of all bills for each of the \\(n\\) days.\n\n\n\n\n#include &lt;iostream&gt;\n\nusing namespace std;\n\nint main(){\n    int n;\n    cin &gt;&gt; n;\n\n    int arr[n];\n    for (int i = 0; i &lt; n; i++)\n        cin &gt;&gt; arr[i];\n\n    for (int days = 1; days &lt;= n; days++){\n        for (int i = 0; i &lt; n; i++){\n            cout &lt;&lt; arr[i] + days &lt;&lt; ' ';\n        }\n        cout &lt;&lt; '\\n';\n    }\n}\n\nThere are \\(n\\) days, and \\(n\\) bills in each day that we should increase. In total, we do \\(O(n^2)\\) operations (again ignoring constants).\nIf \\(n = 10\\), it does 100 steps. If \\(n = 1000\\), it does a million steps.\nThat’s why \\(O(n^2)\\) algorithms can get very slow fast.\n\n\nLet’s see how fast they grow as n increases:\n\n\n\n\\(n\\)\n\\(O(1)\\)\n\\(O(\\log n)\\)\n\\(O(n)\\)\n\\(O(n^2)\\)\n\n\n\n\n10\n1\n3\n10\n100\n\n\n100\n1\n7\n100\n10,000\n\n\n1000\n1\n10\n1000\n1,000,000\n\n\n\nEven though the differences seem small for small \\(n\\), they explode for big \\(n\\).\n\n\n\n\n\n\n\\(n\\)\nSafe maximum complexity\n\n\n\n\n\\(\\leq 10\\)\n\\(O(n!)\\)\n\n\n\\(\\leq 20\\)\n\\(O(2^n)\\) usually fine\n\n\n\\(\\leq 1000\\)\n\\(O(n^2)\\) usually fine\n\n\n\\(\\leq 10^5\\)\n\\(O(n \\log n)\\) or better\n\n\n\\(\\leq 10^7\\)\n\\(O(n)\\) or better\n\n\n\\(\\geq 10^9\\)\nOnly \\(O(1)\\) or \\(O(\\log n)\\)\n\n\n\nThis helps you guess what kind of solution is acceptable for a given input size.\n\n\n\nSometimes it is not obvious, but you can make your program faster just by thinking about more clever solutions.\n\n\n\n\n\nSimple Sum\n\n\n\n\n\nYou are given a number \\(n\\). Output the sum \\(-n + (-n+1) + (-n+2) + \\ldots + -1 + 0 + 1 + \\ldots + (n-2) + (n-1) + n\\).\n\n\n\n\n\nSolution\n\nA naive solution would be the following:\n#include &lt;iostream&gt;\n\nusing namespace std;\n\nint main(){\n    int n;\n    cin &gt;&gt; n;\n\n    long long sum = 0;\n    for (int i = -n; i &lt;= n; i++)\n        sum += i;\n\n    cout &lt;&lt; sum &lt;&lt; '\\n';\n}\nThis solution is linear in time \\(O(n)\\).\n\n\n\n\n\nSolution\n\nNotice that we can do much better. Each integer appears once with a positive sign and once with a negative sign - \\(+n\\) and \\(-n\\). This means that in the end, all numbers will cancel out and we will be left only with zero. This leads us to a much simpler solution:\n#include &lt;iostream&gt;\n\nusing namespace std;\n\nint main(){\n    int n;\n    cin &gt;&gt; n;\n\n    cout &lt;&lt; 0 &lt;&lt; '\\n';\n}\nThis solution is \\(O(1)\\), which is constant time and much faster than the naive solution. Always try to think about the fastest possible solution.\n\n\n\n\n\nSometimes we also care about how much memory the program uses.\nThat’s called space complexity.\nThe idea is the same: how memory usage grows as input size grows.\nExample:\nint arr[n];  // O(n) space\nint x;       // O(1) space",
     "crumbs": [
       "Stage 2",
-      "Binary Search"
+      "Time Complexity"
     ]
   },
   {
-    "objectID": "b1/binary-search.html#linear-search",
-    "href": "b1/binary-search.html#linear-search",
-    "title": "Binary Search",
+    "objectID": "b1/time-complexity.html#what-oldots-means",
+    "href": "b1/time-complexity.html#what-oldots-means",
+    "title": "Time Complexity",
     "section": "",
-    "text": "Imagine you have a list of numbers and you want to check if a number is in the list.\nThe most natural thing to do is to look through the list one by one.\n#include &lt;iostream&gt;\n#include &lt;vector&gt;\nusing namespace std;\n\nint main() {\n    vector&lt;int&gt; arr = {4, 8, 15, 16, 23, 42};\n    int target = 15;\n\n    for (int i = 0; i &lt; arr.size(); i++) {\n        if (arr[i] == target) {\n            cout &lt;&lt; \"Found at index \" &lt;&lt; i;\n            return 0;\n        }\n    }\n    cout &lt;&lt; \"Not found\";\n}\nThis is called linear search because you move linearly through the list.\nIt always works, but if the list is long, it can be slow — you might need to check every element.\nIf there are a million numbers, that’s a million checks.\nNow imagine you’re looking for a name in a printed phone book.\nYou wouldn’t start from the first page and read one by one.\nYou’d open somewhere in the middle, see if you’re too early or too late alphabetically, and then skip half the pages.\nThat’s binary search.",
+    "text": "Big \\(O\\) notation (read as “big oh”) shows how the number of steps grows as \\(n\\) grows.\nWe only care about the main growth, not constants or small details.\n\n\n\n\n\n\n\n\nName\nExample\nDescription\n\n\n\n\n\\(O(1)\\)\nx = a + b;\nConstant time – runs instantly, no matter how big n is\n\n\n\\(O(\\log n)\\)\nset::insert\nEach step cuts the problem in half\n\n\n\\(O(n)\\)\nLoop over array\nTime grows linearly\n\n\n\\(O(n \\log n)\\)\nSorting\nSlightly slower than \\(O(n)\\), but much faster than \\(O(n^2)\\)\n\n\n\\(O(n^2)\\)\nNested loops\nTime grows very fast as n increases\n\n\n\\(O(2^n)\\)\nTrying all combinations\nExponential – gets huge very quickly\n\n\n\nThe smaller the complexity, the faster it scales.",
     "crumbs": [
       "Stage 2",
-      "Binary Search"
+      "Time Complexity"
     ]
   },
   {
-    "objectID": "b1/binary-search.html#the-idea-of-binary-search",
-    "href": "b1/binary-search.html#the-idea-of-binary-search",
-    "title": "Binary Search",
+    "objectID": "b1/time-complexity.html#increase-the-number",
+    "href": "b1/time-complexity.html#increase-the-number",
+    "title": "Time Complexity",
     "section": "",
-    "text": "Binary search is like playing the ‘guess the number’ game.\nEach time, you pick the middle value and ask:\n\nIs this too small?\nToo big?\nOr exactly right?\n\nThen you cut the search space in half.\nThis makes it much faster than linear search, but it only works if the data is sorted.",
+    "text": "Increase the Number\n\n\n\n\n\nYou are given a number \\(x\\). Increase \\(x\\) by \\(1\\), and then print it.",
     "crumbs": [
       "Stage 2",
-      "Binary Search"
+      "Time Complexity"
     ]
   },
   {
-    "objectID": "b1/binary-search.html#find-the-7",
-    "href": "b1/binary-search.html#find-the-7",
-    "title": "Binary Search",
+    "objectID": "b1/time-complexity.html#money-sum",
+    "href": "b1/time-complexity.html#money-sum",
+    "title": "Time Complexity",
     "section": "",
-    "text": "Find the 7\n\n\n\n\n\nWe are given a sorted array\n[1, 3, 5, 6, 7, 9, 11]\nFind number 7 in the array if it exists and print the index it is on.",
+    "text": "Money Sum\n\n\n\n\n\nYou are given \\(n\\) bills worth \\(arr[0]\\) riyals, \\(arr[1]\\) riyals, …, \\(arr[n-1]\\) riyals. How many riyals do you have in total?",
     "crumbs": [
       "Stage 2",
-      "Binary Search"
+      "Time Complexity"
     ]
   },
   {
-    "objectID": "b1/binary-search.html#finding-first-element-greater-than-or-equal-to-x",
-    "href": "b1/binary-search.html#finding-first-element-greater-than-or-equal-to-x",
-    "title": "Binary Search",
+    "objectID": "b1/time-complexity.html#copying",
+    "href": "b1/time-complexity.html#copying",
+    "title": "Time Complexity",
     "section": "",
-    "text": "Binary search can do more than find a number.\nYou can use it to find positions or boundaries.",
+    "text": "Copying\n\n\n\n\n\nYou are given \\(n\\) bills worth \\(arr[0]\\) riyals, \\(arr[1]\\) riyals, …, \\(arr[n-1]\\) riyals. For \\(n\\) days, you increase the value of each bill by one. So, after first day you have bills worth \\(arr[0]+1\\) riyals, \\(arr[1]+1\\) riyals, …, \\(arr[n-1]+1\\) riyals. After second day you have bills worth \\(arr[0]+2\\) riyals, \\(arr[1]+2\\) riyals, …, \\(arr[n-1]+2\\) riyals. After \\(n\\) days you will have bills worth \\(arr[0]+n\\) riyals, \\(arr[1]+n\\) riyals, …, \\(arr[n-1]+n\\) riyals.\nYou should output the values of all bills for each of the \\(n\\) days.",
     "crumbs": [
       "Stage 2",
-      "Binary Search"
+      "Time Complexity"
     ]
   },
   {
-    "objectID": "b1/binary-search.html#position-hunt",
-    "href": "b1/binary-search.html#position-hunt",
-    "title": "Binary Search",
+    "objectID": "b1/time-complexity.html#comparing-growth-rates",
+    "href": "b1/time-complexity.html#comparing-growth-rates",
+    "title": "Time Complexity",
     "section": "",
-    "text": "Position Hunt\n\n\n\n\n\nYou are given an array [2, 4, 6, 8, 10]. Find the first element greater than 7 using the binary search method.",
+    "text": "Let’s see how fast they grow as n increases:\n\n\n\n\\(n\\)\n\\(O(1)\\)\n\\(O(\\log n)\\)\n\\(O(n)\\)\n\\(O(n^2)\\)\n\n\n\n\n10\n1\n3\n10\n100\n\n\n100\n1\n7\n100\n10,000\n\n\n1000\n1\n10\n1000\n1,000,000\n\n\n\nEven though the differences seem small for small \\(n\\), they explode for big \\(n\\).",
     "crumbs": [
       "Stage 2",
-      "Binary Search"
+      "Time Complexity"
     ]
   },
   {
-    "objectID": "b1/binary-search.html#algorithm",
-    "href": "b1/binary-search.html#algorithm",
-    "title": "Binary Search",
+    "objectID": "b1/time-complexity.html#a-quick-rule-of-thumb",
+    "href": "b1/time-complexity.html#a-quick-rule-of-thumb",
+    "title": "Time Complexity",
     "section": "",
-    "text": "Start with two pointers, left and right.\nFind the middle index mid.\nIf the middle value is the answer, stop.\nIf it’s too small, move left to mid + 1.\nIf it’s too big, move right to mid - 1.\nRepeat until left &gt; right.",
+    "text": "\\(n\\)\nSafe maximum complexity\n\n\n\n\n\\(\\leq 10\\)\n\\(O(n!)\\)\n\n\n\\(\\leq 20\\)\n\\(O(2^n)\\) usually fine\n\n\n\\(\\leq 1000\\)\n\\(O(n^2)\\) usually fine\n\n\n\\(\\leq 10^5\\)\n\\(O(n \\log n)\\) or better\n\n\n\\(\\leq 10^7\\)\n\\(O(n)\\) or better\n\n\n\\(\\geq 10^9\\)\nOnly \\(O(1)\\) or \\(O(\\log n)\\)\n\n\n\nThis helps you guess what kind of solution is acceptable for a given input size.",
     "crumbs": [
       "Stage 2",
-      "Binary Search"
+      "Time Complexity"
+    ]
+  },
+  {
+    "objectID": "b1/time-complexity.html#optimizing",
+    "href": "b1/time-complexity.html#optimizing",
+    "title": "Time Complexity",
+    "section": "",
+    "text": "Sometimes it is not obvious, but you can make your program faster just by thinking about more clever solutions.",
+    "crumbs": [
+      "Stage 2",
+      "Time Complexity"
+    ]
+  },
+  {
+    "objectID": "b1/time-complexity.html#simple-sum",
+    "href": "b1/time-complexity.html#simple-sum",
+    "title": "Time Complexity",
+    "section": "",
+    "text": "Simple Sum\n\n\n\n\n\nYou are given a number \\(n\\). Output the sum \\(-n + (-n+1) + (-n+2) + \\ldots + -1 + 0 + 1 + \\ldots + (n-2) + (n-1) + n\\).",
+    "crumbs": [
+      "Stage 2",
+      "Time Complexity"
+    ]
+  },
+  {
+    "objectID": "b1/time-complexity.html#space-complexity",
+    "href": "b1/time-complexity.html#space-complexity",
+    "title": "Time Complexity",
+    "section": "",
+    "text": "Sometimes we also care about how much memory the program uses.\nThat’s called space complexity.\nThe idea is the same: how memory usage grows as input size grows.\nExample:\nint arr[n];  // O(n) space\nint x;       // O(1) space",
+    "crumbs": [
+      "Stage 2",
+      "Time Complexity"
     ]
   },
   {
