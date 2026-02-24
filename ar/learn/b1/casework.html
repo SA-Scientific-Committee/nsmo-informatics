@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.26">
+<meta name="generator" content="quarto-1.8.27">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -72,9 +72,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b758ccaa5987ceb1b75504551e579abf.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-4d9afe2b8d18ee9fa5d0d57b5ed4214d.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-c1a847380091daaee67d10fbef673afd.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
@@ -644,13 +644,13 @@ window.Quarto = {
 <div class="solution-card">
 <p><span class="solution-title">Solution</span></p>
 <div class="problem-body">
-<p>يمكننا اختبار كل حالة عبر التحقق من أي ضلع قد يكون الأكبر:</p>
+<p>يمكننا اختبار كل حالة عبر التحقق من أن مجموع أي ضلعين أكبر من الضلع الثالث</p>
 <ul>
-<li>الحالة 1: <span dir="ltr"><span class="math inline">\(a\)</span></span> هو الأكبر → نتحقق من <span dir="ltr"><span class="math inline">\(b + c &gt; a\)</span></span></li>
-<li>الحالة 2: <span dir="ltr"><span class="math inline">\(b\)</span></span> هو الأكبر → نتحقق من <span dir="ltr"><span class="math inline">\(a + c &gt; b\)</span></span></li>
-<li>الحالة 3: <span dir="ltr"><span class="math inline">\(c\)</span></span> هو الأكبر → نتحقق من <span dir="ltr"><span class="math inline">\(a + b &gt; c\)</span></span></li>
+<li><span dir="ltr"><span class="math inline">\(b + c &gt; a\)</span></span></li>
+<li><span dir="ltr"><span class="math inline">\(c + a &gt; b\)</span></span></li>
+<li><span dir="ltr"><span class="math inline">\(a + b &gt; c\)</span></span></li>
 </ul>
-<p>إذا كان أي منها صحيحًا، يمكن تشكيل مثلث.</p>
+<p>إذا كانت جميع هذه المتباينات صحيحة، فإن تكوين مثلث ممكن. سنقوم بالتحقق من كل واحدة من هذه المتباينات، وفي حال أي متباينة لم تتحقق، فالإجابة هي <span dir="ltr">“no”</span>، وإلا فالإجابة هي <span dir="ltr">“yes”</span>.</p>
 <div dir="ltr">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> <span class="kw">namespace</span> std<span class="op">;</span></span>
@@ -659,10 +659,10 @@ window.Quarto = {
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> a<span class="op">,</span> b<span class="op">,</span> c<span class="op">;</span></span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    cin <span class="op">&gt;&gt;</span> a <span class="op">&gt;&gt;</span> b <span class="op">&gt;&gt;</span> c<span class="op">;</span></span>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="dt">bool</span> ok <span class="op">=</span> <span class="kw">false</span><span class="op">;</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>b <span class="op">+</span> c <span class="op">&gt;</span> a<span class="op">)</span> ok <span class="op">=</span> <span class="kw">true</span><span class="op">;</span></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>a <span class="op">+</span> c <span class="op">&gt;</span> b<span class="op">)</span> ok <span class="op">=</span> <span class="kw">true</span><span class="op">;</span></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>a <span class="op">+</span> b <span class="op">&gt;</span> c<span class="op">)</span> ok <span class="op">=</span> <span class="kw">true</span><span class="op">;</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="dt">bool</span> ok <span class="op">=</span> <span class="kw">true</span><span class="op">;</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>b <span class="op">+</span> c <span class="op">&lt;=</span> a<span class="op">)</span> ok <span class="op">=</span> <span class="kw">false</span><span class="op">;</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>a <span class="op">+</span> c <span class="op">&lt;=</span> b<span class="op">)</span> ok <span class="op">=</span> <span class="kw">false</span><span class="op">;</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>a <span class="op">+</span> b <span class="op">&lt;=</span> c<span class="op">)</span> ok <span class="op">=</span> <span class="kw">false</span><span class="op">;</span></span>
 <span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    cout <span class="op">&lt;&lt;</span> <span class="op">(</span>ok <span class="op">?</span> <span class="st">"YES"</span> <span class="op">:</span> <span class="st">"NO"</span><span class="op">);</span></span>
 <span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>

@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.26">
+<meta name="generator" content="quarto-1.8.27">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>adhoc</title>
+<title>bfs</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -58,26 +58,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b758ccaa5987ceb1b75504551e579abf.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-8c4cfbd9f468203b83f6e3f70a9ac39c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-1a19f1ff3f6b51f8acfa176711c4c3c2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-8c4cfbd9f468203b83f6e3f70a9ac39c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../b3/trees/intro.html" rel="next">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-4d9afe2b8d18ee9fa5d0d57b5ed4214d.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-c1a847380091daaee67d10fbef673afd.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-1a19f1ff3f6b51f8acfa176711c4c3c2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-c1a847380091daaee67d10fbef673afd.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -109,7 +110,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </head>
 
-<body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+<body class="nav-sidebar floating nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
       const mode = bsSheetEl.getAttribute("data-mode");
       const bodyEl = window.document.querySelector("body");
@@ -278,8 +279,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../index.html">
-    <span class="navbar-title"><span class="light-content"> <img src="../logo-mawhiba-light.png" style="height:30px; margin:0 20px;"> <img src="../logo-nsmo-light.png" style="height:25px; margin:0 20px;"> </span> <span class="dark-content"> <img src="../logo-mawhiba-dark.png" style="height:30px; margin:0 20px;"> <img src="../logo-nsmo-dark.png" style="height:25px; margin:0 20px;"> </span></span>
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title"><span class="light-content"> <img src="../../logo-mawhiba-light.png" style="height:30px; margin:0 20px;"> <img src="../../logo-nsmo-light.png" style="height:25px; margin:0 20px;"> </span> <span class="dark-content"> <img src="../../logo-mawhiba-dark.png" style="height:30px; margin:0 20px;"> <img src="../../logo-nsmo-dark.png" style="height:25px; margin:0 20px;"> </span></span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -289,27 +290,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../b0/cpp/hello-world.html"> 
-<span class="menu-text">Stage 1</span></a>
+    <a class="nav-link" href="../../b0/cpp/hello-world.html"> 
+<span class="menu-text">المرحلة 1</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../b1/cpp/sets.html"> 
-<span class="menu-text">Stage 2</span></a>
+    <a class="nav-link" href="../../b1/cpp/sets.html"> 
+<span class="menu-text">المرحلة 2</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../b2/cpp/bitwise-operations.html"> 
-<span class="menu-text">Stage 3</span></a>
+    <a class="nav-link" href="../../b2/cpp/bitwise-operations.html"> 
+<span class="menu-text">المرحلة 3</span></a>
   </li>  
   <li class="nav-item">
     <span class="nav-link">
-<span class="menu-text">Stage 4</span>
+<span class="menu-text">المرحلة 4</span>
     </span>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../../ar/learn"> 
-<span class="menu-text">Arabic</span></a>
+    <a class="nav-link" href="../../../../en/learn"> 
+<span class="menu-text">English</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -318,28 +319,136 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
       </div> <!-- /container-fluid -->
     </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <a class="flex-grow-1 no-decor" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+          <h1 class="quarto-secondary-nav-title"></h1>
+        </a>     
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Graphs</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../b3/graphs/bfs.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">البحث بالعرض على الرسوم البيانية العامة</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Trees</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../b3/trees/intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">الأشجار</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../b3/trees/dp-on-trees.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">البرمجة الديناميكية على الأشجار</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Problems</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../b3/problems/labyrinth.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Labyrinth</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../b3/problems/tree-matching.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Tree Matching</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../b3/problems/counting-rooms.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Counting Rooms</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Practice Problems</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../b3/problems/subordinates.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Subordinates</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="10">
-    <h2 id="toc-title">On this page</h2>
+    <h2 id="toc-title">في هذه الصفحة</h2>
    
   <ul>
-  <li><a href="#ad-hoc-problems" id="toc-ad-hoc-problems" class="nav-link active" data-scroll-target="#ad-hoc-problems">Ad-hoc Problems</a>
+  <li><a href="#البحث-بالعرض-على-الرسوم-البيانية-العامة" id="toc-البحث-بالعرض-على-الرسوم-البيانية-العامة" class="nav-link active" data-scroll-target="#البحث-بالعرض-على-الرسوم-البيانية-العامة">البحث بالعرض على الرسوم البيانية العامة</a>
   <ul class="collapse">
-  <li><a href="#what-does-ad-hoc-mean" id="toc-what-does-ad-hoc-mean" class="nav-link" data-scroll-target="#what-does-ad-hoc-mean">What does ad-hoc mean?</a></li>
-  <li><a href="#typical-signs-of-an-ad-hoc-problem" id="toc-typical-signs-of-an-ad-hoc-problem" class="nav-link" data-scroll-target="#typical-signs-of-an-ad-hoc-problem">Typical signs of an ad-hoc problem</a></li>
-  <li><a href="#counting-wins" id="toc-counting-wins" class="nav-link" data-scroll-target="#counting-wins">Counting wins</a></li>
-  <li><a href="#rounding-grades" id="toc-rounding-grades" class="nav-link" data-scroll-target="#rounding-grades">Rounding grades</a></li>
-  <li><a href="#counting-digits" id="toc-counting-digits" class="nav-link" data-scroll-target="#counting-digits">Counting digits</a></li>
-  <li><a href="#how-to-approach-ad-hoc-problems" id="toc-how-to-approach-ad-hoc-problems" class="nav-link" data-scroll-target="#how-to-approach-ad-hoc-problems">How to approach ad-hoc problems</a></li>
-  <li><a href="#tips" id="toc-tips" class="nav-link" data-scroll-target="#tips">Tips</a></li>
-  <li><a href="#advantages" id="toc-advantages" class="nav-link" data-scroll-target="#advantages">Advantages</a></li>
-  <li><a href="#disadvantages" id="toc-disadvantages" class="nav-link" data-scroll-target="#disadvantages">Disadvantages</a></li>
-  <li><a href="#quick-summary" id="toc-quick-summary" class="nav-link" data-scroll-target="#quick-summary">Quick summary</a></li>
+  <li><a href="#فيم-تستخدم-bfs" id="toc-فيم-تستخدم-bfs" class="nav-link" data-scroll-target="#فيم-تستخدم-bfs">فيمَ تُستخدم BFS</a></li>
+  <li><a href="#الفكرة-الأساسية-طابور-زيارة-مسافة" id="toc-الفكرة-الأساسية-طابور-زيارة-مسافة" class="nav-link" data-scroll-target="#الفكرة-الأساسية-طابور-زيارة-مسافة">الفكرة الأساسية: طابور + زيارة / مسافة</a></li>
+  <li><a href="#التنفيذ" id="toc-التنفيذ" class="nav-link" data-scroll-target="#التنفيذ">التنفيذ</a></li>
+  <li><a href="#حدس-الطبقات-في-bfs-لماذا-تعمل-أقصر-المسارات" id="toc-حدس-الطبقات-في-bfs-لماذا-تعمل-أقصر-المسارات" class="nav-link" data-scroll-target="#حدس-الطبقات-في-bfs-لماذا-تعمل-أقصر-المسارات">حدس “الطبقات” في BFS (لماذا تعمل أقصر المسارات)</a></li>
+  <li><a href="#استخراج-أقصر-مسار-فعليا-ليس-فقط-المسافة" id="toc-استخراج-أقصر-مسار-فعليا-ليس-فقط-المسافة" class="nav-link" data-scroll-target="#استخراج-أقصر-مسار-فعليا-ليس-فقط-المسافة">استخراج أقصر مسار فعلياً (ليس فقط المسافة)</a></li>
+  <li><a href="#bfs-مقابل-dfs-فرق-عملي" id="toc-bfs-مقابل-dfs-فرق-عملي" class="nav-link" data-scroll-target="#bfs-مقابل-dfs-فرق-عملي">BFS مقابل DFS (فرق عملي)</a></li>
+  <li><a href="#ملخص-سريع" id="toc-ملخص-سريع" class="nav-link" data-scroll-target="#ملخص-سريع">ملخص سريع</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -351,200 +460,157 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<section id="ad-hoc-problems" class="level1">
-<h1>Ad-hoc Problems</h1>
-<p>An <strong>ad-hoc</strong> problem is one that doesn’t fit into a standard category like greedy, sorting, simulation, or dynamic programming (you will learn about this later).<br>
-It’s usually solved by careful observation, simple logic, and a few clever steps — not by using a known algorithm.</p>
-<p>Think of ad-hoc problems as <em>“puzzle problems”</em> — each one has its own unique trick.</p>
-<section id="what-does-ad-hoc-mean" class="level2">
-<h2 data-anchor-id="what-does-ad-hoc-mean">What does ad-hoc mean?</h2>
-<p>“Ad-hoc” is Latin for “for this situation.”<br>
-In programming, it means you design a custom solution just for the given problem.</p>
-<p>There’s no formula or template — you must read carefully, find what’s being asked, and come up with your own way to solve it.</p>
-</section>
-<section id="typical-signs-of-an-ad-hoc-problem" class="level2">
-<h2 data-anchor-id="typical-signs-of-an-ad-hoc-problem">Typical signs of an ad-hoc problem</h2>
+<section id="البحث-بالعرض-على-الرسوم-البيانية-العامة" class="level1" dir="rtl">
+<h1>البحث بالعرض على الرسوم البيانية العامة</h1>
+<p>خوارزمية BFS (البحث بالعرض) هي اجتياز للرسم البياني مثل DFS، لكنها تستكشف العقد على شكل <strong>طبقات</strong> حسب المسافة من عقدة البداية.</p>
+<p>BFS فكرتها: “زر كل شيء يبعد خطوة واحدة، ثم خطوتين، ثم ثلاث خطوات…”</p>
+<hr>
+<section id="فيم-تستخدم-bfs" class="level2">
+<h2 data-anchor-id="فيم-تستخدم-bfs">فيمَ تُستخدم BFS</h2>
+<p>BFS هي الأداة الأساسية لـ:</p>
 <ul>
-<li>The problem statement sounds strange or story-like.<br>
-</li>
-<li>No standard algorithm (like binary search or sorting) fits it.<br>
-</li>
-<li>You can solve it with basic logic, loops, and conditions.<br>
-</li>
-<li>It often involves counting, comparing, or simulating something directly.</li>
+<li><strong>أقصر مسار في رسم بياني غير موزون</strong> (تكلفة كل حرف = <span dir="ltr">1</span>)</li>
+<li><strong>أقل عدد أحرف</strong> من عقدة البداية إلى جميع العقد</li>
+<li>التحقق من الاتصال / المكونات</li>
 </ul>
-<p>These are the “think on your feet” problems.</p>
+<p>الضمان الأساسي:</p>
+<blockquote class="blockquote">
+<p>في رسم بياني غير موزون، BFS تجد أقصر مسافة (أقل عدد أحرف) من عقدة البداية إلى كل عقدة يمكن الوصول لها.</p>
+</blockquote>
+<hr>
 </section>
-<section id="counting-wins" class="level2 problem-toc-header">
-<h2 class="problem-toc-header" data-anchor-id="counting-wins">Counting wins</h2>
-<div class="problem-card">
-<div class="problem-header">
-<span class="problem-title">Counting wins</span>
-<div class="problem-meta">
-<span class="problem-origin"></span>
-</div>
-</div>
-<div class="problem-body">
-<p>You are given results of a few matches: “A” if Alice wins, “B” if Bob wins. Print who won more games.</p>
-</div>
-</div>
-</section>
-<div>
-<div class="solution-card">
-<p><span class="solution-title">Solution</span></p>
-<div class="problem-body">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;string&gt;</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> <span class="kw">namespace</span> std<span class="op">;</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    string s<span class="op">;</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    cin <span class="op">&gt;&gt;</span> s<span class="op">;</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> a <span class="op">=</span> <span class="dv">0</span><span class="op">,</span> b <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">char</span> c <span class="op">:</span> s<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>c <span class="op">==</span> <span class="ch">'A'</span><span class="op">)</span> a<span class="op">++;</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span> <span class="cf">if</span> <span class="op">(</span>c <span class="op">==</span> <span class="ch">'B'</span><span class="op">)</span> b<span class="op">++;</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>a <span class="op">&gt;</span> b<span class="op">)</span> cout <span class="op">&lt;&lt;</span> <span class="st">"Alice"</span><span class="op">;</span></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span> <span class="cf">if</span> <span class="op">(</span>b <span class="op">&gt;</span> a<span class="op">)</span> cout <span class="op">&lt;&lt;</span> <span class="st">"Bob"</span><span class="op">;</span></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span> cout <span class="op">&lt;&lt;</span> <span class="st">"Draw"</span><span class="op">;</span></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>This problem has no formula or algorithm — you just follow the logic directly.</p>
-</div>
-</div>
-</div>
-<section id="rounding-grades" class="level2 problem-toc-header">
-<h2 class="problem-toc-header" data-anchor-id="rounding-grades">Rounding grades</h2>
-<div class="problem-card">
-<div class="problem-header">
-<span class="problem-title">Rounding grades</span>
-<div class="problem-meta">
-<span class="problem-origin"></span>
-</div>
-</div>
-<div class="problem-body">
-<p>A student’s grade is rounded up to the next multiple of 5 if it’s within 2 points.<br>
-Otherwise, it stays the same.</p>
-</div>
-</div>
-</section>
-<div>
-<div class="solution-card">
-<p><span class="solution-title">Solution</span></p>
-<div class="problem-body">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> <span class="kw">namespace</span> std<span class="op">;</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> grade<span class="op">;</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    cin <span class="op">&gt;&gt;</span> grade<span class="op">;</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> next <span class="op">=</span> <span class="op">((</span>grade <span class="op">/</span> <span class="dv">5</span><span class="op">)</span> <span class="op">+</span> <span class="dv">1</span><span class="op">)</span> <span class="op">*</span> <span class="dv">5</span><span class="op">;</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>next <span class="op">-</span> grade <span class="op">&lt;</span> <span class="dv">3</span> <span class="op">&amp;&amp;</span> grade <span class="op">&gt;=</span> <span class="dv">38</span><span class="op">)</span></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>        cout <span class="op">&lt;&lt;</span> next<span class="op">;</span></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>        cout <span class="op">&lt;&lt;</span> grade<span class="op">;</span></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>You just follow the description exactly. This is pure ad-hoc logic.</p>
-</div>
-</div>
-</div>
-<section id="counting-digits" class="level2 problem-toc-header">
-<h2 class="problem-toc-header" data-anchor-id="counting-digits">Counting digits</h2>
-<div class="problem-card">
-<div class="problem-header">
-<span class="problem-title">Counting digits</span>
-<div class="problem-meta">
-<span class="problem-origin"></span>
-</div>
-</div>
-<div class="problem-body">
-<p>Given a number, count how many times digit 7 appears.</p>
-</div>
-</div>
-</section>
-<div>
-<div class="solution-card">
-<p><span class="solution-title">Solution</span></p>
-<div class="problem-body">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> <span class="kw">namespace</span> std<span class="op">;</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> n<span class="op">;</span> cin <span class="op">&gt;&gt;</span> n<span class="op">;</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> count <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> <span class="op">(</span>n <span class="op">&gt;</span> <span class="dv">0</span><span class="op">)</span> <span class="op">{</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>n <span class="op">%</span> <span class="dv">10</span> <span class="op">==</span> <span class="dv">7</span><span class="op">)</span> count<span class="op">++;</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>        n <span class="op">/=</span> <span class="dv">10</span><span class="op">;</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    cout <span class="op">&lt;&lt;</span> count<span class="op">;</span></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>There’s no “digit counting algorithm” — you just do it manually. That’s ad-hoc.</p>
-</div>
-</div>
-</div>
-<section id="how-to-approach-ad-hoc-problems" class="level2">
-<h2 data-anchor-id="how-to-approach-ad-hoc-problems">How to approach ad-hoc problems</h2>
+<section id="الفكرة-الأساسية-طابور-زيارة-مسافة" class="level2">
+<h2 data-anchor-id="الفكرة-الأساسية-طابور-زيارة-مسافة">الفكرة الأساسية: طابور + زيارة / مسافة</h2>
+<p>BFS تستخدم <strong>طابوراً (queue)</strong> حتى تتم معالجة العقد بنفس ترتيب اكتشافها.</p>
+<p>نحافظ على:</p>
+<ul>
+<li><span dir="ltr"><code>dist[v] =</code></span> أقصر عدد أحرف من البداية إلى <span dir="ltr"><code>v</code></span><br>
+(<span dir="ltr"><code>-1</code></span> يعني “لم تتم زيارتها بعد”)</li>
+</ul>
+<p>الخطوات:</p>
 <ol type="1">
-<li>Read carefully. Understand exactly what happens step by step.<br>
-</li>
-<li>Simulate with examples. Try small cases manually to see the pattern.<br>
-</li>
-<li>Find the rule. Identify what changes and what stays the same.<br>
-</li>
-<li>Implement directly. Use if-statements, loops, or arrays to match the logic.</li>
+<li><p>ضع عقدة البداية في الطابور، واجعل <span dir="ltr"><code>dist[start] = 0</code></span></p></li>
+<li><p>اسحب عقدة <span dir="ltr"><code>v</code></span> من الطابور</p></li>
+<li><p>لكل جار <span dir="ltr"><code>to</code></span>:</p>
+<ul>
+<li>إذا كان غير مُزار، اجعل <span dir="ltr"><code>dist[to] = dist[v] + 1</code></span></li>
+<li>ثم أدخله إلى الطابور</li>
+</ul></li>
 </ol>
-<p>Ad-hoc is about translating the description into code.</p>
+<p>بما أن الطابور يعالج الطبقات الأقرب أولاً، فأول مرة تزور فيها عقدة تكون مضمونة عبر أقصر مسار.</p>
+<hr>
 </section>
-<section id="tips" class="level2">
-<h2 data-anchor-id="tips">Tips</h2>
+<section id="التنفيذ" class="level2">
+<h2 data-anchor-id="التنفيذ">التنفيذ</h2>
+<p>نفترض قائمة مجاورات:</p>
+<div dir="ltr">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> n<span class="op">;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>vector<span class="op">&lt;</span><span class="dt">int</span><span class="op">&gt;</span> g<span class="op">[</span>n<span class="op">];</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>BFS من مصدر واحد:</p>
+<div dir="ltr">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>vector<span class="op">&lt;</span><span class="dt">int</span><span class="op">&gt;</span> dist<span class="op">(</span>n<span class="op">,</span> <span class="op">-</span><span class="dv">1</span><span class="op">);</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>queue<span class="op">&lt;</span><span class="dt">int</span><span class="op">&gt;</span> q<span class="op">;</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> s <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>dist<span class="op">[</span>s<span class="op">]</span> <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>q<span class="op">.</span>push<span class="op">(</span>s<span class="op">);</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="op">(!</span>q<span class="op">.</span>empty<span class="op">())</span> <span class="op">{</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> v <span class="op">=</span> q<span class="op">.</span>front<span class="op">();</span> q<span class="op">.</span>pop<span class="op">();</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> to <span class="op">:</span> g<span class="op">[</span>v<span class="op">])</span> <span class="op">{</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>dist<span class="op">[</span>to<span class="op">]</span> <span class="op">!=</span> <span class="op">-</span><span class="dv">1</span><span class="op">)</span> <span class="cf">continue</span><span class="op">;</span>     <span class="co">// already visited</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>        dist<span class="op">[</span>to<span class="op">]</span> <span class="op">=</span> dist<span class="op">[</span>v<span class="op">]</span> <span class="op">+</span> <span class="dv">1</span><span class="op">;</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>        q<span class="op">.</span>push<span class="op">(</span>to<span class="op">);</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>الآن <span dir="ltr"><code>dist[v]</code></span> تكون:</p>
 <ul>
-<li>Try writing out a few examples by hand before coding.<br>
-</li>
-<li>Don’t overcomplicate — the solution is usually simpler than it looks.<br>
-</li>
-<li>Watch out for small edge cases (empty input, negatives, ties).<br>
-</li>
-<li>Clean, clear code matters more than fancy tricks.</li>
+<li><span dir="ltr"><code>0</code></span> لعقدة البداية</li>
+<li><span dir="ltr"><code>1</code></span> للعقد التي تبعد حرفاً واحداً</li>
+<li><span dir="ltr"><code>2</code></span> للعقد التي تبعد حرفين</li>
+<li>…إلخ</li>
+<li><span dir="ltr"><code>-1</code></span> إذا كانت غير قابلة للوصول من <span dir="ltr"><code>s</code></span></li>
+</ul>
+<hr>
+</section>
+<section id="حدس-الطبقات-في-bfs-لماذا-تعمل-أقصر-المسارات" class="level2">
+<h2 data-anchor-id="حدس-الطبقات-في-bfs-لماذا-تعمل-أقصر-المسارات">حدس “الطبقات” في BFS (لماذا تعمل أقصر المسارات)</h2>
+<p>عند تشغيل BFS:</p>
+<ul>
+<li>الطابور يحتوي أولاً على جميع العقد ذات المسافة <span dir="ltr">0</span></li>
+<li>ثم يكبر ليضم جميع العقد ذات المسافة <span dir="ltr">1</span></li>
+<li>ثم جميع العقد ذات المسافة <span dir="ltr">2</span></li>
+<li>…</li>
+</ul>
+<p>لذلك إذا تم اكتشاف <span dir="ltr"><code>to</code></span> من <span dir="ltr"><code>v</code></span>، فأول مرة تضبط فيها <span dir="ltr"><code>dist[to]</code></span> لابد أن تكون <span dir="ltr"><code>dist[v] + 1</code></span>، و <span dir="ltr"><code>v</code></span> أصلاً في أبكر طبقة ممكنة يمكنها الوصول إليه.</p>
+<p>لهذا السبب BFS تعطي أقصر المسارات في الرسوم البيانية غير الموزونة.</p>
+<hr>
+</section>
+<section id="استخراج-أقصر-مسار-فعليا-ليس-فقط-المسافة" class="level2">
+<h2 data-anchor-id="استخراج-أقصر-مسار-فعليا-ليس-فقط-المسافة">استخراج أقصر مسار فعلياً (ليس فقط المسافة)</h2>
+<p>خزن <span dir="ltr"><code>parent[to]</code></span> عند اكتشاف <span dir="ltr"><code>to</code></span>.</p>
+<div dir="ltr">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>vector<span class="op">&lt;</span><span class="dt">int</span><span class="op">&gt;</span> dist<span class="op">(</span>n<span class="op">,</span> <span class="op">-</span><span class="dv">1</span><span class="op">),</span> parent<span class="op">(</span>n<span class="op">,</span> <span class="op">-</span><span class="dv">1</span><span class="op">);</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>queue<span class="op">&lt;</span><span class="dt">int</span><span class="op">&gt;</span> q<span class="op">;</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> s <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>dist<span class="op">[</span>s<span class="op">]</span> <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>q<span class="op">.</span>push<span class="op">(</span>s<span class="op">);</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="op">(!</span>q<span class="op">.</span>empty<span class="op">())</span> <span class="op">{</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> v <span class="op">=</span> q<span class="op">.</span>front<span class="op">();</span> q<span class="op">.</span>pop<span class="op">();</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> to <span class="op">:</span> g<span class="op">[</span>v<span class="op">])</span> <span class="op">{</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>dist<span class="op">[</span>to<span class="op">]</span> <span class="op">!=</span> <span class="op">-</span><span class="dv">1</span><span class="op">)</span> <span class="cf">continue</span><span class="op">;</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>        dist<span class="op">[</span>to<span class="op">]</span> <span class="op">=</span> dist<span class="op">[</span>v<span class="op">]</span> <span class="op">+</span> <span class="dv">1</span><span class="op">;</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>        parent<span class="op">[</span>to<span class="op">]</span> <span class="op">=</span> v<span class="op">;</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>        q<span class="op">.</span>push<span class="op">(</span>to<span class="op">);</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>إعادة بناء المسار من <span dir="ltr"><code>s</code></span> إلى <span dir="ltr"><code>t</code></span>:</p>
+<div dir="ltr">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>vector<span class="op">&lt;</span><span class="dt">int</span><span class="op">&gt;</span> path<span class="op">;</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> t <span class="op">=</span> <span class="dv">7</span><span class="op">;</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>dist<span class="op">[</span>t<span class="op">]</span> <span class="op">!=</span> <span class="op">-</span><span class="dv">1</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> v <span class="op">=</span> t<span class="op">;</span> v <span class="op">!=</span> <span class="op">-</span><span class="dv">1</span><span class="op">;</span> v <span class="op">=</span> parent<span class="op">[</span>v<span class="op">])</span> path<span class="op">.</span>push_back<span class="op">(</span>v<span class="op">);</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    reverse<span class="op">(</span>path<span class="op">.</span>begin<span class="op">(),</span> path<span class="op">.</span>end<span class="op">());</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<hr>
+</section>
+<section id="bfs-مقابل-dfs-فرق-عملي" class="level2">
+<h2 data-anchor-id="bfs-مقابل-dfs-فرق-عملي">BFS مقابل DFS (فرق عملي)</h2>
+<ul>
+<li><p>DFS ممتازة لـ:</p>
+<ul>
+<li>استكشاف البنية</li>
+<li>كشف الدورات</li>
+<li>المكونات المتصلة</li>
+<li>الفرز الطوبولوجي (في الرسوم الموجهة اللا دورية)</li>
+</ul></li>
+<li><p>BFS ممتازة لـ:</p>
+<ul>
+<li>أقصر المسارات في الرسوم غير الموزونة</li>
+<li>مسائل “أقل عدد خطوات”</li>
+<li>الاستكشاف طبقة بطبقة</li>
+</ul></li>
+</ul>
+<hr>
+</section>
+<section id="ملخص-سريع" class="level2">
+<h2 data-anchor-id="ملخص-سريع">ملخص سريع</h2>
+<ul>
+<li>BFS تستخدم <strong>طابوراً (queue)</strong></li>
+<li>تزور العقد بترتيب <strong>مسافة متزايدة</strong> من البداية</li>
+<li>تعطي <strong>أطوال أقصر المسارات</strong> في الرسوم غير الموزونة</li>
+<li>باستخدام <span dir="ltr"><code>parent[]</code></span> يمكنك إعادة بناء أقصر مسار</li>
 </ul>
 </section>
-<section id="advantages" class="level2">
-<h2 data-anchor-id="advantages">Advantages</h2>
-<ul>
-<li>Often very simple once you understand the logic<br>
-</li>
-<li>Doesn’t need advanced algorithms or data structures<br>
-</li>
-<li>Great for beginners — builds careful thinking</li>
-</ul>
 </section>
-<section id="disadvantages" class="level2">
-<h2 data-anchor-id="disadvantages">Disadvantages</h2>
-<ul>
-<li>Each problem is unique — can’t reuse your old code<br>
-</li>
-<li>Hard to predict what kind of logic is needed<br>
-</li>
-<li>Can be tricky to spot small exceptions or edge cases</li>
-</ul>
-</section>
-<section id="quick-summary" class="level2">
-<h2 data-anchor-id="quick-summary">Quick summary</h2>
-<ul>
-<li>Ad-hoc means solving a problem by direct reasoning, not by a standard algorithm.<br>
-</li>
-<li>They often involve small rules, conditions, or counting.<br>
-</li>
-<li>Read carefully, simulate examples, and turn logic into code.<br>
-</li>
-<li>Stay calm — the simplest approach is usually the right one.</li>
-</ul>
 
 
-</section>
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -958,6 +1024,15 @@ Otherwise, it stays the same.</p>
     }
   });
   </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../b3/trees/intro.html" class="pagination-link" aria-label="الأشجار">
+        <span class="nav-page-text">الأشجار</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 
 
