@@ -13,7 +13,6 @@
     "section": "",
     "text": "We know how to check if one number is prime (\\(O(\\sqrt{N})\\)). But what if you need to find all prime numbers up to \\(1,000,000\\)?\nUsing the previous method inside a loop would be way too slow (\\(N \\times \\sqrt{N}\\)). We need a bulk operation. We need a sieve.\n\n\nInstead of checking numbers one by one, we filter them.\nImagine writing down all numbers from 1 to 20. 1. We know 2 is prime. Circle it. Now cross out all multiples of 2 (4, 6, 8, 10…). 2. The next uncrossed number is 3. Circle it. Cross out all multiples of 3 (6, 9, 12…). 3. The next uncrossed number is 5 (4 is crossed). Circle it. Cross out multiples…\nBy the time you reach the end, only the prime numbers remain uncrossed.\n\n\n\nWe use a boolean array isPrime[] where isPrime[i] is true if i is potentially prime. Initially, we assume everything is prime.\n\n\n\nCreate an array of booleans, set all to true.\nMark 0 and 1 as false (not prime).\nStart loop from i = 2.\nIf i is prime (true), it means no smaller number divided it.\nLoop through all multiples of i (2*i, 3*i…) and mark them false.\n\n\n\n\n#include &lt;iostream&gt;\n#include &lt;vector&gt;\nusing namespace std;\n\n// Maximum number we want to check (e.g., 1 million)\nconst int MAX_N = 1000000;\nvector&lt;bool&gt; is_prime(MAX_N + 1, true); // Assume all are prime first\n\nvoid sieve() {\n    is_prime[0] = is_prime[1] = false; // Edge cases\n\n    for (int i = 2; i * i &lt;= MAX_N; i++) {\n        // If i is not crossed out yet, it is a prime\n        if (is_prime[i]) {\n            // Cross out all multiples of i\n            // Optimization: Start from i * i (smaller multiples are already handled)\n            for (int j = i * i; j &lt;= MAX_N; j += i) {\n                is_prime[j] = false;\n            }\n        }\n    }\n}\n\n\n\nThis is a crucial optimization. When \\(i = 5\\), why don’t we cross out 10 (\\(2 \\times 5\\)) or 15 (\\(3 \\times 5\\))?\n\nBecause 10 was already crossed out by 2.\nBecause 15 was already crossed out by 3.\n\nThe first multiple of 5 that hasn’t been touched yet is \\(5 \\times 5 = 25\\).\n\n\n\nThis algorithm is famously efficient. Even though there are nested loops, it is surprisingly NOT \\(O(N^2)\\). It is \\(O(N \\log (\\log N))\\). That is almost linear. For \\(N = 10^7\\) (10 million), it runs in a fraction of a second.\n\n\n\n\n\n\n\n\n\nNoldbach\n\n\n\n\n\nNoldbach states that at least \\(k\\) prime numbers from \\(2\\) to \\(n\\) inclusively can be expressed as the sum of three integer numbers: two neighboring prime numbers and \\(1\\). For example, \\(19 = 7 + 11 + 1\\), or \\(13 = 5 + 7 + 1\\).\nTwo prime numbers are called neighboring if there are no other prime numbers between them.\nFind out if Noldbach is right or wrong.\n\n\n\n\n\nSolution\n\nTo solve this, we need a list of all prime numbers between \\(2\\) and \\(n\\). While you could test each number individually, the Sieve of Eratosthenes is faster for generating a list of primes in a range.\nAfter listing all the primes up to \\(n\\), we should check for every two consecutive prime numbers \\(p\\) and \\(q\\), whether \\(p + q + 1\\) is a prime number (remember from last lesson how to do this!).\n#include &lt;iostream&gt;\n#include &lt;vector&gt;\nusing namespace std;\n\n// Maximum number we want to check (e.g., 1 million)\nconst int MAX_N = 1000000;\nvector&lt;bool&gt; is_prime(MAX_N + 1, true); // Assume all are prime first\nvector&lt;int&gt; primes;\n\nint findPrime(int n) {\n    is_prime[0] = is_prime[1] = false; // Edge cases\n\n    for (int i = 2; i * i &lt;= MAX_N; i++) {\n        // If i is not crossed out yet, it is a prime\n        if (is_prime[i]) {\n            // Cross out all multiples of i\n            // Optimization: Start from i * i (smaller multiples are already handled)\n            for (int j = i * i; j &lt;= MAX_N; j += i) {\n                is_prime[j] = false;\n            }\n        }\n    }\n\n    for (int i = 2; i &lt;= n; ++i){\n        if (is_prime[i]) // We only care about prime numbers\n            primes.push_back(i);\n    }\n\n    int count = 0;\n    for (int i = 1; i &lt; (int)primes.size(); ++i){\n        if (is_prime[primes[i] + primes[i-1] + 1]){ // check whether consecutive primes + 1 is a prime\n            count++;\n        }\n    }\n\n    return count;\n}\n\n\nint main() { \n    int n, k;\n    cin &gt;&gt; n &gt;&gt; k;\n\n    int count = findPrime(n);\n\n    if (count &gt;= k)\n        cout &lt;&lt; \"YES\\n\";\n    else\n        cout &lt;&lt; \"NO\\n\";\n    return 0;\n}",
     "crumbs": [
-      "Stage 4",
       "Number Theory",
       "Sieve of Eratosthenes"
     ]
@@ -25,7 +24,6 @@
     "section": "",
     "text": "Instead of checking numbers one by one, we filter them.\nImagine writing down all numbers from 1 to 20. 1. We know 2 is prime. Circle it. Now cross out all multiples of 2 (4, 6, 8, 10…). 2. The next uncrossed number is 3. Circle it. Cross out all multiples of 3 (6, 9, 12…). 3. The next uncrossed number is 5 (4 is crossed). Circle it. Cross out multiples…\nBy the time you reach the end, only the prime numbers remain uncrossed.",
     "crumbs": [
-      "Stage 4",
       "Number Theory",
       "Sieve of Eratosthenes"
     ]
@@ -37,7 +35,6 @@
     "section": "",
     "text": "We use a boolean array isPrime[] where isPrime[i] is true if i is potentially prime. Initially, we assume everything is prime.\n\n\n\nCreate an array of booleans, set all to true.\nMark 0 and 1 as false (not prime).\nStart loop from i = 2.\nIf i is prime (true), it means no smaller number divided it.\nLoop through all multiples of i (2*i, 3*i…) and mark them false.\n\n\n\n\n#include &lt;iostream&gt;\n#include &lt;vector&gt;\nusing namespace std;\n\n// Maximum number we want to check (e.g., 1 million)\nconst int MAX_N = 1000000;\nvector&lt;bool&gt; is_prime(MAX_N + 1, true); // Assume all are prime first\n\nvoid sieve() {\n    is_prime[0] = is_prime[1] = false; // Edge cases\n\n    for (int i = 2; i * i &lt;= MAX_N; i++) {\n        // If i is not crossed out yet, it is a prime\n        if (is_prime[i]) {\n            // Cross out all multiples of i\n            // Optimization: Start from i * i (smaller multiples are already handled)\n            for (int j = i * i; j &lt;= MAX_N; j += i) {\n                is_prime[j] = false;\n            }\n        }\n    }\n}\n\n\n\nThis is a crucial optimization. When \\(i = 5\\), why don’t we cross out 10 (\\(2 \\times 5\\)) or 15 (\\(3 \\times 5\\))?\n\nBecause 10 was already crossed out by 2.\nBecause 15 was already crossed out by 3.\n\nThe first multiple of 5 that hasn’t been touched yet is \\(5 \\times 5 = 25\\).\n\n\n\nThis algorithm is famously efficient. Even though there are nested loops, it is surprisingly NOT \\(O(N^2)\\). It is \\(O(N \\log (\\log N))\\). That is almost linear. For \\(N = 10^7\\) (10 million), it runs in a fraction of a second.",
     "crumbs": [
-      "Stage 4",
       "Number Theory",
       "Sieve of Eratosthenes"
     ]
@@ -49,7 +46,6 @@
     "section": "",
     "text": "Noldbach\n\n\n\n\n\nNoldbach states that at least \\(k\\) prime numbers from \\(2\\) to \\(n\\) inclusively can be expressed as the sum of three integer numbers: two neighboring prime numbers and \\(1\\). For example, \\(19 = 7 + 11 + 1\\), or \\(13 = 5 + 7 + 1\\).\nTwo prime numbers are called neighboring if there are no other prime numbers between them.\nFind out if Noldbach is right or wrong.",
     "crumbs": [
-      "Stage 4",
       "Number Theory",
       "Sieve of Eratosthenes"
     ]
@@ -61,7 +57,6 @@
     "section": "",
     "text": "Now that we know how to mix numbers (GCD/LCM), let’s look inside a single number.\nWe want to answer two big questions efficiently:\n\nWhat numbers divide \\(N\\)? (Divisors)\nIs \\(N\\) a prime number?\n\nIf \\(N\\) is small (like 50), this is easy. If \\(N\\) is 1,000,000,000, doing it the wrong way will freeze your code.\n\n\nThis is the most important trick in basic Number Theory.\nIf you want to find factors of 36, let’s list them in pairs:\n\n\\(1 \\times 36 = 36\\)\n\\(2 \\times 18 = 36\\)\n\\(3 \\times 12 = 36\\)\n\\(4 \\times 9 = 36\\)\n\\(6 \\times 6 = 36\\) &lt;– The Turning Point (\\(\\sqrt{36}\\))\n\\(9 \\times 4 = 36\\) &lt;– Repeat! We already saw {4, 9}\n\\(12 \\times 3 = 36\\) &lt;– Repeat!\n\\(18 \\times 2 = 36\\) &lt;– Repeat!\n\\(36 \\times 1 = 36\\) &lt;– Repeat!\n\nThe Insight: Factors always come in pairs. If \\(a \\times b = N\\), and \\(a\\) is small, then \\(b\\) must be big. They “meet” exactly at \\(\\sqrt{N}\\).\nRule: You never need to check numbers bigger than \\(\\sqrt{N}\\). If you haven’t found a factor by then, it doesn’t exist (or you already found its partner).\n\n\n\nGoal: Print all divisors of a number \\(N\\).\n\n\nLoop from 1 to \\(N\\). Complexity: \\(O(N)\\)\n// If N = 10^9, this takes ~10 second (too slow for many problems)\nfor (int i = 1; i &lt;= n; i++) {\n    if (n % i == 0) cout &lt;&lt; i &lt;&lt; \" \";\n}\n\n\n\nLoop from 1 to \\(\\sqrt{N}\\). When you find a divisor \\(i\\), you automatically find its partner \\(\\frac{n}{i}\\). Complexity: \\(O(\\sqrt{N})\\).\n#include &lt;iostream&gt;\n#include &lt;vector&gt;\n#include &lt;algorithm&gt; // for sort\nusing namespace std;\n\nint main() {\n    long long n = 36;\n    vector&lt;long long&gt; divisors;\n\n    // Notice: i * i &lt;= n is better than i &lt;= sqrt(n)\n    // It avoids slow floating-point math.\n    for (long long i = 1; i * i &lt;= n; i++) {\n        if (n % i == 0) {\n            divisors.push_back(i); // Add the small one\n            \n            // Add the big partner, but ONLY if they are different\n            // (Check to avoid adding 6 twice for n=36)\n            if (i != n / i) {\n                divisors.push_back(n / i);\n            }\n        }\n    }\n\n    // Note: The list won't be sorted (e.g., 1, 36, 2, 18...)\n\n    for (long long d : divisors) cout &lt;&lt; d &lt;&lt; \" \";\n}\n\n\n\n\nA Prime Number is a number greater than \\(1\\) that has exactly two divisors: 1 and itself.\n\n\nUsing the logic above: To prove a number is prime, we just need to verify it has no factors up to \\(\\sqrt{N}\\).\nbool isPrime(long long n) {\n    if (n &lt;= 1) return false; // 0 and 1 are not prime\n    \n    for (long long i = 2; i * i &lt;= n; i++) {\n        if (n % i == 0) {\n            return false; // Found a divisor! Not prime.\n        }\n    }\n    return true; // Survived the loop? It's prime.\n}\n\n\n\n\n\n\n\n\n\nThe Marching Band Formation\n\n\n\n\n\nA high school marching band has 240 members. The band director wants to arrange the members into a rectangular formation for a parade. However, there are specific constraints for the formation:\n\nAll members must be included in the formation.\nThe formation must be a solid rectangle (no empty spots).\nThere must be at least 10 rows.\nThere cannot be more than 20 rows.\n\nHow many different rectangular formations satisfy these conditions?\n\n\n\n\n\nSolution\n\nTo solve this, we need to find the divisors of 240. Since we are looking for pairs (Rows \\(\\times\\) Columns = 240), we can use the square root method to find the pairs efficiently.\nint findDivisors(int n) {\n    vector&lt;pair&lt;int, int&gt;&gt; divisors;\n    for (int i = 1; i * i &lt;= n; i++) {\n        if (n % i == 0) {\n            if (i * i == n) {\n                divisors.push_back({i, i});\n            } else {\n                divisors.push_back({i, n/i});\n                divisors.push_back({n/i, i}); // Add both combinations of i and n/i\n            }\n        }\n    }\n\n    int count = 0;\n    for (int i = 0; i &lt; (int)divisors.size(); ++i){\n        if (divisors[i].first &gt;= 10 && divisors[i].first &lt;= 20){\n            count++;\n        }\n    }\n\n    return count;\n}\nIf \\(N=240\\), the function finds \\(5\\) solutions. These are: - \\(10\\), \\(24\\) - \\(12\\), \\(20\\) - \\(15\\), \\(16\\) - \\(16\\), \\(15\\) - \\(20\\), \\(12\\)\n\n\n\n\n\n\n\nT-Prime\n\n\n\n\n\nWe know that prime numbers are positive integers that have exactly two distinct positive divisors. Similarly, we’ll call a positive integer \\(t\\) Т-prime, if \\(t\\) has exactly three distinct positive divisors.\nYou are given an array of \\(n\\) positive integers. For each of them determine whether it is Т-prime or not.\n\n\n\n\n\nSolution\n\nIt can be shown that only squares of prime numbers are T-primes, and that there are not too many of them. Why?\nIf we had two prime factors \\(p\\), \\(q\\) of a number \\(t\\), then it would be divisible by at least \\(p\\), \\(q\\), \\(pq\\), \\(1\\) - which is more than \\(3\\). Then, it must be a power of a prime number. You can easily see now that \\(t = p\\) or \\(t = p^3\\) and higher, doesn’t really work.\nint n;\ncin &gt;&gt; n;\n\nfor (int i = 0; i &lt; n; ++i){\n    int x;\n    cin &gt;&gt; x;\n\n    int y = sqrt(x);\n    if (y * y != x){\n        cout &lt;&lt; \"NO\\n\";\n        continue; //check whether x is a perfect square\n    }\n\n    if (isPrime(y))\n        cout &lt;&lt; \"YES\\n\";\n    else\n        cout &lt;&lt; \"NO\\n\"; \n}",
     "crumbs": [
-      "Stage 4",
       "Number Theory",
       "Divisors & Primes"
     ]
@@ -73,7 +68,6 @@
     "section": "",
     "text": "This is the most important trick in basic Number Theory.\nIf you want to find factors of 36, let’s list them in pairs:\n\n\\(1 \\times 36 = 36\\)\n\\(2 \\times 18 = 36\\)\n\\(3 \\times 12 = 36\\)\n\\(4 \\times 9 = 36\\)\n\\(6 \\times 6 = 36\\) &lt;– The Turning Point (\\(\\sqrt{36}\\))\n\\(9 \\times 4 = 36\\) &lt;– Repeat! We already saw {4, 9}\n\\(12 \\times 3 = 36\\) &lt;– Repeat!\n\\(18 \\times 2 = 36\\) &lt;– Repeat!\n\\(36 \\times 1 = 36\\) &lt;– Repeat!\n\nThe Insight: Factors always come in pairs. If \\(a \\times b = N\\), and \\(a\\) is small, then \\(b\\) must be big. They “meet” exactly at \\(\\sqrt{N}\\).\nRule: You never need to check numbers bigger than \\(\\sqrt{N}\\). If you haven’t found a factor by then, it doesn’t exist (or you already found its partner).",
     "crumbs": [
-      "Stage 4",
       "Number Theory",
       "Divisors & Primes"
     ]
@@ -85,7 +79,6 @@
     "section": "",
     "text": "Goal: Print all divisors of a number \\(N\\).\n\n\nLoop from 1 to \\(N\\). Complexity: \\(O(N)\\)\n// If N = 10^9, this takes ~10 second (too slow for many problems)\nfor (int i = 1; i &lt;= n; i++) {\n    if (n % i == 0) cout &lt;&lt; i &lt;&lt; \" \";\n}\n\n\n\nLoop from 1 to \\(\\sqrt{N}\\). When you find a divisor \\(i\\), you automatically find its partner \\(\\frac{n}{i}\\). Complexity: \\(O(\\sqrt{N})\\).\n#include &lt;iostream&gt;\n#include &lt;vector&gt;\n#include &lt;algorithm&gt; // for sort\nusing namespace std;\n\nint main() {\n    long long n = 36;\n    vector&lt;long long&gt; divisors;\n\n    // Notice: i * i &lt;= n is better than i &lt;= sqrt(n)\n    // It avoids slow floating-point math.\n    for (long long i = 1; i * i &lt;= n; i++) {\n        if (n % i == 0) {\n            divisors.push_back(i); // Add the small one\n            \n            // Add the big partner, but ONLY if they are different\n            // (Check to avoid adding 6 twice for n=36)\n            if (i != n / i) {\n                divisors.push_back(n / i);\n            }\n        }\n    }\n\n    // Note: The list won't be sorted (e.g., 1, 36, 2, 18...)\n\n    for (long long d : divisors) cout &lt;&lt; d &lt;&lt; \" \";\n}",
     "crumbs": [
-      "Stage 4",
       "Number Theory",
       "Divisors & Primes"
     ]
@@ -97,7 +90,6 @@
     "section": "",
     "text": "A Prime Number is a number greater than \\(1\\) that has exactly two divisors: 1 and itself.\n\n\nUsing the logic above: To prove a number is prime, we just need to verify it has no factors up to \\(\\sqrt{N}\\).\nbool isPrime(long long n) {\n    if (n &lt;= 1) return false; // 0 and 1 are not prime\n    \n    for (long long i = 2; i * i &lt;= n; i++) {\n        if (n % i == 0) {\n            return false; // Found a divisor! Not prime.\n        }\n    }\n    return true; // Survived the loop? It's prime.\n}",
     "crumbs": [
-      "Stage 4",
       "Number Theory",
       "Divisors & Primes"
     ]
@@ -109,7 +101,6 @@
     "section": "",
     "text": "The Marching Band Formation\n\n\n\n\n\nA high school marching band has 240 members. The band director wants to arrange the members into a rectangular formation for a parade. However, there are specific constraints for the formation:\n\nAll members must be included in the formation.\nThe formation must be a solid rectangle (no empty spots).\nThere must be at least 10 rows.\nThere cannot be more than 20 rows.\n\nHow many different rectangular formations satisfy these conditions?",
     "crumbs": [
-      "Stage 4",
       "Number Theory",
       "Divisors & Primes"
     ]
@@ -121,7 +112,6 @@
     "section": "",
     "text": "T-Prime\n\n\n\n\n\nWe know that prime numbers are positive integers that have exactly two distinct positive divisors. Similarly, we’ll call a positive integer \\(t\\) Т-prime, if \\(t\\) has exactly three distinct positive divisors.\nYou are given an array of \\(n\\) positive integers. For each of them determine whether it is Т-prime or not.",
     "crumbs": [
-      "Stage 4",
       "Number Theory",
       "Divisors & Primes"
     ]
@@ -133,7 +123,6 @@
     "section": "",
     "text": "A tree is a structure made of nodes (points) connected by edges (lines).\n\n\n\nExample tree\n\n\n\n\nA graph is a tree if it satisfies both:\n\nConnected: you can reach every node from any other node through the edges.\nNo cycles: you cannot start at a node, follow edges, and come back to the same node without repeating edges.\n\nA very useful equivalent rule:\n\nBetween any two nodes, there is exactly one simple path.\n\nThis “unique path” property is the main reason trees show up everywhere in problem solving.\n\n\n\n\n\nIf a tree has n nodes, it has exactly:\n\nn - 1 edges\n\n\n\n\nAdd one edge → creates a cycle\nIn a tree, there’s exactly one path between any two nodes u and v.\nIf you add a new edge (u, v):\n\nthe old path from u to v still exists\nplus the new direct edge\n\nSo you now have a loop: (old path u→v) + (new edge v→u) → that’s a cycle. It’s exactly one cycle because the old u↔︎v path in a tree is unique.\nRemove one edge → becomes disconnected\nEvery edge in a tree is a bridge. If you remove an edge (u, v):\n\nthere is no other route between u and v (otherwise a cycle would have existed)\nso the tree splits into two separate components (two parts).\n\n\n\n\n\nTrees are often given with undirected edges (both directions). To make many problems easier, we choose one node as a root.\nOnce you choose a root:\n\nEvery node (except the root) has exactly one parent (the neighbor closer to the root).\nA node may have multiple children (neighbors farther from the root).\ndepth[v] = how many edges from the root to v.\nsubtree(v) = v and everything under it (its descendants).\n\nRooting does not change the tree itself. It only gives it a direction and a “family structure” for reasoning.\n\n\n\nWe’ll assume:\nint n;                          // nodes are 0..n-1\nvector&lt;int&gt; g[n];       // adjacency list\nEach g[v] contains all neighbors of node v.\n\n\n\nvector&lt;int&gt; parent(n, -1), depth(n, 0);\n\nvoid dfs(int v, int p) {\n    parent[v] = p;\n    for (int to : g[v]) {\n        if (to == p) continue;\n        depth[to] = depth[v] + 1;\n        dfs(to, v);\n    }\n}\n\n\n\nparent[v]: the node above v in the rooted tree\ndepth[v]: distance from the root\n\n\n\n\n\nsub[v] = number of nodes in the subtree of v (including v).\nvector&lt;int&gt; sub(n, 1);\n\nvoid dfs_subtree(int v, int p) {\n    sub[v] = 1;\n    for (int to : g[v]) {\n        if (to == p) continue;\n        dfs_subtree(to, v);\n        sub[v] += sub[to];\n    }\n}\nCommon uses:\n\ncount how big a branch is\ncompute how many pairs or paths “go through” an edge\n\n\n\n\n\nTree = connected, no cycles\nUnique path between any two nodes\nn nodes ⇒ n-1 edges\nPick a root to define parent/children/depth/subtree\nDFS builds parent/depth/subtree sizes",
     "crumbs": [
-      "Stage 4",
       "Trees",
       "Trees"
     ]
@@ -145,7 +134,6 @@
     "section": "",
     "text": "A graph is a tree if it satisfies both:\n\nConnected: you can reach every node from any other node through the edges.\nNo cycles: you cannot start at a node, follow edges, and come back to the same node without repeating edges.\n\nA very useful equivalent rule:\n\nBetween any two nodes, there is exactly one simple path.\n\nThis “unique path” property is the main reason trees show up everywhere in problem solving.",
     "crumbs": [
-      "Stage 4",
       "Trees",
       "Trees"
     ]
@@ -157,7 +145,6 @@
     "section": "",
     "text": "If a tree has n nodes, it has exactly:\n\nn - 1 edges\n\n\n\n\nAdd one edge → creates a cycle\nIn a tree, there’s exactly one path between any two nodes u and v.\nIf you add a new edge (u, v):\n\nthe old path from u to v still exists\nplus the new direct edge\n\nSo you now have a loop: (old path u→v) + (new edge v→u) → that’s a cycle. It’s exactly one cycle because the old u↔︎v path in a tree is unique.\nRemove one edge → becomes disconnected\nEvery edge in a tree is a bridge. If you remove an edge (u, v):\n\nthere is no other route between u and v (otherwise a cycle would have existed)\nso the tree splits into two separate components (two parts).",
     "crumbs": [
-      "Stage 4",
       "Trees",
       "Trees"
     ]
@@ -169,7 +156,6 @@
     "section": "",
     "text": "Trees are often given with undirected edges (both directions). To make many problems easier, we choose one node as a root.\nOnce you choose a root:\n\nEvery node (except the root) has exactly one parent (the neighbor closer to the root).\nA node may have multiple children (neighbors farther from the root).\ndepth[v] = how many edges from the root to v.\nsubtree(v) = v and everything under it (its descendants).\n\nRooting does not change the tree itself. It only gives it a direction and a “family structure” for reasoning.",
     "crumbs": [
-      "Stage 4",
       "Trees",
       "Trees"
     ]
@@ -181,7 +167,6 @@
     "section": "",
     "text": "We’ll assume:\nint n;                          // nodes are 0..n-1\nvector&lt;int&gt; g[n];       // adjacency list\nEach g[v] contains all neighbors of node v.",
     "crumbs": [
-      "Stage 4",
       "Trees",
       "Trees"
     ]
@@ -193,7 +178,6 @@
     "section": "",
     "text": "vector&lt;int&gt; parent(n, -1), depth(n, 0);\n\nvoid dfs(int v, int p) {\n    parent[v] = p;\n    for (int to : g[v]) {\n        if (to == p) continue;\n        depth[to] = depth[v] + 1;\n        dfs(to, v);\n    }\n}\n\n\n\nparent[v]: the node above v in the rooted tree\ndepth[v]: distance from the root",
     "crumbs": [
-      "Stage 4",
       "Trees",
       "Trees"
     ]
@@ -205,7 +189,6 @@
     "section": "",
     "text": "sub[v] = number of nodes in the subtree of v (including v).\nvector&lt;int&gt; sub(n, 1);\n\nvoid dfs_subtree(int v, int p) {\n    sub[v] = 1;\n    for (int to : g[v]) {\n        if (to == p) continue;\n        dfs_subtree(to, v);\n        sub[v] += sub[to];\n    }\n}\nCommon uses:\n\ncount how big a branch is\ncompute how many pairs or paths “go through” an edge",
     "crumbs": [
-      "Stage 4",
       "Trees",
       "Trees"
     ]
@@ -217,7 +200,6 @@
     "section": "",
     "text": "Tree = connected, no cycles\nUnique path between any two nodes\nn nodes ⇒ n-1 edges\nPick a root to define parent/children/depth/subtree\nDFS builds parent/depth/subtree sizes",
     "crumbs": [
-      "Stage 4",
       "Trees",
       "Trees"
     ]
@@ -229,7 +211,6 @@
     "section": "",
     "text": "AtotheNmodM\n\n\nmedium\n\n\n\nGiven natural numbers \\(A, N\\), and \\(M\\). Determine whether the number \\(A^N\\) is divisible by \\(M\\).\nNote: Pay attention that the number \\(A^N\\) can be extremely large - it is recommended to factorize numbers \\(A\\) and \\(M\\) and analyze their prime factors!\nInput:\n\nThe first and only line of standard input contains, in order, the natural numbers \\(A, N\\), and \\(M\\).\n\nOutput:\n\nPrint “YES” if the number \\(A^N\\) is divisible by \\(M\\), otherwise print “NO”.\n\nConstraints:\n\n\\(1 \\leq A, N, M \\leq 10^9\\)\n\nIf this task is too hard for you, try solving it when * \\(A\\) and \\(M\\) are both powers of two\nOr, if it’s still too hard, try solving it when * \\(1 \\leq N \\leq 2\\)\nExample:\nInput:\n10 2 50\nOutput:\nYES",
     "crumbs": [
-      "Stage 4",
       "Problems",
       "AtotheNmodM"
     ]
@@ -241,7 +222,6 @@
     "section": "",
     "text": "AtotheNmodM\n\n\nmedium\n\n\n\nGiven natural numbers \\(A, N\\), and \\(M\\). Determine whether the number \\(A^N\\) is divisible by \\(M\\).\nNote: Pay attention that the number \\(A^N\\) can be extremely large - it is recommended to factorize numbers \\(A\\) and \\(M\\) and analyze their prime factors!\nInput:\n\nThe first and only line of standard input contains, in order, the natural numbers \\(A, N\\), and \\(M\\).\n\nOutput:\n\nPrint “YES” if the number \\(A^N\\) is divisible by \\(M\\), otherwise print “NO”.\n\nConstraints:\n\n\\(1 \\leq A, N, M \\leq 10^9\\)\n\nIf this task is too hard for you, try solving it when * \\(A\\) and \\(M\\) are both powers of two\nOr, if it’s still too hard, try solving it when * \\(1 \\leq N \\leq 2\\)\nExample:\nInput:\n10 2 50\nOutput:\nYES",
     "crumbs": [
-      "Stage 4",
       "Problems",
       "AtotheNmodM"
     ]
@@ -253,7 +233,6 @@
     "section": "",
     "text": "Amicable numbers\n\n\nmedium\n\n\n\nNatural numbers \\(A\\) and \\(B\\) are called amicable numbers if \\(B\\) is equal to the sum of all proper divisors of \\(A\\) (divisors excluding \\(A\\) itself), and \\(A\\) is equal to the sum of all proper divisors of \\(B\\) (excluding \\(B\\) itself).\nFor example, numbers 220 and 284 are amicable\nYou are given a natural number \\(M\\) and \\(M\\) queries. Each query consists of a number \\(n_i\\). For each query, answer: how many pairs of amicable numbers exist such that both numbers in the pair are not greater than \\(n_i\\)?\nInput:\n\nThe first line contains the natural number \\(M\\).\nThe next \\(M\\) lines each contain one natural number \\(n_i\\).\n\nOutput:\n\nFor each query, print the number of amicable pairs on a new line.\n\nConstraints:\n\n\\(1 \\leq M \\leq 10^5\\)\n\\(1 \\leq n \\leq 10^5\\)\n\nIf this task is too hard for you, try solving it when * \\(m = 1\\) and \\(n \\leq 10^5\\)\nOr, if it’s still too hard, try solving it when * \\(m = 1\\) and \\(n \\leq 3000\\)\nExample:\nInput:\n1\n2700\nOutput:\n2",
     "crumbs": [
-      "Stage 4",
       "Practice Problems",
       "Amicable Numbers"
     ]
@@ -265,7 +244,6 @@
     "section": "",
     "text": "Amicable numbers\n\n\nmedium\n\n\n\nNatural numbers \\(A\\) and \\(B\\) are called amicable numbers if \\(B\\) is equal to the sum of all proper divisors of \\(A\\) (divisors excluding \\(A\\) itself), and \\(A\\) is equal to the sum of all proper divisors of \\(B\\) (excluding \\(B\\) itself).\nFor example, numbers 220 and 284 are amicable\nYou are given a natural number \\(M\\) and \\(M\\) queries. Each query consists of a number \\(n_i\\). For each query, answer: how many pairs of amicable numbers exist such that both numbers in the pair are not greater than \\(n_i\\)?\nInput:\n\nThe first line contains the natural number \\(M\\).\nThe next \\(M\\) lines each contain one natural number \\(n_i\\).\n\nOutput:\n\nFor each query, print the number of amicable pairs on a new line.\n\nConstraints:\n\n\\(1 \\leq M \\leq 10^5\\)\n\\(1 \\leq n \\leq 10^5\\)\n\nIf this task is too hard for you, try solving it when * \\(m = 1\\) and \\(n \\leq 10^5\\)\nOr, if it’s still too hard, try solving it when * \\(m = 1\\) and \\(n \\leq 3000\\)\nExample:\nInput:\n1\n2700\nOutput:\n2",
     "crumbs": [
-      "Stage 4",
       "Practice Problems",
       "Amicable Numbers"
     ]
@@ -277,7 +255,6 @@
     "section": "",
     "text": "Subordinates\n\nCSES\neasy\n\n\n\nA company has n employees numbered 1..n. Employee 1 is the general director.\nFor every employee 2..n, you are given the number of their direct boss. This defines the company hierarchy (a boss can have many direct employees).\nYour task is to compute, for each employee 1..n, how many subordinates they have in total (both direct and indirect).\nInput:\n\nFirst line: integer n — number of employees.\nSecond line: n-1 integers p2 p3 ... pn where pi is the direct boss of employee i.\n\nOutput:\n\nPrint n integers: for each employee 1..n, the number of their subordinates.\n\nConstraints:\n\n1 ≤ n ≤ 2 · 10^5\n\nExample:\nInput:\n5\n1 1 2 3\nOutput:\n4 1 1 0 0",
     "crumbs": [
-      "Stage 4",
       "Practice Problems",
       "Subordinates"
     ]
@@ -289,7 +266,6 @@
     "section": "",
     "text": "Subordinates\n\nCSES\neasy\n\n\n\nA company has n employees numbered 1..n. Employee 1 is the general director.\nFor every employee 2..n, you are given the number of their direct boss. This defines the company hierarchy (a boss can have many direct employees).\nYour task is to compute, for each employee 1..n, how many subordinates they have in total (both direct and indirect).\nInput:\n\nFirst line: integer n — number of employees.\nSecond line: n-1 integers p2 p3 ... pn where pi is the direct boss of employee i.\n\nOutput:\n\nPrint n integers: for each employee 1..n, the number of their subordinates.\n\nConstraints:\n\n1 ≤ n ≤ 2 · 10^5\n\nExample:\nInput:\n5\n1 1 2 3\nOutput:\n4 1 1 0 0",
     "crumbs": [
-      "Stage 4",
       "Practice Problems",
       "Subordinates"
     ]
@@ -301,7 +277,6 @@
     "section": "",
     "text": "Counting Rooms\n\nCSES\neasy\n\n\n\nYou are given a map of a building, and your task is to count the number of its rooms. The size of the map is n × m squares, and each square is either floor or wall. You can walk left, right, up, and down through the floor squares.\nInput:\n\nFirst line: integers n and m — height and width.\nNext n lines: each has m characters:\n\n. floor\n# wall\n\n\nOutput:\n\nPrint one integer: the number of rooms.\n\nConstraints:\n\n1 ≤ n, m ≤ 1000\n\nExample:\nInput:\n5 8\n########\n#..#...#\n####.#.#\n#..#...#\n########\nOutput:\n3",
     "crumbs": [
-      "Stage 4",
       "Problems",
       "Counting Rooms"
     ]
@@ -313,7 +288,6 @@
     "section": "",
     "text": "Counting Rooms\n\nCSES\neasy\n\n\n\nYou are given a map of a building, and your task is to count the number of its rooms. The size of the map is n × m squares, and each square is either floor or wall. You can walk left, right, up, and down through the floor squares.\nInput:\n\nFirst line: integers n and m — height and width.\nNext n lines: each has m characters:\n\n. floor\n# wall\n\n\nOutput:\n\nPrint one integer: the number of rooms.\n\nConstraints:\n\n1 ≤ n, m ≤ 1000\n\nExample:\nInput:\n5 8\n########\n#..#...#\n####.#.#\n#..#...#\n########\nOutput:\n3",
     "crumbs": [
-      "Stage 4",
       "Problems",
       "Counting Rooms"
     ]
@@ -325,7 +299,6 @@
     "section": "",
     "text": "This is an algorithm that recursively explores neighbors of a vertex until all vertices are visited. The starting vertex is called the source.\n\n\nTraversal starts on some source vertex \\(u\\) and marks it as visited, if a neighbor of the current vertex is not visited move to that vertex and repeat. If all neighbors of the current vertex are visited then move back to the parent vertex.\nThe time complexity of this traversal is \\(O(N + M)\\) where \\(N\\) is the number of vertices and \\(M\\) is the number of edges.\nconst int maxN = 200'001;\n\nbool vis[maxN];\nvector&lt;int&gt; adj[maxN]; // adjacency list\n\nvoid dfs (int u) {\n    vis[u] = true;\n\n    for (int v : adj[u]) {\n        if (!vis[v]) dfs(v);\n    }\n}\n\n  \n\n\n\n\n\n\nPath Finding\n\n\neasy\n\n\n\nGiven an undirected graph \\(G\\) consisting of \\(N\\) vertices numbered \\(1\\) through \\(N\\) and \\(M\\) edges, check if vertex \\(1\\) can reach vertex \\(N\\) and print a possible path.\n\n\n\n\n\nSolution\n\nIf we start a DFS traversal on vertex \\(1\\), we can check vis[N] to know whether or not a path exists. Our goal is to retrieve the path our traversal took to reach vertex \\(N\\).\nTo achieve this, we will store an array \\(p\\) where \\(p_i\\) is the vertex which led the DFS to discover vertex \\(i\\). With this we can trace the path from \\(N\\) back to \\(1\\).\n\nconst int maxN = 200'001;\nint vis[maxN], p[maxN];\nvector&lt;int&gt; adj[maxN];\n\nvoid dfs (int u) {\n    vis[u] = true;\n    for (int v : adj[u]) {\n        if (!vis[v]) {\n            p[v] = u; // we discovered v through u\n            dfs(v);\n        }\n    }\n}\n\nint main () {\n    int n, m;\n    cin &gt;&gt; n &gt;&gt; m;\n\n    for (int i = 0 ; i &lt; m ; i++) {\n        int u, v;\n        cin &gt;&gt; u &gt;&gt; v;\n        adj[u].push_back(v);\n        adj[v].push_back(u);\n    }\n\n    dfs(1);\n\n    if (!vis[n]) cout &lt;&lt; \"No\";\n    else {\n        cout &lt;&lt; \"Yes\\n\";\n\n        vector&lt;int&gt; pth;\n        for (int i = n ; i != 1 ; i = p[i]) { // trace back loop \n            pth.push_back(i);  \n        }\n\n        reverse(pth.begin(), pth.end());\n        cout &lt;&lt; 1 &lt;&lt; ' '; \n        for (int i : pth) cout &lt;&lt; i &lt;&lt; ' ';\n    }\n}\n\n\n\n\n\n\n\n\nBuilding Teams\n\nCSES\neasy\n\n\n\nThere are \\(N\\) pupils in a class, and \\(M\\) friendships between them. Your task is to divide the pupils into two teams in such a way that no two pupils in a team are friends. You can freely choose the sizes of the teams.\n\n\n\n\n\nSolution\n\n\n\n\n\n\n\nTip\n\n\n\nIts a useful trick to try to visualize binary relationships as vertices and edges.\n\n\nWe can say that pupils are vertices and a friendship between 2 pupils connects them with an edge.\nWe notice that we must assign a color to each vertex (e.g either red or blue) such that the endpoints of each edge have different colors. This is known as two-coloring.\nFor any valid assignment, if we flip the color of each vertex from red to blue or vice versa, the assignment will remain valid, so we can assume that vertex \\(1\\) is always red.\nFrom that we can observe that all its neighbors must be blue and recursively we can assign colors to all vertices.\n\n\n\n\n\n\nImportant\n\n\n\nIf we color a vertex some color \\(C\\) then find out we previously colored one of its neighbors \\(C\\) as well then we must terminate immediately as we have found a contradiction.\n\n\nThe graph may consist of several separate components so we must solve for each one individually.\n\nconst int maxN = 200'001;\n\nbool vis[maxN], clr[maxN], contradiction = false;\nvector&lt;int&gt; adj[maxN];\n\nvoid dfs (int u) {\n    vis[u] = true;\n\n    for (int v : adj[u]) {\n        if (vis[v]) {\n            if (clr[v] == clr[u]) contradiction = true;\n        } else {\n            clr[v] = !clr[u];\n            dfs(v);\n        }\n    }\n}\n\nint main () { \n    int n, m;\n    cin &gt;&gt; n &gt;&gt; m;\n\n    for (int i = 0 ; i &lt; m ; i++) {\n        int u, v;\n        cin &gt;&gt; u &gt;&gt; v;\n        adj[u].push_back(v);\n        adj[v].push_back(u);\n    }\n\n    for (int i = 1 ; i &lt;= n ; i++) if (!vis[i]) dfs(i);\n\n    if (contradiction) cout &lt;&lt; \"IMPOSSIBLE\";\n    else {\n        for (int i = 1 ; i &lt;= n ; i++) cout &lt;&lt; 1 + clr[i] &lt;&lt; ' ';\n    }\n}",
     "crumbs": [
-      "Stage 4",
       "Graphs",
       "Depth First Search"
     ]
@@ -337,7 +310,6 @@
     "section": "",
     "text": "Traversal starts on some source vertex \\(u\\) and marks it as visited, if a neighbor of the current vertex is not visited move to that vertex and repeat. If all neighbors of the current vertex are visited then move back to the parent vertex.\nThe time complexity of this traversal is \\(O(N + M)\\) where \\(N\\) is the number of vertices and \\(M\\) is the number of edges.\nconst int maxN = 200'001;\n\nbool vis[maxN];\nvector&lt;int&gt; adj[maxN]; // adjacency list\n\nvoid dfs (int u) {\n    vis[u] = true;\n\n    for (int v : adj[u]) {\n        if (!vis[v]) dfs(v);\n    }\n}",
     "crumbs": [
-      "Stage 4",
       "Graphs",
       "Depth First Search"
     ]
@@ -349,7 +321,6 @@
     "section": "",
     "text": "Path Finding\n\n\neasy\n\n\n\nGiven an undirected graph \\(G\\) consisting of \\(N\\) vertices numbered \\(1\\) through \\(N\\) and \\(M\\) edges, check if vertex \\(1\\) can reach vertex \\(N\\) and print a possible path.",
     "crumbs": [
-      "Stage 4",
       "Graphs",
       "Depth First Search"
     ]
@@ -361,7 +332,6 @@
     "section": "",
     "text": "Building Teams\n\nCSES\neasy\n\n\n\nThere are \\(N\\) pupils in a class, and \\(M\\) friendships between them. Your task is to divide the pupils into two teams in such a way that no two pupils in a team are friends. You can freely choose the sizes of the teams.",
     "crumbs": [
-      "Stage 4",
       "Graphs",
       "Depth First Search"
     ]
@@ -373,7 +343,6 @@
     "section": "",
     "text": "BFS (Breadth-First Search) is a graph traversal like DFS, but it explores nodes in layers based on distance from a start node.\nBFS is like “visit everything 1 step away, then 2 steps away, then 3 steps away…”\n\n\nBFS is the go-to tool for:\n\nShortest path in an unweighted graph (each edge cost = 1)\nMinimum number of edges from a start node to all nodes\nChecking connectivity / components\n\nThe key guarantee:\n\nIn an unweighted graph, BFS finds the shortest distance (fewest edges) from the start node to every reachable node.\n\n\n\n\nBFS uses a queue so nodes are processed in the same order they were discovered.\nMaintain:\n\ndist[v] = shortest number of edges from start to v (-1 means “not visited yet”)\n\nProcess:\n\nPut the start node in the queue, set dist[start] = 0\nPop a node v\nFor each neighbor to:\n\nif it’s unvisited, set dist[to] = dist[v] + 1\npush it into the queue\n\n\nBecause the queue processes earlier layers first, the first time you visit a node is guaranteed to be via the shortest path.\n\n\n\nAssume adjacency list:\nint n;\nvector&lt;int&gt; g[n];\nBFS from a single source:\nvector&lt;int&gt; dist(n, -1);\nqueue&lt;int&gt; q;\n\nint s = 0;\ndist[s] = 0;\nq.push(s);\n\nwhile (!q.empty()) {\n    int v = q.front(); q.pop();\n    for (int to : g[v]) {\n        if (dist[to] != -1) continue;     // already visited\n        dist[to] = dist[v] + 1;\n        q.push(to);\n    }\n}\nNow dist[v] is:\n\n0 for the start node\n1 for nodes one edge away\n2 for nodes two edges away\netc.\n-1 if unreachable from s\n\n\n\n\nWhen BFS runs:\n\nthe queue first contains all nodes at distance 0\nthen it grows with all nodes at distance 1\nthen all nodes at distance 2\n…\n\nSo if to is discovered from v, the first time you set dist[to] it must be dist[v] + 1, and v is already the earliest possible layer that could reach it.\nThat’s why BFS gives shortest paths in unweighted graphs.\n\n\n\nStore parent[to] when you discover to.\nvector&lt;int&gt; dist(n, -1), parent(n, -1);\nqueue&lt;int&gt; q;\n\nint s = 0;\ndist[s] = 0;\nq.push(s);\n\nwhile (!q.empty()) {\n    int v = q.front(); q.pop();\n    for (int to : g[v]) {\n        if (dist[to] != -1) continue;\n        dist[to] = dist[v] + 1;\n        parent[to] = v;\n        q.push(to);\n    }\n}\nReconstruct path from s to t:\nvector&lt;int&gt; path;\nint t = 7;\nif (dist[t] != -1) {\n    for (int v = t; v != -1; v = parent[v]) path.push_back(v);\n    reverse(path.begin(), path.end());\n}\n\n\n\n\nDFS is great for:\n\nexploring structure\ndetecting cycles\nconnected components\ntopological sorting (directed acyclic graphs)\n\nBFS is great for:\n\nshortest paths in unweighted graphs\n“minimum steps” problems\nlevel-by-level exploration\n\n\n\n\n\n\nBFS uses a queue\nVisits nodes in increasing distance from the start\nGives shortest path lengths in unweighted graphs\nWith parent[], you can reconstruct the shortest path",
     "crumbs": [
-      "Stage 4",
       "Graphs",
       "BFS on General Graphs"
     ]
@@ -385,7 +354,6 @@
     "section": "",
     "text": "BFS is the go-to tool for:\n\nShortest path in an unweighted graph (each edge cost = 1)\nMinimum number of edges from a start node to all nodes\nChecking connectivity / components\n\nThe key guarantee:\n\nIn an unweighted graph, BFS finds the shortest distance (fewest edges) from the start node to every reachable node.",
     "crumbs": [
-      "Stage 4",
       "Graphs",
       "BFS on General Graphs"
     ]
@@ -397,7 +365,6 @@
     "section": "",
     "text": "BFS uses a queue so nodes are processed in the same order they were discovered.\nMaintain:\n\ndist[v] = shortest number of edges from start to v (-1 means “not visited yet”)\n\nProcess:\n\nPut the start node in the queue, set dist[start] = 0\nPop a node v\nFor each neighbor to:\n\nif it’s unvisited, set dist[to] = dist[v] + 1\npush it into the queue\n\n\nBecause the queue processes earlier layers first, the first time you visit a node is guaranteed to be via the shortest path.",
     "crumbs": [
-      "Stage 4",
       "Graphs",
       "BFS on General Graphs"
     ]
@@ -409,7 +376,6 @@
     "section": "",
     "text": "Assume adjacency list:\nint n;\nvector&lt;int&gt; g[n];\nBFS from a single source:\nvector&lt;int&gt; dist(n, -1);\nqueue&lt;int&gt; q;\n\nint s = 0;\ndist[s] = 0;\nq.push(s);\n\nwhile (!q.empty()) {\n    int v = q.front(); q.pop();\n    for (int to : g[v]) {\n        if (dist[to] != -1) continue;     // already visited\n        dist[to] = dist[v] + 1;\n        q.push(to);\n    }\n}\nNow dist[v] is:\n\n0 for the start node\n1 for nodes one edge away\n2 for nodes two edges away\netc.\n-1 if unreachable from s",
     "crumbs": [
-      "Stage 4",
       "Graphs",
       "BFS on General Graphs"
     ]
@@ -421,7 +387,6 @@
     "section": "",
     "text": "When BFS runs:\n\nthe queue first contains all nodes at distance 0\nthen it grows with all nodes at distance 1\nthen all nodes at distance 2\n…\n\nSo if to is discovered from v, the first time you set dist[to] it must be dist[v] + 1, and v is already the earliest possible layer that could reach it.\nThat’s why BFS gives shortest paths in unweighted graphs.",
     "crumbs": [
-      "Stage 4",
       "Graphs",
       "BFS on General Graphs"
     ]
@@ -433,7 +398,6 @@
     "section": "",
     "text": "Store parent[to] when you discover to.\nvector&lt;int&gt; dist(n, -1), parent(n, -1);\nqueue&lt;int&gt; q;\n\nint s = 0;\ndist[s] = 0;\nq.push(s);\n\nwhile (!q.empty()) {\n    int v = q.front(); q.pop();\n    for (int to : g[v]) {\n        if (dist[to] != -1) continue;\n        dist[to] = dist[v] + 1;\n        parent[to] = v;\n        q.push(to);\n    }\n}\nReconstruct path from s to t:\nvector&lt;int&gt; path;\nint t = 7;\nif (dist[t] != -1) {\n    for (int v = t; v != -1; v = parent[v]) path.push_back(v);\n    reverse(path.begin(), path.end());\n}",
     "crumbs": [
-      "Stage 4",
       "Graphs",
       "BFS on General Graphs"
     ]
@@ -445,7 +409,6 @@
     "section": "",
     "text": "DFS is great for:\n\nexploring structure\ndetecting cycles\nconnected components\ntopological sorting (directed acyclic graphs)\n\nBFS is great for:\n\nshortest paths in unweighted graphs\n“minimum steps” problems\nlevel-by-level exploration",
     "crumbs": [
-      "Stage 4",
       "Graphs",
       "BFS on General Graphs"
     ]
@@ -457,7 +420,6 @@
     "section": "",
     "text": "BFS uses a queue\nVisits nodes in increasing distance from the start\nGives shortest path lengths in unweighted graphs\nWith parent[], you can reconstruct the shortest path",
     "crumbs": [
-      "Stage 4",
       "Graphs",
       "BFS on General Graphs"
     ]
@@ -469,7 +431,6 @@
     "section": "",
     "text": "Square Root Decomposition is a technique that allows range queries to be computed in \\(O(\\sqrt n)\\) time, improving over the \\(O(n)\\) time required by a regular array.\n\n\n\n\n\n\nNote\n\n\n\nA range query is a query that asks to compute value (e.g., sum, minimum, or maximum) for a range of elements.\n\n\n\n\nLet’s consider an array \\(a\\) of length \\(n\\). To build a square root decomposition structure, we first divide \\(a\\) into blocks of size \\(\\lceil \\sqrt{n} \\rceil\\) (let’s call this \\(sz\\)). Then, for each block, we compute the relevant value (e.g., sum, minimum, or maximum) and store it in an array \\(b\\), where \\(b_i\\) represents the computed value for block \\(i\\).\n\n\n\n\n\n\nNote\n\n\n\n\\(\\lceil \\sqrt{n} \\rceil\\) is \\(\\sqrt n\\) rounded upwards to the nearest integer.\n\n\nSince \\(sz\\) is approximately \\(\\sqrt n\\), then the number of blocks will be around \\(\\frac{n}{\\sqrt n}\\) which is \\(\\sqrt n\\).\n\\[ \\underbrace{a_0, a_1, \\dots, a_{sz-1}}_{b_{0}}, \\underbrace{a_{sz}, a_{sz + 1}, \\dots, a_{2 * sz - 1}}_{b_{1}}, \\dots, \\underbrace{a_{(sz - 1) * sz}, a_{(sz - 1) * sz + 1}, \\dots, a_{n - 1}}_{b_{sz}} \\]\n\n\n\nSuppose we want to process a range query from \\(l\\) to \\(r\\).\nThe trivial approach is to loop through all elements from \\(l\\) to \\(r\\) and compute the relevant value. This takes \\(O(n)\\) time in the worst case.\nUsing a square root decomposition structure, we notice that the range \\([l, r]\\) usually fully covers several blocks, except possibly the first block (containing \\(l\\)) and the last block (containing \\(r\\)).\nTo answer the query efficiently, we first handle the two partially covered blocks separately. Then, we loop over the fully covered blocks in between, using the precomputed values for each block. This reduces the query time to \\(O(\\sqrt{n})\\).\n\n\n\nSome tasks require updating a specific index \\(j\\) to a new value \\(v\\) while still answering queries efficiently.\nTo do this, we simply update \\(a[j]\\) to \\(v\\), which takes \\(O(1)\\) time. For the block array \\(b\\), we observe that index \\(j\\) belongs to exactly one block. Therefore, we can recompute the relevant value for this block in \\(O(\\sqrt{n})\\) time.\nAs a result, the total complexity of a point update is \\(O(\\sqrt{n})\\).\n\n\n\nLet’s assume that we are calculating range maximum queries.\n\n\nHere we will build the structure.\nfor (int i = 0; i &lt; n; i++) {\n    b[i / sz] = max(a[i], b[i / sz]); // element i belongs to block i/sz\n}\n\n\n\nint queryMax(int l, int r) {\n    int blockL = l / sz;\n    int blockR = r / sz;\n\n    int ans = INT_MIN;\n\n    // special case when query starts and ends in the same block\n    if (blockL == blockR) { \n        for(int i = l; i &lt;= r; i++) {\n            ans = max(ans, a[i]);\n        }\n        return ans;\n    }\n\n    // compute first block\n    for (int i = l; i &lt; (blockL + 1) * sz; i++) {\n        ans = max(ans, a[i]);\n    }\n\n    // compute intermedieate blcoks\n    for (int i = blockL + 1; i &lt; blockR ; i++) {\n        ans = max(ans, b[i]);\n    }\n\n    // compute last block\n    for (int i = blockR * sz; i &lt;= r ; i++){\n        ans = max(ans , a[i]);\n    }\n\n    return ans;\n}\n\n\n\nvoid pointUpdate(int j , int v){\n    int blockJ = j / sz;\n\n    a[j] = v;\n    \n    //recompute b[blockJ]\n    b[blockJ] = INT_MIN;\n\n    for (int i = blockJ * sz; i &lt; (blockJ + 1) * sz; i++) {\n        b[blockJ] = max(b[blockJ], a[i]);\n    }\n}\n\n\n\n\n\n\nDynamic Range Minimum Queries\n\nCSES\neasy\n\n\n\nGiven array \\(x\\) of \\(n\\) elements and \\(q\\) queries. Each query is one of two types\n\n“1 \\(k\\) \\(u\\)”: update the value at position \\(k\\) to \\(u\\).\n“2 \\(a\\) \\(b\\)”: what is the minimum value in range [\\(a\\),\\(b\\)]?\n\n\n\n\n\n\nSolution\n\nThis task is similar to the previous implementation, but now we are asked to compute the minimum. There are a few minor considerations to keep in mind:\n\nThe arrays are defined globally, which is why we use MAXN as the maximum possible value for \\(n\\).\nIn the queries, we apply k--, l--, and r-- because the input is 1-indexed, while our implementation uses 0-indexed arrays.\n\n\n#include &lt;iostream&gt;\n#include &lt;cmath&gt;    \n#include &lt;climits&gt;  \n\nusing namespace std;\nconst int MAXN = 200000;\nconst int sz = (int)ceil(sqrt(MAXN));\nint a[MAXN];\nint b[sz]; \n\nint queryMin(int l, int r) {\n    int blockL = l / sz;\n    int blockR = r / sz;\n\n    int ans = INT_MAX;\n\n    // special case when query starts and ends in the same block\n    if (blockL == blockR) { \n        for(int i = l; i &lt;= r; i++) {\n            ans = min(ans, a[i]);\n        }\n        return ans;\n    }\n\n    // compute first block\n    for (int i = l; i &lt; (blockL + 1) * sz; i++) {\n        ans = min(ans, a[i]);\n    }\n\n    // compute intermedieate blcoks\n    for (int i = blockL + 1; i &lt; blockR ; i++) {\n        ans = min(ans, b[i]);\n    }\n\n    // compute last block\n    for (int i = blockR * sz; i &lt;= r ; i++){\n        ans = min(ans , a[i]);\n    }\n\n    return ans;\n}\n\nvoid pointUpdate(int j , int v){\n    int blockJ = j / sz;\n\n    a[j] = v;\n    \n    //recompute b[blockJ]\n    b[blockJ] = INT_MAX;\n\n    for (int i = blockJ * sz; i &lt; (blockJ + 1) * sz; i++) {\n        b[blockJ] = min(b[blockJ], a[i]);\n    }\n}\n\nint main() {\n    int n, q;\n    cin &gt;&gt; n &gt;&gt; q;\n\n    for (int i = 0; i &lt; n; i++) {\n        cin &gt;&gt; a[i];\n    }\n\n    for (int i = 0 ; i &lt; sz; i++) {\n        b[i] = INT_MAX;\n    }\n\n    for (int i = 0; i &lt; n; i++) {\n        b[i / sz] = min(a[i], b[i / sz]); // element i belongs to block i/sz\n    }\n\n    while (q--){\n        int type;\n        cin &gt;&gt; type;\n\n        if (type == 1){\n            int k , u;\n            cin &gt;&gt; k &gt;&gt; u;\n            k--;\n            pointUpdate(k, u);\n        }\n        else{\n            int l , r;\n            cin &gt;&gt; l &gt;&gt; r;\n            l--; r--;\n            cout &lt;&lt; queryMin(l , r) &lt;&lt; \"\\n\";\n        }\n    }\n}",
     "crumbs": [
-      "Stage 4",
       "Data Structures",
       "Square Root Decomposition"
     ]
@@ -481,7 +442,6 @@
     "section": "",
     "text": "Let’s consider an array \\(a\\) of length \\(n\\). To build a square root decomposition structure, we first divide \\(a\\) into blocks of size \\(\\lceil \\sqrt{n} \\rceil\\) (let’s call this \\(sz\\)). Then, for each block, we compute the relevant value (e.g., sum, minimum, or maximum) and store it in an array \\(b\\), where \\(b_i\\) represents the computed value for block \\(i\\).\n\n\n\n\n\n\nNote\n\n\n\n\\(\\lceil \\sqrt{n} \\rceil\\) is \\(\\sqrt n\\) rounded upwards to the nearest integer.\n\n\nSince \\(sz\\) is approximately \\(\\sqrt n\\), then the number of blocks will be around \\(\\frac{n}{\\sqrt n}\\) which is \\(\\sqrt n\\).\n\\[ \\underbrace{a_0, a_1, \\dots, a_{sz-1}}_{b_{0}}, \\underbrace{a_{sz}, a_{sz + 1}, \\dots, a_{2 * sz - 1}}_{b_{1}}, \\dots, \\underbrace{a_{(sz - 1) * sz}, a_{(sz - 1) * sz + 1}, \\dots, a_{n - 1}}_{b_{sz}} \\]",
     "crumbs": [
-      "Stage 4",
       "Data Structures",
       "Square Root Decomposition"
     ]
@@ -493,7 +453,6 @@
     "section": "",
     "text": "Suppose we want to process a range query from \\(l\\) to \\(r\\).\nThe trivial approach is to loop through all elements from \\(l\\) to \\(r\\) and compute the relevant value. This takes \\(O(n)\\) time in the worst case.\nUsing a square root decomposition structure, we notice that the range \\([l, r]\\) usually fully covers several blocks, except possibly the first block (containing \\(l\\)) and the last block (containing \\(r\\)).\nTo answer the query efficiently, we first handle the two partially covered blocks separately. Then, we loop over the fully covered blocks in between, using the precomputed values for each block. This reduces the query time to \\(O(\\sqrt{n})\\).",
     "crumbs": [
-      "Stage 4",
       "Data Structures",
       "Square Root Decomposition"
     ]
@@ -505,7 +464,6 @@
     "section": "",
     "text": "Some tasks require updating a specific index \\(j\\) to a new value \\(v\\) while still answering queries efficiently.\nTo do this, we simply update \\(a[j]\\) to \\(v\\), which takes \\(O(1)\\) time. For the block array \\(b\\), we observe that index \\(j\\) belongs to exactly one block. Therefore, we can recompute the relevant value for this block in \\(O(\\sqrt{n})\\) time.\nAs a result, the total complexity of a point update is \\(O(\\sqrt{n})\\).",
     "crumbs": [
-      "Stage 4",
       "Data Structures",
       "Square Root Decomposition"
     ]
@@ -517,7 +475,6 @@
     "section": "",
     "text": "Let’s assume that we are calculating range maximum queries.\n\n\nHere we will build the structure.\nfor (int i = 0; i &lt; n; i++) {\n    b[i / sz] = max(a[i], b[i / sz]); // element i belongs to block i/sz\n}\n\n\n\nint queryMax(int l, int r) {\n    int blockL = l / sz;\n    int blockR = r / sz;\n\n    int ans = INT_MIN;\n\n    // special case when query starts and ends in the same block\n    if (blockL == blockR) { \n        for(int i = l; i &lt;= r; i++) {\n            ans = max(ans, a[i]);\n        }\n        return ans;\n    }\n\n    // compute first block\n    for (int i = l; i &lt; (blockL + 1) * sz; i++) {\n        ans = max(ans, a[i]);\n    }\n\n    // compute intermedieate blcoks\n    for (int i = blockL + 1; i &lt; blockR ; i++) {\n        ans = max(ans, b[i]);\n    }\n\n    // compute last block\n    for (int i = blockR * sz; i &lt;= r ; i++){\n        ans = max(ans , a[i]);\n    }\n\n    return ans;\n}\n\n\n\nvoid pointUpdate(int j , int v){\n    int blockJ = j / sz;\n\n    a[j] = v;\n    \n    //recompute b[blockJ]\n    b[blockJ] = INT_MIN;\n\n    for (int i = blockJ * sz; i &lt; (blockJ + 1) * sz; i++) {\n        b[blockJ] = max(b[blockJ], a[i]);\n    }\n}",
     "crumbs": [
-      "Stage 4",
       "Data Structures",
       "Square Root Decomposition"
     ]
@@ -529,7 +486,6 @@
     "section": "",
     "text": "Dynamic Range Minimum Queries\n\nCSES\neasy\n\n\n\nGiven array \\(x\\) of \\(n\\) elements and \\(q\\) queries. Each query is one of two types\n\n“1 \\(k\\) \\(u\\)”: update the value at position \\(k\\) to \\(u\\).\n“2 \\(a\\) \\(b\\)”: what is the minimum value in range [\\(a\\),\\(b\\)]?",
     "crumbs": [
-      "Stage 4",
       "Data Structures",
       "Square Root Decomposition"
     ]
@@ -541,7 +497,6 @@
     "section": "",
     "text": "A data structure is a way of organizing and storing data in a container to optimize time and memory usage for specific tasks, such as inserting, querying, or deleting elements.\n\n\n\nThere are a couple of data structures that we have used before, such as:\n\nvector: A dynamic array that can grow or shrink.\nset: A container of unique elements that allows fast insertion, deletion, and lookup, all in \\(O(\\log n)\\) time.\nmap: A container of key-value pairs that supports fast retrieval, insertion, and deletion by key, all in \\(O(\\log n)\\) time.\n\nThese data structures are implemented and provided by standard libraries, and we have been using them without knowing how they are implemented. In this section we’ll look at some data structutures that we’ll implement ourselves and then use in our code.",
     "crumbs": [
-      "Stage 4",
       "Data Structures",
       "Data Structures"
     ]
@@ -553,7 +508,6 @@
     "section": "",
     "text": "A data structure is a way of organizing and storing data in a container to optimize time and memory usage for specific tasks, such as inserting, querying, or deleting elements.",
     "crumbs": [
-      "Stage 4",
       "Data Structures",
       "Data Structures"
     ]
@@ -565,7 +519,6 @@
     "section": "",
     "text": "There are a couple of data structures that we have used before, such as:\n\nvector: A dynamic array that can grow or shrink.\nset: A container of unique elements that allows fast insertion, deletion, and lookup, all in \\(O(\\log n)\\) time.\nmap: A container of key-value pairs that supports fast retrieval, insertion, and deletion by key, all in \\(O(\\log n)\\) time.\n\nThese data structures are implemented and provided by standard libraries, and we have been using them without knowing how they are implemented. In this section we’ll look at some data structutures that we’ll implement ourselves and then use in our code.",
     "crumbs": [
-      "Stage 4",
       "Data Structures",
       "Data Structures"
     ]
@@ -3944,7 +3897,6 @@
     "section": "",
     "text": "Segment tree is a data structure that allows efficient range query processing and updates on arrays.\nIn this section everything is assumed to be 1-indexed unless said otherwise.\n\n\nIt is a binary tree where each node represents the value of query on a segment (subarray) of the original array. The tree is built with the following rules:\n\nLeaf nodes represent a segment of length \\(1\\) .\nEach internal nodes represents a combination (sum, min, max, etc.) of it’s two children.\n\nLet’s say that we have the following array [2, 4, 6, 8]. A sum segment tree built on this array looks as follows:\n\n\n\n\n\ngraph TD\n    A[\"20 (1-4)\"]\n    B[\"6 (1-2)\"]\n    C[\"14 (3-4)\"]\n    D[\"2 (1-1)\"]\n    E[\"4 (2-2)\"]\n    F[\"6 (3-3)\"]\n    G[\"8 (4-4)\"]\n\n    A --&gt; B\n    A --&gt; C\n    B --&gt; D\n    B --&gt; E\n    C --&gt; F\n    C --&gt; G\n\n\n\n\n\n\nNote that the leaf nodes represent only one element and the other nodes merge it’s children by taking the sum of their values.\n\n\n\nLet N be the number of leaf nodes in a segment tree, and n be the length of the original array.\n\n\n\nIn a segment tree, the number of nodes at each level forms the sequence [1, 2, 4, …], i.e., powers of two.\nEach power of 2 is eqaul to the sum of all previous powers of 2 plus 1.\nTherefore, the total number of nodes in a segment tree is 2N - 1.\n\n\n\n\n\nIf the original array has n elements and n is not a power of two, we pad the array with additional elements so that the number of leaf nodes N becomes the next power of two, ensuring that the extra elements do not affect the values of the other nodes.\nIn the worst case, we may need to add up to n elements, because the next power of two is less than 2n.\n\n\n\nIf we change the previous example to [2, 4, 6], we need to add an element to make the length a power of two without affecting the other values. In this case, the best value to add is 0, since it does not change the sums of other nodes. The resulting segment tree will look like the following:\n\n\n\n\n\ngraph TD\n    A[\"12 (1-4)\"]\n    B[\"6 (1-2)\"]\n    C[\"6 (3-4)\"]\n    D[\"2 (1-1)\"]\n    E[\"4 (2-2)\"]\n    F[\"6 (3-3)\"]\n    G[\"0 (4-4) padded\"]\n\n    A --&gt; B\n    A --&gt; C\n    B --&gt; D\n    B --&gt; E\n    C --&gt; F\n    C --&gt; G\n\n\n\n\n\n\n\n\n\n\n\nWe will represent our segment tree as an array giving indices to each node. So the previous segment tree will be given indices as follows.\n\n\n\n\n\ngraph TD\n    A[\"1: sum = 12 (1-4)\"]\n    B[\"2: sum = 6 (1-2)\"]\n    C[\"3: sum = 6 (3-4)\"]\n    D[\"4: sum = 2 (1-1)\"]\n    E[\"5: sum = 4 (2-2)\"]\n    F[\"6: sum = 6 (3-3)\"]\n    G[\"7: sum = 0 (4-4) padded\"]\n\n    A --&gt; B\n    A --&gt; C\n    B --&gt; D\n    B --&gt; E\n    C --&gt; F\n    C --&gt; G\n\n\n\n\n\n\nEach node i has children at positions 2 * i and 2 * i + 1, and its parent is at position i / 2.\nIn this example, the number of leaf nodes N is 4, which is also the index of the first leaf node. Therefore, a leaf node at position i corresponds to index i - N + 1 in the original array.\n\n\n\nLet’s define a function query(id, l, r, ql, qr) that returns the answer to a query from ql to qr, where:\n\nid is the index of the current node.\nl is the beginning of the interval covered by the current node.\nr is the end of the interval covered by the current node.\nql is the beginning of the query range.\nqr is the end of the query range.\n\nThe function works as follows:\n\nIf [ql, qr] and [l, r] are completely disjoint, discard the current node, as it does not contribute to the query.\nIf [ql, qr] completely covers [l, r], return the value stored at the current node.\nOtherwise, split the range at the midpoint m = (l + r) / 2 and recurse on the children:\n\nquery(2 * id, l, m, ql, qr)\n\nquery(2 * id + 1, m + 1, r, ql, qr)\nThen merge the results from both children to obtain the answer for the current node.\n\n\nTo solve a query [ql, qr], call query(1, 1, N, ql, qr).\nThe time complexity of this algorithm is \\(O(\\log n)\\).\n\n\n\nSome problems will ask to update index j to value v. To do this we’ll update the leaf node at position j + N - 1 and recompute all it’s ancestors values.\nThe number of ancestors of leaf node j + N - 1 is logn. Therefore the complexity of point update is \\(O(\\log n)\\)\n\n\n\nWhen building a segment tree we only have two things: the original array a(0-indexed), and its size n.\n\n\nFirst we need to compute the number of leafs N. It can be computed in two ways:\nEither with an equation:\nint N = 1 &lt;&lt; (32 - __builtin_clz(n - 1));\nOr with a loop:\nint N;\nfor (N = 1; N &lt; n; N *= 2); // the ; is crucial\nThe size of the tree will be 2*N.\nint seg[2*N]\n\n\n\nWe’ll write the code to build a sum segment tree.\n\n\nTo build the tree we first need to put the leafs’ value.\nfor (int i = 0 ; i &lt; n; i++) {\n    seg[i + N] = a[i];\n}\nThen we pad new elements to complete the leafs.\nfor (int i = n + N; i &lt; 2*N; i++){\n    seg[i] = 0; // padded value depends on the segment tree\n}\n\n\n\n\nTo build Internal nodes we’ll loop over them in reverse order and merge their children.\nfor (int i = N - 1; i &gt; 0 ; i--) {\n    seg[i] = seg[i * 2] + seg[i * 2 + 1]; // merging children's values\n}\n\n\n\nint query(int id, int l, int r, int ql, int qr) {\n    // check if disjoint\n    if (ql &gt; r || l &gt; qr) {\n        return 0; \n    }\n    // check if [ql, qr] fully covers [l, r]\n    if (ql &lt;= l && r &lt;= qr) {\n        return seg[id];\n    }\n    // recurse and merge\n    int m = (l + r) / 2;\n    return query(id * 2, l, m, ql, qr) + query(id * 2 + 1, m + 1, r, ql, qr);\n}\n\n\n\nvoid pointUpdate(int j, int v){\n    a[j] = v;\n\n    int idx = j + N - 1;\n    seg[idx] = v;\n\n    // reconstruct all ancestors\n    for (int i = idx / 2; i &gt; 0; i /= 2) {\n        seg[i] = seg[i * 2] + seg[i * 2 + 1];\n    }\n}\n\n\n\n\n\n\n\n\n\nDynamic Range Minimum Queries\n\nCSES\neasy\n\n\n\nGiven array \\(x\\) of \\(n\\) elements and \\(q\\) queries. Each query is one of two types\n\n“1 \\(k\\) \\(u\\)”: update the value at position \\(k\\) to \\(u\\).\n“2 \\(a\\) \\(b\\)”: what is the minimum value in range [\\(a\\),\\(b\\)]?\n\n\n\n\n\n\nSolution\n\nWe’ll simply make a segment tree for minimum and apply the queries and point updates directly in it. Since the tree is a minimum sgment tree there will be some differences from the previous snippets because the\n\n#include &lt;iostream&gt;\n#include &lt;climits&gt;\nusing namespace std;\n\nconst int MAXN = 200000;\nconst int N = (1 &lt;&lt; (32 - __builtin_clz(MAXN - 1)));\n\nint seg[N * 2];\nint a[MAXN];\n\nint query(int id, int l, int r, int ql, int qr) {\n    // check if disjoint\n    if (ql &gt; r || l &gt; qr) {\n        return INT_MAX; \n    }\n    // check if [ql, qr] fully covers [l, r]\n    if (ql &lt;= l && r &lt;= qr) {\n        return seg[id];\n    }\n    // recurse and merge\n    int m = (l + r)/2;\n    return min(query(id * 2, l, m, ql, qr) , query(id * 2 + 1, m + 1, r, ql, qr));\n}\n\nvoid pointUpdate(int j, int v) {\n    a[j - 1] = v;\n\n    int idx = j + N - 1;\n    seg[idx] = v;\n\n    // reconstruct all ancestors\n    for (int i = idx/2; i &gt; 0; i /= 2) {\n        seg[i] = min(seg[i * 2] , seg[i * 2 + 1]);\n    }\n}\n\nint main() {\n    int n, q;\n    cin &gt;&gt; n &gt;&gt; q;\n\n    for (int i = 0; i &lt; n; i++) {\n        cin &gt;&gt; a[i];\n    }\n\n    for (int i = 0 ; i &lt; n; i++) {\n        seg[i + N] = a[i];\n    }\n\n    for (int i = n + N; i &lt; 2*N; i++) {\n        seg[i] = INT_MAX; // padded value depends on the segment tree\n    }\n\n    for (int i = N - 1; i &gt; 0; i--) {\n        seg[i] = min(seg[i * 2] , seg[i * 2 + 1]);\n    }\n\n    while (q--) {\n        int type;\n        cin &gt;&gt; type;\n        \n        if (type == 1) {\n            int k, u;\n            cin &gt;&gt; k &gt;&gt; u;\n            pointUpdate(k, u);\n        }\n        else {\n            int ql, qr;\n            cin &gt;&gt; ql &gt;&gt; qr;\n\n            cout &lt;&lt; query(1, 1, N, ql, qr) &lt;&lt; \"\\n\";\n        }\n    }\n\n}",
     "crumbs": [
-      "Stage 4",
       "Data Structures",
       "Segment trees"
     ]
@@ -3956,7 +3908,6 @@
     "section": "",
     "text": "It is a binary tree where each node represents the value of query on a segment (subarray) of the original array. The tree is built with the following rules:\n\nLeaf nodes represent a segment of length \\(1\\) .\nEach internal nodes represents a combination (sum, min, max, etc.) of it’s two children.\n\nLet’s say that we have the following array [2, 4, 6, 8]. A sum segment tree built on this array looks as follows:\n\n\n\n\n\ngraph TD\n    A[\"20 (1-4)\"]\n    B[\"6 (1-2)\"]\n    C[\"14 (3-4)\"]\n    D[\"2 (1-1)\"]\n    E[\"4 (2-2)\"]\n    F[\"6 (3-3)\"]\n    G[\"8 (4-4)\"]\n\n    A --&gt; B\n    A --&gt; C\n    B --&gt; D\n    B --&gt; E\n    C --&gt; F\n    C --&gt; G\n\n\n\n\n\n\nNote that the leaf nodes represent only one element and the other nodes merge it’s children by taking the sum of their values.",
     "crumbs": [
-      "Stage 4",
       "Data Structures",
       "Segment trees"
     ]
@@ -3968,7 +3919,6 @@
     "section": "",
     "text": "Let N be the number of leaf nodes in a segment tree, and n be the length of the original array.\n\n\n\nIn a segment tree, the number of nodes at each level forms the sequence [1, 2, 4, …], i.e., powers of two.\nEach power of 2 is eqaul to the sum of all previous powers of 2 plus 1.\nTherefore, the total number of nodes in a segment tree is 2N - 1.\n\n\n\n\n\nIf the original array has n elements and n is not a power of two, we pad the array with additional elements so that the number of leaf nodes N becomes the next power of two, ensuring that the extra elements do not affect the values of the other nodes.\nIn the worst case, we may need to add up to n elements, because the next power of two is less than 2n.\n\n\n\nIf we change the previous example to [2, 4, 6], we need to add an element to make the length a power of two without affecting the other values. In this case, the best value to add is 0, since it does not change the sums of other nodes. The resulting segment tree will look like the following:\n\n\n\n\n\ngraph TD\n    A[\"12 (1-4)\"]\n    B[\"6 (1-2)\"]\n    C[\"6 (3-4)\"]\n    D[\"2 (1-1)\"]\n    E[\"4 (2-2)\"]\n    F[\"6 (3-3)\"]\n    G[\"0 (4-4) padded\"]\n\n    A --&gt; B\n    A --&gt; C\n    B --&gt; D\n    B --&gt; E\n    C --&gt; F\n    C --&gt; G",
     "crumbs": [
-      "Stage 4",
       "Data Structures",
       "Segment trees"
     ]
@@ -3980,7 +3930,6 @@
     "section": "",
     "text": "We will represent our segment tree as an array giving indices to each node. So the previous segment tree will be given indices as follows.\n\n\n\n\n\ngraph TD\n    A[\"1: sum = 12 (1-4)\"]\n    B[\"2: sum = 6 (1-2)\"]\n    C[\"3: sum = 6 (3-4)\"]\n    D[\"4: sum = 2 (1-1)\"]\n    E[\"5: sum = 4 (2-2)\"]\n    F[\"6: sum = 6 (3-3)\"]\n    G[\"7: sum = 0 (4-4) padded\"]\n\n    A --&gt; B\n    A --&gt; C\n    B --&gt; D\n    B --&gt; E\n    C --&gt; F\n    C --&gt; G\n\n\n\n\n\n\nEach node i has children at positions 2 * i and 2 * i + 1, and its parent is at position i / 2.\nIn this example, the number of leaf nodes N is 4, which is also the index of the first leaf node. Therefore, a leaf node at position i corresponds to index i - N + 1 in the original array.",
     "crumbs": [
-      "Stage 4",
       "Data Structures",
       "Segment trees"
     ]
@@ -3992,7 +3941,6 @@
     "section": "",
     "text": "Let’s define a function query(id, l, r, ql, qr) that returns the answer to a query from ql to qr, where:\n\nid is the index of the current node.\nl is the beginning of the interval covered by the current node.\nr is the end of the interval covered by the current node.\nql is the beginning of the query range.\nqr is the end of the query range.\n\nThe function works as follows:\n\nIf [ql, qr] and [l, r] are completely disjoint, discard the current node, as it does not contribute to the query.\nIf [ql, qr] completely covers [l, r], return the value stored at the current node.\nOtherwise, split the range at the midpoint m = (l + r) / 2 and recurse on the children:\n\nquery(2 * id, l, m, ql, qr)\n\nquery(2 * id + 1, m + 1, r, ql, qr)\nThen merge the results from both children to obtain the answer for the current node.\n\n\nTo solve a query [ql, qr], call query(1, 1, N, ql, qr).\nThe time complexity of this algorithm is \\(O(\\log n)\\).",
     "crumbs": [
-      "Stage 4",
       "Data Structures",
       "Segment trees"
     ]
@@ -4004,7 +3952,6 @@
     "section": "",
     "text": "Some problems will ask to update index j to value v. To do this we’ll update the leaf node at position j + N - 1 and recompute all it’s ancestors values.\nThe number of ancestors of leaf node j + N - 1 is logn. Therefore the complexity of point update is \\(O(\\log n)\\)",
     "crumbs": [
-      "Stage 4",
       "Data Structures",
       "Segment trees"
     ]
@@ -4016,7 +3963,6 @@
     "section": "",
     "text": "When building a segment tree we only have two things: the original array a(0-indexed), and its size n.\n\n\nFirst we need to compute the number of leafs N. It can be computed in two ways:\nEither with an equation:\nint N = 1 &lt;&lt; (32 - __builtin_clz(n - 1));\nOr with a loop:\nint N;\nfor (N = 1; N &lt; n; N *= 2); // the ; is crucial\nThe size of the tree will be 2*N.\nint seg[2*N]\n\n\n\nWe’ll write the code to build a sum segment tree.\n\n\nTo build the tree we first need to put the leafs’ value.\nfor (int i = 0 ; i &lt; n; i++) {\n    seg[i + N] = a[i];\n}\nThen we pad new elements to complete the leafs.\nfor (int i = n + N; i &lt; 2*N; i++){\n    seg[i] = 0; // padded value depends on the segment tree\n}\n\n\n\n\nTo build Internal nodes we’ll loop over them in reverse order and merge their children.\nfor (int i = N - 1; i &gt; 0 ; i--) {\n    seg[i] = seg[i * 2] + seg[i * 2 + 1]; // merging children's values\n}\n\n\n\nint query(int id, int l, int r, int ql, int qr) {\n    // check if disjoint\n    if (ql &gt; r || l &gt; qr) {\n        return 0; \n    }\n    // check if [ql, qr] fully covers [l, r]\n    if (ql &lt;= l && r &lt;= qr) {\n        return seg[id];\n    }\n    // recurse and merge\n    int m = (l + r) / 2;\n    return query(id * 2, l, m, ql, qr) + query(id * 2 + 1, m + 1, r, ql, qr);\n}\n\n\n\nvoid pointUpdate(int j, int v){\n    a[j] = v;\n\n    int idx = j + N - 1;\n    seg[idx] = v;\n\n    // reconstruct all ancestors\n    for (int i = idx / 2; i &gt; 0; i /= 2) {\n        seg[i] = seg[i * 2] + seg[i * 2 + 1];\n    }\n}",
     "crumbs": [
-      "Stage 4",
       "Data Structures",
       "Segment trees"
     ]
@@ -4028,7 +3974,6 @@
     "section": "",
     "text": "Dynamic Range Minimum Queries\n\nCSES\neasy\n\n\n\nGiven array \\(x\\) of \\(n\\) elements and \\(q\\) queries. Each query is one of two types\n\n“1 \\(k\\) \\(u\\)”: update the value at position \\(k\\) to \\(u\\).\n“2 \\(a\\) \\(b\\)”: what is the minimum value in range [\\(a\\),\\(b\\)]?",
     "crumbs": [
-      "Stage 4",
       "Data Structures",
       "Segment trees"
     ]
@@ -4040,7 +3985,6 @@
     "section": "",
     "text": "ordered_set is a regular set but with two extra functionalities:\n\nfind_by_order(k): returns an iterator for the k-th smallest element (0-indexed) in \\(O(\\log n)\\).\norder_of_key(x): returns how many elements are strictly smaller than x in \\(O(\\log n)\\).\n\n\n\nTo be able to make an ordered set we need to write the following globally:\n#include &lt;ext/pb_ds/assoc_container.hpp&gt;\n#include &lt;ext/pb_ds/tree_policy.hpp&gt;\nusing namespace __gnu_pbds;\n\ntemplate&lt;typename T&gt;\nusing ordered_set = tree&lt;T, null_type, less&lt;T&gt;, rb_tree_tag, tree_order_statistics_node_update&gt; ordered_set;\nNow we’re ready to use it. To make an ordered set we simply write ordered_set&lt;T&gt;, where T is the desired type (e.g, int, long long, string, etc).\n\n\n\n\n\nSliding Window Median\n\nCSES\neasy\n\n\n\nGiven array \\(x\\) of \\(n\\) elements and a value \\(k\\). Print the median of all subarrays of length \\(k\\).\nThe median is the middle element when the elements are sorted. If the number of elements is even, there are two possible medians and we assume that the median is the smaller of them.\n\n\n\n\n\nSolution\n\nWe can solve this task using ordered_set by applying a sliding window over all subarrays of length \\(k\\). For each window, we find the \\(\\frac{k}{2}\\)-th smallest element using find_by_order(k/2) (note that if \\(k\\) is even, we instead take k/2 - 1).\nLike set, ordered_set does not allow duplicates. To handle this, we represent the original array as pairs, where the first element is the value and the second is its index, ensuring that all elements are distinct.\nSince we perform one insertion and one deletion for each shift of the window, the overall time complexity is \\(O(n \\log n)\\).\n\n#include &lt;iostream&gt;\nusing namespace std;\n\n#include &lt;ext/pb_ds/assoc_container.hpp&gt;\n#include &lt;ext/pb_ds/tree_policy.hpp&gt;\nusing namespace __gnu_pbds;\n\ntemplate&lt;typename T&gt;\nusing ordered_set = tree&lt;T, null_type, less&lt;T&gt;, rb_tree_tag, tree_order_statistics_node_update&gt;;\n\nint main() {\n    int n, k;\n    cin &gt;&gt; n &gt;&gt; k;\n\n    pair&lt;int, int&gt; a[n];\n    for (int i = 0; i &lt; n; i++) {\n        cin &gt;&gt; a[i].first;\n        a[i].second  = i;\n    }\n\n    ordered_set&lt;pair&lt;int ,int&gt; &gt; os;\n\n    //enter the first window\n    for (int i = 0 ; i &lt; k; i++){\n        os.insert(a[i]);\n    }\n\n    //print the median for the first window\n    int median;\n    if (k % 2 == 0){\n        median = k/2 - 1;\n    }\n    else{\n        median = k/2;\n    }\n\n    pair&lt;int ,int&gt; ans = *os.find_by_order(median);\n    cout &lt;&lt; ans.first &lt;&lt; ' ';\n\n    // move through all windows\n    for( int i = 0 ; i &lt; n - k ; i++){\n        //go to the next window\n        //removing the first element\n        os.erase(a[i]);\n\n        // adding the one after last\n        os.insert(a[i + k]);\n\n        //print the solution of this window\n        pair&lt;int , int&gt; ans = *os.find_by_order(median);\n        cout &lt;&lt; ans.first &lt;&lt; ' ';\n    }\n\n}",
     "crumbs": [
-      "Stage 4",
       "Data Structures",
       "Ordered Sets"
     ]
@@ -4052,7 +3996,6 @@
     "section": "",
     "text": "To be able to make an ordered set we need to write the following globally:\n#include &lt;ext/pb_ds/assoc_container.hpp&gt;\n#include &lt;ext/pb_ds/tree_policy.hpp&gt;\nusing namespace __gnu_pbds;\n\ntemplate&lt;typename T&gt;\nusing ordered_set = tree&lt;T, null_type, less&lt;T&gt;, rb_tree_tag, tree_order_statistics_node_update&gt; ordered_set;\nNow we’re ready to use it. To make an ordered set we simply write ordered_set&lt;T&gt;, where T is the desired type (e.g, int, long long, string, etc).",
     "crumbs": [
-      "Stage 4",
       "Data Structures",
       "Ordered Sets"
     ]
@@ -4064,7 +4007,6 @@
     "section": "",
     "text": "Sliding Window Median\n\nCSES\neasy\n\n\n\nGiven array \\(x\\) of \\(n\\) elements and a value \\(k\\). Print the median of all subarrays of length \\(k\\).\nThe median is the middle element when the elements are sorted. If the number of elements is even, there are two possible medians and we assume that the median is the smaller of them.",
     "crumbs": [
-      "Stage 4",
       "Data Structures",
       "Ordered Sets"
     ]
@@ -4076,7 +4018,6 @@
     "section": "",
     "text": "In an undirected graph, vertices \\(u\\) and \\(v\\) are said to belong to the same connected component if there exists a path connecting them. If a graph consists of a single component, its considered connected.\n\n\n\n\nBuilding Roads\n\nCSES\neasy\n\n\n\nThere are \\(n\\) cities, and \\(m\\) roads between them. Your task is to find out the minimum number of roads to add so that there is a route between any two cities, and also determine which roads should be built.\n\n\n\n\n\nSolution\n\nThe goal here is to add edges so the graph becomes connected. If we add an edge connecting vertices of the same component, the other components will be unaffected, and if we add an edge between vertices of different components they will merge.\nIf there are \\(C\\) components then we need to add \\(C - 1\\) edges. There are many ways to choose these edges, a simple way is to pick an arbitrary vertex from the first component and connect it to an arbitrary vertex from each of the remaining components.\n\nconst int maxN = 200'001;\n\nbool vis[maxN];\nvector&lt;int&gt; adj[maxN];\n\nvoid dfs (int u) {\n    vis[u] = true;\n\n    for (int v : adj[u]) {\n        if (!vis[v]) dfs(v);\n    }\n}\n\nint main () { \n    int n, m;\n    cin &gt;&gt; n &gt;&gt; m;\n\n    for (int i = 0 ; i &lt; m ; i++) {\n        int u, v;\n        cin &gt;&gt; u &gt;&gt; v;\n        adj[u].push_back(v);\n        adj[v].push_back(u);\n    }\n\n    vector&lt;int&gt; sources;\n\n    for (int i = 1 ; i &lt;= n ; i++) if (!vis[i]) {\n        sources.push_back(i);\n        dfs(i);\n    }\n\n    cout &lt;&lt; sources.size() - 1 &lt;&lt; endl;\n\n    for (int i = 1 ; i &lt; sources.size() ; i++) {\n        cout &lt;&lt; sources[0] &lt;&lt; ' ' &lt;&lt; sources[i] &lt;&lt; endl;\n    }\n}\n\n\n\n\n\n\n\n\nCyclic Components\n\nCodeforces\neasy\n\n\n\nGiven an undirected graph, count the number of components which are cycles. A component of \\(k\\) vertices \\(v_1, v_2, ..., v_k\\) is considered a cycle if it has exactly \\(k\\) edges: \\((v_1, v_2), (v_2, v_3), ..., (v_k, v_1)\\).\n\n\n\n\n\n\nNote\n\n\n\nIf there is any order of the vertices which satisfies the above condition then its a cycle.\n\n\n\n\n\n\n\nSolution\n\nIf a component is a cycle then all its vertices are adjacent to exactly \\(2\\) other vertices. In fact, this is a sufficient condition to determine if a component is a cycle.\nDFS can be used to explore all vertices of a component to validate this condition.\n\nconst int maxN = 200'001;\n\nvector&lt;int&gt; adj[maxN];\nbool vis[maxN];\n \nbool dfs (int u) {\n    vis[u] = 1;\n    bool ret = (adj[u].size() == 2);\n \n    for (int v : adj[u]) {\n        if (!vis[v]) ret &= dfs(v);\n    }\n \n    return ret;\n}\n \nint main () { \n    int n, m;\n    cin &gt;&gt; n &gt;&gt; m;\n \n    for (int i = 0 ; i &lt; m ; i++) {\n        int u, v;\n        cin &gt;&gt; u &gt;&gt; v;\n        adj[u].push_back(v);\n        adj[v].push_back(u);\n    }\n \n    int ans = 0;\n \n    for (int i = 1 ; i &lt;= n ; i++) {\n        if (!vis[i]) ans += dfs(i);\n    }\n    \n    cout &lt;&lt; ans &lt;&lt; endl;\n}",
     "crumbs": [
-      "Stage 4",
       "Graphs",
       "Connected Components"
     ]
@@ -4088,7 +4029,6 @@
     "section": "",
     "text": "Building Roads\n\nCSES\neasy\n\n\n\nThere are \\(n\\) cities, and \\(m\\) roads between them. Your task is to find out the minimum number of roads to add so that there is a route between any two cities, and also determine which roads should be built.",
     "crumbs": [
-      "Stage 4",
       "Graphs",
       "Connected Components"
     ]
@@ -4100,7 +4040,6 @@
     "section": "",
     "text": "Cyclic Components\n\nCodeforces\neasy\n\n\n\nGiven an undirected graph, count the number of components which are cycles. A component of \\(k\\) vertices \\(v_1, v_2, ..., v_k\\) is considered a cycle if it has exactly \\(k\\) edges: \\((v_1, v_2), (v_2, v_3), ..., (v_k, v_1)\\).\n\n\n\n\n\n\nNote\n\n\n\nIf there is any order of the vertices which satisfies the above condition then its a cycle.",
     "crumbs": [
-      "Stage 4",
       "Graphs",
       "Connected Components"
     ]
@@ -4112,7 +4051,6 @@
     "section": "",
     "text": "A graph is a mathematical structure that represents relationships between individual items called vertices. A single relationship is called an edge, which indicates that a pair of vertices are connected.\n\n\n\nA classic example of a graph is a network of cities connected by roads. Consider several cities in a country, some pairs of cities are connected by roads, while others are not. If you plan to travel from city \\(A\\) to city \\(B\\), you may need to pass through one or more intermediate cities along the way.\n\n\n\nRepresenting problems as graphs allows us to solve problems efficiently using graph algorithms, such as:\n\n“Is it possible to reach city \\(B\\) from city \\(A\\)?”\n“What is the shortest path from city \\(A\\) to city \\(B\\)?”\n\n\n\n\nThere are various types of graphs and various ways to store each type of graph. We will discuss the types that most commonly appear in problems and the ways to store them.\n\n\n\n\nEdges can sometimes have a direction, this means that an edge \\((U, V)\\) and edge \\((V, U)\\) are different. This is usually stated in a problem using a term like unidirectional or directed whereas terms like bidirectional and undirected mean that the edges have no specific direction.\n\n\n\nIn some graphs, edges (and possibly vertices) can have one or more values associated with them. An example of this would be to assign a duration to the roads in our cities and roads example. We can say that edge \\((U, V, W)\\) means that travelling along the road between cities \\(U\\) and \\(V\\) requires \\(W\\) time.\n\n\n\n\n\n\nNote\n\n\n\nNotice that in the phrasing of \\((U, V, W)\\) no specific direction for the edge was mentioned, so it is safe to assume the edge is undirected.\n\n\n\n\n\n\nBefore we discuss storing methods, we will discuss some queries we might perform that will help us compare different storing methods and understand what are the strengths and weaknesses of each.\n\nWhat is the space complexity of this method?\nWhat is the time complexity of checking if the edge \\((U, V)\\) exists?\nGiven some vertex \\(U\\), what is the time complexity of looping over all vertices \\(V\\) adjacent to it?\n\nWe must also understand how a graph is given to us in the input of a problem. The most common way is to first read \\(N\\) and \\(M\\) which represent the number of vertices and the number of edges respectively, then in each of the next \\(M\\) lines a pair of integers will be given \\(U\\) \\(V\\) (additionally maybe some weight \\(W\\)). This means there is an edge between vertices \\(U\\) and \\(V\\) (and if the graph is directed its usually from \\(U\\) to \\(V\\) unless stated otherwise).\n\n\n\n\n\n\nTip\n\n\n\nWe recommend you take a look at the website: Graph Editor\n\n\nFinally, its best practice to store all graph related containers globally. That is because most graph algorithms are best implemented with functions and its easier to access the graph if it was global. For this it is crucial to know the constraints on variables like \\(N\\) and \\(M\\) to properly set the sizes of our containers and avoid out of bounds access.\n\n\n\n\n\n\nCaution\n\n\n\nHere we assume that the graph cannot have multiple edges i.e a pair of vertices directly connected by several edges.\n\n\n\n\nThis is the simplest way to store edges, since the edges are given as a list of pairs we will store it directly into an array of pairs.\n\nconst int maxN = 100'000;\nconst int maxM = 200'000;\n\npair&lt;int,int&gt; E[maxM];\n\nint main () {\n    int n, m;\n    cin &gt;&gt; n &gt;&gt; m;\n\n    for (int i = 0 ; i &lt; m ; i++) {\n        int u, v; cin &gt;&gt; u &gt;&gt; v;\n        E[i] = {u, v};\n    }\n}\n\n\n\n\n\n\nNote\n\n\n\nFor weighted graphs we can define a struct to hold all \\(3\\) values or use std::tuple or std::array. Generally it’s best practice to avoid nesting pairs.\n\n\n\n\n\nCategory\nComplexity\n\n\n\n\nSpace\n\\(O(M)\\)\n\n\nChecking if an edge exists\n\\(O(M)\\)\n\n\nLooping over neighbors of a vertex\n\\(O(M)\\)\n\n\n\n\n\n\nIn this method we will create \\(N\\) lists, each one using a vector, where the \\(i_{th}\\) list stores all neighbors of vertex \\(i\\).\n\nconst int maxN = 100'000;\nconst int maxM = 200'000;\n\nvector&lt;int&gt; adjacency_list[maxN + 1]; // add one because usually vertices are 1-indexed\n\nint main () {\n    int n, m;\n    cin &gt;&gt; n &gt;&gt; m;\n\n    for (int i = 0 ; i &lt; m ; i++) {\n        int u, v; cin &gt;&gt; u &gt;&gt; v;\n        adjacency_list[u].push_back(v); // add v to the neighbors of u\n        adjacency_list[v].push_back(u); // if undirected, add u to v's list as well\n    }\n}\n\n\n\n\n\n\nNote\n\n\n\nFor weighted graphs we can use vector&lt;pair&lt;int,int&gt;&gt; where \\((V, W)\\) means \\(V\\) is a neighbor and the edge to it has weight \\(W\\).\n\n\n\n\n\n\n\n\n\nCategory\nComplexity\n\n\n\n\nSpace\n\\(O(M)\\)\n\n\nChecking if an edge exists\n\\(O(K)\\) where \\(K\\) is the number of neighbors\n\n\nLooping over neighbors of a vertex\n\\(O(K)\\) where \\(K\\) is the number of neighbors\n\n\n\n\n\n\n\n\n\nTip\n\n\n\nAlthough looping over the neighbors seems slow, it is in fact \\(O(M)\\) for all vertices combined.\n\n\n\n\n\n\n\n\nWarningChallenge\n\n\n\nCan you modify this container to speed up “checking if an edge exists” without affecting the other queries.\n\n\n\n\n\nThis method creates an \\(N \\times N\\) matrix of booleans \\(G\\) where \\(G_{i,j}\\) is true if vertex \\(i\\) is directly connected to vertex j and false otherwise.\nconst int maxN = 1'000;\nconst int maxM = 200'000;\n\nbool G[maxN + 1][maxN + 1] // add one because usually vertices are 1-indexed\n\nint main () {\n    int n, m;\n    cin &gt;&gt; n &gt;&gt; m;\n\n    for (int i = 0 ; i &lt; m ; i++) {\n        int u, v; cin &gt;&gt; u &gt;&gt; v;\n        G[u][v] = true;\n        G[v][u] = true; // if the graph is undirected we need to write this line as well\n    }\n}\n\n\n\n\n\n\nNote\n\n\n\nFor weighted graphs, instead of booleans, \\(G_{i, j}\\) can be an integer representing the weight of the edge from \\(i\\) to \\(j\\), but watch out for how you mark nonexistent edges.\n\n\n\n\n\nCategory\nComplexity\n\n\n\n\nSpace\n\\(O(N^2)\\)\n\n\nChecking if an edge exists\n\\(O(1)\\)\n\n\nLooping over neighbors of a vertex\n\\(O(N)\\)",
     "crumbs": [
-      "Stage 4",
       "Graphs",
       "Graphs"
     ]
@@ -4124,7 +4062,6 @@
     "section": "",
     "text": "A graph is a mathematical structure that represents relationships between individual items called vertices. A single relationship is called an edge, which indicates that a pair of vertices are connected.",
     "crumbs": [
-      "Stage 4",
       "Graphs",
       "Graphs"
     ]
@@ -4136,7 +4073,6 @@
     "section": "",
     "text": "A classic example of a graph is a network of cities connected by roads. Consider several cities in a country, some pairs of cities are connected by roads, while others are not. If you plan to travel from city \\(A\\) to city \\(B\\), you may need to pass through one or more intermediate cities along the way.",
     "crumbs": [
-      "Stage 4",
       "Graphs",
       "Graphs"
     ]
@@ -4148,7 +4084,6 @@
     "section": "",
     "text": "Representing problems as graphs allows us to solve problems efficiently using graph algorithms, such as:\n\n“Is it possible to reach city \\(B\\) from city \\(A\\)?”\n“What is the shortest path from city \\(A\\) to city \\(B\\)?”",
     "crumbs": [
-      "Stage 4",
       "Graphs",
       "Graphs"
     ]
@@ -4160,7 +4095,6 @@
     "section": "",
     "text": "There are various types of graphs and various ways to store each type of graph. We will discuss the types that most commonly appear in problems and the ways to store them.\n\n\n\n\nEdges can sometimes have a direction, this means that an edge \\((U, V)\\) and edge \\((V, U)\\) are different. This is usually stated in a problem using a term like unidirectional or directed whereas terms like bidirectional and undirected mean that the edges have no specific direction.\n\n\n\nIn some graphs, edges (and possibly vertices) can have one or more values associated with them. An example of this would be to assign a duration to the roads in our cities and roads example. We can say that edge \\((U, V, W)\\) means that travelling along the road between cities \\(U\\) and \\(V\\) requires \\(W\\) time.\n\n\n\n\n\n\nNote\n\n\n\nNotice that in the phrasing of \\((U, V, W)\\) no specific direction for the edge was mentioned, so it is safe to assume the edge is undirected.\n\n\n\n\n\n\nBefore we discuss storing methods, we will discuss some queries we might perform that will help us compare different storing methods and understand what are the strengths and weaknesses of each.\n\nWhat is the space complexity of this method?\nWhat is the time complexity of checking if the edge \\((U, V)\\) exists?\nGiven some vertex \\(U\\), what is the time complexity of looping over all vertices \\(V\\) adjacent to it?\n\nWe must also understand how a graph is given to us in the input of a problem. The most common way is to first read \\(N\\) and \\(M\\) which represent the number of vertices and the number of edges respectively, then in each of the next \\(M\\) lines a pair of integers will be given \\(U\\) \\(V\\) (additionally maybe some weight \\(W\\)). This means there is an edge between vertices \\(U\\) and \\(V\\) (and if the graph is directed its usually from \\(U\\) to \\(V\\) unless stated otherwise).\n\n\n\n\n\n\nTip\n\n\n\nWe recommend you take a look at the website: Graph Editor\n\n\nFinally, its best practice to store all graph related containers globally. That is because most graph algorithms are best implemented with functions and its easier to access the graph if it was global. For this it is crucial to know the constraints on variables like \\(N\\) and \\(M\\) to properly set the sizes of our containers and avoid out of bounds access.\n\n\n\n\n\n\nCaution\n\n\n\nHere we assume that the graph cannot have multiple edges i.e a pair of vertices directly connected by several edges.\n\n\n\n\nThis is the simplest way to store edges, since the edges are given as a list of pairs we will store it directly into an array of pairs.\n\nconst int maxN = 100'000;\nconst int maxM = 200'000;\n\npair&lt;int,int&gt; E[maxM];\n\nint main () {\n    int n, m;\n    cin &gt;&gt; n &gt;&gt; m;\n\n    for (int i = 0 ; i &lt; m ; i++) {\n        int u, v; cin &gt;&gt; u &gt;&gt; v;\n        E[i] = {u, v};\n    }\n}\n\n\n\n\n\n\nNote\n\n\n\nFor weighted graphs we can define a struct to hold all \\(3\\) values or use std::tuple or std::array. Generally it’s best practice to avoid nesting pairs.\n\n\n\n\n\nCategory\nComplexity\n\n\n\n\nSpace\n\\(O(M)\\)\n\n\nChecking if an edge exists\n\\(O(M)\\)\n\n\nLooping over neighbors of a vertex\n\\(O(M)\\)\n\n\n\n\n\n\nIn this method we will create \\(N\\) lists, each one using a vector, where the \\(i_{th}\\) list stores all neighbors of vertex \\(i\\).\n\nconst int maxN = 100'000;\nconst int maxM = 200'000;\n\nvector&lt;int&gt; adjacency_list[maxN + 1]; // add one because usually vertices are 1-indexed\n\nint main () {\n    int n, m;\n    cin &gt;&gt; n &gt;&gt; m;\n\n    for (int i = 0 ; i &lt; m ; i++) {\n        int u, v; cin &gt;&gt; u &gt;&gt; v;\n        adjacency_list[u].push_back(v); // add v to the neighbors of u\n        adjacency_list[v].push_back(u); // if undirected, add u to v's list as well\n    }\n}\n\n\n\n\n\n\nNote\n\n\n\nFor weighted graphs we can use vector&lt;pair&lt;int,int&gt;&gt; where \\((V, W)\\) means \\(V\\) is a neighbor and the edge to it has weight \\(W\\).\n\n\n\n\n\n\n\n\n\nCategory\nComplexity\n\n\n\n\nSpace\n\\(O(M)\\)\n\n\nChecking if an edge exists\n\\(O(K)\\) where \\(K\\) is the number of neighbors\n\n\nLooping over neighbors of a vertex\n\\(O(K)\\) where \\(K\\) is the number of neighbors\n\n\n\n\n\n\n\n\n\nTip\n\n\n\nAlthough looping over the neighbors seems slow, it is in fact \\(O(M)\\) for all vertices combined.\n\n\n\n\n\n\n\n\nWarningChallenge\n\n\n\nCan you modify this container to speed up “checking if an edge exists” without affecting the other queries.\n\n\n\n\n\nThis method creates an \\(N \\times N\\) matrix of booleans \\(G\\) where \\(G_{i,j}\\) is true if vertex \\(i\\) is directly connected to vertex j and false otherwise.\nconst int maxN = 1'000;\nconst int maxM = 200'000;\n\nbool G[maxN + 1][maxN + 1] // add one because usually vertices are 1-indexed\n\nint main () {\n    int n, m;\n    cin &gt;&gt; n &gt;&gt; m;\n\n    for (int i = 0 ; i &lt; m ; i++) {\n        int u, v; cin &gt;&gt; u &gt;&gt; v;\n        G[u][v] = true;\n        G[v][u] = true; // if the graph is undirected we need to write this line as well\n    }\n}\n\n\n\n\n\n\nNote\n\n\n\nFor weighted graphs, instead of booleans, \\(G_{i, j}\\) can be an integer representing the weight of the edge from \\(i\\) to \\(j\\), but watch out for how you mark nonexistent edges.\n\n\n\n\n\nCategory\nComplexity\n\n\n\n\nSpace\n\\(O(N^2)\\)\n\n\nChecking if an edge exists\n\\(O(1)\\)\n\n\nLooping over neighbors of a vertex\n\\(O(N)\\)",
     "crumbs": [
-      "Stage 4",
       "Graphs",
       "Graphs"
     ]
@@ -4172,7 +4106,6 @@
     "section": "",
     "text": "Labyrinth\n\nCSES\neasy\n\n\n\nYou are given a map of a labyrinth, and your task is to find a path from start to end. You can walk left, right, up and down.\nInput:\n\nFirst line: integers n and m — height and width.\nNext n lines: each has m characters:\n\n. floor\n# wall\nA start\nB end There is exactly one A and one B.\n\n\nOutput:\n\nPrint \"YES\" if there is a path, otherwise print \"NO\".\nIf there is a path, print:\n\nthe length of the shortest path\na string describing the path using L, R, U, D (any shortest path is acceptable)\n\n\nConstraints:\n\n1 ≤ n, m ≤ 1000\n\nExample:\nInput:\n5 8\n########\n#.A#...#\n#.##.#B#\n#......#\n########\nOutput:\nYES\n9\nLDDRRRRRU",
     "crumbs": [
-      "Stage 4",
       "Problems",
       "Labyrinth"
     ]
@@ -4184,7 +4117,6 @@
     "section": "",
     "text": "Labyrinth\n\nCSES\neasy\n\n\n\nYou are given a map of a labyrinth, and your task is to find a path from start to end. You can walk left, right, up and down.\nInput:\n\nFirst line: integers n and m — height and width.\nNext n lines: each has m characters:\n\n. floor\n# wall\nA start\nB end There is exactly one A and one B.\n\n\nOutput:\n\nPrint \"YES\" if there is a path, otherwise print \"NO\".\nIf there is a path, print:\n\nthe length of the shortest path\na string describing the path using L, R, U, D (any shortest path is acceptable)\n\n\nConstraints:\n\n1 ≤ n, m ≤ 1000\n\nExample:\nInput:\n5 8\n########\n#.A#...#\n#.##.#B#\n#......#\n########\nOutput:\nYES\n9\nLDDRRRRRU",
     "crumbs": [
-      "Stage 4",
       "Problems",
       "Labyrinth"
     ]
@@ -4196,7 +4128,6 @@
     "section": "",
     "text": "Tree Matching\n\nCSES\nmedium\n\n\n\nYou are given a tree consisting of n nodes.\nA matching is a set of edges where each node is an endpoint of at most one edge. What is the maximum number of edges in a matching?\nInput:\n\nFirst line: integer n — number of nodes (1..n).\nNext n-1 lines: edges a b describing an undirected tree edge.\n\nOutput:\n\nPrint one integer: the maximum size of a matching.\n\nConstraints:\n\n1 ≤ n ≤ 2 · 10^5\n\nExample:\nInput:\n5\n1 2\n1 3\n3 4\n3 5\nOutput:\n2\nExplanation: One possible matching is (1,2) and (3,4).",
     "crumbs": [
-      "Stage 4",
       "Problems",
       "Tree Matching"
     ]
@@ -4208,7 +4139,6 @@
     "section": "",
     "text": "Tree Matching\n\nCSES\nmedium\n\n\n\nYou are given a tree consisting of n nodes.\nA matching is a set of edges where each node is an endpoint of at most one edge. What is the maximum number of edges in a matching?\nInput:\n\nFirst line: integer n — number of nodes (1..n).\nNext n-1 lines: edges a b describing an undirected tree edge.\n\nOutput:\n\nPrint one integer: the maximum size of a matching.\n\nConstraints:\n\n1 ≤ n ≤ 2 · 10^5\n\nExample:\nInput:\n5\n1 2\n1 3\n3 4\n3 5\nOutput:\n2\nExplanation: One possible matching is (1,2) and (3,4).",
     "crumbs": [
-      "Stage 4",
       "Problems",
       "Tree Matching"
     ]
@@ -4220,7 +4150,6 @@
     "section": "",
     "text": "Product of Squares\n\n\neasy\n\n\n\nYou are given an integer \\(N\\), followed by \\(N\\) positive integers. For each given integer \\(A\\), determine if it can be represented as the product of two perfect squares, both strictly greater than \\(1\\). Formally, you need to check if there exist integers \\(x &gt; 1\\) and \\(y &gt; 1\\) such that:\n\\[A = x^2 \\cdot y^2\\]\nInput:\n\nThe first line contains an integer \\(N\\).\nThe next \\(N\\) lines contain the integers \\(A\\) to be checked.\n\nOutput:\n\nFor each integer \\(A\\), print “YES” if it satisfies the condition, and “NO” otherwise.\n\nConstraints:\n\n\\(1 \\leq N \\leq 1000\\)\n\\(1 \\leq A \\leq 10^{18}\\)\n\nIf this task is to hard for you, try solving it when * \\(1 \\leq A \\leq 10^9\\)\nOr, if it’s still too hard, try solving it when * \\(1 \\leq A \\leq 10^4\\)\nExample:\nInput:\n3\n9\n144\n234\nOutput:\nNO \nYES\nNO",
     "crumbs": [
-      "Stage 4",
       "Practice Problems",
       "Product of Squares"
     ]
@@ -4232,7 +4161,6 @@
     "section": "",
     "text": "Product of Squares\n\n\neasy\n\n\n\nYou are given an integer \\(N\\), followed by \\(N\\) positive integers. For each given integer \\(A\\), determine if it can be represented as the product of two perfect squares, both strictly greater than \\(1\\). Formally, you need to check if there exist integers \\(x &gt; 1\\) and \\(y &gt; 1\\) such that:\n\\[A = x^2 \\cdot y^2\\]\nInput:\n\nThe first line contains an integer \\(N\\).\nThe next \\(N\\) lines contain the integers \\(A\\) to be checked.\n\nOutput:\n\nFor each integer \\(A\\), print “YES” if it satisfies the condition, and “NO” otherwise.\n\nConstraints:\n\n\\(1 \\leq N \\leq 1000\\)\n\\(1 \\leq A \\leq 10^{18}\\)\n\nIf this task is to hard for you, try solving it when * \\(1 \\leq A \\leq 10^9\\)\nOr, if it’s still too hard, try solving it when * \\(1 \\leq A \\leq 10^4\\)\nExample:\nInput:\n3\n9\n144\n234\nOutput:\nNO \nYES\nNO",
     "crumbs": [
-      "Stage 4",
       "Practice Problems",
       "Product of Squares"
     ]
@@ -4244,7 +4172,6 @@
     "section": "",
     "text": "Tree DP is just dynamic programming where each node’s answer depends on its children’s answers (after we pick a root).\nIn its most basic form:\n\nRoot the tree (pick a node as the root)\nDo a DFS\nWhile returning from DFS (bottom-up), compute DP values for each node using its children\n\nWhy this works: Once a tree is rooted, each node “controls” its own subtree, and subtrees don’t overlap. So you can solve each subtree once and combine results.\n\n\nPick as many nodes as possible such that:\n\nyou never pick two adjacent nodes (no edge has both ends picked)\n\n\n\nIf you pick node v, you are forced to NOT pick all neighbors of v.\nIn a rooted tree, the important neighbors are:\n\nthe parent\nthe children\n\nSo the problem becomes a simple choice at each node:\n\npick this node → you must skip all children\nskip this node → each child can be picked or skipped, whichever is better\n\n\n\n\n\nFor every node v:\n\ndp1[v]: best answer in the subtree of v if v IS chosen\ndp0[v]: best answer in the subtree of v if v is NOT chosen\n\n“Subtree of v” means v and all descendants under it (after rooting).\n\n\n\nSuppose we are at node v and we already computed DP for all children.\n\n\nThen no child can be chosen.\nSo for each child c, we must use dp0[c].\ndp1[v] = 1 + sum(dp0[c] for all children c)\n\n1 because we count node v itself\nchildren must be in “not chosen” state\n\n\n\n\nThen each child c is free:\n\neither choose c (get dp1[c])\nor skip c (get dp0[c])\n\nWe take the best option for each child independently:\ndp0[v] = sum( max(dp0[c], dp1[c]) for all children c )\n\n\n\n\nFor the whole tree, at the root, we can either choose it or not:\nanswer = max(dp0[root], dp1[root])\n\n\n\nint n;\nvector&lt;vector&lt;int&gt;&gt; g;\n\nvector&lt;int&gt; dp0, dp1;\n\nvoid dfs(int v, int p) {\n    dp1[v] = 1;  // choose v\n    dp0[v] = 0;  // don't choose v\n\n    for (int to : g[v]) {\n        if (to == p) continue;\n        dfs(to, v);\n\n        // if we choose v, we must NOT choose child\n        dp1[v] += dp0[to];\n\n        // if we don't choose v, child can be either\n        dp0[v] += max(dp0[to], dp1[to]);\n    }\n}\nUsage:\nint root = 0;\ndp0.assign(n, 0);\ndp1.assign(n, 0);\n\ndfs(root, -1);\n\nint ans = max(dp0[root], dp1[root]);\n\n\n\nSay v has two children: a and b.\nAnd you already computed:\n\ndp0[a] = 3, dp1[a] = 4\ndp0[b] = 2, dp1[b] = 2\n\nThen:\nIf you choose v:\n\nyou must skip a and b\n\ndp1[v] = 1 + dp0[a] + dp0[b] = 1 + 3 + 2 = 6\nIf you skip v:\n\nyou choose best for each child\n\ndp0[v] = max(3,4) + max(2,2) = 4 + 2 = 6\nSo both ways give 6 here.\n\n\n\nMost tree DP problems look like this:\n\npick a root\ndefine DP states per node\nDFS to compute children first\ncombine children results with simple formulas\n\nBut as problems get more complex, more complex designs might be needed.\nA very common design is exactly what you saw:\n\nstate = “take node” vs “skip node”",
     "crumbs": [
-      "Stage 4",
       "Trees",
       "DP on Trees"
     ]
@@ -4256,7 +4183,6 @@
     "section": "",
     "text": "Pick as many nodes as possible such that:\n\nyou never pick two adjacent nodes (no edge has both ends picked)\n\n\n\nIf you pick node v, you are forced to NOT pick all neighbors of v.\nIn a rooted tree, the important neighbors are:\n\nthe parent\nthe children\n\nSo the problem becomes a simple choice at each node:\n\npick this node → you must skip all children\nskip this node → each child can be picked or skipped, whichever is better",
     "crumbs": [
-      "Stage 4",
       "Trees",
       "DP on Trees"
     ]
@@ -4268,7 +4194,6 @@
     "section": "",
     "text": "For every node v:\n\ndp1[v]: best answer in the subtree of v if v IS chosen\ndp0[v]: best answer in the subtree of v if v is NOT chosen\n\n“Subtree of v” means v and all descendants under it (after rooting).",
     "crumbs": [
-      "Stage 4",
       "Trees",
       "DP on Trees"
     ]
@@ -4280,7 +4205,6 @@
     "section": "",
     "text": "Suppose we are at node v and we already computed DP for all children.\n\n\nThen no child can be chosen.\nSo for each child c, we must use dp0[c].\ndp1[v] = 1 + sum(dp0[c] for all children c)\n\n1 because we count node v itself\nchildren must be in “not chosen” state\n\n\n\n\nThen each child c is free:\n\neither choose c (get dp1[c])\nor skip c (get dp0[c])\n\nWe take the best option for each child independently:\ndp0[v] = sum( max(dp0[c], dp1[c]) for all children c )",
     "crumbs": [
-      "Stage 4",
       "Trees",
       "DP on Trees"
     ]
@@ -4292,7 +4216,6 @@
     "section": "",
     "text": "For the whole tree, at the root, we can either choose it or not:\nanswer = max(dp0[root], dp1[root])",
     "crumbs": [
-      "Stage 4",
       "Trees",
       "DP on Trees"
     ]
@@ -4304,7 +4227,6 @@
     "section": "",
     "text": "int n;\nvector&lt;vector&lt;int&gt;&gt; g;\n\nvector&lt;int&gt; dp0, dp1;\n\nvoid dfs(int v, int p) {\n    dp1[v] = 1;  // choose v\n    dp0[v] = 0;  // don't choose v\n\n    for (int to : g[v]) {\n        if (to == p) continue;\n        dfs(to, v);\n\n        // if we choose v, we must NOT choose child\n        dp1[v] += dp0[to];\n\n        // if we don't choose v, child can be either\n        dp0[v] += max(dp0[to], dp1[to]);\n    }\n}\nUsage:\nint root = 0;\ndp0.assign(n, 0);\ndp1.assign(n, 0);\n\ndfs(root, -1);\n\nint ans = max(dp0[root], dp1[root]);",
     "crumbs": [
-      "Stage 4",
       "Trees",
       "DP on Trees"
     ]
@@ -4316,7 +4238,6 @@
     "section": "",
     "text": "Say v has two children: a and b.\nAnd you already computed:\n\ndp0[a] = 3, dp1[a] = 4\ndp0[b] = 2, dp1[b] = 2\n\nThen:\nIf you choose v:\n\nyou must skip a and b\n\ndp1[v] = 1 + dp0[a] + dp0[b] = 1 + 3 + 2 = 6\nIf you skip v:\n\nyou choose best for each child\n\ndp0[v] = max(3,4) + max(2,2) = 4 + 2 = 6\nSo both ways give 6 here.",
     "crumbs": [
-      "Stage 4",
       "Trees",
       "DP on Trees"
     ]
@@ -4328,7 +4249,6 @@
     "section": "",
     "text": "Most tree DP problems look like this:\n\npick a root\ndefine DP states per node\nDFS to compute children first\ncombine children results with simple formulas\n\nBut as problems get more complex, more complex designs might be needed.\nA very common design is exactly what you saw:\n\nstate = “take node” vs “skip node”",
     "crumbs": [
-      "Stage 4",
       "Trees",
       "DP on Trees"
     ]
@@ -4340,7 +4260,6 @@
     "section": "",
     "text": "Number Theory is just a fancy name for playing with integers (whole numbers). No fractions, no decimals – just pure numbers like 1, 5, 42, -10.\nBy now, you should be familiar with division, taking the remainder when dividing, and identifying patterns related to these operations.\n\n\nThe GCD of two numbers is the largest number that divides both of them without leaving a remainder.\nFor example:\n\nGCD(12, 18) = 6 (Both can be divided by 1, 2, 3, 6, and then 6 is the biggest)\nGCD(7, 13) = 1 (They share nothing except 1)\n\n\n\nIt is fairly simple to calculate GCD(a, b) if we don’t care about efficiency. One could iterate from 1 to the \\(max(a, b)\\) and check which number was the last to divide both of the numbers \\(a\\) and \\(b\\), without remainder.\nTime complexity of this approach is \\(\\mathcal{O}(max(a, b))\\).\n\n\n\nWe can do much better. Don’t test every number! There is a 2000-year-old hack: GCD(a, b) is the same as GCD(b, a % b). You keep taking the remainder until one number becomes 0.\n// Recursive way (The \"standard\" way)\nint gcd(int a, int b) {\n    if (b == 0) return a;\n    return gcd(b, a % b);\n}\n\n\n\n\n\n\nTip\n\n\n\nYou could also just use the built-in function for gcd. For newer versions (C++17 and onwards), there is a function gcd(int, int). For older versions of C++, you can use __gcd(int, int).\n\n\n\n\n\n\nThe LCM is the smallest number that both numbers can divide into.\nThink of it as the “first time their multiples meet”.\n\nMultiples of 4: 4, 8, 12, 16…\nMultiples of 6: 6, 12, 18…\nLCM(4, 6) = 12\n\n\n\nYou don’t need a loop to find this. Use the GCD!\n\\[ \\text{LCM}(a, b) = \\frac{(a \\times b)}{\\text{GCD}(a, b)} \\]\n\n\n\n\n\n\nCaution\n\n\n\nTo avoid overflow (number getting too big), divide first: (a / gcd(a,b)) * b.\n\n\nint lcm(int a, int b) {\n    if (a == 0 || b == 0) return 0;\n    return (a / gcd(a, b)) * b;\n}\n\n\n\n\n\n\n\n\n\nSimplifying Fractions\n\n\n\n\n\nYou are given a fraction, say \\(18/24\\). You need to output it in its simplest form.\n\n\n\n\n\nSolution\n\nTo simplify a fraction, divide both the top (numerator) and bottom (denominator) by their GCD.\n#include &lt;iostream&gt;\n#include &lt;numeric&gt; // for std::gcd\nusing namespace std;\n\nint main() {\n    int num = 18;\n    int den = 24;\n    \n    int common = std::gcd(num, den);\n    \n    num /= common;\n    den /= common;\n    \n    cout &lt;&lt; num &lt;&lt; \"/\" &lt;&lt; den; // Outputs: 3/4\n}\nBy removing the biggest common factor (6), we get the simplest version immediately.\n\n\n\n\n\n\n\nThe Meeting Point\n\n\n\n\n\nTwo lights flash at different intervals.\n\nLight A flashes every 12 seconds.\nLight B flashes every 15 seconds.\n\nThey just flashed together. When will they flash together again?\n\n\n\n\n\nSolution\n\nWe are looking for a time \\(T\\) that is a multiple of both 12 and 15. Specifically, the first (smallest) time this happens. This is exactly LCM.\n#include &lt;iostream&gt;\n#include &lt;numeric&gt;\nusing namespace std;\n\nint main() {\n    int a = 12;\n    int b = 15;\n    \n    // LCM formula: (a * b) / GCD(a, b)\n    int meet_time = std::lcm(a, b); \n    \n    cout &lt;&lt; \"They meet again in \" &lt;&lt; meet_time &lt;&lt; \" seconds.\"; \n    // Output: 60 seconds\n}",
     "crumbs": [
-      "Stage 4",
       "Number Theory",
       "Number Theory"
     ]
@@ -4352,7 +4271,6 @@
     "section": "",
     "text": "The GCD of two numbers is the largest number that divides both of them without leaving a remainder.\nFor example:\n\nGCD(12, 18) = 6 (Both can be divided by 1, 2, 3, 6, and then 6 is the biggest)\nGCD(7, 13) = 1 (They share nothing except 1)\n\n\n\nIt is fairly simple to calculate GCD(a, b) if we don’t care about efficiency. One could iterate from 1 to the \\(max(a, b)\\) and check which number was the last to divide both of the numbers \\(a\\) and \\(b\\), without remainder.\nTime complexity of this approach is \\(\\mathcal{O}(max(a, b))\\).\n\n\n\nWe can do much better. Don’t test every number! There is a 2000-year-old hack: GCD(a, b) is the same as GCD(b, a % b). You keep taking the remainder until one number becomes 0.\n// Recursive way (The \"standard\" way)\nint gcd(int a, int b) {\n    if (b == 0) return a;\n    return gcd(b, a % b);\n}\n\n\n\n\n\n\nTip\n\n\n\nYou could also just use the built-in function for gcd. For newer versions (C++17 and onwards), there is a function gcd(int, int). For older versions of C++, you can use __gcd(int, int).",
     "crumbs": [
-      "Stage 4",
       "Number Theory",
       "Number Theory"
     ]
@@ -4364,7 +4282,6 @@
     "section": "",
     "text": "The LCM is the smallest number that both numbers can divide into.\nThink of it as the “first time their multiples meet”.\n\nMultiples of 4: 4, 8, 12, 16…\nMultiples of 6: 6, 12, 18…\nLCM(4, 6) = 12\n\n\n\nYou don’t need a loop to find this. Use the GCD!\n\\[ \\text{LCM}(a, b) = \\frac{(a \\times b)}{\\text{GCD}(a, b)} \\]\n\n\n\n\n\n\nCaution\n\n\n\nTo avoid overflow (number getting too big), divide first: (a / gcd(a,b)) * b.\n\n\nint lcm(int a, int b) {\n    if (a == 0 || b == 0) return 0;\n    return (a / gcd(a, b)) * b;\n}",
     "crumbs": [
-      "Stage 4",
       "Number Theory",
       "Number Theory"
     ]
@@ -4376,7 +4293,6 @@
     "section": "",
     "text": "Simplifying Fractions\n\n\n\n\n\nYou are given a fraction, say \\(18/24\\). You need to output it in its simplest form.",
     "crumbs": [
-      "Stage 4",
       "Number Theory",
       "Number Theory"
     ]
@@ -4388,7 +4304,6 @@
     "section": "",
     "text": "The Meeting Point\n\n\n\n\n\nTwo lights flash at different intervals.\n\nLight A flashes every 12 seconds.\nLight B flashes every 15 seconds.\n\nThey just flashed together. When will they flash together again?",
     "crumbs": [
-      "Stage 4",
       "Number Theory",
       "Number Theory"
     ]
@@ -4400,7 +4315,6 @@
     "section": "",
     "text": "Prime Factorization is the process of breaking a number down into its basic building blocks (primes).\nAccording to the Fundamental Theorem of Arithmetic, every integer \\(&gt;1\\) has a unique set of prime factors.\n\n\\(12 = 2 \\times 2 \\times 3\\) (or \\(2^2 \\times 3\\))\n\\(100 = 2 \\times 2 \\times 5 \\times 5\\)\n\\(13 = 13\\) (Prime)\n\n\n\nIf you have a big number (like \\(10^{12}\\)), we use the logic from our “Divisors” lesson. We iterate from \\(2\\) up to \\(\\sqrt{N}\\).\nThe Algorithm: 1. Start with \\(d=2\\). 2. While \\(d\\) divides \\(N\\), keep dividing \\(N\\) by \\(d\\) and record \\(d\\). 3. Increment \\(d\\). 4. Crucial Step: If after the loop \\(N &gt; 1\\), the remaining \\(N\\) is a prime itself.\n#include &lt;iostream&gt;\n#include &lt;vector&gt;\nusing namespace std;\n\nvoid factorize(long long n) {\n    cout &lt;&lt; \"Factors of \" &lt;&lt; n &lt;&lt; \": \";\n    \n    for (long long i = 2; i * i &lt;= n; i++) {\n        // While i divides n, it is a factor\n        while (n % i == 0) {\n            cout &lt;&lt; i &lt;&lt; \" \";\n            n /= i;\n        }\n    }\n    \n    // EDGE CASE: If n is still &gt; 1, it is a prime factor\n    if (n &gt; 1) {\n        cout &lt;&lt; n;\n    }\n    cout &lt;&lt; endl;\n}\n\n\nBy the time we reach \\(5\\), we have already divided out all factors of \\(2\\), so \\(N\\) cannot be divisible by \\(4\\).\nWe strip the number down until only the last prime remains.\nComplexity: \\(O(\\sqrt{N})\\).\n\n\n\n\nIf you need to factorize 100,000 numbers (where each number is small, \\(&lt; 10^7\\)), Method 1 is too slow.\nWe can use a modified Sieve to factorize in Logarithmic time (\\(O(\\log N)\\)).\n###The Idea: SPF (Smallest Prime Factor)\nInstead of storing true/false in our Sieve, we store the Smallest Prime Factor for every number. - spf[10] = 2 - spf[15] = 3 - spf[7] = 7 (it’s prime)\nOnce we have this array, we can “jump” down the number instantly. \\(N \\to N / spf[N] \\to \\dots \\to 1\\)\n\n\nconst int MAXN = 1000000;\nint spf[MAXN + 1];\n\nvoid sieve() {\n    // Initialize: smallest prime factor of i is i itself\n    for (int i = 1; i &lt;= MAXN; i++) spf[i] = i;\n\n    for (int i = 2; i * i &lt;= MAXN; i++) {\n        if (spf[i] == i) { // If i is prime\n            for (int j = i * i; j &lt;= MAXN; j += i) {\n                // Mark smallest factor for j if not marked yet\n                if (spf[j] == j) {\n                    spf[j] = i;\n                }\n            }\n        }\n    }\n}\n\n\n\nvector&lt;int&gt; getFactors(int x) {\n    vector&lt;int&gt; ret;\n    while (x != 1) {\n        ret.push_back(spf[x]);\n        x = x / spf[x]; // Divide by smallest prime and continue\n    }\n    return ret;\n}\nComplexity: \\(O(\\log N)\\) per query.\n\n\n\n\n\n\n\nScenario\nMethod\nComplexity\n\n\n\n\n\\(N\\) is huge (\\(10^{12}\\))\nTrial Division\n\\(O(\\sqrt{N})\\)\n\n\nMany Queries, \\(N\\) is small (\\(10^7\\))\nSPF (Sieve)\n\\(O(\\log N)\\)\n\n\nMemory is tight\nTrial Division\n\\(O(1)\\)\n\n\n\n\n\n\n\n\nThe Perfect Square Inventory\n\n\n\n\n\nA warehouse manager has received a shipment of \\(n\\) identical square storage boxes. He wants to stack them on the floor to form a perfect square arrangement (e.g., \\(10 \\times 10\\), \\(20 \\times 20\\)). However, he realizes that \\(n\\) may be not a perfect square number, so he cannot form a square with the current stock.\nHe decides to order more shipments of the exact same size (\\(n\\) boxes each per each shipment) until the total number of boxes allows him to build a perfect square.\nWhat is the minimum number of shipments (including the first one) he needs to have in total?\n\n\n\n\n\nSolution\n\nThis is a factorization problem because we are asking: “By what integer \\(k\\) must we multiply \\(n\\) so that the result is a perfect square?”\nWhen we factorize the number into primes, in order to make it a perfect square, each exponent should be even. For example \\(15 = 3^1 \\cdot 5^1\\), we should multiple by \\(3\\cdot 5\\) to make the number \\(225 = 3^2\\cdot5^2\\). On the other hand, number \\(64 = 2^6\\) is already a perfect square.\nSo in essence, for each odd exponent we should multiple the number with that prime.\n#include &lt;iostream&gt;\nusing namespace std;\n\n// Function to find the smallest multiplier to make 'n' a perfect square\nint findSmallestMultiplier(int n) {\n    int multiplier = 1;\n\n    // Step 1: Check for divisibility by 2\n    int count = 0;\n    while (n % 2 == 0) {\n        count++;\n        n /= 2;\n    }\n    // If the count of 2s is odd, we need one more 2 to make a pair\n    if (count % 2 != 0) {\n        multiplier *= 2;\n    }\n\n    // Step 2: Check for odd factors (3, 5, 7, ...)\n    for (int i = 3; i * i &lt;= n; i += 2) {\n        count = 0;\n        while (n % i == 0) {\n            count++;\n            n /= i;\n        }\n        // If the count of this factor is odd, we need one more to make a pair\n        if (count % 2 != 0) {\n            multiplier *= i;\n        }\n    }\n\n    // Step 3: Handle the remaining prime number (if any)\n    // If n &gt; 2 at this point, the remaining n is a prime factor with a count of 1 (odd)\n    if (n &gt; 2) {\n        multiplier *= n;\n    }\n\n    return multiplier;\n}\n\nint main() {\n    int n;\n    cin &gt;&gt; n;\n\n    int necessary_shipments = findSmallestMultiplier(n);\n    cout &lt;&lt; necessary_shipments &lt;&lt; \"\\n\";\n\n    return 0;\n}\nFor example, let \\(n = 540\\). The code will return 15. Let’s check whether this is correct. \\(540\\cdot 15 =8100 = 90^2\\). We can also make sure this is the smallest such number by trying the smaller ones and seeing that they don’t work.",
     "crumbs": [
-      "Stage 4",
       "Number Theory",
       "Prime Factorization"
     ]
@@ -4412,7 +4326,6 @@
     "section": "",
     "text": "If you have a big number (like \\(10^{12}\\)), we use the logic from our “Divisors” lesson. We iterate from \\(2\\) up to \\(\\sqrt{N}\\).\nThe Algorithm: 1. Start with \\(d=2\\). 2. While \\(d\\) divides \\(N\\), keep dividing \\(N\\) by \\(d\\) and record \\(d\\). 3. Increment \\(d\\). 4. Crucial Step: If after the loop \\(N &gt; 1\\), the remaining \\(N\\) is a prime itself.\n#include &lt;iostream&gt;\n#include &lt;vector&gt;\nusing namespace std;\n\nvoid factorize(long long n) {\n    cout &lt;&lt; \"Factors of \" &lt;&lt; n &lt;&lt; \": \";\n    \n    for (long long i = 2; i * i &lt;= n; i++) {\n        // While i divides n, it is a factor\n        while (n % i == 0) {\n            cout &lt;&lt; i &lt;&lt; \" \";\n            n /= i;\n        }\n    }\n    \n    // EDGE CASE: If n is still &gt; 1, it is a prime factor\n    if (n &gt; 1) {\n        cout &lt;&lt; n;\n    }\n    cout &lt;&lt; endl;\n}\n\n\nBy the time we reach \\(5\\), we have already divided out all factors of \\(2\\), so \\(N\\) cannot be divisible by \\(4\\).\nWe strip the number down until only the last prime remains.\nComplexity: \\(O(\\sqrt{N})\\).",
     "crumbs": [
-      "Stage 4",
       "Number Theory",
       "Prime Factorization"
     ]
@@ -4424,7 +4337,6 @@
     "section": "",
     "text": "If you need to factorize 100,000 numbers (where each number is small, \\(&lt; 10^7\\)), Method 1 is too slow.\nWe can use a modified Sieve to factorize in Logarithmic time (\\(O(\\log N)\\)).\n###The Idea: SPF (Smallest Prime Factor)\nInstead of storing true/false in our Sieve, we store the Smallest Prime Factor for every number. - spf[10] = 2 - spf[15] = 3 - spf[7] = 7 (it’s prime)\nOnce we have this array, we can “jump” down the number instantly. \\(N \\to N / spf[N] \\to \\dots \\to 1\\)\n\n\nconst int MAXN = 1000000;\nint spf[MAXN + 1];\n\nvoid sieve() {\n    // Initialize: smallest prime factor of i is i itself\n    for (int i = 1; i &lt;= MAXN; i++) spf[i] = i;\n\n    for (int i = 2; i * i &lt;= MAXN; i++) {\n        if (spf[i] == i) { // If i is prime\n            for (int j = i * i; j &lt;= MAXN; j += i) {\n                // Mark smallest factor for j if not marked yet\n                if (spf[j] == j) {\n                    spf[j] = i;\n                }\n            }\n        }\n    }\n}\n\n\n\nvector&lt;int&gt; getFactors(int x) {\n    vector&lt;int&gt; ret;\n    while (x != 1) {\n        ret.push_back(spf[x]);\n        x = x / spf[x]; // Divide by smallest prime and continue\n    }\n    return ret;\n}\nComplexity: \\(O(\\log N)\\) per query.",
     "crumbs": [
-      "Stage 4",
       "Number Theory",
       "Prime Factorization"
     ]
@@ -4436,7 +4348,6 @@
     "section": "",
     "text": "Scenario\nMethod\nComplexity\n\n\n\n\n\\(N\\) is huge (\\(10^{12}\\))\nTrial Division\n\\(O(\\sqrt{N})\\)\n\n\nMany Queries, \\(N\\) is small (\\(10^7\\))\nSPF (Sieve)\n\\(O(\\log N)\\)\n\n\nMemory is tight\nTrial Division\n\\(O(1)\\)",
     "crumbs": [
-      "Stage 4",
       "Number Theory",
       "Prime Factorization"
     ]
@@ -4448,7 +4359,6 @@
     "section": "",
     "text": "The Perfect Square Inventory\n\n\n\n\n\nA warehouse manager has received a shipment of \\(n\\) identical square storage boxes. He wants to stack them on the floor to form a perfect square arrangement (e.g., \\(10 \\times 10\\), \\(20 \\times 20\\)). However, he realizes that \\(n\\) may be not a perfect square number, so he cannot form a square with the current stock.\nHe decides to order more shipments of the exact same size (\\(n\\) boxes each per each shipment) until the total number of boxes allows him to build a perfect square.\nWhat is the minimum number of shipments (including the first one) he needs to have in total?",
     "crumbs": [
-      "Stage 4",
       "Number Theory",
       "Prime Factorization"
     ]
@@ -4460,7 +4370,6 @@
     "section": "",
     "text": "A constructive algorithm requires you to build a specific example that satisfies a set of rules, or prove that no such example exists.\nUnlike standard algorithmic problems where you might calculate a shortest path or a maximum profit, constructive problems ask for the object itself (e.g., “Print an array that…”).\nLet’s look at a few examples immediately to see how this works.\n\n\n\n\n\n\n\nZero Sum Array\n\n\n\n\n\nGiven an integer \\(N\\), print \\(N\\) distinct integers such that their sum is equal to \\(0\\).\n\n\n\n\n\nSolution\n\nThe Construction: Instead of searching for random numbers, we can construct the answer using a fixed pattern.\nWe know that for any number \\(x\\), the sum \\(x + (-x) = 0\\). We can simply output pairs of positive and negative numbers. If \\(N\\) is odd, we add \\(0\\) to the mix.\n\n\\(N = 1\\): 0\n\\(N = 2\\): 1 -1\n\\(N = 3\\): 1 -1 0\n\\(N = 4\\): 1 -1 2 -2 0\n\n#include &lt;iostream&gt;\n\nusing namespace std;\n\nint main() {\n    int n;\n    cin &gt;&gt; n;\n\n    for (int i = 1; i &lt;= n / 2; i++) {\n        cout &lt;&lt; i &lt;&lt; \" \" &lt;&lt; -i &lt;&lt; \" \";\n    }\n\n    if (n % 2 != 0) cout &lt;&lt; 0;\n    cout &lt;&lt; endl;\n}\n\n\n\n\n\n\n\nAnti-Identity Permutation\n\n\n\n\n\nConstruct a permutation of length \\(N\\) (1-based index) such that for every index \\(i\\), \\(A[i] \\neq i\\).\nFor example, if \\(N=3\\), [1, 2, 3] is invalid because \\(1\\) is at index \\(1\\). [2, 3, 1] is valid.\n\n\n\n\n\nSolution\n\nIf we simply rotate the array by one position, no number will remain in its original spot.\nFormula would then be \\(A[i] = i+1\\), for all \\(i &lt; N\\) and \\(A[N] = 1\\).\n\n\\(N=3\\): 2 3 1\n\\(N=4\\): 2 3 4 1\n\\(N=5\\): 2 3 4 5 1\n\nNote: For \\(N=1\\), it is impossible to place \\(1\\) anywhere other than index \\(1\\), so no solution exists.\n\n\n\n\n\n\n\nChessboard Domineering\n\n\n\n\n\nYou have a standard \\(8 \\times 8\\) chessboard with two opposite corners removed (leaving 62 squares). Find a way to cover the entire board with \\(2 \\times 1\\) dominoes?\n\n\n\n\n\nSolution\n\nWe tricked you!\nSometimes the “Construction” is proving that the task is impossible.\nA standard chessboard has 32 Black and 32 White squares. Opposite corners are always the same color. If we remove two opposite corners (e.g., white), we are left with 32 Black and 30 White squares. A single domino covers exactly 1 Black and 1 White square. To cover the board, we would need equal counts of Black and White squares. Conclusion: It is impossible.\nThis is not a regular practice, but it can occur from time to time. The lesson to be learned here is that it can be much easier to solve the task by pen and paper and thinking outside of the box, then to try and code stuff.\n\n\n\n\n\nNow that you’ve seen what these problems are, here is how to tackle them. Unlike Graph Theory or DP, you don’t use standard algorithms like Dijkstra. You use logic and observation.\n\n\nThis is the most important strategy. If the problem asks for a solution for \\(N=100000\\), do not guess the complex formula immediately. Grab a pen and solve it for \\(N=1, 2, 3, 4\\). Many constructive problems are solved by spotting a pattern in small cases.\n\n\n\nMany constructions rely on the properties of even and odd numbers (Odd + Odd = Even).\n\nExample: If a problem asks “Can you equalize these numbers by adding 2?”, check the parity. If one number is odd and the other is even, they will never meet, because adding 2 never changes parity.\n\n\n\n\nIf you have \\(N\\) items and \\(N-1\\) boxes, at least one box must contain 2 items. This is frequently used to prove that a solution exists (or proves impossibility).\n\n\n\nAsk yourself: “If I have a valid answer for \\(N\\), can I easily add one element to make it valid for \\(N+1\\)?” This allows you to build the answer incrementally.\n\n\n\nSometimes the answer is trivial. Before overthinking, check if the answer is simply:\n\nThe sorted array 1, 2, 3...\nThe reverse sorted array N, N-1, N-2...\nAll zeros or all ones.",
     "crumbs": [
-      "Stage 4",
       "Constructive Algorithms"
     ]
   },
@@ -4471,7 +4380,6 @@
     "section": "",
     "text": "Zero Sum Array\n\n\n\n\n\nGiven an integer \\(N\\), print \\(N\\) distinct integers such that their sum is equal to \\(0\\).",
     "crumbs": [
-      "Stage 4",
       "Constructive Algorithms"
     ]
   },
@@ -4482,7 +4390,6 @@
     "section": "",
     "text": "Anti-Identity Permutation\n\n\n\n\n\nConstruct a permutation of length \\(N\\) (1-based index) such that for every index \\(i\\), \\(A[i] \\neq i\\).\nFor example, if \\(N=3\\), [1, 2, 3] is invalid because \\(1\\) is at index \\(1\\). [2, 3, 1] is valid.",
     "crumbs": [
-      "Stage 4",
       "Constructive Algorithms"
     ]
   },
@@ -4493,7 +4400,6 @@
     "section": "",
     "text": "Chessboard Domineering\n\n\n\n\n\nYou have a standard \\(8 \\times 8\\) chessboard with two opposite corners removed (leaving 62 squares). Find a way to cover the entire board with \\(2 \\times 1\\) dominoes?",
     "crumbs": [
-      "Stage 4",
       "Constructive Algorithms"
     ]
   },
@@ -4504,7 +4410,6 @@
     "section": "",
     "text": "Now that you’ve seen what these problems are, here is how to tackle them. Unlike Graph Theory or DP, you don’t use standard algorithms like Dijkstra. You use logic and observation.\n\n\nThis is the most important strategy. If the problem asks for a solution for \\(N=100000\\), do not guess the complex formula immediately. Grab a pen and solve it for \\(N=1, 2, 3, 4\\). Many constructive problems are solved by spotting a pattern in small cases.\n\n\n\nMany constructions rely on the properties of even and odd numbers (Odd + Odd = Even).\n\nExample: If a problem asks “Can you equalize these numbers by adding 2?”, check the parity. If one number is odd and the other is even, they will never meet, because adding 2 never changes parity.\n\n\n\n\nIf you have \\(N\\) items and \\(N-1\\) boxes, at least one box must contain 2 items. This is frequently used to prove that a solution exists (or proves impossibility).\n\n\n\nAsk yourself: “If I have a valid answer for \\(N\\), can I easily add one element to make it valid for \\(N+1\\)?” This allows you to build the answer incrementally.\n\n\n\nSometimes the answer is trivial. Before overthinking, check if the answer is simply:\n\nThe sorted array 1, 2, 3...\nThe reverse sorted array N, N-1, N-2...\nAll zeros or all ones.",
     "crumbs": [
-      "Stage 4",
       "Constructive Algorithms"
     ]
   }

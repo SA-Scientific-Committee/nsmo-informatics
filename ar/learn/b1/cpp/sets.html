@@ -107,35 +107,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 </head>
 
@@ -330,10 +301,6 @@ window.Quarto = {
     <a class="nav-link" href="../../b2/cpp/bitwise-operations.html"> 
 <span class="menu-text">المرحلة 3</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../../b3/trees/intro.html"> 
-<span class="menu-text">المرحلة 4</span></a>
-  </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
@@ -384,7 +351,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../b1/cpp/sets.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">المجموعات (Sets)</span></a>
+ <span class="menu-text">Sets</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -523,14 +490,14 @@ window.Quarto = {
     <h2 id="toc-title">في هذه الصفحة</h2>
    
   <ul>
-  <li><a href="#المجموعات-sets" id="toc-المجموعات-sets" class="nav-link active" data-scroll-target="#المجموعات-sets">المجموعات (Sets)</a>
+  <li><a href="#sets" id="toc-sets" class="nav-link active" data-scroll-target="#sets">Sets</a>
   <ul class="collapse">
-  <li><a href="#الإعلان" id="toc-الإعلان" class="nav-link" data-scroll-target="#الإعلان">الإعلان</a></li>
-  <li><a href="#الحجم-size" id="toc-الحجم-size" class="nav-link" data-scroll-target="#الحجم-size">الحجم (Size)</a></li>
-  <li><a href="#الإدراج-insert" id="toc-الإدراج-insert" class="nav-link" data-scroll-target="#الإدراج-insert">الإدراج (Insert)</a></li>
-  <li><a href="#الحذف-erase" id="toc-الحذف-erase" class="nav-link" data-scroll-target="#الحذف-erase">الحذف (Erase)</a></li>
-  <li><a href="#العد-count" id="toc-العد-count" class="nav-link" data-scroll-target="#العد-count">العد (Count)</a></li>
-  <li><a href="#التكرار-looping" id="toc-التكرار-looping" class="nav-link" data-scroll-target="#التكرار-looping">التكرار (Looping)</a></li>
+  <li><a href="#إنشاء-set" id="toc-إنشاء-set" class="nav-link" data-scroll-target="#إنشاء-set">إنشاء set</a></li>
+  <li><a href="#العمليات-الأساسية" id="toc-العمليات-الأساسية" class="nav-link" data-scroll-target="#العمليات-الأساسية">العمليات الأساسية</a></li>
+  <li><a href="#مثال-استخدام-الـ-set" id="toc-مثال-استخدام-الـ-set" class="nav-link" data-scroll-target="#مثال-استخدام-الـ-set">مثال: استخدام الـ set</a></li>
+  <li><a href="#التنقل-عبر-عناصر-الـ-set" id="toc-التنقل-عبر-عناصر-الـ-set" class="nav-link" data-scroll-target="#التنقل-عبر-عناصر-الـ-set">التنقل عبر عناصر الـ set</a></li>
+  <li><a href="#أنواع-الـ-sets" id="toc-أنواع-الـ-sets" class="nav-link" data-scroll-target="#أنواع-الـ-sets">أنواع الـ sets</a></li>
+  <li><a href="#مثال-إزالة-المكررات" id="toc-مثال-إزالة-المكررات" class="nav-link" data-scroll-target="#مثال-إزالة-المكررات">مثال: إزالة المكررات</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -542,186 +509,228 @@ window.Quarto = {
 
 
 
-<section id="المجموعات-sets" class="level1" dir="rtl">
-<h1>المجموعات (Sets)</h1>
-<p><span dir="ltr"><code>set</code></span> في <span dir="ltr"><code>C++</code></span> هو حاوية لعناصر من نفس النوع ويحقق الخصائص التالية:</p>
+<section id="sets" class="level1" dir="rtl">
+<h1>Sets</h1>
+<p>الـ <span dir="ltr"><code>set</code></span> هو حاوية في <span dir="ltr"><code>C++</code></span> تخزّن قيمًا من نفس النوع بحيث:</p>
 <ul>
-<li>يحتوي على عناصر فريدة فقط</li>
-<li>يكون دائمًا مرتبًا</li>
-<li>يسمح بالإدراج والحذف والاستعلام بكفاءة</li>
+<li>كل قيمة تظهر مرة واحدة فقط.</li>
+<li>القيم مرتّبة دائمًا (افتراضيًا، من الأصغر إلى الأكبر).</li>
+<li>يمكنك التحقق بسرعة مما إذا كان شيء ما موجودًا فيها.</li>
 </ul>
-<div class="callout callout-style-default callout-caution callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Caution
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>يمكن أن يحتوي <span dir="ltr"><code>set</code></span> فقط على أنواع يمكن مقارنتها باستخدام معامل <span dir="ltr"><code>&lt;</code></span>.</p>
-</div>
-</div>
-<section id="الإعلان" class="level2">
-<h2 data-anchor-id="الإعلان">الإعلان</h2>
 <div dir="ltr">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;set&gt;</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> <span class="kw">namespace</span> std<span class="op">;</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main <span class="op">()</span> <span class="op">{</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    set<span class="op">&lt;</span><span class="dt">int</span><span class="op">&gt;</span> my_int_set<span class="op">;</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    set<span class="op">&lt;</span><span class="dt">double</span><span class="op">&gt;</span> my_double_set<span class="op">;</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    set<span class="op">&lt;</span>string<span class="op">&gt;</span> my_string_set <span class="op">=</span> <span class="op">{</span><span class="st">"abc"</span><span class="op">,</span> <span class="st">"def"</span><span class="op">,</span> <span class="st">"ghi"</span><span class="op">};</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> <span class="kw">namespace</span> std<span class="op">;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    set<span class="op">&lt;</span><span class="dt">int</span><span class="op">&gt;</span> numbers <span class="op">=</span> <span class="op">{</span><span class="dv">5</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">9</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">1</span><span class="op">};</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> x <span class="op">:</span> numbers<span class="op">)</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>        cout <span class="op">&lt;&lt;</span> x <span class="op">&lt;&lt;</span> <span class="st">" "</span><span class="op">;</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-</section>
-<section id="الحجم-size" class="level2">
-<h2 data-anchor-id="الحجم-size">الحجم (Size)</h2>
-<p>تعيد الدالة <span dir="ltr"><code>size</code></span> عدد العناصر في الحاوية.</p>
+الناتج:
 <div dir="ltr">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>set<span class="op">&lt;</span><span class="dt">double</span><span class="op">&gt;</span> s <span class="op">=</span> <span class="op">{</span><span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="fl">3.2</span><span class="op">,</span> <span class="fl">32.0</span> <span class="op">/</span> <span class="fl">10.0</span><span class="op">};</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>cout <span class="op">&lt;&lt;</span> s<span class="op">.</span>size<span class="op">();</span> <span class="co">// الناتج 3 لأن 3.1 = 31.0/10.0</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<pre><code>1 2 5 9</code></pre>
 </div>
-</section>
-<section id="الإدراج-insert" class="level2">
-<h2 data-anchor-id="الإدراج-insert">الإدراج (Insert)</h2>
-<p>تضيف الدالة <span dir="ltr"><code>insert</code></span> عنصرًا إلى الحاوية <strong>فقط إذا لم يكن موجودًا مسبقًا</strong> وتحافظ على ترتيب العناصر في المجموعة.</p>
+<p>لاحظ أن الـ <span dir="ltr"><code>2</code></span> الثانية اختفت — لأن الـ set لا يسمح بالقيم المكررة.</p>
+<section id="إنشاء-set" class="level2">
+<h2 data-anchor-id="إنشاء-set">إنشاء set</h2>
+لاستخدام الـ set، أضف الـ header التالي:
 <div dir="ltr">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>set<span class="op">&lt;</span><span class="dt">int</span><span class="op">&gt;</span> s <span class="op">=</span> <span class="op">{</span><span class="dv">1</span><span class="op">,</span> <span class="dv">3</span><span class="op">};</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>s<span class="op">.</span>insert<span class="op">(</span><span class="dv">2</span><span class="op">);</span> <span class="co">// الآن s = {1, 2, 3} // ليس {1, 3, 2}</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>s<span class="op">.</span>insert<span class="op">(</span><span class="dv">3</span><span class="op">);</span> <span class="co">// لا يتغير s</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;set&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-</section>
-<section id="الحذف-erase" class="level2">
-<h2 data-anchor-id="الحذف-erase">الحذف (Erase)</h2>
-<p>تزيل الدالة <span dir="ltr"><code>erase</code></span> عنصرًا من الحاوية <strong>فقط إذا كان موجودًا مسبقًا</strong>.</p>
+ثم يمكنك إنشاء set بهذه الطريقة:
 <div dir="ltr">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>set<span class="op">&lt;</span>string<span class="op">&gt;</span> s <span class="op">=</span> <span class="op">{</span><span class="st">"abc"</span><span class="op">,</span> <span class="st">"def"</span><span class="op">};</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>s<span class="op">.</span>erase<span class="op">(</span><span class="st">"xyz"</span><span class="op">);</span> <span class="co">// لا يتغير s لأنه لا يحتوي على "xyz"</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>s<span class="op">.</span>erase<span class="op">(</span><span class="st">"abc def"</span><span class="op">);</span> <span class="co">// لا يتغير s لنفس السبب</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>s<span class="op">.</span>erase<span class="op">(</span><span class="st">"abc"</span><span class="op">);</span> <span class="co">// الآن s = {"def"}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>set<span class="op">&lt;</span><span class="dt">int</span><span class="op">&gt;</span> mySet<span class="op">;</span>              <span class="co">// empty set of integers</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>set<span class="op">&lt;</span>string<span class="op">&gt;</span> names<span class="op">;</span>           <span class="co">// set of strings</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>set<span class="op">&lt;</span><span class="dt">char</span><span class="op">&gt;</span> letters <span class="op">=</span> <span class="op">{</span><span class="ch">'a'</span><span class="op">,</span><span class="ch">'b'</span><span class="op">,</span><span class="ch">'c'</span><span class="op">};</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div class="callout callout-style-simple callout-none no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">None</span>تحدي (Challenge)
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>باستخدام الدوال المذكورة أعلاه فقط، هل يمكنك التحقق مما إذا كانت المجموعة تحتوي على قيمة محددة؟</p>
-</div>
-</div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>الحل (Solution)
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>أولًا، سنتحقق من حجم المجموعة، لنسمه <span dir="ltr"><span class="math inline">\(S_1\)</span></span>. بعد ذلك، سندرج هذه القيمة في المجموعة ونتحقق من الحجم مرة أخرى، لنسم الحجم الجديد <span dir="ltr"><span class="math inline">\(S_2\)</span></span>. إذا كان <span dir="ltr"><span class="math inline">\(S_1 = S_2\)</span></span> فهذا يعني أن المجموعة تحتوي على القيمة، وإلا فهي لم تحتوي عليها ويجب إزالتها.</p>
-</div>
-</div>
-</div>
-</section>
-<section id="العد-count" class="level2">
-<h2 data-anchor-id="العد-count">العد (Count)</h2>
-<p>تعيد الدالة <span dir="ltr"><code>count</code></span> عدد مرات ظهور القيمة في الحاوية. بما أن جميع العناصر مميزة فإنها تعيد <span dir="ltr"><code>1</code></span> إذا كانت موجودة و <span dir="ltr"><code>0</code></span> إذا لم تكن موجودة.</p>
-<div dir="ltr">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>set<span class="op">&lt;</span><span class="dt">int</span><span class="op">&gt;</span> s <span class="op">=</span> <span class="op">{</span><span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span><span class="op">};</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>cout <span class="op">&lt;&lt;</span> s<span class="op">.</span>count<span class="op">(</span><span class="dv">2</span><span class="op">)</span> <span class="op">&lt;&lt;</span> <span class="ch">'</span><span class="sc">\n</span><span class="ch">'</span><span class="op">;</span> <span class="co">// الناتج: 1</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>s<span class="op">.</span>insert<span class="op">(</span><span class="dv">2</span><span class="op">);</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>cout <span class="op">&lt;&lt;</span> s<span class="op">.</span>count<span class="op">(</span><span class="dv">2</span><span class="op">)</span> <span class="op">&lt;&lt;</span> <span class="ch">'</span><span class="sc">\n</span><span class="ch">'</span><span class="op">;</span> <span class="co">// الناتج: 1 // لأن المجموعات لا تحتوي على تكرارات</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>s<span class="op">.</span>erase<span class="op">(</span><span class="dv">2</span><span class="op">);</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>cout <span class="op">&lt;&lt;</span> s<span class="op">.</span>count<span class="op">(</span><span class="dv">2</span><span class="op">)</span> <span class="op">&lt;&lt;</span> <span class="ch">'</span><span class="sc">\n</span><span class="ch">'</span><span class="op">;</span> <span class="co">// الناتج: 0</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Warning
+Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>على الرغم من أن <span dir="ltr"><code>set</code></span> له ترتيب محدد، لا يمكننا الوصول إلى عنصر محدد باستخدام معامل <span dir="ltr"><code>[]</code></span>.</p>
-<p>تابع القراءة لمعرفة كيفية الوصول إلى العناصر في <span dir="ltr"><code>set</code></span>.</p>
+<p>يمكنك أيضًا تهيئته بقيم باستخدام الأقواس المعقوفة <span dir="ltr"><code>{ }</code></span>.</p>
 </div>
 </div>
 </section>
-<section id="التكرار-looping" class="level2">
-<h2 data-anchor-id="التكرار-looping">التكرار (Looping)</h2>
-<p>للتكرار على قيم <span dir="ltr"><code>set</code></span> نستخدم حلقة <span dir="ltr"><code>for</code></span> بنطاق (range-based for loop) كما يلي:</p>
+<section id="العمليات-الأساسية" class="level2">
+<h2 data-anchor-id="العمليات-الأساسية">العمليات الأساسية</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 34%">
+<col style="width: 28%">
+<col style="width: 37%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>العملية</th>
+<th>مثال</th>
+<th>الشرح</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span dir="ltr"><code>insert(x)</code></span></td>
+<td><span dir="ltr"><code>s.insert(5);</code></span></td>
+<td>يضيف <span dir="ltr"><code>5</code></span> إلى الـ set. (إذا كان <span dir="ltr"><code>5</code></span> موجودًا مسبقًا، لا يحدث شيء.)</td>
+</tr>
+<tr class="even">
+<td><span dir="ltr"><code>erase(x)</code></span></td>
+<td><span dir="ltr"><code>s.erase(5);</code></span></td>
+<td>يحذف <span dir="ltr"><code>5</code></span> إن كان موجودًا.</td>
+</tr>
+<tr class="odd">
+<td><span dir="ltr"><code>find(x)</code></span></td>
+<td><span dir="ltr"><code>if (s.find(5) != s.end())</code></span></td>
+<td>يتحقق من وجود <span dir="ltr"><code>5</code></span>. يُعيد <em>iterator</em> (يشبه المؤشر).</td>
+</tr>
+<tr class="even">
+<td><span dir="ltr"><code>count(x)</code></span></td>
+<td><span dir="ltr"><code>if (s.count(5))</code></span></td>
+<td>يُعيد 1 إن وُجد، و0 إن لم يوجد. أسهل للمبتدئين.</td>
+</tr>
+<tr class="odd">
+<td><span dir="ltr"><code>size()</code></span></td>
+<td><span dir="ltr"><code>s.size();</code></span></td>
+<td>عدد العناصر.</td>
+</tr>
+<tr class="even">
+<td><span dir="ltr"><code>empty()</code></span></td>
+<td><span dir="ltr"><code>s.empty();</code></span></td>
+<td>يتحقق مما إذا كان الـ set فارغًا.</td>
+</tr>
+<tr class="odd">
+<td><span dir="ltr"><code>clear()</code></span></td>
+<td><span dir="ltr"><code>s.clear();</code></span></td>
+<td>يحذف جميع العناصر من الـ set.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="مثال-استخدام-الـ-set" class="level2">
+<h2 data-anchor-id="مثال-استخدام-الـ-set">مثال: استخدام الـ set</h2>
 <div dir="ltr">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>set<span class="op">&lt;</span>string<span class="op">&gt;</span> my_string_set <span class="op">=</span> <span class="op">{</span><span class="st">"abc"</span><span class="op">,</span> <span class="st">"def"</span><span class="op">,</span> <span class="st">"ghi"</span><span class="op">};</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> <span class="op">(</span>string s <span class="op">:</span> my_string_set<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    cout <span class="op">&lt;&lt;</span> s <span class="op">&lt;&lt;</span> <span class="ch">'</span><span class="sc">\n</span><span class="ch">'</span><span class="op">;</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;set&gt;</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> <span class="kw">namespace</span> std<span class="op">;</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    set<span class="op">&lt;</span><span class="dt">int</span><span class="op">&gt;</span> s<span class="op">;</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    s<span class="op">.</span>insert<span class="op">(</span><span class="dv">3</span><span class="op">);</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    s<span class="op">.</span>insert<span class="op">(</span><span class="dv">1</span><span class="op">);</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    s<span class="op">.</span>insert<span class="op">(</span><span class="dv">4</span><span class="op">);</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    s<span class="op">.</span>insert<span class="op">(</span><span class="dv">3</span><span class="op">);</span> <span class="co">// duplicate ignored</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>    cout <span class="op">&lt;&lt;</span> <span class="st">"Elements: "</span><span class="op">;</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> x <span class="op">:</span> s<span class="op">)</span> cout <span class="op">&lt;&lt;</span> x <span class="op">&lt;&lt;</span> <span class="st">" "</span><span class="op">;</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>    cout <span class="op">&lt;&lt;</span> endl<span class="op">;</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>s<span class="op">.</span>count<span class="op">(</span><span class="dv">3</span><span class="op">))</span></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>        cout <span class="op">&lt;&lt;</span> <span class="st">"3 is in the set"</span> <span class="op">&lt;&lt;</span> endl<span class="op">;</span></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>    s<span class="op">.</span>erase<span class="op">(</span><span class="dv">1</span><span class="op">);</span></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>    cout <span class="op">&lt;&lt;</span> <span class="st">"After removing 1: "</span><span class="op">;</span></span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> x <span class="op">:</span> s<span class="op">)</span> cout <span class="op">&lt;&lt;</span> x <span class="op">&lt;&lt;</span> <span class="st">" "</span><span class="op">;</span></span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
+الناتج:
 <div dir="ltr">
-<pre><code>الناتج:
-abc
-def
-ghi</code></pre>
+<pre><code>Elements: 1 3 4
+3 is in the set
+After removing 1: 3 4</code></pre>
 </div>
-<div class="callout callout-style-simple callout-none no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">None</span>تحدي (Challenge)
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>ما هو ناتج البرنامج التالي:</p>
+</section>
+<section id="التنقل-عبر-عناصر-الـ-set" class="level2">
+<h2 data-anchor-id="التنقل-عبر-عناصر-الـ-set">التنقل عبر عناصر الـ set</h2>
+<p>يمكنك المرور على عناصر الـ set باستخدام حلقة range-based for أو iterator.</p>
 <div dir="ltr">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>set<span class="op">&lt;</span><span class="dt">int</span><span class="op">&gt;</span> s <span class="op">=</span> <span class="op">{</span><span class="dv">3</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">1</span><span class="op">};</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">:</span> s<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    cout <span class="op">&lt;&lt;</span> i <span class="op">&lt;&lt;</span> <span class="ch">' '</span><span class="op">;</span></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> x <span class="op">:</span> s<span class="op">)</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    cout <span class="op">&lt;&lt;</span> x <span class="op">&lt;&lt;</span> <span class="st">" "</span><span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
+أو:
+<div dir="ltr">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> <span class="op">(</span><span class="kw">auto</span> it <span class="op">=</span> s<span class="op">.</span>begin<span class="op">();</span> it <span class="op">!=</span> s<span class="op">.</span>end<span class="op">();</span> it<span class="op">++)</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    cout <span class="op">&lt;&lt;</span> <span class="op">*</span>it <span class="op">&lt;&lt;</span> <span class="st">" "</span><span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
+<p>بما أن الـ set مرتّب، ستظهر العناصر دائمًا بترتيب معيّن.</p>
+</section>
+<section id="أنواع-الـ-sets" class="level2">
+<h2 data-anchor-id="أنواع-الـ-sets">أنواع الـ sets</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 9%">
+<col style="width: 23%">
+<col style="width: 30%">
+<col style="width: 26%">
+<col style="width: 10%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>النوع</th>
+<th>مرتّب؟</th>
+<th>يسمح بالمكررات؟</th>
+<th>السرعة (تقريبًا)</th>
+<th>ملاحظات</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span dir="ltr"><code>set</code></span></td>
+<td>نعم</td>
+<td>لا</td>
+<td>O(log n)</td>
+<td>يعمل داخليًا بشجرة متوازنة</td>
+</tr>
+<tr class="even">
+<td><span dir="ltr"><code>multiset</code></span></td>
+<td>نعم</td>
+<td>نعم</td>
+<td>O(log n)</td>
+<td>يحتفظ بنسخ متعددة من نفس القيمة</td>
+</tr>
+<tr class="odd">
+<td><span dir="ltr"><code>unordered_set</code></span></td>
+<td>لا</td>
+<td>لا</td>
+<td>O(1) متوسطًا</td>
+<td>يستخدم الـ hashing، أسرع لكن الترتيب عشوائي</td>
+</tr>
+</tbody>
+</table>
+<p>نصائح: إذا كان الترتيب مهمًا — استخدم <span dir="ltr"><code>set</code></span>.<br>
+إذا احتجت لتخزين مكررات — استخدم <span dir="ltr"><code>multiset</code></span>.<br>
+إذا كانت السرعة هي همّك الوحيد — استخدم <span dir="ltr"><code>unordered_set</code></span>.</p>
+</section>
+<section id="مثال-إزالة-المكررات" class="level2">
+<h2 data-anchor-id="مثال-إزالة-المكررات">مثال: إزالة المكررات</h2>
+<div dir="ltr">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;set&gt;</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;vector&gt;</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> <span class="kw">namespace</span> std<span class="op">;</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    vector<span class="op">&lt;</span><span class="dt">int</span><span class="op">&gt;</span> nums <span class="op">=</span> <span class="op">{</span><span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span><span class="op">,</span> <span class="dv">4</span><span class="op">,</span> <span class="dv">3</span><span class="op">,</span> <span class="dv">1</span><span class="op">};</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    set<span class="op">&lt;</span><span class="dt">int</span><span class="op">&gt;</span> unique<span class="op">;</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> x <span class="op">:</span> nums<span class="op">)</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>        unique<span class="op">.</span>insert<span class="op">(</span>x<span class="op">);</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> x <span class="op">:</span> unique<span class="op">)</span></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>        cout <span class="op">&lt;&lt;</span> x <span class="op">&lt;&lt;</span> <span class="st">" "</span><span class="op">;</span></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>الحل (Solution)
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-6" class="callout-6-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>الناتج هو <span dir="ltr"><code>1 2 3</code></span> لأن <span dir="ltr"><code>sets</code></span> تكون دائمًا مرتبة.</p>
-</div>
-</div>
+الناتج:
+<div dir="ltr">
+<pre><code>1 2 3 4</code></pre>
 </div>
 </section>
 </section>
