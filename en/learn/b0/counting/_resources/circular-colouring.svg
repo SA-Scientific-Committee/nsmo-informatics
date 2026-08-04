@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 360">
+  <title>Four labelled seats around a circular table</title>
+
+  <circle cx="180" cy="180" r="105"
+          fill="none" stroke="#6c757d" stroke-width="4"/>
+
+  <g fill="#f8f9fa" stroke="#343a40" stroke-width="3">
+    <circle cx="45" cy="180" r="25"/>
+    <circle cx="180" cy="45" r="25"/>
+    <circle cx="315" cy="180" r="25"/>
+    <circle cx="180" cy="315" r="25"/>
+  </g>
+
+  <g fill="#212529" text-anchor="middle" dominant-baseline="central"
+     font-size="20" font-family="sans-serif">
+    <text x="45" y="180">1</text>
+    <text x="180" y="45">2</text>
+    <text x="315" y="180">3</text>
+    <text x="180" y="315">4</text>
+  </g>
+</svg>
