@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en" dir="ltr"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.9.38">
@@ -79,9 +79,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-5176555e1584cf34bcb861ee973f3cfa.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-ce515637c2dc87f9ccae102e7a530614.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-5176555e1584cf34bcb861ee973f3cfa.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-258d66faa7bfce965fe44b8e21187732.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-67f8ba25f6480dbb99b4f0d205a7ab35.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-258d66faa7bfce965fe44b8e21187732.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -111,6 +111,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 
 
+<link rel="stylesheet" href="../../typography.css">
 </head>
 
 <body class="nav-sidebar floating nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -283,7 +284,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../../index.html">
-    <span class="navbar-title"><span class="light-content"> <img src="../../logo-mawhiba-light.png" style="height:30px; margin:0 20px;"> <img src="../../logo-nsmo-light.png" style="height:25px; margin:0 20px;"> </span> <span class="dark-content"> <img src="../../logo-mawhiba-dark.png" style="height:30px; margin:0 20px;"> <img src="../../logo-nsmo-dark.png" style="height:25px; margin:0 20px;"> </span></span>
+    <span class="navbar-title"><span class="light-content"> <img src="../../logo-mawhiba-light.svg" alt="Mawhiba" style="height:30px; margin:0 20px;"> <img src="../../logo-nsmo-light.png" style="height:25px; margin:0 20px;"> </span> <span class="dark-content"> <img src="../../logo-mawhiba-dark.svg" alt="Mawhiba" style="height:30px; margin:0 20px;"> <img src="../../logo-nsmo-dark.png" style="height:25px; margin:0 20px;"> </span></span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -315,7 +316,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../../../ar/learn"> 
+    <a class="nav-link" href="../../ar/learn/"> 
 <span class="menu-text">Arabic</span></a>
   </li>  
 </ul>
@@ -588,11 +589,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="trees" class="level1">
 <h1>Trees</h1>
 <p>A tree is a structure made of <strong>nodes</strong> (points) connected by <strong>edges</strong> (lines).</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="_resources/tree-example.svg" class="img-fluid figure-img"></p>
-<figcaption>Example tree</figcaption>
-</figure>
+<div class="instructional-diagram tree-diagram">
+  <svg viewbox="0 0 420 290" role="img" aria-labelledby="tree-diagram-title" focusable="false">
+    <title id="tree-diagram-title">1–2, 1–3, 2–4, 2–5, 3–6</title>
+    <path class="diagram-line" d="M192 68L148 118 M228 68L272 118 M117 162L88 214 M142 162L168 214 M290 165V211"></path>
+    <g class="tree-diagram-nodes">
+      <circle cx="210" cy="48" r="27"></circle>
+      <circle cx="130" cy="138" r="27"></circle>
+      <circle cx="290" cy="138" r="27"></circle>
+      <circle cx="75" cy="238" r="27"></circle>
+      <circle cx="180" cy="238" r="27"></circle>
+      <circle cx="290" cy="238" r="27"></circle>
+    </g>
+    <g class="diagram-values">
+      <text x="210" y="48">1</text><text x="130" y="138">2</text><text x="290" y="138">3</text>
+      <text x="75" y="238">4</text><text x="180" y="238">5</text><text x="290" y="238">6</text>
+    </g>
+  </svg>
 </div>
 <section id="what-makes-it-a-tree" class="level2">
 <h2 data-anchor-id="what-makes-it-a-tree">What makes it a tree</h2>
@@ -649,7 +662,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="representing-a-tree-in-code" class="level2">
 <h2 data-anchor-id="representing-a-tree-in-code">Representing a tree in code</h2>
 <p>We’ll assume:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> n<span class="op">;</span>                          <span class="co">// nodes are 0..n-1</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> n<span class="op">;</span>                  <span class="co">// nodes are 0..n-1</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>vector<span class="op">&lt;</span><span class="dt">int</span><span class="op">&gt;</span> g<span class="op">[</span>n<span class="op">];</span>       <span class="co">// adjacency list</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Each <code>g[v]</code> contains all neighbors of node <code>v</code>.</p>
 </section>
@@ -707,6 +720,45 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 
 </main> <!-- /main -->
+<script>
+(() => {
+  const removeInlineMathFocus = (root) => {
+    if (root.nodeType !== Node.ELEMENT_NODE && root.nodeType !== Node.DOCUMENT_NODE) return;
+
+    if (root.matches?.(".math.inline mjx-container[tabindex]")) {
+      root.removeAttribute("tabindex");
+    }
+
+    root.querySelectorAll?.(".math.inline mjx-container[tabindex]").forEach((math) => {
+      math.removeAttribute("tabindex");
+    });
+  };
+
+  const start = () => {
+    removeInlineMathFocus(document);
+    new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.type === "attributes") {
+          removeInlineMathFocus(mutation.target);
+        } else {
+          mutation.addedNodes.forEach(removeInlineMathFocus);
+        }
+      });
+    }).observe(document.body, {
+      childList: true,
+      subtree: true,
+      attributes: true,
+      attributeFilter: ["tabindex"]
+    });
+  };
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", start, { once: true });
+  } else {
+    start();
+  }
+})();
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right

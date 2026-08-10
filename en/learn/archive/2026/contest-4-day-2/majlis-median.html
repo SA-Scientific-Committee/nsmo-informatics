@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en" dir="ltr"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.9.38">
@@ -78,9 +78,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap-5176555e1584cf34bcb861ee973f3cfa.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../../site_libs/bootstrap/bootstrap-dark-ce515637c2dc87f9ccae102e7a530614.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../../site_libs/bootstrap/bootstrap-5176555e1584cf34bcb861ee973f3cfa.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-258d66faa7bfce965fe44b8e21187732.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-dark-67f8ba25f6480dbb99b4f0d205a7ab35.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../../site_libs/bootstrap/bootstrap-258d66faa7bfce965fe44b8e21187732.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -139,6 +139,7 @@ window.Quarto = {
 };
 </script>
 
+<link rel="stylesheet" href="../../../typography.css">
 </head>
 
 <body class="nav-sidebar floating nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -311,7 +312,7 @@ window.Quarto = {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../../../index.html">
-    <span class="navbar-title"><span class="light-content"> <img src="../../../logo-mawhiba-light.png" style="height:30px; margin:0 20px;"> <img src="../../../logo-nsmo-light.png" style="height:25px; margin:0 20px;"> </span> <span class="dark-content"> <img src="../../../logo-mawhiba-dark.png" style="height:30px; margin:0 20px;"> <img src="../../../logo-nsmo-dark.png" style="height:25px; margin:0 20px;"> </span></span>
+    <span class="navbar-title"><span class="light-content"> <img src="../../../logo-mawhiba-light.svg" alt="Mawhiba" style="height:30px; margin:0 20px;"> <img src="../../../logo-nsmo-light.png" style="height:25px; margin:0 20px;"> </span> <span class="dark-content"> <img src="../../../logo-mawhiba-dark.svg" alt="Mawhiba" style="height:30px; margin:0 20px;"> <img src="../../../logo-nsmo-dark.png" style="height:25px; margin:0 20px;"> </span></span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -343,7 +344,7 @@ window.Quarto = {
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../../../../ar/learn"> 
+    <a class="nav-link" href="../../../ar/learn/"> 
 <span class="menu-text">Arabic</span></a>
   </li>  
 </ul>
@@ -616,7 +617,6 @@ window.Quarto = {
 <div class="problem-body">
 <p><strong>Time limit:</strong> 1 s.<br>
 <strong>Memory limit:</strong> 256 MB</p>
-<p><a href="https://nsmo.contest.codeforces.com/group/ZPipV6comb/contest/692422/attachments/download/37684/majlis-median.pdf">للاطلاع على النسخة العربية من النص، انقر هنا</a>.</p>
 <p>You are given a permutation <span class="math inline">\(X\)</span> of size <span class="math inline">\(N\)</span>, representing the seating order of guests in a Majlis. The permutation is an array that contains all integers from <span class="math inline">\(1\)</span> to <span class="math inline">\(N\)</span> exactly once, where each integer represents a guest’s rank.</p>
 <p>A subarray is any contiguous segment obtained by removing zero or more elements from the beginning and/or the end of the permutation.</p>
 <p>Count how many subarrays of odd length have median equal to <span class="math inline">\(M\)</span>. The median of an odd-length subarray is the middle element after sorting the subarray.</p>
@@ -632,38 +632,40 @@ window.Quarto = {
 <section id="scoring" class="level3">
 <h3 data-anchor-id="scoring">Scoring</h3>
 <table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Subtask</th>
+<th>Additional constraints</th>
+<th>Points</th>
+</tr>
+</thead>
 <tbody>
 <tr class="odd">
-<td><strong>Subtask</strong></td>
-<td><strong>Additional constraints</strong></td>
-<td><strong>Points</strong></td>
-</tr>
-<tr class="even">
 <td><span class="math inline">\(1\)</span></td>
 <td><span class="math inline">\(N \le 100\)</span></td>
 <td><span class="math inline">\(11\)</span></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><span class="math inline">\(2\)</span></td>
 <td><span class="math inline">\(N \le 1000\)</span></td>
 <td><span class="math inline">\(12\)</span></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><span class="math inline">\(3\)</span></td>
 <td><span class="math inline">\(N \le 5000\)</span></td>
 <td><span class="math inline">\(18\)</span></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><span class="math inline">\(4\)</span></td>
 <td><span class="math inline">\(M = 1\)</span> or <span class="math inline">\(M = N\)</span></td>
 <td><span class="math inline">\(11\)</span></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><span class="math inline">\(5\)</span></td>
 <td>The position of <span class="math inline">\(M\)</span> is at most <span class="math inline">\(10\)</span></td>
 <td><span class="math inline">\(15\)</span></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><span class="math inline">\(6\)</span></td>
 <td>no additional constraints</td>
 <td><span class="math inline">\(33\)</span></td>
@@ -701,9 +703,8 @@ window.Quarto = {
 </div>
 </div>
 </section>
-<div>
-<div class="solution-card">
-<p><span class="solution-title">Solution</span></p>
+<details class="solution-card">
+<summary><span class="solution-title">Solution</span></summary>
 <div class="problem-body">
 <p>Every valid subarray must contain <span class="math inline">\(M\)</span>. Replace each value smaller than <span class="math inline">\(M\)</span> by <span class="math inline">\(-1\)</span> and each value greater than <span class="math inline">\(M\)</span> by <span class="math inline">\(1\)</span>.</p>
 <p>For a subarray containing <span class="math inline">\(M\)</span>, its median is <span class="math inline">\(M\)</span> exactly when its sum after this replacement is zero: it then contains equally many smaller and greater values.</p>
@@ -750,12 +751,50 @@ window.Quarto = {
 <span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a>    cout <span class="op">&lt;&lt;</span> answer <span class="op">&lt;&lt;</span> <span class="ch">'</span><span class="sc">\n</span><span class="ch">'</span><span class="op">;</span></span>
 <span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-</div>
-</div>
+</details>
 
 
 
 </main> <!-- /main -->
+<script>
+(() => {
+  const removeInlineMathFocus = (root) => {
+    if (root.nodeType !== Node.ELEMENT_NODE && root.nodeType !== Node.DOCUMENT_NODE) return;
+
+    if (root.matches?.(".math.inline mjx-container[tabindex]")) {
+      root.removeAttribute("tabindex");
+    }
+
+    root.querySelectorAll?.(".math.inline mjx-container[tabindex]").forEach((math) => {
+      math.removeAttribute("tabindex");
+    });
+  };
+
+  const start = () => {
+    removeInlineMathFocus(document);
+    new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.type === "attributes") {
+          removeInlineMathFocus(mutation.target);
+        } else {
+          mutation.addedNodes.forEach(removeInlineMathFocus);
+        }
+      });
+    }).observe(document.body, {
+      childList: true,
+      subtree: true,
+      attributes: true,
+      attributeFilter: ["tabindex"]
+    });
+  };
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", start, { once: true });
+  } else {
+    start();
+  }
+})();
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right

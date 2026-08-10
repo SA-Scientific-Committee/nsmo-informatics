@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en" dir="ltr"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.9.38">
@@ -79,9 +79,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap-5176555e1584cf34bcb861ee973f3cfa.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../../site_libs/bootstrap/bootstrap-dark-ce515637c2dc87f9ccae102e7a530614.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../../site_libs/bootstrap/bootstrap-5176555e1584cf34bcb861ee973f3cfa.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-258d66faa7bfce965fe44b8e21187732.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-dark-67f8ba25f6480dbb99b4f0d205a7ab35.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../../site_libs/bootstrap/bootstrap-258d66faa7bfce965fe44b8e21187732.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -140,6 +140,7 @@ window.Quarto = {
 };
 </script>
 
+<link rel="stylesheet" href="../../../typography.css">
 </head>
 
 <body class="nav-sidebar floating nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -312,7 +313,7 @@ window.Quarto = {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../../../index.html">
-    <span class="navbar-title"><span class="light-content"> <img src="../../../logo-mawhiba-light.png" style="height:30px; margin:0 20px;"> <img src="../../../logo-nsmo-light.png" style="height:25px; margin:0 20px;"> </span> <span class="dark-content"> <img src="../../../logo-mawhiba-dark.png" style="height:30px; margin:0 20px;"> <img src="../../../logo-nsmo-dark.png" style="height:25px; margin:0 20px;"> </span></span>
+    <span class="navbar-title"><span class="light-content"> <img src="../../../logo-mawhiba-light.svg" alt="Mawhiba" style="height:30px; margin:0 20px;"> <img src="../../../logo-nsmo-light.png" style="height:25px; margin:0 20px;"> </span> <span class="dark-content"> <img src="../../../logo-mawhiba-dark.svg" alt="Mawhiba" style="height:30px; margin:0 20px;"> <img src="../../../logo-nsmo-dark.png" style="height:25px; margin:0 20px;"> </span></span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -344,7 +345,7 @@ window.Quarto = {
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../../../../ar/learn"> 
+    <a class="nav-link" href="../../../ar/learn/"> 
 <span class="menu-text">Arabic</span></a>
   </li>  
 </ul>
@@ -617,7 +618,6 @@ window.Quarto = {
 <div class="problem-body">
 <p><strong>Time limit:</strong> 1 s.<br>
 <strong>Memory limit:</strong> 256 MB</p>
-<p><a href="https://nsmo.contest.codeforces.com/group/P8cmNCiOVh/contest/689448/attachments/download/37395/pattern-recognition.pdf">للاطلاع على النسخة العربية من النص، انقر هنا</a>.</p>
 <p>You just bought a desert! The desert is divided into <span class="math inline">\(n\)</span> rows and <span class="math inline">\(m\)</span> columns. In the cell at row <span class="math inline">\(i\)</span> and column <span class="math inline">\(j\)</span>, there is a camel of type <span class="math inline">\(A_{i,j}\)</span>. There are <span class="math inline">\(k\)</span> camel types in total, so each <span class="math inline">\(A_{i,j}\)</span> is an integer between <span class="math inline">\(1\)</span> and <span class="math inline">\(k\)</span>.</p>
 <p>You are interested in special regions of the desert. A region is considered special if:</p>
 <ul>
@@ -643,33 +643,35 @@ window.Quarto = {
 <col style="width: 38%">
 <col style="width: 30%">
 </colgroup>
+<thead>
+<tr class="header">
+<th>Subtask</th>
+<th>Additional constraints</th>
+<th>Points</th>
+</tr>
+</thead>
 <tbody>
 <tr class="odd">
-<td><strong>Subtask</strong></td>
-<td><strong>Additional constraints</strong></td>
-<td><strong>Points</strong></td>
-</tr>
-<tr class="even">
 <td><span class="math inline">\(1\)</span></td>
 <td><span class="math inline">\(n, m \le 20\)</span></td>
 <td><span class="math inline">\(14\)</span></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><span class="math inline">\(2\)</span></td>
 <td><span class="math inline">\(n, m \le 100, k \le 100\)</span></td>
 <td><span class="math inline">\(16\)</span></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><span class="math inline">\(3\)</span></td>
 <td><span class="math inline">\(n, m \le 100\)</span></td>
 <td><span class="math inline">\(17\)</span></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><span class="math inline">\(4\)</span></td>
 <td><span class="math inline">\(k = 2\)</span></td>
 <td><span class="math inline">\(22\)</span></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><span class="math inline">\(5\)</span></td>
 <td>no additional constraints</td>
 <td><span class="math inline">\(31\)</span></td>
@@ -715,9 +717,8 @@ cin.tie(nullptr);</code></pre>
 </div>
 </div>
 </section>
-<div>
-<div class="solution-card">
-<p><span class="solution-title">Solution</span></p>
+<details class="solution-card">
+<summary><span class="solution-title">Solution</span></summary>
 <div class="problem-body">
 <p>For each camel type, find its minimum and maximum row and column. These four values define the only rectangle that could contain all occurrences of that type.</p>
 <p>Also count its occurrences. The type fills its bounding rectangle exactly when</p>
@@ -733,49 +734,87 @@ cin.tie(nullptr);</code></pre>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> <span class="kw">namespace</span> std<span class="op">;</span></span>
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    ios<span class="op">::</span>sync_with_stdio<span class="op">(</span><span class="kw">false</span><span class="op">);</span></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    cin<span class="op">.</span>tie<span class="op">(</span><span class="kw">nullptr</span><span class="op">);</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>        ios<span class="op">::</span>sync_with_stdio<span class="op">(</span><span class="kw">false</span><span class="op">);</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>        cin<span class="op">.</span>tie<span class="op">(</span><span class="kw">nullptr</span><span class="op">);</span></span>
 <span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> n<span class="op">,</span> m<span class="op">,</span> k<span class="op">;</span></span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>    cin <span class="op">&gt;&gt;</span> n <span class="op">&gt;&gt;</span> m <span class="op">&gt;&gt;</span> k<span class="op">;</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>        <span class="dt">int</span> n<span class="op">,</span> m<span class="op">,</span> k<span class="op">;</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>        cin <span class="op">&gt;&gt;</span> n <span class="op">&gt;&gt;</span> m <span class="op">&gt;&gt;</span> k<span class="op">;</span></span>
 <span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>    vector<span class="op">&lt;</span><span class="dt">int</span><span class="op">&gt;</span> minRow<span class="op">(</span>k <span class="op">+</span> <span class="dv">1</span><span class="op">,</span> n<span class="op">),</span> maxRow<span class="op">(</span>k <span class="op">+</span> <span class="dv">1</span><span class="op">,</span> <span class="op">-</span><span class="dv">1</span><span class="op">);</span></span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>    vector<span class="op">&lt;</span><span class="dt">int</span><span class="op">&gt;</span> minCol<span class="op">(</span>k <span class="op">+</span> <span class="dv">1</span><span class="op">,</span> m<span class="op">),</span> maxCol<span class="op">(</span>k <span class="op">+</span> <span class="dv">1</span><span class="op">,</span> <span class="op">-</span><span class="dv">1</span><span class="op">);</span></span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>    vector<span class="op">&lt;</span><span class="dt">int</span><span class="op">&gt;</span> count<span class="op">(</span>k <span class="op">+</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">0</span><span class="op">);</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>        vector<span class="op">&lt;</span><span class="dt">int</span><span class="op">&gt;</span> minRow<span class="op">(</span>k <span class="op">+</span> <span class="dv">1</span><span class="op">,</span> n<span class="op">),</span> maxRow<span class="op">(</span>k <span class="op">+</span> <span class="dv">1</span><span class="op">,</span> <span class="op">-</span><span class="dv">1</span><span class="op">);</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>        vector<span class="op">&lt;</span><span class="dt">int</span><span class="op">&gt;</span> minCol<span class="op">(</span>k <span class="op">+</span> <span class="dv">1</span><span class="op">,</span> m<span class="op">),</span> maxCol<span class="op">(</span>k <span class="op">+</span> <span class="dv">1</span><span class="op">,</span> <span class="op">-</span><span class="dv">1</span><span class="op">);</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>        vector<span class="op">&lt;</span><span class="dt">int</span><span class="op">&gt;</span> count<span class="op">(</span>k <span class="op">+</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">0</span><span class="op">);</span></span>
 <span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> row <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> row <span class="op">&lt;</span> n<span class="op">;</span> row<span class="op">++)</span> <span class="op">{</span></span>
-<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> col <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> col <span class="op">&lt;</span> m<span class="op">;</span> col<span class="op">++)</span> <span class="op">{</span></span>
-<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>            <span class="dt">int</span> type<span class="op">;</span></span>
-<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>            cin <span class="op">&gt;&gt;</span> type<span class="op">;</span></span>
-<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>            minRow<span class="op">[</span>type<span class="op">]</span> <span class="op">=</span> min<span class="op">(</span>minRow<span class="op">[</span>type<span class="op">],</span> row<span class="op">);</span></span>
-<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>            maxRow<span class="op">[</span>type<span class="op">]</span> <span class="op">=</span> max<span class="op">(</span>maxRow<span class="op">[</span>type<span class="op">],</span> row<span class="op">);</span></span>
-<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>            minCol<span class="op">[</span>type<span class="op">]</span> <span class="op">=</span> min<span class="op">(</span>minCol<span class="op">[</span>type<span class="op">],</span> col<span class="op">);</span></span>
-<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>            maxCol<span class="op">[</span>type<span class="op">]</span> <span class="op">=</span> max<span class="op">(</span>maxCol<span class="op">[</span>type<span class="op">],</span> col<span class="op">);</span></span>
-<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>            count<span class="op">[</span>type<span class="op">]++;</span></span>
-<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
-<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> row <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> row <span class="op">&lt;</span> n<span class="op">;</span> row<span class="op">++)</span> <span class="op">{</span></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>                <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> col <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> col <span class="op">&lt;</span> m<span class="op">;</span> col<span class="op">++)</span> <span class="op">{</span></span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>                        <span class="dt">int</span> type<span class="op">;</span></span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>                        cin <span class="op">&gt;&gt;</span> type<span class="op">;</span></span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>                        minRow<span class="op">[</span>type<span class="op">]</span> <span class="op">=</span> min<span class="op">(</span>minRow<span class="op">[</span>type<span class="op">],</span> row<span class="op">);</span></span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>                        maxRow<span class="op">[</span>type<span class="op">]</span> <span class="op">=</span> max<span class="op">(</span>maxRow<span class="op">[</span>type<span class="op">],</span> row<span class="op">);</span></span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>                        minCol<span class="op">[</span>type<span class="op">]</span> <span class="op">=</span> min<span class="op">(</span>minCol<span class="op">[</span>type<span class="op">],</span> col<span class="op">);</span></span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>                        maxCol<span class="op">[</span>type<span class="op">]</span> <span class="op">=</span> max<span class="op">(</span>maxCol<span class="op">[</span>type<span class="op">],</span> col<span class="op">);</span></span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>                        count<span class="op">[</span>type<span class="op">]++;</span></span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>                <span class="op">}</span></span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
 <span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> answer <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>        <span class="dt">int</span> answer <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
 <span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> type <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> type <span class="op">&lt;=</span> k<span class="op">;</span> type<span class="op">++)</span> <span class="op">{</span></span>
-<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>count<span class="op">[</span>type<span class="op">]</span> <span class="op">==</span> <span class="dv">0</span><span class="op">)</span> <span class="cf">continue</span><span class="op">;</span></span>
+<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> type <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> type <span class="op">&lt;=</span> k<span class="op">;</span> type<span class="op">++)</span> <span class="op">{</span></span>
+<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> <span class="op">(</span>count<span class="op">[</span>type<span class="op">]</span> <span class="op">==</span> <span class="dv">0</span><span class="op">)</span> <span class="cf">continue</span><span class="op">;</span></span>
 <span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a>        <span class="dt">long</span> <span class="dt">long</span> area <span class="op">=</span> <span class="dv">1</span><span class="bu">LL</span> <span class="op">*</span> <span class="op">(</span>maxRow<span class="op">[</span>type<span class="op">]</span> <span class="op">-</span> minRow<span class="op">[</span>type<span class="op">]</span> <span class="op">+</span> <span class="dv">1</span><span class="op">)</span></span>
-<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a>                              <span class="op">*</span> <span class="op">(</span>maxCol<span class="op">[</span>type<span class="op">]</span> <span class="op">-</span> minCol<span class="op">[</span>type<span class="op">]</span> <span class="op">+</span> <span class="dv">1</span><span class="op">);</span></span>
-<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>area <span class="op">==</span> count<span class="op">[</span>type<span class="op">])</span> <span class="op">{</span></span>
-<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a>            answer<span class="op">++;</span></span>
-<span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
-<span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a>                <span class="dt">long</span> <span class="dt">long</span> area <span class="op">=</span> <span class="dv">1</span><span class="bu">LL</span> <span class="op">*</span> <span class="op">(</span>maxRow<span class="op">[</span>type<span class="op">]</span> <span class="op">-</span> minRow<span class="op">[</span>type<span class="op">]</span> <span class="op">+</span> <span class="dv">1</span><span class="op">)</span></span>
+<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a>                                                            <span class="op">*</span> <span class="op">(</span>maxCol<span class="op">[</span>type<span class="op">]</span> <span class="op">-</span> minCol<span class="op">[</span>type<span class="op">]</span> <span class="op">+</span> <span class="dv">1</span><span class="op">);</span></span>
+<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> <span class="op">(</span>area <span class="op">==</span> count<span class="op">[</span>type<span class="op">])</span> <span class="op">{</span></span>
+<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a>                        answer<span class="op">++;</span></span>
+<span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a>                <span class="op">}</span></span>
+<span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
 <span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a>    cout <span class="op">&lt;&lt;</span> answer <span class="op">&lt;&lt;</span> <span class="ch">'</span><span class="sc">\n</span><span class="ch">'</span><span class="op">;</span></span>
+<span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a>        cout <span class="op">&lt;&lt;</span> answer <span class="op">&lt;&lt;</span> <span class="ch">'</span><span class="sc">\n</span><span class="ch">'</span><span class="op">;</span></span>
 <span id="cb6-42"><a href="#cb6-42" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-</div>
-</div>
+</details>
 
 
 
 </main> <!-- /main -->
+<script>
+(() => {
+  const removeInlineMathFocus = (root) => {
+    if (root.nodeType !== Node.ELEMENT_NODE && root.nodeType !== Node.DOCUMENT_NODE) return;
+
+    if (root.matches?.(".math.inline mjx-container[tabindex]")) {
+      root.removeAttribute("tabindex");
+    }
+
+    root.querySelectorAll?.(".math.inline mjx-container[tabindex]").forEach((math) => {
+      math.removeAttribute("tabindex");
+    });
+  };
+
+  const start = () => {
+    removeInlineMathFocus(document);
+    new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.type === "attributes") {
+          removeInlineMathFocus(mutation.target);
+        } else {
+          mutation.addedNodes.forEach(removeInlineMathFocus);
+        }
+      });
+    }).observe(document.body, {
+      childList: true,
+      subtree: true,
+      attributes: true,
+      attributeFilter: ["tabindex"]
+    });
+  };
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", start, { once: true });
+  } else {
+    start();
+  }
+})();
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right

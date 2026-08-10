@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en" dir="ltr"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.9.38">
@@ -79,9 +79,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-5176555e1584cf34bcb861ee973f3cfa.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-ce515637c2dc87f9ccae102e7a530614.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-5176555e1584cf34bcb861ee973f3cfa.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-258d66faa7bfce965fe44b8e21187732.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-67f8ba25f6480dbb99b4f0d205a7ab35.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-258d66faa7bfce965fe44b8e21187732.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -111,6 +111,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 
 
+<link rel="stylesheet" href="../../typography.css">
 </head>
 
 <body class="nav-sidebar floating nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -283,7 +284,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../../index.html">
-    <span class="navbar-title"><span class="light-content"> <img src="../../logo-mawhiba-light.png" style="height:30px; margin:0 20px;"> <img src="../../logo-nsmo-light.png" style="height:25px; margin:0 20px;"> </span> <span class="dark-content"> <img src="../../logo-mawhiba-dark.png" style="height:30px; margin:0 20px;"> <img src="../../logo-nsmo-dark.png" style="height:25px; margin:0 20px;"> </span></span>
+    <span class="navbar-title"><span class="light-content"> <img src="../../logo-mawhiba-light.svg" alt="Mawhiba" style="height:30px; margin:0 20px;"> <img src="../../logo-nsmo-light.png" style="height:25px; margin:0 20px;"> </span> <span class="dark-content"> <img src="../../logo-mawhiba-dark.svg" alt="Mawhiba" style="height:30px; margin:0 20px;"> <img src="../../logo-nsmo-dark.png" style="height:25px; margin:0 20px;"> </span></span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -315,7 +316,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../../../ar/learn"> 
+    <a class="nav-link" href="../../ar/learn/"> 
 <span class="menu-text">Arabic</span></a>
   </li>  
 </ul>
@@ -695,7 +696,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 data-anchor-id="assignment">Assignment: <code>=</code></h2>
 <p>The assignment operator allows us to set a specific value to a variable.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> x<span class="op">;</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">5</span><span class="op">;</span> <span class="co">// here we set the value of the variable 'x' to 5</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">5</span><span class="op">;</span>  <span class="co">// here we set the value of the variable 'x' to 5</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>In the previous example, <code>5</code> (the right operand) was assigned to <code>x</code> (the left operand). The order of evaluation is from right to left <em>(more on this in a later example)</em></p>
 </section>
 <section id="arithmetic-operators--" class="level2">
@@ -777,11 +778,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="increment-and-decrement---" class="level2">
 <h2 data-anchor-id="increment-and-decrement---">Increment and Decrement: <code>++</code>, <code>--</code></h2>
 <p>If we wanted to add <code>1</code> to some variable <code>x</code> we saw that we can shorten it to <code>x += 1</code>, but when we are adding or subtracting <code>1</code>, we have an even shorter way to write it using increment and decrement operators.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> x<span class="op">;</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>x<span class="op">++;</span> <span class="co">// after this line is executed x is 1</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>x<span class="op">--;</span> <span class="co">// after this line is executed x is 0</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> x<span class="op">;</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>x<span class="op">++;</span>  <span class="co">// after this line is executed x is 1</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>x<span class="op">--;</span>  <span class="co">// after this line is executed x is 0</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>A subtle difference between <code>++</code> and <code>+= 1</code> is that <code>++</code> and <code>--</code> can be written before <em>(prefix)</em> or after <em>(suffix)</em> a variable and each has its own meaning. We will explore the difference with an example:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> x<span class="op">,</span> y<span class="op">;</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">1</span><span class="op">;</span></span>
@@ -830,9 +830,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 </tbody>
 </table>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> x <span class="op">=</span> <span class="dv">1</span><span class="op">,</span> y <span class="op">=</span> <span class="dv">2</span><span class="op">;</span> </span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> same <span class="op">=</span> <span class="op">(</span>x<span class="op">==</span>y<span class="op">);</span> <span class="co">// since x and y are not equal (x==y) will be 'false'</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> x_less_than_y <span class="op">=</span> <span class="op">(</span>x <span class="op">&lt;</span> y<span class="op">);</span> <span class="co">// since x &lt; y the expression will be 'true'</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> x <span class="op">=</span> <span class="dv">1</span><span class="op">,</span> y <span class="op">=</span> <span class="dv">2</span><span class="op">;</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> same <span class="op">=</span> <span class="op">(</span>x<span class="op">==</span>y<span class="op">);</span>  <span class="co">// since x and y are not equal (x==y) will be 'false'</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> x_less_than_y <span class="op">=</span> <span class="op">(</span>x <span class="op">&lt;</span> y<span class="op">);</span>  <span class="co">// since x &lt; y the expression will be 'true'</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Comparision is not only limited to variables, the left and right operands may be full expressions, for example:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> x <span class="op">=</span> <span class="dv">5</span><span class="op">;</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> even <span class="op">=</span> <span class="op">(</span>x <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span><span class="op">);</span></span>
@@ -842,23 +842,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="logical-operators" class="level2">
 <h2 data-anchor-id="logical-operators">Logical Operators: <code>!</code>, <code>&amp;&amp;</code>, <code>||</code></h2>
 <p>The <code>!</code> operator <em>(NOT)</em> is a unary operator meaning it has only one operand which is a boolean. If the operand’s value is <code>true</code> then this operation produces <code>false</code> otherwise it produces <code>true</code>.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> a <span class="op">=</span> <span class="op">(</span><span class="dv">5</span> <span class="op">&gt;</span> <span class="dv">7</span><span class="op">);</span>  <span class="co">// false</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> b <span class="op">=</span> <span class="op">!</span>a<span class="op">;</span>       <span class="co">// true</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> c <span class="op">=</span> <span class="op">!(</span><span class="dv">7</span> <span class="op">&gt;</span> <span class="dv">5</span><span class="op">);</span> <span class="co">// false</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> a <span class="op">=</span> <span class="op">(</span><span class="dv">5</span> <span class="op">&gt;</span> <span class="dv">7</span><span class="op">);</span>   <span class="co">// false</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> b <span class="op">=</span> <span class="op">!</span>a<span class="op">;</span>        <span class="co">// true</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> c <span class="op">=</span> <span class="op">!(</span><span class="dv">7</span> <span class="op">&gt;</span> <span class="dv">5</span><span class="op">);</span>  <span class="co">// false</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>The <code>&amp;&amp;</code> and <code>||</code> operators are operators which receive two boolean values as operands. The <code>&amp;&amp;</code> operator <em>(AND)</em> produces true if both operands’ values are <code>true</code> and produces <code>false</code> otherwise.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> a <span class="op">=</span> <span class="op">(</span><span class="dv">5</span> <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span><span class="op">);</span> <span class="co">// false, 5 is odd</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> b <span class="op">=</span> <span class="op">(</span><span class="dv">3</span> <span class="op">&gt;</span> <span class="dv">2</span><span class="op">);</span> <span class="co">// true</span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> c <span class="op">=</span> a <span class="op">&amp;&amp;</span> b<span class="op">;</span> <span class="co">// false because a is false</span></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> d <span class="op">=</span> <span class="op">(!</span>c<span class="op">)</span> <span class="op">&amp;&amp;</span> b<span class="op">;</span> <span class="co">// true because (!c) is true and b is true</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> a <span class="op">=</span> <span class="op">(</span><span class="dv">5</span> <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span><span class="op">);</span>  <span class="co">// false, 5 is odd</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> b <span class="op">=</span> <span class="op">(</span><span class="dv">3</span> <span class="op">&gt;</span> <span class="dv">2</span><span class="op">);</span>  <span class="co">// true</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> c <span class="op">=</span> a <span class="op">&amp;&amp;</span> b<span class="op">;</span>  <span class="co">// false because a is false</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> d <span class="op">=</span> <span class="op">(!</span>c<span class="op">)</span> <span class="op">&amp;&amp;</span> b<span class="op">;</span>  <span class="co">// true because (!c) is true and b is true</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>The <code>||</code> operator <em>(OR)</em> produces <code>true</code> if at least one of its operands’ values are <code>true</code> and produces <code>false</code> otherwise.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> a <span class="op">=</span> <span class="op">(</span><span class="dv">5</span> <span class="op">&lt;</span> <span class="dv">2</span><span class="op">);</span> <span class="co">// false</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> b <span class="op">=</span> <span class="op">(</span><span class="dv">4</span> <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span><span class="op">);</span> <span class="co">// true, 4 is even</span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> c <span class="op">=</span> a <span class="op">&amp;&amp;</span> b<span class="op">;</span> <span class="co">// false, because a is false</span></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> d <span class="op">=</span> b <span class="op">||</span> c<span class="op">;</span> <span class="co">//  true, because b is true</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> a <span class="op">=</span> <span class="op">(</span><span class="dv">5</span> <span class="op">&lt;</span> <span class="dv">2</span><span class="op">);</span>  <span class="co">// false</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> b <span class="op">=</span> <span class="op">(</span><span class="dv">4</span> <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span><span class="op">);</span>  <span class="co">// true, 4 is even</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> c <span class="op">=</span> a <span class="op">&amp;&amp;</span> b<span class="op">;</span>  <span class="co">// false, because a is false</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> d <span class="op">=</span> b <span class="op">||</span> c<span class="op">;</span>  <span class="co">//  true, because b is true</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>A special and important property of the AND and OR operators is the <strong>short-circuit evaluation</strong>. Suppose we have two boolean expressions <code>A</code> and <code>B</code>, if we want to evaluate <code>A &amp;&amp; B</code> and we know that <code>A</code> is false, then we dont need to evaluate <code>B</code>, because we know that <code>A &amp;&amp; B</code> is <code>false</code>.</p>
 <p>This is important in cases where evaluating the right operand modifies values, for example:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> x <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> b <span class="op">=</span> <span class="op">(</span><span class="dv">5</span> <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span><span class="op">)</span> <span class="op">&amp;&amp;</span> <span class="op">(</span>x<span class="op">++</span> <span class="op">==</span> <span class="dv">0</span><span class="op">);</span> </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> b <span class="op">=</span> <span class="op">(</span><span class="dv">5</span> <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span><span class="op">)</span> <span class="op">&amp;&amp;</span> <span class="op">(</span>x<span class="op">++</span> <span class="op">==</span> <span class="dv">0</span><span class="op">);</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Since <code>5 % 2 == 0</code> is <code>false</code>, the execution does not evaluate the expression <code>(x++ == 0)</code> which means that <code>x</code> never gets incremented. Similarly for the <code>||</code> operator if the first operand is <code>true</code> the evaluation of the second operand is skipped.</p>
 </section>
 <section id="conditional-ternary-operator" class="level2">
@@ -867,8 +867,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>condition <span class="op">?</span> <span class="dt">expression_t</span> <span class="op">:</span> expression_f</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>If the condition provided evaluates to true then the statement produces expression_t, otherwise it produces expression_f.&nbsp;</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> x <span class="op">=</span> <span class="dv">5</span><span class="op">;</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> y <span class="op">=</span> <span class="op">(</span>x <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span> <span class="op">?</span> x <span class="op">:</span> x <span class="op">+</span> <span class="dv">1</span><span class="op">);</span> <span class="co">// if x is even then y = x, otherwise y = x + 1</span></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>                                  <span class="co">// since 5 is odd then y = x + 1 = 6</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> y <span class="op">=</span> <span class="op">(</span>x <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span> <span class="op">?</span> x <span class="op">:</span> x <span class="op">+</span> <span class="dv">1</span><span class="op">);</span>  <span class="co">// if x is even then y = x, otherwise y = x + 1</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>                                                                    <span class="co">// since 5 is odd then y = x + 1 = 6</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>If we had two integers <code>a</code> and <code>b</code> and we wanted the larger one, we can do the following:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> max <span class="op">=</span> <span class="op">(</span>a <span class="op">&gt;</span> b <span class="op">?</span> a <span class="op">:</span> b<span class="op">);</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
@@ -965,6 +965,45 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 
 </main> <!-- /main -->
+<script>
+(() => {
+  const removeInlineMathFocus = (root) => {
+    if (root.nodeType !== Node.ELEMENT_NODE && root.nodeType !== Node.DOCUMENT_NODE) return;
+
+    if (root.matches?.(".math.inline mjx-container[tabindex]")) {
+      root.removeAttribute("tabindex");
+    }
+
+    root.querySelectorAll?.(".math.inline mjx-container[tabindex]").forEach((math) => {
+      math.removeAttribute("tabindex");
+    });
+  };
+
+  const start = () => {
+    removeInlineMathFocus(document);
+    new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.type === "attributes") {
+          removeInlineMathFocus(mutation.target);
+        } else {
+          mutation.addedNodes.forEach(removeInlineMathFocus);
+        }
+      });
+    }).observe(document.body, {
+      childList: true,
+      subtree: true,
+      attributes: true,
+      attributeFilter: ["tabindex"]
+    });
+  };
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", start, { once: true });
+  } else {
+    start();
+  }
+})();
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right

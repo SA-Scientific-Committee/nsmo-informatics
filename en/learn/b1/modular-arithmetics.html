@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en" dir="ltr"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.9.38">
@@ -79,9 +79,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-5176555e1584cf34bcb861ee973f3cfa.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-ce515637c2dc87f9ccae102e7a530614.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-5176555e1584cf34bcb861ee973f3cfa.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-258d66faa7bfce965fe44b8e21187732.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-67f8ba25f6480dbb99b4f0d205a7ab35.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-258d66faa7bfce965fe44b8e21187732.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -140,6 +140,7 @@ window.Quarto = {
 };
 </script>
 
+<link rel="stylesheet" href="../typography.css">
 </head>
 
 <body class="nav-sidebar floating nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -312,7 +313,7 @@ window.Quarto = {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../index.html">
-    <span class="navbar-title"><span class="light-content"> <img src="../logo-mawhiba-light.png" style="height:30px; margin:0 20px;"> <img src="../logo-nsmo-light.png" style="height:25px; margin:0 20px;"> </span> <span class="dark-content"> <img src="../logo-mawhiba-dark.png" style="height:30px; margin:0 20px;"> <img src="../logo-nsmo-dark.png" style="height:25px; margin:0 20px;"> </span></span>
+    <span class="navbar-title"><span class="light-content"> <img src="../logo-mawhiba-light.svg" alt="Mawhiba" style="height:30px; margin:0 20px;"> <img src="../logo-nsmo-light.png" style="height:25px; margin:0 20px;"> </span> <span class="dark-content"> <img src="../logo-mawhiba-dark.svg" alt="Mawhiba" style="height:30px; margin:0 20px;"> <img src="../logo-nsmo-dark.png" style="height:25px; margin:0 20px;"> </span></span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -344,7 +345,7 @@ window.Quarto = {
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../../ar/learn"> 
+    <a class="nav-link" href="../ar/learn/"> 
 <span class="menu-text">Arabic</span></a>
   </li>  
 </ul>
@@ -559,8 +560,7 @@ window.Quarto = {
 <section id="modular-arithmetics" class="level1">
 <h1>Modular Arithmetics</h1>
 <p><strong>Modular arithmetic</strong> is a way of doing math where numbers “wrap around” after reaching a certain value — called the <strong>modulus</strong>.</p>
-<p>Think of it like a clock.<br>
-After 24 hours, it goes back to the same time again. That’s mod 24 arithmetic!</p>
+<p>Think of it like a clock. After 24 hours, it goes back to the same time again. That’s mod 24 arithmetic!</p>
 <section id="what-does-mod-mean" class="level2">
 <h2 data-anchor-id="what-does-mod-mean">What does “mod” mean?</h2>
 <p>When we say <code>a mod m</code>, it means the remainder when <code>a</code> is divided by <code>m</code>.</p>
@@ -608,10 +608,9 @@ After 24 hours, it goes back to the same time again. That’s mod 24 arithmetic!
 </section>
 <section id="modular-arithmetic-in-programming" class="level2">
 <h2 data-anchor-id="modular-arithmetic-in-programming">Modular arithmetic in programming</h2>
-<p>When we work with very large numbers (for example, in combinatorics or cryptography), results can become too big for normal data types.<br>
-To get around this, we take everything modulo some number to keep it small and manageable.</p>
+<p>When we work with very large numbers (for example, in combinatorics or cryptography), results can become too big for normal data types. To get around this, we take everything modulo some number to keep it small and manageable.</p>
 <p>A common modulus used in competitive programming is:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>MOD <span class="op">=</span> <span class="dv">1'000'000'007</span>  <span class="co">// (a large prime number)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="dt">int</span> MOD <span class="op">=</span> <span class="dv">1'000'000'007</span><span class="op">;</span>  <span class="co">// a large prime number</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>It’s used because:</p>
 <ul>
 <li>It fits safely in 64-bit integers.</li>
@@ -654,12 +653,12 @@ To get around this, we take everything modulo some number to keep it small and m
 <h2 data-anchor-id="handling-negatives">Handling negatives</h2>
 <p>Be careful with negative numbers — in C++, <code>%</code> can give negative results.</p>
 <p>Example:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>cout <span class="op">&lt;&lt;</span> <span class="op">(-</span><span class="dv">5</span><span class="op">)</span> <span class="op">%</span> <span class="dv">3</span><span class="op">;</span> <span class="co">// prints -2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>cout <span class="op">&lt;&lt;</span> <span class="op">(-</span><span class="dv">5</span><span class="op">)</span> <span class="op">%</span> <span class="dv">3</span><span class="op">;</span>  <span class="co">// prints -2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>To fix this, always use:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="op">((</span>a <span class="op">%</span> m<span class="op">)</span> <span class="op">+</span> m<span class="op">)</span> <span class="op">%</span> m</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Example:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> a <span class="op">=</span> <span class="op">-</span><span class="dv">5</span><span class="op">,</span> m <span class="op">=</span> <span class="dv">3</span><span class="op">;</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>cout <span class="op">&lt;&lt;</span> <span class="op">((</span>a <span class="op">%</span> m<span class="op">)</span> <span class="op">+</span> m<span class="op">)</span> <span class="op">%</span> m<span class="op">;</span> <span class="co">// prints 1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>cout <span class="op">&lt;&lt;</span> <span class="op">((</span>a <span class="op">%</span> m<span class="op">)</span> <span class="op">+</span> m<span class="op">)</span> <span class="op">%</span> m<span class="op">;</span>  <span class="co">// prints 1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="modular-exponentiation" class="level2">
 <h2 data-anchor-id="modular-exponentiation">Modular exponentiation</h2>
@@ -671,14 +670,14 @@ To get around this, we take everything modulo some number to keep it small and m
 <span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">long</span> <span class="dt">long</span> half <span class="op">=</span> modpow<span class="op">(</span>a<span class="op">,</span> b <span class="op">/</span> <span class="dv">2</span><span class="op">,</span> m<span class="op">);</span></span>
 <span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">long</span> <span class="dt">long</span> res <span class="op">=</span> <span class="op">(</span>half <span class="op">*</span> half<span class="op">)</span> <span class="op">%</span> m<span class="op">;</span></span>
 <span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>b <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">1</span><span class="op">)</span> <span class="op">{</span> <span class="co">// If b is odd</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>b <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">1</span><span class="op">)</span> <span class="op">{</span>  <span class="co">// If b is odd</span></span>
 <span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>        res <span class="op">=</span> <span class="op">(</span>res <span class="op">*</span> <span class="op">(</span>a <span class="op">%</span> m<span class="op">))</span> <span class="op">%</span> m<span class="op">;</span></span>
 <span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
 <span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> res<span class="op">;</span></span>
 <span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Since <span class="math inline">\(b\)</span> is halved each time the recursion is called, the total number of recursive calls is <span class="math inline">\(\lfloor \log_2 b \rfloor + 1\)</span>, hence the time complexity of this function is <span class="math inline">\(O(\log b)\)</span>.</p>
 <p>Usage:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>cout <span class="op">&lt;&lt;</span> modpow<span class="op">(</span><span class="dv">2</span><span class="op">,</span> <span class="dv">10</span><span class="op">,</span> <span class="dv">1000</span><span class="op">);</span> <span class="co">// 1024 % 1000 = 24</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>cout <span class="op">&lt;&lt;</span> modpow<span class="op">(</span><span class="dv">2</span><span class="op">,</span> <span class="dv">10</span><span class="op">,</span> <span class="dv">1000</span><span class="op">);</span>  <span class="co">// 1024 % 1000 = 24</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="modular-inverse-optional-advanced" class="level2">
 <h2 data-anchor-id="modular-inverse-optional-advanced">Modular inverse (optional / advanced)</h2>
@@ -701,34 +700,26 @@ To get around this, we take everything modulo some number to keep it small and m
 <section id="advantages" class="level2">
 <h2 data-anchor-id="advantages">Advantages</h2>
 <ul>
-<li>Keeps numbers small and avoids overflow<br>
-</li>
-<li>Works with huge results easily<br>
-</li>
+<li>Keeps numbers small and avoids overflow</li>
+<li>Works with huge results easily</li>
 <li>Great for competitive programming problems</li>
 </ul>
 </section>
 <section id="disadvantages" class="level2">
 <h2 data-anchor-id="disadvantages">Disadvantages</h2>
 <ul>
-<li>You lose the <em>exact</em> value (only remainder is kept)<br>
-</li>
-<li>Division is tricky — requires modular inverse<br>
-</li>
+<li>You lose the <em>exact</em> value (only remainder is kept)</li>
+<li>Division is tricky — requires modular inverse</li>
 <li>Negative results can be confusing in C++</li>
 </ul>
 </section>
 <section id="quick-summary" class="level2">
 <h2 data-anchor-id="quick-summary">Quick summary</h2>
 <ul>
-<li><code>a % m</code> gives the remainder when dividing <code>a</code> by <code>m</code><br>
-</li>
-<li>Keep using <code>% MOD</code> to avoid overflow in large problems<br>
-</li>
-<li>Use <code>(a + b) % MOD</code>, <code>(a * b) % MOD</code>, and <code>((a - b) % MOD + MOD) % MOD</code><br>
-</li>
-<li>For exponentiation, use fast power<br>
-</li>
+<li><code>a % m</code> gives the remainder when dividing <code>a</code> by <code>m</code></li>
+<li>Keep using <code>% MOD</code> to avoid overflow in large problems</li>
+<li>Use <code>(a + b) % MOD</code>, <code>(a * b) % MOD</code>, and <code>((a - b) % MOD + MOD) % MOD</code></li>
+<li>For exponentiation, use fast power</li>
 <li>For division, use modular inverse when <code>MOD</code> is prime</li>
 </ul>
 
@@ -737,6 +728,45 @@ To get around this, we take everything modulo some number to keep it small and m
 </section>
 
 </main> <!-- /main -->
+<script>
+(() => {
+  const removeInlineMathFocus = (root) => {
+    if (root.nodeType !== Node.ELEMENT_NODE && root.nodeType !== Node.DOCUMENT_NODE) return;
+
+    if (root.matches?.(".math.inline mjx-container[tabindex]")) {
+      root.removeAttribute("tabindex");
+    }
+
+    root.querySelectorAll?.(".math.inline mjx-container[tabindex]").forEach((math) => {
+      math.removeAttribute("tabindex");
+    });
+  };
+
+  const start = () => {
+    removeInlineMathFocus(document);
+    new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.type === "attributes") {
+          removeInlineMathFocus(mutation.target);
+        } else {
+          mutation.addedNodes.forEach(removeInlineMathFocus);
+        }
+      });
+    }).observe(document.body, {
+      childList: true,
+      subtree: true,
+      attributes: true,
+      attributeFilter: ["tabindex"]
+    });
+  };
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", start, { once: true });
+  } else {
+    start();
+  }
+})();
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right

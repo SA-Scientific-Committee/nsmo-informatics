@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en" dir="ltr"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.9.38">
@@ -44,9 +44,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-5176555e1584cf34bcb861ee973f3cfa.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-ce515637c2dc87f9ccae102e7a530614.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-5176555e1584cf34bcb861ee973f3cfa.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-258d66faa7bfce965fe44b8e21187732.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-67f8ba25f6480dbb99b4f0d205a7ab35.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-258d66faa7bfce965fe44b8e21187732.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -105,6 +105,7 @@ window.Quarto = {
 };
 </script>
 
+<link rel="stylesheet" href="../../typography.css">
 </head>
 
 <body class="nav-sidebar floating nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -277,7 +278,7 @@ window.Quarto = {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../../index.html">
-    <span class="navbar-title"><span class="light-content"> <img src="../../logo-mawhiba-light.png" style="height:30px; margin:0 20px;"> <img src="../../logo-nsmo-light.png" style="height:25px; margin:0 20px;"> </span> <span class="dark-content"> <img src="../../logo-mawhiba-dark.png" style="height:30px; margin:0 20px;"> <img src="../../logo-nsmo-dark.png" style="height:25px; margin:0 20px;"> </span></span>
+    <span class="navbar-title"><span class="light-content"> <img src="../../logo-mawhiba-light.svg" alt="Mawhiba" style="height:30px; margin:0 20px;"> <img src="../../logo-nsmo-light.png" style="height:25px; margin:0 20px;"> </span> <span class="dark-content"> <img src="../../logo-mawhiba-dark.svg" alt="Mawhiba" style="height:30px; margin:0 20px;"> <img src="../../logo-nsmo-dark.png" style="height:25px; margin:0 20px;"> </span></span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -309,7 +310,7 @@ window.Quarto = {
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../../../ar/learn"> 
+    <a class="nav-link" href="../../ar/learn/"> 
 <span class="menu-text">Arabic</span></a>
   </li>  
 </ul>
@@ -697,17 +698,15 @@ window.Quarto = {
 </div>
 </div>
 </section>
-<div>
-<div class="solution-card">
-<p><span class="solution-title">Solution</span></p>
+<details class="solution-card">
+<summary><span class="solution-title">Solution</span></summary>
 <div class="problem-body">
 <p>The first digit has 9 choices, while each remaining digit has 10:</p>
 <p><span class="math display">\[
 9\cdot10\cdot10=900.
 \]</span></p>
 </div>
-</div>
-</div>
+</details>
 <section id="codes-without-repeated-digits" class="level2 problem-toc-header">
 <h2 class="problem-toc-header" data-anchor-id="codes-without-repeated-digits">Codes Without Repeated Digits</h2>
 <div class="problem-card">
@@ -723,17 +722,15 @@ window.Quarto = {
 </div>
 </div>
 </section>
-<div>
-<div class="solution-card">
-<p><span class="solution-title">Solution</span></p>
+<details class="solution-card">
+<summary><span class="solution-title">Solution</span></summary>
 <div class="problem-body">
 <p>The first digit has 9 choices. The second also has 9 choices: one digit has been used, but zero is now available. The last two digits have 8 and 7 choices.</p>
 <p><span class="math display">\[
 9\cdot9\cdot8\cdot7=4536.
 \]</span></p>
 </div>
-</div>
-</div>
+</details>
 <section id="exactly-one-digit" class="level2 problem-toc-header">
 <h2 class="problem-toc-header" data-anchor-id="exactly-one-digit">Exactly One Digit</h2>
 <div class="problem-card">
@@ -749,9 +746,8 @@ window.Quarto = {
 </div>
 </div>
 </section>
-<div>
-<div class="solution-card">
-<p><span class="solution-title">Solution</span></p>
+<details class="solution-card">
+<summary><span class="solution-title">Solution</span></summary>
 <div class="problem-body">
 <p>Split the possibilities according to the position of the digit:</p>
 <p><span class="math display">\[
@@ -766,8 +762,7 @@ window.Quarto = {
 3\cdot10\cdot26^2=20280.
 \]</span></p>
 </div>
-</div>
-</div>
+</details>
 <section id="different-adjacent-colours" class="level2 problem-toc-header">
 <h2 class="problem-toc-header" data-anchor-id="different-adjacent-colours">Different Adjacent Colours</h2>
 <div class="problem-card">
@@ -783,17 +778,15 @@ window.Quarto = {
 </div>
 </div>
 </section>
-<div>
-<div class="solution-card">
-<p><span class="solution-title">Solution</span></p>
+<details class="solution-card">
+<summary><span class="solution-title">Solution</span></summary>
 <div class="problem-body">
 <p>The first stripe has 3 choices. Each later stripe can use either of the two colours different from the stripe before it.</p>
 <p><span class="math display">\[
 3\cdot2\cdot2\cdot2=24.
 \]</span></p>
 </div>
-</div>
-</div>
+</details>
 <section id="exactly-two-equal-symbols" class="level2 problem-toc-header">
 <h2 class="problem-toc-header" data-anchor-id="exactly-two-equal-symbols">Exactly Two Equal Symbols</h2>
 <div class="problem-card">
@@ -809,17 +802,15 @@ window.Quarto = {
 </div>
 </div>
 </section>
-<div>
-<div class="solution-card">
-<p><span class="solution-title">Solution</span></p>
+<details class="solution-card">
+<summary><span class="solution-title">Solution</span></summary>
 <div class="problem-body">
 <p>Choose the position of the different character in 3 ways. Choose the repeated symbol in 4 ways, then choose a different symbol for the remaining position in 3 ways.</p>
 <p><span class="math display">\[
 3\cdot4\cdot3=36.
 \]</span></p>
 </div>
-</div>
-</div>
+</details>
 <section id="a-constrained-pin" class="level2 problem-toc-header">
 <h2 class="problem-toc-header" data-anchor-id="a-constrained-pin">A Constrained PIN</h2>
 <div class="problem-card">
@@ -835,17 +826,15 @@ window.Quarto = {
 </div>
 </div>
 </section>
-<div>
-<div class="solution-card">
-<p><span class="solution-title">Solution</span></p>
+<details class="solution-card">
+<summary><span class="solution-title">Solution</span></summary>
 <div class="problem-body">
 <p>Choose the position of zero in 4 ways. Choose the other even digit from <span class="math inline">\(2,4,6,8\)</span> in 4 ways, then choose its position in 3 ways. Fill the remaining positions with two different odd digits in <span class="math inline">\(5\cdot4\)</span> ways.</p>
 <p><span class="math display">\[
 4\cdot4\cdot3\cdot5\cdot4=960.
 \]</span></p>
 </div>
-</div>
-</div>
+</details>
 <section id="circular-colouring" class="level2 problem-toc-header">
 <h2 class="problem-toc-header" data-anchor-id="circular-colouring">Circular Colouring</h2>
 <div class="problem-card">
@@ -858,18 +847,27 @@ window.Quarto = {
 </div>
 <div class="problem-body">
 <p>Four labelled seats are arranged around a circular table. Each seat is coloured red, green, or blue. Adjacent seats must have different colours. How many valid colourings are there?</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="_resources/circular-colouring.svg" class="img-fluid figure-img" width="360"></p>
-<figcaption>Four labelled seats around a circular table</figcaption>
-</figure>
+<div class="instructional-diagram circular-colouring-diagram">
+  <svg viewbox="0 0 360 360" role="img" aria-labelledby="circular-colouring-diagram-title" focusable="false">
+    <title id="circular-colouring-diagram-title">Four labelled seats around a circular table</title>
+    <circle class="circular-colouring-table" cx="180" cy="180" r="102"></circle>
+    <g class="circular-colouring-seats">
+      <circle cx="45" cy="180" r="25"></circle>
+      <circle cx="180" cy="45" r="25"></circle>
+      <circle cx="315" cy="180" r="25"></circle>
+      <circle cx="180" cy="315" r="25"></circle>
+    </g>
+    <g class="diagram-values">
+      <text x="45" y="180">1</text><text x="180" y="45">2</text>
+      <text x="315" y="180">3</text><text x="180" y="315">4</text>
+    </g>
+  </svg>
 </div>
 </div>
 </div>
 </section>
-<div>
-<div class="solution-card">
-<p><span class="solution-title">Solution</span></p>
+<details class="solution-card">
+<summary><span class="solution-title">Solution</span></summary>
 <div class="problem-body">
 <p>Choose colours for the first two seats in <span class="math inline">\(3\cdot2\)</span> ways. Now consider the third seat:</p>
 <ul>
@@ -885,13 +883,51 @@ window.Quarto = {
 3\cdot2\cdot3=18.
 \]</span></p>
 </div>
-</div>
-</div>
+</details>
 
 
 </section>
 
 </main> <!-- /main -->
+<script>
+(() => {
+  const removeInlineMathFocus = (root) => {
+    if (root.nodeType !== Node.ELEMENT_NODE && root.nodeType !== Node.DOCUMENT_NODE) return;
+
+    if (root.matches?.(".math.inline mjx-container[tabindex]")) {
+      root.removeAttribute("tabindex");
+    }
+
+    root.querySelectorAll?.(".math.inline mjx-container[tabindex]").forEach((math) => {
+      math.removeAttribute("tabindex");
+    });
+  };
+
+  const start = () => {
+    removeInlineMathFocus(document);
+    new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.type === "attributes") {
+          removeInlineMathFocus(mutation.target);
+        } else {
+          mutation.addedNodes.forEach(removeInlineMathFocus);
+        }
+      });
+    }).observe(document.body, {
+      childList: true,
+      subtree: true,
+      attributes: true,
+      attributeFilter: ["tabindex"]
+    });
+  };
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", start, { once: true });
+  } else {
+    start();
+  }
+})();
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en" dir="ltr"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.9.38">
@@ -79,9 +79,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-5176555e1584cf34bcb861ee973f3cfa.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-ce515637c2dc87f9ccae102e7a530614.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-5176555e1584cf34bcb861ee973f3cfa.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-258d66faa7bfce965fe44b8e21187732.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-67f8ba25f6480dbb99b4f0d205a7ab35.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-258d66faa7bfce965fe44b8e21187732.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -140,6 +140,7 @@ window.Quarto = {
 };
 </script>
 
+<link rel="stylesheet" href="../typography.css">
 </head>
 
 <body class="nav-sidebar floating nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -312,7 +313,7 @@ window.Quarto = {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../index.html">
-    <span class="navbar-title"><span class="light-content"> <img src="../logo-mawhiba-light.png" style="height:30px; margin:0 20px;"> <img src="../logo-nsmo-light.png" style="height:25px; margin:0 20px;"> </span> <span class="dark-content"> <img src="../logo-mawhiba-dark.png" style="height:30px; margin:0 20px;"> <img src="../logo-nsmo-dark.png" style="height:25px; margin:0 20px;"> </span></span>
+    <span class="navbar-title"><span class="light-content"> <img src="../logo-mawhiba-light.svg" alt="Mawhiba" style="height:30px; margin:0 20px;"> <img src="../logo-nsmo-light.png" style="height:25px; margin:0 20px;"> </span> <span class="dark-content"> <img src="../logo-mawhiba-dark.svg" alt="Mawhiba" style="height:30px; margin:0 20px;"> <img src="../logo-nsmo-dark.png" style="height:25px; margin:0 20px;"> </span></span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -344,7 +345,7 @@ window.Quarto = {
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../../ar/learn"> 
+    <a class="nav-link" href="../ar/learn/"> 
 <span class="menu-text">Arabic</span></a>
   </li>  
 </ul>
@@ -513,19 +514,20 @@ window.Quarto = {
   <ul>
   <li><a href="#rectangular-geometry" id="toc-rectangular-geometry" class="nav-link active" data-scroll-target="#rectangular-geometry">Rectangular Geometry</a>
   <ul class="collapse">
-  <li><a href="#representing-rectangles" id="toc-representing-rectangles" class="nav-link" data-scroll-target="#representing-rectangles">Representing Rectangles</a></li>
-  <li><a href="#common-formulas" id="toc-common-formulas" class="nav-link" data-scroll-target="#common-formulas">Common Formulas</a>
+  <li><a href="#representing-points-and-rectangles" id="toc-representing-points-and-rectangles" class="nav-link" data-scroll-target="#representing-points-and-rectangles">Representing Points and Rectangles</a></li>
+  <li><a href="#common-rectangle-operations" id="toc-common-rectangle-operations" class="nav-link" data-scroll-target="#common-rectangle-operations">Common Rectangle Operations</a>
   <ul class="collapse">
-  <li><a href="#length-and-width" id="toc-length-and-width" class="nav-link" data-scroll-target="#length-and-width">Length and Width</a></li>
-  <li><a href="#area" id="toc-area" class="nav-link" data-scroll-target="#area">Area</a></li>
-  <li><a href="#check-intersection" id="toc-check-intersection" class="nav-link" data-scroll-target="#check-intersection">Check Intersection</a></li>
-  <li><a href="#finding-intersection" id="toc-finding-intersection" class="nav-link" data-scroll-target="#finding-intersection">Finding Intersection</a></li>
+  <li><a href="#width-height-and-area" id="toc-width-height-and-area" class="nav-link" data-scroll-target="#width-height-and-area">Width, Height, and Area</a></li>
+  <li><a href="#checking-for-intersection" id="toc-checking-for-intersection" class="nav-link" data-scroll-target="#checking-for-intersection">Checking for Intersection</a></li>
+  <li><a href="#finding-the-intersection" id="toc-finding-the-intersection" class="nav-link" data-scroll-target="#finding-the-intersection">Finding the Intersection</a></li>
   </ul></li>
-  <li><a href="#single-dimensional-formulas" id="toc-single-dimensional-formulas" class="nav-link" data-scroll-target="#single-dimensional-formulas">Single Dimensional Formulas</a>
+  <li><a href="#one-dimensional-geometry" id="toc-one-dimensional-geometry" class="nav-link" data-scroll-target="#one-dimensional-geometry">One-Dimensional Geometry</a>
   <ul class="collapse">
-  <li><a href="#formulas" id="toc-formulas" class="nav-link" data-scroll-target="#formulas">Formulas</a></li>
+  <li><a href="#length" id="toc-length" class="nav-link" data-scroll-target="#length">Length</a></li>
+  <li><a href="#checking-for-intersection-1" id="toc-checking-for-intersection-1" class="nav-link" data-scroll-target="#checking-for-intersection-1">Checking for Intersection</a></li>
+  <li><a href="#finding-the-intersection-1" id="toc-finding-the-intersection-1" class="nav-link" data-scroll-target="#finding-the-intersection-1">Finding the Intersection</a></li>
   </ul></li>
-  <li><a href="#example-task" id="toc-example-task" class="nav-link" data-scroll-target="#example-task">Example Task</a></li>
+  <li><a href="#example-problem" id="toc-example-problem" class="nav-link" data-scroll-target="#example-problem">Example Problem</a></li>
   <li><a href="#fence-painting" id="toc-fence-painting" class="nav-link" data-scroll-target="#fence-painting">Fence Painting</a></li>
   </ul></li>
   </ul>
@@ -540,7 +542,7 @@ window.Quarto = {
 
 <section id="rectangular-geometry" class="level1">
 <h1>Rectangular Geometry</h1>
-<p>Rectangular geometry deals with rectangles whose sides are aligned with the coordinate axes. In this section we focus on the basic ideas of these axis-parallel rectangles.</p>
+<p>Rectangular geometry deals with rectangles whose sides are parallel to the coordinate axes. This section covers the basic operations used with these axis-aligned rectangles.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -551,12 +553,55 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>We assume the positive <span class="math inline">\(X\)</span>-axis points to the right and the positive <span class="math inline">\(Y\)</span>-axis points upward.</p>
+<p>We assume that the positive <span class="math inline">\(X\)</span>-axis points to the right and the positive <span class="math inline">\(Y\)</span>-axis points upward.</p>
 </div>
 </div>
-<section id="representing-rectangles" class="level2">
-<h2 data-anchor-id="representing-rectangles">Representing Rectangles</h2>
-<p>Rectangles can be represented by two coordinate points, either the top-left and bottom-right corners or the top-right and bottom-left corners.</p>
+<section id="representing-points-and-rectangles" class="level2">
+<h2 data-anchor-id="representing-points-and-rectangles">Representing Points and Rectangles</h2>
+<p>A point contains a pair of coordinates: an <span class="math inline">\(x\)</span>-coordinate and a <span class="math inline">\(y\)</span>-coordinate. We can keep them together in a structure:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">struct</span> Point <span class="op">{</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> x<span class="op">;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> y<span class="op">;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>An axis-aligned rectangle can be represented by its bottom-left and top-right points. We group those two points in another structure:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">struct</span> Rectangle <span class="op">{</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    Point bottom_left<span class="op">;</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    Point top_right<span class="op">;</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Throughout this section, we assume that every rectangle is normalized:</p>
+<ul>
+<li><code>bottom_left.x &lt;= top_right.x</code></li>
+<li><code>bottom_left.y &lt;= top_right.y</code></li>
+</ul>
+</section>
+<section id="common-rectangle-operations" class="level2">
+<h2 data-anchor-id="common-rectangle-operations">Common Rectangle Operations</h2>
+<section id="width-height-and-area" class="level3">
+<h3 data-anchor-id="width-height-and-area">Width, Height, and Area</h3>
+<p>The width is the horizontal distance between the two sides:</p>
+<p><code>width = r.top_right.x - r.bottom_left.x</code></p>
+<p>The height is the vertical distance between the two sides:</p>
+<p><code>height = r.top_right.y - r.bottom_left.y</code></p>
+<p>The area is the product of the width and height:</p>
+<p><code>area = width * height</code></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> area<span class="op">(</span>Rectangle r<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> width <span class="op">=</span> r<span class="op">.</span>top_right<span class="op">.</span>x <span class="op">-</span> r<span class="op">.</span>bottom_left<span class="op">.</span>x<span class="op">;</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> height <span class="op">=</span> r<span class="op">.</span>top_right<span class="op">.</span>y <span class="op">-</span> r<span class="op">.</span>bottom_left<span class="op">.</span>y<span class="op">;</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> width <span class="op">*</span> height<span class="op">;</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="checking-for-intersection" class="level3">
+<h3 data-anchor-id="checking-for-intersection">Checking for Intersection</h3>
+<p>Two rectangles intersect with positive area only when their ranges overlap on both the <span class="math inline">\(X\)</span>-axis and the <span class="math inline">\(Y\)</span>-axis. It is easier to check the opposite condition.</p>
+<p>The rectangles are separated horizontally when either rectangle ends at or before the other one begins. They are separated vertically under the corresponding condition on the <span class="math inline">\(Y\)</span>-axis. If either separation occurs, the rectangles do not intersect.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> rectangles_intersect<span class="op">(</span>Rectangle a<span class="op">,</span> Rectangle b<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">bool</span> separated_x <span class="op">=</span> a<span class="op">.</span>top_right<span class="op">.</span>x <span class="op">&lt;=</span> b<span class="op">.</span>bottom_left<span class="op">.</span>x <span class="op">||</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>        b<span class="op">.</span>top_right<span class="op">.</span>x <span class="op">&lt;=</span> a<span class="op">.</span>bottom_left<span class="op">.</span>x<span class="op">;</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">bool</span> separated_y <span class="op">=</span> a<span class="op">.</span>top_right<span class="op">.</span>y <span class="op">&lt;=</span> b<span class="op">.</span>bottom_left<span class="op">.</span>y <span class="op">||</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>        b<span class="op">.</span>top_right<span class="op">.</span>y <span class="op">&lt;=</span> a<span class="op">.</span>bottom_left<span class="op">.</span>y<span class="op">;</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="op">!</span>separated_x <span class="op">&amp;&amp;</span> <span class="op">!</span>separated_y<span class="op">;</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -567,93 +612,67 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>In this section we’ll represent a rectangle using its top-right and bottom-left coordinates, where <span class="math inline">\(tr_x\)</span> and <span class="math inline">\(tr_y\)</span> are the coordinates of the top-right point, and <span class="math inline">\(bl_x\)</span> and <span class="math inline">\(bl_y\)</span> are the coordinates of the bottom-left point.</p>
+<p>If two rectangles only touch at an edge or a corner, their common area is zero, so we do not count them as intersecting.</p>
 </div>
 </div>
 </section>
-<section id="common-formulas" class="level2">
-<h2 data-anchor-id="common-formulas">Common Formulas</h2>
-<section id="length-and-width" class="level3">
-<h3 data-anchor-id="length-and-width">Length and Width</h3>
-<p><span class="math inline">\(length\)</span> is the vertical side of the rectangle while <span class="math inline">\(width\)</span> is the horizontal side.</p>
-<p><span class="math inline">\(width = tr_x - bl_x\)</span></p>
-<p><span class="math inline">\(length = tr_y - bl_y\)</span></p>
-</section>
-<section id="area" class="level3">
-<h3 data-anchor-id="area">Area</h3>
-<p>The <span class="math inline">\(area\)</span> of a rectangle is the product of <span class="math inline">\(length\)</span> and <span class="math inline">\(width\)</span>.</p>
-<p><span class="math inline">\(area = length \cdot width\)</span></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> area<span class="op">(</span><span class="dt">int</span> bl_x<span class="op">,</span> <span class="dt">int</span> bl_y<span class="op">,</span> <span class="dt">int</span> tr_x<span class="op">,</span> <span class="dt">int</span> tr_y<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> length <span class="op">=</span> tr_y <span class="op">-</span> bl_y<span class="op">;</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> width <span class="op">=</span> tr_x <span class="op">-</span> bl_x<span class="op">;</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> length <span class="op">*</span> width<span class="op">;</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section id="check-intersection" class="level3">
-<h3 data-anchor-id="check-intersection">Check Intersection</h3>
-<p>To determine whether two rectangles <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> intersect, both their <span class="math inline">\(X\)</span>-ranges and <span class="math inline">\(Y\)</span>-ranges must overlap. It is often easier to check the opposite: determine whether at least one dimension <strong>doesn’t</strong> intersect. If either the <span class="math inline">\(X\)</span> dimension or the <span class="math inline">\(Y\)</span> dimension does not overlap, then the rectangles do not intersect.</p>
-<p>For <span class="math inline">\(Y\)</span> dimension:</p>
-<ul>
-<li><span class="math inline">\(a_{tr_y} \le b_{bl_y}\)</span> or <span class="math inline">\(b_{tr_y} \le a_{bl_y}\)</span></li>
-</ul>
-<p>For <span class="math inline">\(X\)</span> dimension:</p>
-<ul>
-<li><span class="math inline">\(a_{tr_x} \le b_{bl_x}\)</span> or <span class="math inline">\(b_{tr_x} \le a_{bl_x}\)</span></li>
-</ul>
-<p>If any of those apply, the rectangles doesn’t intersect. otherwise they will intersect.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> are_intersected<span class="op">(</span><span class="dt">int</span> a_tr_x <span class="op">,</span> <span class="dt">int</span> a_tr_y<span class="op">,</span> <span class="dt">int</span> a_bl_x<span class="op">,</span> <span class="dt">int</span> a_bl_y<span class="op">,</span> <span class="dt">int</span> b_tr_x <span class="op">,</span> <span class="dt">int</span> b_tr_y<span class="op">,</span> <span class="dt">int</span> b_bl_x<span class="op">,</span> <span class="dt">int</span> b_bl_y<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span><span class="op">(</span>a_tr_y <span class="op">&lt;=</span> b_bl_y <span class="op">||</span> b_tr_y <span class="op">&lt;=</span> a_bl_y <span class="op">||</span> a_tr_x <span class="op">&lt;=</span> b_bl_x <span class="op">||</span> b_tr_x <span class="op">&lt;=</span> a_bl_x<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="kw">false</span><span class="op">;</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">else</span> <span class="op">{</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="kw">true</span><span class="op">;</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section id="finding-intersection" class="level3">
-<h3 data-anchor-id="finding-intersection">Finding Intersection</h3>
-<p>If two rectangles <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> intersect then the rectangel <span class="math inline">\(c\)</span> that is the intersection of <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> will be:</p>
-<p><span class="math inline">\(c_{tr_x} = min(a_{tr_x}, b_{tr_x})\)</span></p>
-<p><span class="math inline">\(c_{tr_y} = min(a_{tr_y}, b_{tr_y})\)</span></p>
-<p><span class="math inline">\(c_{bl_x} = max(a_{bl_x}, b_{bl_x})\)</span></p>
-<p><span class="math inline">\(c_{bl_y} = max(a_{bl_y}, b_{bl_y})\)</span></p>
+<section id="finding-the-intersection" class="level3">
+<h3 data-anchor-id="finding-the-intersection">Finding the Intersection</h3>
+<p>If rectangles <code>a</code> and <code>b</code> intersect, their intersection is another rectangle. Its bottom-left point uses the larger lower coordinate on each axis, while its top-right point uses the smaller upper coordinate.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;algorithm&gt;</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> <span class="kw">namespace</span> std<span class="op">;</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>Rectangle rectangle_intersection<span class="op">(</span>Rectangle a<span class="op">,</span> Rectangle b<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    Rectangle c<span class="op">;</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    c<span class="op">.</span>bottom_left<span class="op">.</span>x <span class="op">=</span> max<span class="op">(</span>a<span class="op">.</span>bottom_left<span class="op">.</span>x<span class="op">,</span> b<span class="op">.</span>bottom_left<span class="op">.</span>x<span class="op">);</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    c<span class="op">.</span>bottom_left<span class="op">.</span>y <span class="op">=</span> max<span class="op">(</span>a<span class="op">.</span>bottom_left<span class="op">.</span>y<span class="op">,</span> b<span class="op">.</span>bottom_left<span class="op">.</span>y<span class="op">);</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    c<span class="op">.</span>top_right<span class="op">.</span>x <span class="op">=</span> min<span class="op">(</span>a<span class="op">.</span>top_right<span class="op">.</span>x<span class="op">,</span> b<span class="op">.</span>top_right<span class="op">.</span>x<span class="op">);</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    c<span class="op">.</span>top_right<span class="op">.</span>y <span class="op">=</span> min<span class="op">(</span>a<span class="op">.</span>top_right<span class="op">.</span>y<span class="op">,</span> b<span class="op">.</span>top_right<span class="op">.</span>y<span class="op">);</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> c<span class="op">;</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Call <code>rectangle_intersection</code> only after <code>rectangles_intersect</code> confirms that the rectangles overlap.</p>
 </section>
 </section>
-<section id="single-dimensional-formulas" class="level2">
-<h2 data-anchor-id="single-dimensional-formulas">Single Dimensional Formulas</h2>
-<p>This geometry also applies in one-dimensional space, where we work with intervals instead of rectangles. An interval is represented by two numbers, <span class="math inline">\(l\)</span> and <span class="math inline">\(r\)</span>, which denote the beginning and end of the interval.</p>
-<section id="formulas" class="level3">
-<h3 data-anchor-id="formulas">Formulas</h3>
-<section id="length" class="level4">
-<h4 data-anchor-id="length">Length</h4>
-<p><span class="math inline">\(length\)</span> is the area covered by the interval.</p>
-<p><span class="math inline">\(length = r - l\)</span></p>
+<section id="one-dimensional-geometry" class="level2">
+<h2 data-anchor-id="one-dimensional-geometry">One-Dimensional Geometry</h2>
+<p>The same ideas apply in one dimension, where we work with intervals instead of rectangles. An interval contains a left endpoint and a right endpoint:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">struct</span> Interval <span class="op">{</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> left<span class="op">;</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> right<span class="op">;</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>We assume that every interval is normalized, so <code>left &lt;= right</code>.</p>
+<section id="length" class="level3">
+<h3 data-anchor-id="length">Length</h3>
+<p>The length of an interval is:</p>
+<p><code>length = segment.right - segment.left</code></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> length<span class="op">(</span>Interval segment<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> segment<span class="op">.</span>right <span class="op">-</span> segment<span class="op">.</span>left<span class="op">;</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="check-intersection-1" class="level4">
-<h4 data-anchor-id="check-intersection-1">Check Intersection</h4>
-<p>For two intervals <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> in one dimension, we can check whether they do not intersect. If one interval lies entirely to the left or right of the other, they do not overlap. Otherwise, the intervals intersect:</p>
-<ul>
-<li><span class="math inline">\(a_{r} \le b_{l}\)</span> or <span class="math inline">\(b_{r} \le a_{l}\)</span></li>
-</ul>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> are_intersected<span class="op">(</span><span class="dt">int</span> a_l <span class="op">,</span> <span class="dt">int</span> a_r<span class="op">,</span> <span class="dt">int</span> b_l <span class="op">,</span> <span class="dt">int</span> b_r<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span><span class="op">(</span>b_r <span class="op">&lt;=</span> a_l <span class="op">||</span> a_r <span class="op">&lt;=</span> b_l<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="kw">false</span><span class="op">;</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">else</span> <span class="op">{</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="kw">true</span><span class="op">;</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="checking-for-intersection-1" class="level3">
+<h3 data-anchor-id="checking-for-intersection-1">Checking for Intersection</h3>
+<p>Two intervals intersect with positive length unless one ends at or before the other begins:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> intervals_intersect<span class="op">(</span>Interval a<span class="op">,</span> Interval b<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> a<span class="op">.</span>right <span class="op">&gt;</span> b<span class="op">.</span>left <span class="op">&amp;&amp;</span> b<span class="op">.</span>right <span class="op">&gt;</span> a<span class="op">.</span>left<span class="op">;</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>As with rectangles, intervals that only share an endpoint have zero overlap and are not considered intersecting.</p>
 </section>
-<section id="finding-intersection-1" class="level4">
-<h4 data-anchor-id="finding-intersection-1">Finding Intersection</h4>
-<p>If two intervals <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> intersect then the interval <span class="math inline">\(c\)</span> that is the intersection of <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> will be:</p>
-<p><span class="math inline">\(c_{l} = max(a_{l}, b_{l})\)</span></p>
-<p><span class="math inline">\(c_{r} = min(a_{r}, b_{r})\)</span></p>
+<section id="finding-the-intersection-1" class="level3">
+<h3 data-anchor-id="finding-the-intersection-1">Finding the Intersection</h3>
+<p>If intervals <code>a</code> and <code>b</code> intersect, their intersection begins at the larger left endpoint and ends at the smaller right endpoint:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;algorithm&gt;</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> <span class="kw">namespace</span> std<span class="op">;</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>Interval interval_intersection<span class="op">(</span>Interval a<span class="op">,</span> Interval b<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    Interval c<span class="op">;</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    c<span class="op">.</span>left <span class="op">=</span> max<span class="op">(</span>a<span class="op">.</span>left<span class="op">,</span> b<span class="op">.</span>left<span class="op">);</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    c<span class="op">.</span>right <span class="op">=</span> min<span class="op">(</span>a<span class="op">.</span>right<span class="op">,</span> b<span class="op">.</span>right<span class="op">);</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> c<span class="op">;</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 </section>
-</section>
-<section id="example-task" class="level2">
-<h2 data-anchor-id="example-task">Example Task</h2>
+<section id="example-problem" class="level2">
+<h2 data-anchor-id="example-problem">Example Problem</h2>
 </section>
 <section id="fence-painting" class="level2 problem-toc-header">
 <h2 class="problem-toc-header" data-anchor-id="fence-painting">Fence Painting</h2>
@@ -665,50 +684,90 @@ Note
 </div>
 </div>
 <div class="problem-body">
-<p>we are given two intervals and are asked to print the total length covered by these intervals.</p>
+<p>We are given two intervals and must print the total length covered by them.</p>
 </div>
 </div>
 </section>
-<div>
-<div class="solution-card">
-<p><span class="solution-title">Solution</span></p>
+<details class="solution-card">
+<summary><span class="solution-title">Solution</span></summary>
 <div class="problem-body">
-<p>If the two give intervals don’t intersect then the area cover is the sum of both lengths. Otherwise, the solution will be the sum of both lengths subtracted by the intersected area.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> <span class="kw">namespace</span> std<span class="op">;</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="co">// these two lines are just to do i/o in USACO</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  freopen<span class="op">(</span><span class="st">"paint.in"</span><span class="op">,</span> <span class="st">"r"</span><span class="op">,</span> stdin<span class="op">);</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    freopen<span class="op">(</span><span class="st">"paint.out"</span><span class="op">,</span> <span class="st">"w"</span><span class="op">,</span> stdout<span class="op">);</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> a_l <span class="op">,</span> a_r<span class="op">,</span> b_l <span class="op">,</span> b_r<span class="op">;</span></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>  cin <span class="op">&gt;&gt;</span> a_l <span class="op">&gt;&gt;</span> a_r <span class="op">&gt;&gt;</span> b_l <span class="op">&gt;&gt;</span> b_r<span class="op">;</span></span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>  <span class="co">// c represents the intersection between a and b.</span></span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> c_l <span class="op">=</span> max<span class="op">(</span>a_l<span class="op">,</span> b_l<span class="op">),</span> c_r <span class="op">=</span> min<span class="op">(</span>a_r<span class="op">,</span> b_r<span class="op">);</span></span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> total <span class="op">=</span> <span class="op">(</span>a_r <span class="op">-</span> a_l<span class="op">)</span> <span class="op">+</span> <span class="op">(</span>b_r <span class="op">-</span> b_l<span class="op">);</span></span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> intersection <span class="op">=</span> <span class="op">(</span>c_r <span class="op">-</span> c_l<span class="op">);</span></span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>  <span class="co">// now we need to check if a and b don't intersect</span></span>
-<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span><span class="op">(</span>b_l <span class="op">&gt;</span> a_r <span class="op">||</span> a_l <span class="op">&gt;</span> b_r<span class="op">){</span></span>
-<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>    cout <span class="op">&lt;&lt;</span> total <span class="op">&lt;&lt;</span> <span class="st">"</span><span class="sc">\n</span><span class="st">"</span><span class="op">;</span></span>
-<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
-<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>  <span class="cf">else</span><span class="op">{</span></span>
-<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>    cout <span class="op">&lt;&lt;</span> total <span class="op">-</span> intersection <span class="op">&lt;&lt;</span> <span class="st">"</span><span class="sc">\n</span><span class="st">"</span><span class="op">;</span></span>
-<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
-<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Add the lengths of both intervals, then subtract the length covered by both. If the intervals do not overlap, the common length is zero.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;algorithm&gt;</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;cstdio&gt;</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> <span class="kw">namespace</span> std<span class="op">;</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="kw">struct</span> Interval <span class="op">{</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> left<span class="op">;</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> right<span class="op">;</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> length<span class="op">(</span>Interval segment<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> segment<span class="op">.</span>right <span class="op">-</span> segment<span class="op">.</span>left<span class="op">;</span></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> overlap_length<span class="op">(</span>Interval a<span class="op">,</span> Interval b<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> left <span class="op">=</span> max<span class="op">(</span>a<span class="op">.</span>left<span class="op">,</span> b<span class="op">.</span>left<span class="op">);</span></span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> right <span class="op">=</span> min<span class="op">(</span>a<span class="op">.</span>right<span class="op">,</span> b<span class="op">.</span>right<span class="op">);</span></span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> max<span class="op">(</span><span class="dv">0</span><span class="op">,</span> right <span class="op">-</span> left<span class="op">);</span></span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>    freopen<span class="op">(</span><span class="st">"paint.in"</span><span class="op">,</span> <span class="st">"r"</span><span class="op">,</span> stdin<span class="op">);</span></span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>    freopen<span class="op">(</span><span class="st">"paint.out"</span><span class="op">,</span> <span class="st">"w"</span><span class="op">,</span> stdout<span class="op">);</span></span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a>    Interval a<span class="op">,</span> b<span class="op">;</span></span>
+<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a>    cin <span class="op">&gt;&gt;</span> a<span class="op">.</span>left <span class="op">&gt;&gt;</span> a<span class="op">.</span>right <span class="op">&gt;&gt;</span> b<span class="op">.</span>left <span class="op">&gt;&gt;</span> b<span class="op">.</span>right<span class="op">;</span></span>
+<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> total <span class="op">=</span> length<span class="op">(</span>a<span class="op">)</span> <span class="op">+</span> length<span class="op">(</span>b<span class="op">)</span> <span class="op">-</span> overlap_length<span class="op">(</span>a<span class="op">,</span> b<span class="op">);</span></span>
+<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a>    cout <span class="op">&lt;&lt;</span> total <span class="op">&lt;&lt;</span> <span class="st">"</span><span class="sc">\n</span><span class="st">"</span><span class="op">;</span></span>
+<span id="cb10-30"><a href="#cb10-30" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-</div>
-</div>
+</details>
 
 
 </section>
 
 </main> <!-- /main -->
+<script>
+(() => {
+  const removeInlineMathFocus = (root) => {
+    if (root.nodeType !== Node.ELEMENT_NODE && root.nodeType !== Node.DOCUMENT_NODE) return;
+
+    if (root.matches?.(".math.inline mjx-container[tabindex]")) {
+      root.removeAttribute("tabindex");
+    }
+
+    root.querySelectorAll?.(".math.inline mjx-container[tabindex]").forEach((math) => {
+      math.removeAttribute("tabindex");
+    });
+  };
+
+  const start = () => {
+    removeInlineMathFocus(document);
+    new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.type === "attributes") {
+          removeInlineMathFocus(mutation.target);
+        } else {
+          mutation.addedNodes.forEach(removeInlineMathFocus);
+        }
+      });
+    }).observe(document.body, {
+      childList: true,
+      subtree: true,
+      attributes: true,
+      attributeFilter: ["tabindex"]
+    });
+  };
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", start, { once: true });
+  } else {
+    start();
+  }
+})();
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
