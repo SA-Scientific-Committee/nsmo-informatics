@@ -1,0 +1,648 @@
+{
+ "archive/2026/contest-2/applied-mathematics": {
+  "tasks": [
+   "t1"
+  ]
+ },
+ "archive/2026/contest-2/beautifulness": {
+  "tasks": [
+   "t1"
+  ]
+ },
+ "archive/2026/contest-2/festival-coverage": {
+  "tasks": [
+   "t1"
+  ]
+ },
+ "archive/2026/contest-2/middle-guy": {
+  "tasks": [
+   "t1"
+  ]
+ },
+ "archive/2026/contest-2/perfect-trio": {
+  "tasks": [
+   "t1"
+  ]
+ },
+ "archive/2026/contest-2/teleporters": {
+  "tasks": [
+   "t1"
+  ]
+ },
+ "archive/2026/contest-3/and-pairs": {
+  "tasks": [
+   "t1"
+  ]
+ },
+ "archive/2026/contest-3/handshake-problem": {
+  "tasks": [
+   "t1"
+  ]
+ },
+ "archive/2026/contest-3/marbles-and-boxes": {
+  "tasks": [
+   "t1"
+  ]
+ },
+ "archive/2026/contest-3/number-removal": {
+  "tasks": [
+   "t1"
+  ]
+ },
+ "archive/2026/contest-3/pattern-recognition": {
+  "tasks": [
+   "t1"
+  ]
+ },
+ "archive/2026/contest-4-day-1/average-student": {
+  "tasks": [
+   "t1"
+  ]
+ },
+ "archive/2026/contest-4-day-1/rabbits-and-holes": {
+  "tasks": [
+   "t1"
+  ]
+ },
+ "archive/2026/contest-4-day-1/rpg": {
+  "tasks": [
+   "t1"
+  ]
+ },
+ "archive/2026/contest-4-day-1/shawarmiada": {
+  "tasks": [
+   "t1"
+  ]
+ },
+ "archive/2026/contest-4-day-1/uniqueness": {
+  "tasks": [
+   "t1"
+  ]
+ },
+ "archive/2026/contest-4-day-2/best-position-on-the-road": {
+  "tasks": [
+   "t1"
+  ]
+ },
+ "archive/2026/contest-4-day-2/majlis-median": {
+  "tasks": [
+   "t1"
+  ]
+ },
+ "archive/2026/contest-4-day-2/shawarma-menu": {
+  "tasks": [
+   "t1"
+  ]
+ },
+ "archive/2026/contest-4-day-2/walimah": {
+  "tasks": [
+   "t1"
+  ]
+ },
+ "archive/2026/practice/exponents": {
+  "tasks": [
+   "t1"
+  ]
+ },
+ "archive/2026/practice/farming": {
+  "tasks": [
+   "t1"
+  ]
+ },
+ "archive/2026/practice/square": {
+  "tasks": [
+   "t1"
+  ]
+ },
+ "archive/2026/practice/wants-and-needs": {
+  "tasks": [
+   "t1"
+  ]
+ },
+ "b0/counting/problems": {
+  "tasks": [
+   "t1",
+   "t2",
+   "t3",
+   "t4",
+   "t5",
+   "t6",
+   "t7",
+   "t8",
+   "t9",
+   "t10",
+   "t11",
+   "t12"
+  ]
+ },
+ "b0/counting/sum-and-product-rule": {
+  "tasks": [
+   "L1"
+  ]
+ },
+ "b0/counting/worked-examples": {
+  "tasks": [
+   "t1",
+   "t2",
+   "t3",
+   "t4",
+   "t5",
+   "t6",
+   "t7"
+  ]
+ },
+ "b0/cp/contests-and-platforms": {
+  "tasks": [
+   "L1"
+  ]
+ },
+ "b0/cp/problems-with-subproblems": {
+  "tasks": [
+   "L1",
+   "t1"
+  ]
+ },
+ "b0/cpp/arrays": {
+  "tasks": [
+   "L1"
+  ]
+ },
+ "b0/cpp/constants": {
+  "tasks": [
+   "L1"
+  ]
+ },
+ "b0/cpp/do": {
+  "tasks": [
+   "L1"
+  ]
+ },
+ "b0/cpp/for": {
+  "tasks": [
+   "L1"
+  ]
+ },
+ "b0/cpp/functions": {
+  "tasks": [
+   "L1"
+  ]
+ },
+ "b0/cpp/hello-world": {
+  "tasks": [
+   "L1"
+  ]
+ },
+ "b0/cpp/if": {
+  "tasks": [
+   "L1"
+  ]
+ },
+ "b0/cpp/input-output": {
+  "tasks": [
+   "L1",
+   "t1"
+  ]
+ },
+ "b0/cpp/name-visibility": {
+  "tasks": [
+   "L1"
+  ]
+ },
+ "b0/cpp/operators": {
+  "tasks": [
+   "L1"
+  ]
+ },
+ "b0/cpp/statements": {
+  "tasks": [
+   "L1"
+  ]
+ },
+ "b0/cpp/structure-of-a-program": {
+  "tasks": [
+   "L1"
+  ]
+ },
+ "b0/cpp/switch": {
+  "tasks": [
+   "L1"
+  ]
+ },
+ "b0/cpp/variables-and-types": {
+  "tasks": [
+   "L1"
+  ]
+ },
+ "b0/cpp/vectors": {
+  "tasks": [
+   "L1"
+  ]
+ },
+ "b0/cpp/while": {
+  "tasks": [
+   "L1"
+  ]
+ },
+ "b0/debugging/debugging": {
+  "tasks": [
+   "L1"
+  ]
+ },
+ "b0/problems/alternate": {
+  "tasks": [
+   "t1"
+  ]
+ },
+ "b0/problems/beautiful-matrix": {
+  "tasks": [
+   "t1"
+  ]
+ },
+ "b0/problems/beautiful-year": {
+  "tasks": [
+   "t1"
+  ]
+ },
+ "b0/problems/bit++": {
+  "tasks": [
+   "t1"
+  ]
+ },
+ "b0/problems/dislike-of-threes": {
+  "tasks": [
+   "t1"
+  ]
+ },
+ "b0/problems/diverse-game": {
+  "tasks": [
+   "t1"
+  ]
+ },
+ "b0/problems/domino-piling": {
+  "tasks": [
+   "t1"
+  ]
+ },
+ "b0/problems/equator": {
+  "tasks": [
+   "t1"
+  ]
+ },
+ "b0/problems/holiday-of-equality": {
+  "tasks": [
+   "t1"
+  ]
+ },
+ "b0/problems/increasing-decreasing-digits": {
+  "tasks": [
+   "t1"
+  ]
+ },
+ "b0/problems/leap-year": {
+  "tasks": [
+   "t1"
+  ]
+ },
+ "b0/problems/middle-digits": {
+  "tasks": [
+   "t1"
+  ]
+ },
+ "b0/problems/min-operations": {
+  "tasks": [
+   "t1"
+  ]
+ },
+ "b0/problems/next-round": {
+  "tasks": [
+   "t1"
+  ]
+ },
+ "b0/problems/static-range-sum-queries": {
+  "tasks": [
+   "t1"
+  ]
+ },
+ "b0/problems/sum-product": {
+  "tasks": [
+   "t1"
+  ]
+ },
+ "b0/problems/team": {
+  "tasks": [
+   "t1"
+  ]
+ },
+ "b0/problems/theatre-square": {
+  "tasks": [
+   "t1"
+  ]
+ },
+ "b0/problems/weird-algorithm": {
+  "tasks": [
+   "t1"
+  ]
+ },
+ "b0/problems/your-digits": {
+  "tasks": [
+   "t1"
+  ]
+ },
+ "b1/binary-search": {
+  "tasks": [
+   "L1",
+   "t1",
+   "t2"
+  ]
+ },
+ "b1/casework": {
+  "tasks": [
+   "L1",
+   "t1",
+   "t2",
+   "t3"
+  ]
+ },
+ "b1/cpp/maps": {
+  "tasks": [
+   "L1"
+  ]
+ },
+ "b1/cpp/sets": {
+  "tasks": [
+   "L1"
+  ]
+ },
+ "b1/greedy": {
+  "tasks": [
+   "L1",
+   "t1",
+   "t2"
+  ]
+ },
+ "b1/modular-arithmetics": {
+  "tasks": [
+   "L1"
+  ]
+ },
+ "b1/problems/bit-strings": {
+  "tasks": [
+   "t1"
+  ]
+ },
+ "b1/problems/digit-queries": {
+  "tasks": [
+   "t1"
+  ]
+ },
+ "b1/problems/domino-piling": {
+  "tasks": [
+   "t1"
+  ]
+ },
+ "b1/problems/modular-exponentiation": {
+  "tasks": [
+   "t1"
+  ]
+ },
+ "b1/problems/stick-lengths": {
+  "tasks": [
+   "t1"
+  ]
+ },
+ "b1/problems/sum-of-three-values": {
+  "tasks": [
+   "t1"
+  ]
+ },
+ "b1/problems/sum-of-two-values": {
+  "tasks": [
+   "t1"
+  ]
+ },
+ "b1/problems/twins": {
+  "tasks": [
+   "t1"
+  ]
+ },
+ "b1/problems/vanya-and-lanterns": {
+  "tasks": [
+   "t1"
+  ]
+ },
+ "b1/simulation": {
+  "tasks": [
+   "L1",
+   "t1",
+   "t2",
+   "t3"
+  ]
+ },
+ "b1/sorting": {
+  "tasks": [
+   "L1"
+  ]
+ },
+ "b1/time-complexity": {
+  "tasks": [
+   "L1",
+   "t1",
+   "t2",
+   "t3",
+   "t4"
+  ]
+ },
+ "b2/backtracking": {
+  "tasks": [
+   "L1",
+   "t1"
+  ]
+ },
+ "b2/bit-manipulation": {
+  "tasks": [
+   "L1"
+  ]
+ },
+ "b2/cpp/bitwise-operations": {
+  "tasks": [
+   "L1"
+  ]
+ },
+ "b2/cpp/structs": {
+  "tasks": [
+   "L1"
+  ]
+ },
+ "b2/dp-problems/frog1": {
+  "tasks": [
+   "t1"
+  ]
+ },
+ "b2/dp-problems/knapsack1": {
+  "tasks": [
+   "t1"
+  ]
+ },
+ "b2/dp-problems/vacation": {
+  "tasks": [
+   "t1"
+  ]
+ },
+ "b2/dynamic-programming": {
+  "tasks": [
+   "L1"
+  ]
+ },
+ "b2/generating-subsets-using-bitmasks": {
+  "tasks": [
+   "L1"
+  ]
+ },
+ "b2/problems/coin-combinations-I": {
+  "tasks": [
+   "t1"
+  ]
+ },
+ "b2/problems/dice-combinations": {
+  "tasks": [
+   "t1"
+  ]
+ },
+ "b2/problems/grid-paths-I": {
+  "tasks": [
+   "t1"
+  ]
+ },
+ "b2/rectangular-geometry": {
+  "tasks": [
+   "L1",
+   "t1"
+  ]
+ },
+ "b3/constructive": {
+  "tasks": [
+   "L1",
+   "t1",
+   "t2",
+   "t3"
+  ]
+ },
+ "b3/ds/intro": {
+  "tasks": [
+   "L1"
+  ]
+ },
+ "b3/ds/ordered-sets": {
+  "tasks": [
+   "L1",
+   "t1"
+  ]
+ },
+ "b3/ds/segment-trees": {
+  "tasks": [
+   "L1",
+   "t1"
+  ]
+ },
+ "b3/ds/sqrt-decomposition": {
+  "tasks": [
+   "L1",
+   "t1"
+  ]
+ },
+ "b3/graphs/bfs": {
+  "tasks": [
+   "L1"
+  ]
+ },
+ "b3/graphs/components": {
+  "tasks": [
+   "L1",
+   "t1",
+   "t2"
+  ]
+ },
+ "b3/graphs/dfs": {
+  "tasks": [
+   "L1",
+   "t1",
+   "t2"
+  ]
+ },
+ "b3/graphs/intro": {
+  "tasks": [
+   "L1"
+  ]
+ },
+ "b3/number-theory/divisors-primes": {
+  "tasks": [
+   "L1",
+   "t1",
+   "t2"
+  ]
+ },
+ "b3/number-theory/factorization": {
+  "tasks": [
+   "L1",
+   "t1"
+  ]
+ },
+ "b3/number-theory/intro": {
+  "tasks": [
+   "L1",
+   "t1",
+   "t2"
+  ]
+ },
+ "b3/number-theory/sieve": {
+  "tasks": [
+   "L1",
+   "t1"
+  ]
+ },
+ "b3/problems/amicable-numbers": {
+  "tasks": [
+   "t1"
+  ]
+ },
+ "b3/problems/atothenmodm": {
+  "tasks": [
+   "t1"
+  ]
+ },
+ "b3/problems/counting-rooms": {
+  "tasks": [
+   "t1"
+  ]
+ },
+ "b3/problems/labyrinth": {
+  "tasks": [
+   "t1"
+  ]
+ },
+ "b3/problems/product-of-squares": {
+  "tasks": [
+   "t1"
+  ]
+ },
+ "b3/problems/subordinates": {
+  "tasks": [
+   "t1"
+  ]
+ },
+ "b3/problems/tree-matching": {
+  "tasks": [
+   "t1"
+  ]
+ },
+ "b3/trees/dp-on-trees": {
+  "tasks": [
+   "L1"
+  ]
+ },
+ "b3/trees/intro": {
+  "tasks": [
+   "L1"
+  ]
+ }
+}
