@@ -119,7 +119,7 @@
    "t1"
   ]
  },
- "b0/counting/problems": {
+ "part-a/counting/problems": {
   "tasks": [
    "t1",
    "t2",
@@ -135,12 +135,12 @@
    "t12"
   ]
  },
- "b0/counting/sum-and-product-rule": {
+ "part-a/counting/sum-and-product-rule": {
   "tasks": [
    "L1"
   ]
  },
- "b0/counting/worked-examples": {
+ "part-a/counting/worked-examples": {
   "tasks": [
    "t1",
    "t2",
@@ -151,211 +151,194 @@
    "t7"
   ]
  },
- "b0/cp/contests-and-platforms": {
+ "part-a/cp/contests-and-platforms": {
   "tasks": [
    "L1"
   ]
  },
- "b0/cp/problems-with-subproblems": {
+ "part-a/cp/problems-with-subproblems": {
   "tasks": [
    "L1",
    "t1"
   ]
  },
- "b0/cpp/arrays": {
+ "part-a/cpp/arrays": {
   "tasks": [
    "L1"
   ]
  },
- "b0/cpp/constants": {
+ "part-a/cpp/constants": {
   "tasks": [
    "L1"
   ]
  },
- "b0/cpp/do": {
+ "part-a/cpp/do": {
   "tasks": [
    "L1"
   ]
  },
- "b0/cpp/for": {
+ "part-a/cpp/for": {
   "tasks": [
    "L1"
   ]
  },
- "b0/cpp/functions": {
+ "part-a/cpp/functions": {
   "tasks": [
    "L1"
   ]
  },
- "b0/cpp/hello-world": {
+ "part-a/cpp/hello-world": {
   "tasks": [
    "L1"
   ]
  },
- "b0/cpp/if": {
+ "part-a/cpp/if": {
   "tasks": [
    "L1"
   ]
  },
- "b0/cpp/input-output": {
+ "part-a/cpp/input-output": {
   "tasks": [
    "L1",
    "t1"
   ]
  },
- "b0/cpp/name-visibility": {
+ "part-a/cpp/name-visibility": {
   "tasks": [
    "L1"
   ]
  },
- "b0/cpp/operators": {
+ "part-a/cpp/operators": {
   "tasks": [
    "L1"
   ]
  },
- "b0/cpp/statements": {
+ "part-a/cpp/statements": {
   "tasks": [
    "L1"
   ]
  },
- "b0/cpp/structure-of-a-program": {
+ "part-a/cpp/structure-of-a-program": {
   "tasks": [
    "L1"
   ]
  },
- "b0/cpp/switch": {
+ "part-a/cpp/switch": {
   "tasks": [
    "L1"
   ]
  },
- "b0/cpp/variables-and-types": {
+ "part-a/cpp/variables-and-types": {
   "tasks": [
    "L1"
   ]
  },
- "b0/cpp/vectors": {
+ "part-a/cpp/vectors": {
   "tasks": [
    "L1"
   ]
  },
- "b0/cpp/while": {
+ "part-a/cpp/while": {
   "tasks": [
    "L1"
   ]
  },
- "b0/debugging/debugging": {
+ "part-a/debugging/debugging": {
   "tasks": [
    "L1"
   ]
  },
- "b0/problems/alternate": {
+ "part-a/problems/alternate": {
   "tasks": [
    "t1"
   ]
  },
- "b0/problems/beautiful-matrix": {
+ "part-a/problems/beautiful-matrix": {
   "tasks": [
    "t1"
   ]
  },
- "b0/problems/beautiful-year": {
+ "part-a/problems/beautiful-year": {
   "tasks": [
    "t1"
   ]
  },
- "b0/problems/bit++": {
+ "part-a/problems/bit++": {
   "tasks": [
    "t1"
   ]
  },
- "b0/problems/dislike-of-threes": {
+ "part-a/problems/dislike-of-threes": {
   "tasks": [
    "t1"
   ]
  },
- "b0/problems/diverse-game": {
+ "part-a/problems/domino-piling": {
   "tasks": [
    "t1"
   ]
  },
- "b0/problems/domino-piling": {
+ "part-a/problems/equator": {
   "tasks": [
    "t1"
   ]
  },
- "b0/problems/equator": {
+ "part-a/problems/holiday-of-equality": {
   "tasks": [
    "t1"
   ]
  },
- "b0/problems/holiday-of-equality": {
+ "part-a/problems/increasing-decreasing-digits": {
   "tasks": [
    "t1"
   ]
  },
- "b0/problems/increasing-decreasing-digits": {
+ "part-a/problems/leap-year": {
   "tasks": [
    "t1"
   ]
  },
- "b0/problems/leap-year": {
+ "part-a/problems/middle-digits": {
   "tasks": [
    "t1"
   ]
  },
- "b0/problems/middle-digits": {
+ "part-a/problems/min-operations": {
   "tasks": [
    "t1"
   ]
  },
- "b0/problems/min-operations": {
+ "part-a/problems/next-round": {
   "tasks": [
    "t1"
   ]
  },
- "b0/problems/next-round": {
+ "part-a/problems/static-range-sum-queries": {
   "tasks": [
    "t1"
   ]
  },
- "b0/problems/static-range-sum-queries": {
+ "part-a/problems/sum-product": {
   "tasks": [
    "t1"
   ]
  },
- "b0/problems/sum-product": {
+ "part-a/problems/team": {
   "tasks": [
    "t1"
   ]
  },
- "b0/problems/team": {
+ "part-a/problems/theatre-square": {
   "tasks": [
    "t1"
   ]
  },
- "b0/problems/theatre-square": {
+ "part-a/problems/weird-algorithm": {
   "tasks": [
    "t1"
   ]
  },
- "b0/problems/weird-algorithm": {
-  "tasks": [
-   "t1"
-  ]
- },
- "b0/problems/your-digits": {
-  "tasks": [
-   "t1"
-  ]
- },
- "b1/binary-search": {
-  "tasks": [
-   "L1",
-   "t1",
-   "t2"
-  ]
- },
- "b1/casework": {
+ "part-b/casework": {
   "tasks": [
    "L1",
    "t1",
@@ -363,74 +346,7 @@
    "t3"
   ]
  },
- "b1/cpp/maps": {
-  "tasks": [
-   "L1"
-  ]
- },
- "b1/cpp/sets": {
-  "tasks": [
-   "L1"
-  ]
- },
- "b1/greedy": {
-  "tasks": [
-   "L1",
-   "t1",
-   "t2"
-  ]
- },
- "b1/modular-arithmetics": {
-  "tasks": [
-   "L1"
-  ]
- },
- "b1/problems/bit-strings": {
-  "tasks": [
-   "t1"
-  ]
- },
- "b1/problems/digit-queries": {
-  "tasks": [
-   "t1"
-  ]
- },
- "b1/problems/domino-piling": {
-  "tasks": [
-   "t1"
-  ]
- },
- "b1/problems/modular-exponentiation": {
-  "tasks": [
-   "t1"
-  ]
- },
- "b1/problems/stick-lengths": {
-  "tasks": [
-   "t1"
-  ]
- },
- "b1/problems/sum-of-three-values": {
-  "tasks": [
-   "t1"
-  ]
- },
- "b1/problems/sum-of-two-values": {
-  "tasks": [
-   "t1"
-  ]
- },
- "b1/problems/twins": {
-  "tasks": [
-   "t1"
-  ]
- },
- "b1/problems/vanya-and-lanterns": {
-  "tasks": [
-   "t1"
-  ]
- },
- "b1/simulation": {
+ "part-b/constructive": {
   "tasks": [
    "L1",
    "t1",
@@ -438,12 +354,124 @@
    "t3"
   ]
  },
- "b1/sorting": {
+ "part-b/greedy": {
+  "tasks": [
+   "L1",
+   "t1",
+   "t2"
+  ]
+ },
+ "part-b/modular-arithmetics": {
   "tasks": [
    "L1"
   ]
  },
- "b1/time-complexity": {
+ "part-b/problems/bit-strings": {
+  "tasks": [
+   "t1"
+  ]
+ },
+ "part-b/problems/digit-queries": {
+  "tasks": [
+   "t1"
+  ]
+ },
+ "part-b/problems/diverse-game": {
+  "tasks": [
+   "t1"
+  ]
+ },
+ "part-b/problems/domino-piling": {
+  "tasks": [
+   "t1"
+  ]
+ },
+ "part-b/problems/modular-exponentiation": {
+  "tasks": [
+   "t1"
+  ]
+ },
+ "part-b/problems/twins": {
+  "tasks": [
+   "t1"
+  ]
+ },
+ "part-b/problems/your-digits": {
+  "tasks": [
+   "t1"
+  ]
+ },
+ "part-b/simulation": {
+  "tasks": [
+   "L1",
+   "t1",
+   "t2",
+   "t3"
+  ]
+ },
+ "part-c/binary-search": {
+  "tasks": [
+   "L1",
+   "t1",
+   "t2"
+  ]
+ },
+ "part-c/bit-manipulation": {
+  "tasks": [
+   "L1"
+  ]
+ },
+ "part-c/cpp/bitwise-operations": {
+  "tasks": [
+   "L1"
+  ]
+ },
+ "part-c/cpp/maps": {
+  "tasks": [
+   "L1"
+  ]
+ },
+ "part-c/cpp/sets": {
+  "tasks": [
+   "L1"
+  ]
+ },
+ "part-c/cpp/structs": {
+  "tasks": [
+   "L1"
+  ]
+ },
+ "part-c/generating-subsets-using-bitmasks": {
+  "tasks": [
+   "L1"
+  ]
+ },
+ "part-c/problems/stick-lengths": {
+  "tasks": [
+   "t1"
+  ]
+ },
+ "part-c/problems/sum-of-three-values": {
+  "tasks": [
+   "t1"
+  ]
+ },
+ "part-c/problems/sum-of-two-values": {
+  "tasks": [
+   "t1"
+  ]
+ },
+ "part-c/problems/vanya-and-lanterns": {
+  "tasks": [
+   "t1"
+  ]
+ },
+ "part-c/sorting": {
+  "tasks": [
+   "L1"
+  ]
+ },
+ "part-c/time-complexity": {
   "tasks": [
    "L1",
    "t1",
@@ -452,195 +480,167 @@
    "t4"
   ]
  },
- "b2/backtracking": {
+ "part-d/backtracking": {
   "tasks": [
    "L1",
    "t1"
   ]
  },
- "b2/bit-manipulation": {
+ "part-d/dp-problems/frog1": {
+  "tasks": [
+   "t1"
+  ]
+ },
+ "part-d/dp-problems/knapsack1": {
+  "tasks": [
+   "t1"
+  ]
+ },
+ "part-d/dp-problems/vacation": {
+  "tasks": [
+   "t1"
+  ]
+ },
+ "part-d/dynamic-programming": {
   "tasks": [
    "L1"
   ]
  },
- "b2/cpp/bitwise-operations": {
-  "tasks": [
-   "L1"
-  ]
- },
- "b2/cpp/structs": {
-  "tasks": [
-   "L1"
-  ]
- },
- "b2/dp-problems/frog1": {
-  "tasks": [
-   "t1"
-  ]
- },
- "b2/dp-problems/knapsack1": {
-  "tasks": [
-   "t1"
-  ]
- },
- "b2/dp-problems/vacation": {
-  "tasks": [
-   "t1"
-  ]
- },
- "b2/dynamic-programming": {
-  "tasks": [
-   "L1"
-  ]
- },
- "b2/generating-subsets-using-bitmasks": {
-  "tasks": [
-   "L1"
-  ]
- },
- "b2/problems/coin-combinations-I": {
-  "tasks": [
-   "t1"
-  ]
- },
- "b2/problems/dice-combinations": {
-  "tasks": [
-   "t1"
-  ]
- },
- "b2/problems/grid-paths-I": {
-  "tasks": [
-   "t1"
-  ]
- },
- "b2/rectangular-geometry": {
-  "tasks": [
-   "L1",
-   "t1"
-  ]
- },
- "b3/constructive": {
-  "tasks": [
-   "L1",
-   "t1",
-   "t2",
-   "t3"
-  ]
- },
- "b3/ds/intro": {
-  "tasks": [
-   "L1"
-  ]
- },
- "b3/ds/ordered-sets": {
-  "tasks": [
-   "L1",
-   "t1"
-  ]
- },
- "b3/ds/segment-trees": {
-  "tasks": [
-   "L1",
-   "t1"
-  ]
- },
- "b3/ds/sqrt-decomposition": {
-  "tasks": [
-   "L1",
-   "t1"
-  ]
- },
- "b3/graphs/bfs": {
-  "tasks": [
-   "L1"
-  ]
- },
- "b3/graphs/components": {
+ "part-d/number-theory/divisors-primes": {
   "tasks": [
    "L1",
    "t1",
    "t2"
   ]
  },
- "b3/graphs/dfs": {
+ "part-d/number-theory/factorization": {
+  "tasks": [
+   "L1",
+   "t1"
+  ]
+ },
+ "part-d/number-theory/intro": {
   "tasks": [
    "L1",
    "t1",
    "t2"
   ]
  },
- "b3/graphs/intro": {
+ "part-d/number-theory/sieve": {
+  "tasks": [
+   "L1",
+   "t1"
+  ]
+ },
+ "part-d/problems/amicable-numbers": {
+  "tasks": [
+   "t1"
+  ]
+ },
+ "part-d/problems/atothenmodm": {
+  "tasks": [
+   "t1"
+  ]
+ },
+ "part-d/problems/coin-combinations-I": {
+  "tasks": [
+   "t1"
+  ]
+ },
+ "part-d/problems/dice-combinations": {
+  "tasks": [
+   "t1"
+  ]
+ },
+ "part-d/problems/grid-paths-I": {
+  "tasks": [
+   "t1"
+  ]
+ },
+ "part-d/problems/product-of-squares": {
+  "tasks": [
+   "t1"
+  ]
+ },
+ "part-d/rectangular-geometry": {
+  "tasks": [
+   "L1",
+   "t1"
+  ]
+ },
+ "part-e/ds/intro": {
   "tasks": [
    "L1"
   ]
  },
- "b3/number-theory/divisors-primes": {
-  "tasks": [
-   "L1",
-   "t1",
-   "t2"
-  ]
- },
- "b3/number-theory/factorization": {
+ "part-e/ds/ordered-sets": {
   "tasks": [
    "L1",
    "t1"
   ]
  },
- "b3/number-theory/intro": {
-  "tasks": [
-   "L1",
-   "t1",
-   "t2"
-  ]
- },
- "b3/number-theory/sieve": {
+ "part-e/ds/segment-trees": {
   "tasks": [
    "L1",
    "t1"
   ]
  },
- "b3/problems/amicable-numbers": {
+ "part-e/ds/sqrt-decomposition": {
   "tasks": [
+   "L1",
    "t1"
   ]
  },
- "b3/problems/atothenmodm": {
-  "tasks": [
-   "t1"
-  ]
- },
- "b3/problems/counting-rooms": {
-  "tasks": [
-   "t1"
-  ]
- },
- "b3/problems/labyrinth": {
-  "tasks": [
-   "t1"
-  ]
- },
- "b3/problems/product-of-squares": {
-  "tasks": [
-   "t1"
-  ]
- },
- "b3/problems/subordinates": {
-  "tasks": [
-   "t1"
-  ]
- },
- "b3/problems/tree-matching": {
-  "tasks": [
-   "t1"
-  ]
- },
- "b3/trees/dp-on-trees": {
+ "part-e/graphs/bfs": {
   "tasks": [
    "L1"
   ]
  },
- "b3/trees/intro": {
+ "part-e/graphs/components": {
+  "tasks": [
+   "L1",
+   "t1",
+   "t2"
+  ]
+ },
+ "part-e/graphs/dfs": {
+  "tasks": [
+   "L1",
+   "t1",
+   "t2"
+  ]
+ },
+ "part-e/graphs/intro": {
+  "tasks": [
+   "L1"
+  ]
+ },
+ "part-e/problems/counting-rooms": {
+  "tasks": [
+   "t1"
+  ]
+ },
+ "part-e/problems/labyrinth": {
+  "tasks": [
+   "t1"
+  ]
+ },
+ "part-e/problems/subordinates": {
+  "tasks": [
+   "t1"
+  ]
+ },
+ "part-e/problems/tree-matching": {
+  "tasks": [
+   "t1"
+  ]
+ },
+ "part-e/trees/dp-on-trees": {
+  "tasks": [
+   "L1"
+  ]
+ },
+ "part-e/trees/intro": {
   "tasks": [
    "L1"
   ]

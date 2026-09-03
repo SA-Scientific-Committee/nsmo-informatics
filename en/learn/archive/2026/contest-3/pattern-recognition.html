@@ -313,7 +313,7 @@ window.Quarto = {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../../../index.html">
-    <span class="navbar-title"><span class="light-content"> <img src="../../../logo-mawhiba-light.svg" alt="Mawhiba" style="height:30px; margin:0 20px;"> <img src="../../../logo-nsmo-light.png" style="height:25px; margin:0 20px;"> </span> <span class="dark-content"> <img src="../../../logo-mawhiba-dark.svg" alt="Mawhiba" style="height:30px; margin:0 20px;"> <img src="../../../logo-nsmo-dark.png" style="height:25px; margin:0 20px;"> </span></span>
+    <span class="navbar-title"><span class="light-content"> <img src="../../../logo-mawhiba-light.svg" alt="Mawhiba" style="height:30px; margin:0 20px;"> <img src="../../../logo-ngo-light.svg" style="height:25px; margin:0 20px;"> </span> <span class="dark-content"> <img src="../../../logo-mawhiba-dark.svg" alt="Mawhiba" style="height:30px; margin:0 20px;"> <img src="../../../logo-ngo-dark.svg" style="height:25px; margin:0 20px;"> </span></span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -323,24 +323,47 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-stage" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Stage</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-juniors" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Juniors</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-stage">    
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-juniors">    
         <li>
-    <a class="dropdown-item" href="../../../b0/cpp/hello-world.html">
+    <a class="dropdown-item" href="../../../part-a/cpp/hello-world.html">
  <span class="dropdown-text">1</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../b1/cpp/sets.html">
+    <a class="dropdown-item" href="../../../part-b/modular-arithmetics.html">
  <span class="dropdown-text">2</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../b2/cpp/bitwise-operations.html">
+    <a class="dropdown-item" href="../../../part-c/cpp/sets.html">
  <span class="dropdown-text">3</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../b3/graphs/intro.html">
+    <a class="dropdown-item" href="../../../part-d/backtracking.html">
+ <span class="dropdown-text">4</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-seniors" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Seniors</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-seniors">    
+        <li>
+    <a class="dropdown-item" href="../../../part-b/modular-arithmetics.html">
+ <span class="dropdown-text">1</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../part-c/cpp/sets.html">
+ <span class="dropdown-text">2</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../part-d/backtracking.html">
+ <span class="dropdown-text">3</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../part-e/graphs/intro.html">
  <span class="dropdown-text">4</span></a>
   </li>  
     </ul>
@@ -926,10 +949,10 @@ cin.tie(nullptr);</code></pre>
         undo: "تراجع",
         panelTitle: "تقدّمك في المنهج",
         close: "إغلاق",
-        overall: "كل المراحل",
-        thisStage: "هذه المرحلة",
+        overall: "كل الأجزاء",
+        thisStage: "هذا الجزء",
         complete: "مكتمل",
-        stages: ["المرحلة 1", "المرحلة 2", "المرحلة 3", "المرحلة 4", "الأرشيف"],
+        stages: ["الجزء A", "الجزء B", "الجزء C", "الجزء D", "الجزء E", "الأرشيف"],
         lessons: "الدروس",
         problems: "المسائل",
         sync: "المزامنة بين الأجهزة",
@@ -963,10 +986,10 @@ cin.tie(nullptr);</code></pre>
         undo: "Undo",
         panelTitle: "Your progress",
         close: "Close",
-        overall: "All stages",
-        thisStage: "This stage",
+        overall: "All parts",
+        thisStage: "This part",
         complete: "complete",
-        stages: ["Stage 1", "Stage 2", "Stage 3", "Stage 4", "Archive"],
+        stages: ["Part A", "Part B", "Part C", "Part D", "Part E", "Archive"],
         lessons: "Lessons",
         problems: "Problems",
         sync: "Sync across devices",
@@ -1190,7 +1213,7 @@ cin.tie(nullptr);</code></pre>
   const unitsFor = (key) => tasksFor(key).map((id) => taskKey(key, id));
 
   // Every completable in the booklet, from the manifest rather than the sidebar,
-  // which only ever lists the current stage.
+  // which only ever lists the current part.
   function totalTally() {
     let total = 0;
     let done = 0;
@@ -1203,9 +1226,9 @@ cin.tie(nullptr);</code></pre>
     return { total, done };
   }
 
-  // The booklet broken down the way the navigation presents it: the four stages
+  // The booklet broken down the way the navigation presents it: the five parts
   // and the archive, grouped by the leading path segment of each page key.
-  const STAGE_KEYS = ["b0", "b1", "b2", "b3", "archive"];
+  const STAGE_KEYS = ["part-a", "part-b", "part-c", "part-d", "part-e", "archive"];
 
   function stageTallies() {
     const rows = STAGE_KEYS.map((prefix, i) => ({
@@ -1663,16 +1686,18 @@ cin.tie(nullptr);</code></pre>
 })();
 </script>
 <script>
-// Navbar polish: the Stage menu and the colour-scheme toggle.
+// Navbar polish: the Juniors and Seniors menus and the colour-scheme toggle.
 (() => {
   "use strict";
 
   const AR = document.documentElement.lang.startsWith("ar");
 
-  // ---------------------------------------------------------- stage menu
+  // ------------------------------------------------ juniors / seniors menus
 
-  // Mirrors the stage list on the home page (index.qmd). Kept here rather than
-  // scraped so the menu does not depend on fetching another page.
+  // Both division menus (Juniors, Seniors) carry the same 1-4 stage numbers and
+  // get the same hover descriptions. Mirrors the competition-stage list on the
+  // home page (index.qmd), kept here rather than scraped so the menu does not
+  // depend on fetching another page.
   const STAGES = AR
     ? {
         "1": "على مستوى المدن والمحافظات",
@@ -1692,7 +1717,7 @@ cin.tie(nullptr);</code></pre>
     menus.forEach((menu) => {
       const items = Array.from(menu.querySelectorAll(".dropdown-item"));
       if (!items.length) return;
-      // Only the numeric stage menu; leave any other dropdown alone.
+      // Only the numeric division menus; leave any other dropdown alone.
       if (!items.every((a) => STAGES[a.textContent.trim()])) return;
       if (menu.classList.contains("nsmo-stage-menu")) return;
 
