@@ -79,9 +79,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-a161df5935538f76dcf7fcd5b0e1bfd3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-a2c34268a2a1b6b7d0a20034bc0d949e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-a161df5935538f76dcf7fcd5b0e1bfd3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-62a622aeefb2692ba87e4de726ce61b0.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-246df52e0de41df26baafb5b8323a3aa.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-62a622aeefb2692ba87e4de726ce61b0.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -295,47 +295,51 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">الناشئون</span>
+ <span class="menu-text">معلوماتية١</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-">    
         <li>
     <a class="dropdown-item" href="../../part-a/cpp/hello-world.html">
- <span class="dropdown-text">1</span></a>
+ <span class="dropdown-text">المرحلة 1</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../../part-b/modular-arithmetics.html">
- <span class="dropdown-text">2</span></a>
+ <span class="dropdown-text">المرحلة 2</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../../part-c/cpp/sets.html">
- <span class="dropdown-text">3</span></a>
+ <span class="dropdown-text">المرحلة 3</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../../part-d/backtracking.html">
- <span class="dropdown-text">4</span></a>
+ <span class="dropdown-text">المرحلة 4</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu--1" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">المتقدمون</span>
+ <span class="menu-text">معلوماتيه ٢</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu--1">    
         <li>
+    <a class="dropdown-item" href="../../part-a/cpp/hello-world.html">
+ <span class="dropdown-text">المتطلبات الأساسية</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="../../part-b/modular-arithmetics.html">
- <span class="dropdown-text">1</span></a>
+ <span class="dropdown-text">المرحلة 1</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../../part-c/cpp/sets.html">
- <span class="dropdown-text">2</span></a>
+ <span class="dropdown-text">المرحلة 2</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../../part-d/backtracking.html">
- <span class="dropdown-text">3</span></a>
+ <span class="dropdown-text">المرحلة 3</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../../part-e/graphs/intro.html">
- <span class="dropdown-text">4</span></a>
+ <span class="dropdown-text">المرحلة 4</span></a>
   </li>  
     </ul>
   </li>
@@ -1626,76 +1630,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 })();
 </script>
 <script>
-// Navbar polish: the Juniors and Seniors menus and the colour-scheme toggle.
+// Navbar polish: the colour-scheme toggle.
 (() => {
   "use strict";
 
   const AR = document.documentElement.lang.startsWith("ar");
-
-  // ------------------------------------------------ juniors / seniors menus
-
-  // Both division menus (Juniors, Seniors) carry the same 1-4 stage numbers and
-  // get the same hover descriptions. Mirrors the competition-stage list on the
-  // home page (index.qmd), kept here rather than scraped so the menu does not
-  // depend on fetching another page.
-  const STAGES = AR
-    ? {
-        "1": "على مستوى المدن والمحافظات",
-        "2": "إدارات التعليم العام",
-        "3": "اختيار الطلاب لتمثيل إدارات التعليم",
-        "4": "المنافسة الوطنية الكبرى على مستوى المملكة",
-      }
-    : {
-        "1": "City and governorate",
-        "2": "General education administrations",
-        "3": "Selecting students to represent education administrations",
-        "4": "The major national competition at the Kingdom level",
-      };
-
-  function enhanceStageMenu() {
-    const menus = document.querySelectorAll(".navbar .nav-item.dropdown > .dropdown-menu");
-    menus.forEach((menu) => {
-      const items = Array.from(menu.querySelectorAll(".dropdown-item"));
-      if (!items.length) return;
-      // Only the numeric division menus; leave any other dropdown alone.
-      if (!items.every((a) => STAGES[a.textContent.trim()])) return;
-      if (menu.classList.contains("nsmo-stage-menu")) return;
-
-      menu.classList.add("nsmo-stage-menu");
-
-      const row = document.createElement("div");
-      row.className = "nsmo-stage-row";
-      items.forEach((a) => {
-        const li = a.closest("li");
-        row.append(a);
-        if (li) li.remove();
-      });
-
-      // The description takes no room at all until a number is hovered, then
-      // unrolls beneath the row. The row is anchored at the top of the menu, so
-      // growing downwards never shifts the numbers under the pointer.
-      const blurb = document.createElement("div");
-      blurb.className = "nsmo-stage-blurb";
-      const live = document.createElement("p");
-      live.className = "nsmo-stage-live";
-      blurb.append(live);
-
-      const show = (text) => {
-        if (text) live.textContent = text;
-        menu.classList.toggle("is-describing", Boolean(text));
-      };
-
-      items.forEach((a) => {
-        const describe = () => show(STAGES[a.textContent.trim()]);
-        a.addEventListener("mouseenter", describe);
-        a.addEventListener("focus", describe);
-      });
-      menu.addEventListener("mouseleave", () => show(""));
-
-      menu.replaceChildren(row, blurb);
-      show("");
-    });
-  }
 
   // ------------------------------------------------------- theme toggle
 
@@ -1750,7 +1689,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 
   const start = () => {
-    enhanceStageMenu();
     enhanceToggle();
   };
 
