@@ -2,9 +2,79 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "National Gifted Olympiad (Scientific Track: “NSMO”)",
+    "title": "Introduction",
     "section": "",
-    "text": "National Gifted Olympiad (Scientific Track: “NSMO”)\nThe program aims to discover and develop the knowledge and skills of gifted students across various fields of science and mathematics, through an annual national competition. It also supports their preparation for participation in international science olympiads as part of one of the Saudi scientific teams.\nThe track targets students in either middle school or high school. Students may register through their school coordinators. The competition includes multiple stages throughout the academic year and targets Saudi students in general education across the following fields: Mathematics, Science, Informatics, Chemistry, Physics, and Biology.\nCompetition Stages:\n\nStage 1: General Education Departments Competition\nStage 2: National Team Selection Competition\nStage 3: Central Exams\nStage 4: National Gifted Olympiad Finals.\n\n\n\nInformatics (Competitive Programming)\nInformatics is one of the specialties covered under the scientific track “NSMO”. Through this program, participants are prepared for the competition step by step. It introduces them to the world of competitive programming in stages and does not require any prior experience.\nCompetitive programming is a mental sport in which participants solve algorithmic problems using programming. These problems are typically presented in contests that last several hours. To solve them, participants must design efficient algorithms and implement them in a programming language.\nWe will begin by learning C++, the most commonly used language in competitive programming. Then, we will move on to solving problems and exploring fundamental algorithms and techniques.\nStrong mathematical skills greatly help in competitive programming. As participants progress, analytical thinking becomes the most important skill of all."
+    "text": "The track aims to discover and develop the knowledge and skills of gifted students in science and mathematics through an annual national competition. It also prepares them to take part in international science olympiads as members of the Saudi scientific teams.\nThe track is for Saudi students in general education, in middle school and high school. Students register through their school coordinators. The competition has several stages during the academic year and covers the following fields: Mathematics, Science, Informatics, Chemistry, Physics, and Biology.\n\n\n\nInformatics is one of the fields of the scientific track “NSMO”. The track prepares participants for the competition stage by stage. It introduces them to competitive programming from the beginning and requires no prior experience.\nCompetitive programming is a mind sport in which participants solve algorithmic problems by writing programs. The problems are usually given in contests that last several hours. To solve them, participants must design efficient algorithms and implement them in a programming language.\nWe begin by learning C++, the language most commonly used in competitive programming. Then we move on to solving problems and studying fundamental algorithms and techniques.\nStrong mathematical skills help a great deal in competitive programming. As participants progress, analytical thinking becomes the most important skill of all.",
+    "crumbs": [
+      "Overview",
+      "Introduction"
+    ]
+  },
+  {
+    "objectID": "index.html#national-gifted-olympiad-scientific-track-nsmo",
+    "href": "index.html#national-gifted-olympiad-scientific-track-nsmo",
+    "title": "Introduction",
+    "section": "",
+    "text": "The track aims to discover and develop the knowledge and skills of gifted students in science and mathematics through an annual national competition. It also prepares them to take part in international science olympiads as members of the Saudi scientific teams.\nThe track is for Saudi students in general education, in middle school and high school. Students register through their school coordinators. The competition has several stages during the academic year and covers the following fields: Mathematics, Science, Informatics, Chemistry, Physics, and Biology.",
+    "crumbs": [
+      "Overview",
+      "Introduction"
+    ]
+  },
+  {
+    "objectID": "index.html#informatics-competitive-programming",
+    "href": "index.html#informatics-competitive-programming",
+    "title": "Introduction",
+    "section": "",
+    "text": "Informatics is one of the fields of the scientific track “NSMO”. The track prepares participants for the competition stage by stage. It introduces them to competitive programming from the beginning and requires no prior experience.\nCompetitive programming is a mind sport in which participants solve algorithmic problems by writing programs. The problems are usually given in contests that last several hours. To solve them, participants must design efficient algorithms and implement them in a programming language.\nWe begin by learning C++, the language most commonly used in competitive programming. Then we move on to solving problems and studying fundamental algorithms and techniques.\nStrong mathematical skills help a great deal in competitive programming. As participants progress, analytical thinking becomes the most important skill of all.",
+    "crumbs": [
+      "Overview",
+      "Introduction"
+    ]
+  },
+  {
+    "objectID": "overview/community.html",
+    "href": "overview/community.html",
+    "title": "Community",
+    "section": "",
+    "text": "Announcements and information about the NSMO informatics contests.\n\n\n\nThe largest Saudi competitive programming community.\n\n\n\nRecords the achievements of the best Saudi students in international contests.",
+    "crumbs": [
+      "Overview",
+      "Community"
+    ]
+  },
+  {
+    "objectID": "overview/community.html#nsmo-informatics-discord-server",
+    "href": "overview/community.html#nsmo-informatics-discord-server",
+    "title": "Community",
+    "section": "",
+    "text": "Announcements and information about the NSMO informatics contests.",
+    "crumbs": [
+      "Overview",
+      "Community"
+    ]
+  },
+  {
+    "objectID": "overview/community.html#mrb3-discord-server",
+    "href": "overview/community.html#mrb3-discord-server",
+    "title": "Community",
+    "section": "",
+    "text": "The largest Saudi competitive programming community.",
+    "crumbs": [
+      "Overview",
+      "Community"
+    ]
+  },
+  {
+    "objectID": "overview/community.html#sainformatics-website",
+    "href": "overview/community.html#sainformatics-website",
+    "title": "Community",
+    "section": "",
+    "text": "Records the achievements of the best Saudi students in international contests.",
+    "crumbs": [
+      "Overview",
+      "Community"
+    ]
   },
   {
     "objectID": "part-e/problems/subordinates.html",
@@ -5167,6 +5237,17 @@
     "crumbs": [
       "Problems",
       "Tree Matching"
+    ]
+  },
+  {
+    "objectID": "overview/contest.html",
+    "href": "overview/contest.html",
+    "title": "Contest",
+    "section": "",
+    "text": "Contest\nThe competition has two divisions:\n\nInformatics 1: Juniors, grades 7–8\nInformatics 2: Seniors, grades 9–10\n\nEach division has four stages:\n\n\n\n\n\n\n\n\n\n\n\nStage\n1\n2\n3\n4\n\n\nCompetition\nGeneral Education Departments Competition\nNational Team Selection Competition\nCentral Exams\nNational Gifted Olympiad Finals\n\n\nLocation\nOnline\nOnsite\n\n\nParticipants per division\nAll students\nBy regional quota\n100\n30\n\n\nProblems\nMultiple choice questions\nProgramming problems; solutions are submitted to a judging platform for evaluation\n\n\nPlatform\nClassera\nCodeforces\n\n\nDuration\n2 hours\n3 hours\n4 hours",
+    "crumbs": [
+      "Overview",
+      "Contest"
     ]
   }
 ]
