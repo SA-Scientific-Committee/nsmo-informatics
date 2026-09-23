@@ -43,9 +43,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-03abe920dcccf0b3803463e152fdf912.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-92da2e5daf0bb1ae88ca69ba888fb8e3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-03abe920dcccf0b3803463e152fdf912.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-2b224bffe0ed1ff29f28f15e45305766.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-d9c4e9f90d04e981ee3f321f6e503d3e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-2b224bffe0ed1ff29f28f15e45305766.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -401,15 +401,15 @@ ul.task-list li input[type="checkbox"] {
 <h1>Community</h1>
 <section id="nsmo-informatics-discord-server" class="level2">
 <h2 data-anchor-id="nsmo-informatics-discord-server"><a href="https://discord.gg/92pKmNZbD4">NSMO Informatics Discord Server</a></h2>
-<p>Announcements and information about the NSMO informatics contests.</p>
+<p>Announcements, information, and discussion about the NSMO informatics contests.</p>
 </section>
 <section id="mrb3-discord-server" class="level2">
 <h2 data-anchor-id="mrb3-discord-server"><a href="https://discord.gg/exgRWsGGvZ">MRB3 Discord Server</a></h2>
-<p>The largest Saudi competitive programming community.</p>
+<p>The largest Saudi competitive programming community. It organizes independent contests, which are good practice for the NSMO material.</p>
 </section>
 <section id="sainformatics-website" class="level2">
 <h2 data-anchor-id="sainformatics-website"><a href="https://sainformatics.org/">SAInformatics Website</a></h2>
-<p>Records the achievements of the best Saudi students in international contests.</p>
+<p>Records the achievements of the best Saudi students in national and international contests.</p>
 
 
 </section>
@@ -924,12 +924,13 @@ ul.task-list li input[type="checkbox"] {
 
     box.append(head, track);
     menu.parentNode.insertBefore(box, menu);
-    summaryEls = { count, track, fill };
+    summaryEls = { box, count, track, fill };
   }
 
   function renderSummary() {
     if (!summaryEls) return;
     const { total, done } = tally();
+    summaryEls.box.hidden = total === 0;
     const pct = total ? Math.round((done / total) * 100) : 0;
     summaryEls.count.textContent = `${done} ${T.of} ${total}`;
     summaryEls.fill.style.inlineSize = `${pct}%`;
