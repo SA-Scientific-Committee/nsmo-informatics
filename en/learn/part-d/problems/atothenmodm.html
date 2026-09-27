@@ -68,7 +68,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
 <link href="../../part-d/problems/coin-combinations-I.html" rel="next">
-<link href="../../part-d/problems/grid-paths-I.html" rel="prev">
+<link href="../../part-d/problems/counting-divisors.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -447,6 +447,12 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../part-d/dp-problems/frog2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Frog 2</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../part-d/dp-problems/vacation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Vacation</span></a>
   </div>
@@ -511,6 +517,18 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../part-d/problems/creating-strings.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Creating Strings</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../part-d/problems/chessboard-and-queens.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Chessboard and Queens</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../part-d/problems/dice-combinations.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Dice Combinations</span></a>
   </div>
@@ -519,6 +537,48 @@ window.Quarto = {
   <div class="sidebar-item-container"> 
   <a href="../../part-d/problems/grid-paths-I.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Grid Paths I</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../part-d/problems/minimizing-coins.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Minimizing Coins</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../part-d/problems/square-pasture.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Square Pasture</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../part-d/problems/blocked-billboard.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Blocked Billboard</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../part-d/problems/white-sheet.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">White Sheet</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../part-d/problems/subtractions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Subtractions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../part-d/problems/common-divisors.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Common Divisors</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../part-d/problems/counting-divisors.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Counting Divisors</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -617,11 +677,11 @@ window.Quarto = {
 <details class="solution-card">
 <summary><span class="solution-title">Solution</span></summary>
 <div class="problem-body">
-<p>The number (A^N) can be astronomically large, so we must not compute it directly.</p>
+<p>The number <span class="math inline">\(A^N\)</span> can be astronomically large, so we must not compute it directly.</p>
 <p>Factorize:</p>
 <p><span class="math display">\[M = \prod p_i^{e_i}\]</span></p>
-<p>Let (v_i = v_{p_i}(A)) be the exponent of prime (p_i) in (A).<br>
-Then in (A^N), the exponent becomes:</p>
+<p>Let <span class="math inline">\(v_i = v_{p_i}(A)\)</span> be the exponent of prime <span class="math inline">\(p_i\)</span> in <span class="math inline">\(A\)</span>.<br>
+Then in <span class="math inline">\(A^N\)</span>, the exponent becomes:</p>
 <p><span class="math display">\[v_{p_i}(A^N) = N \cdot v_{p_i}(A)\]</span></p>
 <p>So:</p>
 <p><span class="math display">\[M \mid A^N \iff \forall i:\; N\cdot v_{p_i}(A)\ge e_i\]</span></p>
@@ -2096,8 +2156,8 @@ To avoid overflow, use: <span class="math display">\[N \ge \left\lceil \frac{e}{
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../part-d/problems/grid-paths-I.html" class="pagination-link" aria-label="Grid Paths I">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Grid Paths I</span>
+      <a href="../../part-d/problems/counting-divisors.html" class="pagination-link" aria-label="Counting Divisors">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Counting Divisors</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

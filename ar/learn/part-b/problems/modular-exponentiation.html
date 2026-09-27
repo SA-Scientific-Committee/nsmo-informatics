@@ -67,8 +67,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../part-b/problems/twins.html" rel="next">
-<link href="../../part-b/problems/domino-piling.html" rel="prev">
+<link href="../../part-b/problems/bit-strings.html" rel="next">
+<link href="../../part-b/greedy.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -459,26 +459,8 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../part-b/problems/domino-piling.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Domino piling</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../../part-b/problems/modular-exponentiation.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Modular Exponentiation</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../part-b/problems/twins.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Twins</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../part-b/problems/digit-queries.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Digit Queries</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -489,14 +471,80 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../part-b/problems/exponentiation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Exponentiation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../part-b/problems/trailing-zeros.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Trailing Zeros</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../part-b/problems/soldier-and-bananas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Soldier and Bananas</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../part-b/problems/xenia-and-ringroad.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Xenia and Ringroad</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../part-b/problems/domino-piling.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Domino piling</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../part-b/problems/coin-piles.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Coin Piles</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../part-b/problems/digit-queries.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Digit Queries</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../part-b/problems/diverse-game.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Diverse Game</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../part-b/problems/permutations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Permutations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../part-b/problems/two-sets.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Two Sets</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../part-b/problems/hit-the-lottery.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Hit the Lottery</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../part-b/problems/your-digits.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Your Digits</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../part-b/problems/twins.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Twins</span></a>
   </div>
 </li>
       </ul>
@@ -1944,13 +1992,13 @@ window.Quarto = {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../part-b/problems/domino-piling.html" class="pagination-link" aria-label="Domino piling">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Domino piling</span>
+      <a href="../../part-b/greedy.html" class="pagination-link" aria-label="<span class=&quot;bilingual-title&quot;><span class=&quot;bilingual-title-ar&quot;>الخوارزميات الجشعة</span><span class=&quot;bilingual-title-en&quot; lang=&quot;en&quot; dir=&quot;ltr&quot;>Greedy Algorithms</span></span>">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="bilingual-title"><span class="bilingual-title-ar">الخوارزميات الجشعة</span><span class="bilingual-title-en" lang="en" dir="ltr">Greedy Algorithms</span></span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../part-b/problems/twins.html" class="pagination-link" aria-label="Twins">
-        <span class="nav-page-text">Twins</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../part-b/problems/bit-strings.html" class="pagination-link" aria-label="Bit Strings">
+        <span class="nav-page-text">Bit Strings</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

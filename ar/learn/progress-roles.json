@@ -371,6 +371,11 @@
    "t1"
   ]
  },
+ "part-b/problems/coin-piles": {
+  "tasks": [
+   "t1"
+  ]
+ },
  "part-b/problems/digit-queries": {
   "tasks": [
    "t1"
@@ -386,12 +391,47 @@
    "t1"
   ]
  },
+ "part-b/problems/exponentiation": {
+  "tasks": [
+   "t1"
+  ]
+ },
+ "part-b/problems/hit-the-lottery": {
+  "tasks": [
+   "t1"
+  ]
+ },
  "part-b/problems/modular-exponentiation": {
   "tasks": [
    "t1"
   ]
  },
+ "part-b/problems/permutations": {
+  "tasks": [
+   "t1"
+  ]
+ },
+ "part-b/problems/soldier-and-bananas": {
+  "tasks": [
+   "t1"
+  ]
+ },
+ "part-b/problems/trailing-zeros": {
+  "tasks": [
+   "t1"
+  ]
+ },
  "part-b/problems/twins": {
+  "tasks": [
+   "t1"
+  ]
+ },
+ "part-b/problems/two-sets": {
+  "tasks": [
+   "t1"
+  ]
+ },
+ "part-b/problems/xenia-and-ringroad": {
   "tasks": [
    "t1"
   ]
@@ -446,6 +486,56 @@
    "L1"
   ]
  },
+ "part-c/problems/array-division": {
+  "tasks": [
+   "t1"
+  ]
+ },
+ "part-c/problems/distinct-numbers": {
+  "tasks": [
+   "t1"
+  ]
+ },
+ "part-c/problems/dragons": {
+  "tasks": [
+   "t1"
+  ]
+ },
+ "part-c/problems/factory-machines": {
+  "tasks": [
+   "t1"
+  ]
+ },
+ "part-c/problems/ferris-wheel": {
+  "tasks": [
+   "t1"
+  ]
+ },
+ "part-c/problems/interesting-drink": {
+  "tasks": [
+   "t1"
+  ]
+ },
+ "part-c/problems/petr-and-a-combination-lock": {
+  "tasks": [
+   "t1"
+  ]
+ },
+ "part-c/problems/preparing-olympiad": {
+  "tasks": [
+   "t1"
+  ]
+ },
+ "part-c/problems/raising-bacteria": {
+  "tasks": [
+   "t1"
+  ]
+ },
+ "part-c/problems/registration-system": {
+  "tasks": [
+   "t1"
+  ]
+ },
  "part-c/problems/stick-lengths": {
   "tasks": [
    "t1"
@@ -487,6 +577,11 @@
   ]
  },
  "part-d/dp-problems/frog1": {
+  "tasks": [
+   "t1"
+  ]
+ },
+ "part-d/dp-problems/frog2": {
   "tasks": [
    "t1"
   ]
@@ -542,7 +637,32 @@
    "t1"
   ]
  },
+ "part-d/problems/blocked-billboard": {
+  "tasks": [
+   "t1"
+  ]
+ },
+ "part-d/problems/chessboard-and-queens": {
+  "tasks": [
+   "t1"
+  ]
+ },
  "part-d/problems/coin-combinations-I": {
+  "tasks": [
+   "t1"
+  ]
+ },
+ "part-d/problems/common-divisors": {
+  "tasks": [
+   "t1"
+  ]
+ },
+ "part-d/problems/counting-divisors": {
+  "tasks": [
+   "t1"
+  ]
+ },
+ "part-d/problems/creating-strings": {
   "tasks": [
    "t1"
   ]
@@ -557,7 +677,27 @@
    "t1"
   ]
  },
+ "part-d/problems/minimizing-coins": {
+  "tasks": [
+   "t1"
+  ]
+ },
  "part-d/problems/product-of-squares": {
+  "tasks": [
+   "t1"
+  ]
+ },
+ "part-d/problems/square-pasture": {
+  "tasks": [
+   "t1"
+  ]
+ },
+ "part-d/problems/subtractions": {
+  "tasks": [
+   "t1"
+  ]
+ },
+ "part-d/problems/white-sheet": {
   "tasks": [
    "t1"
   ]
@@ -615,7 +755,27 @@
    "L1"
   ]
  },
+ "part-e/problems/concert-tickets": {
+  "tasks": [
+   "t1"
+  ]
+ },
  "part-e/problems/counting-rooms": {
+  "tasks": [
+   "t1"
+  ]
+ },
+ "part-e/problems/dynamic-range-sum-queries": {
+  "tasks": [
+   "t1"
+  ]
+ },
+ "part-e/problems/hotel-queries": {
+  "tasks": [
+   "t1"
+  ]
+ },
+ "part-e/problems/josephus-problem-ii": {
   "tasks": [
    "t1"
   ]
@@ -625,7 +785,27 @@
    "t1"
   ]
  },
+ "part-e/problems/message-route": {
+  "tasks": [
+   "t1"
+  ]
+ },
+ "part-e/problems/monsters": {
+  "tasks": [
+   "t1"
+  ]
+ },
+ "part-e/problems/round-trip": {
+  "tasks": [
+   "t1"
+  ]
+ },
  "part-e/problems/subordinates": {
+  "tasks": [
+   "t1"
+  ]
+ },
+ "part-e/problems/tree-diameter": {
   "tasks": [
    "t1"
   ]

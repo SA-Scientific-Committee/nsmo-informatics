@@ -67,7 +67,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../part-b/problems/diverse-game.html" rel="prev">
+<link href="../../part-b/problems/twins.html" rel="next">
+<link href="../../part-b/problems/hit-the-lottery.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -458,26 +459,8 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../part-b/problems/domino-piling.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Domino piling</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../../part-b/problems/modular-exponentiation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Modular Exponentiation</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../part-b/problems/twins.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Twins</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../part-b/problems/digit-queries.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Digit Queries</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -488,14 +471,80 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../part-b/problems/exponentiation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Exponentiation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../part-b/problems/trailing-zeros.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Trailing Zeros</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../part-b/problems/soldier-and-bananas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Soldier and Bananas</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../part-b/problems/xenia-and-ringroad.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Xenia and Ringroad</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../part-b/problems/domino-piling.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Domino piling</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../part-b/problems/coin-piles.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Coin Piles</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../part-b/problems/digit-queries.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Digit Queries</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../part-b/problems/diverse-game.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Diverse Game</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../part-b/problems/permutations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Permutations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../part-b/problems/two-sets.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Two Sets</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../part-b/problems/hit-the-lottery.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Hit the Lottery</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../part-b/problems/your-digits.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Your Digits</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../part-b/problems/twins.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Twins</span></a>
   </div>
 </li>
       </ul>
@@ -528,31 +577,57 @@ window.Quarto = {
 <span class="problem-title">Your Digits</span>
 <div class="problem-meta">
 <span class="problem-origin"><a href="https://codeforces.com/problemset/problem/734/B">Codeforces</a></span>
-<span class="problem-difficulty">medium</span>
+<span class="problem-difficulty">easy</span>
 </div>
 </div>
 <div class="problem-body">
-<p>You have <span class="math inline">\(k_2\)</span> digits <span class="math inline">\(2\)</span>, <span class="math inline">\(k_3\)</span> digits <span class="math inline">\(3\)</span>, <span class="math inline">\(k_5\)</span> digits <span class="math inline">\(5\)</span>, and <span class="math inline">\(k_6\)</span> digits <span class="math inline">\(6\)</span>. You want to form numbers <span class="math inline">\(32\)</span> and <span class="math inline">\(256\)</span> using these digits (each digit at most once) to maximize their total sum. Find the maximum possible sum.</p>
+<p>A box contains digit cards: <span class="math inline">\(k_2\)</span> cards with the digit <span class="math inline">\(2\)</span>, <span class="math inline">\(k_3\)</span> cards with the digit <span class="math inline">\(3\)</span>, <span class="math inline">\(k_5\)</span> cards with the digit <span class="math inline">\(5\)</span>, and <span class="math inline">\(k_6\)</span> cards with the digit <span class="math inline">\(6\)</span>.</p>
+<p>You can build only two numbers from the cards:</p>
+<ul>
+<li>the number <span class="math inline">\(32\)</span>, which uses one card <span class="math inline">\(3\)</span> and one card <span class="math inline">\(2\)</span>;</li>
+<li>the number <span class="math inline">\(256\)</span>, which uses one card <span class="math inline">\(2\)</span>, one card <span class="math inline">\(5\)</span>, and one card <span class="math inline">\(6\)</span>.</li>
+</ul>
+<p>You can build each number any number of times, but every card can be used <strong>at most once</strong>. Cards that you do not use are not counted.</p>
+<p>Find the <strong>maximum possible sum</strong> of the numbers you build.</p>
+<p>Constraints:</p>
+<ul>
+<li><span class="math inline">\(0 \le k_2, k_3, k_5, k_6 \le 5 \cdot 10^6\)</span></li>
+</ul>
+<p>Input:</p>
+<ul>
+<li>One line: four integers <span class="math inline">\(k_2\)</span>, <span class="math inline">\(k_3\)</span>, <span class="math inline">\(k_5\)</span>, <span class="math inline">\(k_6\)</span>.</li>
+</ul>
+<p>Output:</p>
+<ul>
+<li>One integer — the maximum possible sum.</li>
+</ul>
+<p>Example:</p>
+<p>Input:</p>
+<pre class="text"><code>5 1 3 4</code></pre>
+<p>Output:</p>
+<pre class="text"><code>800</code></pre>
+<p>(Build <span class="math inline">\(256\)</span> three times and <span class="math inline">\(32\)</span> once: <span class="math inline">\(256 + 256 + 256 + 32 = 800\)</span>. One card <span class="math inline">\(2\)</span> and one card <span class="math inline">\(6\)</span> are not used.)</p>
 </div>
 </div>
 </section>
 <details class="solution-card">
 <summary><span class="solution-title">Solution</span></summary>
 <div class="problem-body">
-<p>We can see that it’s better to make number <span class="math inline">\(256\)</span> than <span class="math inline">\(32\)</span>. So we will make <span class="math inline">\(256\)</span> for as long as we can, and then with remaining digits number <span class="math inline">\(32\)</span>. Number <span class="math inline">\(256\)</span> takes digits <span class="math inline">\(2,5,6\)</span> each ones, so we can make at most <span class="math inline">\(k=\)</span>min(<span class="math inline">\(k_2, k_5, k_6\)</span>) those numbers. With remaining digits, which are <span class="math inline">\(k_3\)</span> digits <span class="math inline">\(3\)</span> and <span class="math inline">\(k_2 - k\)</span> digits <span class="math inline">\(2\)</span> (we used <span class="math inline">\(k\)</span> of them to make <span class="math inline">\(256\)</span>), we create min(<span class="math inline">\(k_3, k_2-k\)</span>) numbers <span class="math inline">\(32\)</span>.</p>
+<p>Each number <span class="math inline">\(256\)</span> adds more to the sum than a number <span class="math inline">\(32\)</span>, and both of them use a card <span class="math inline">\(2\)</span>. So it is better to build <span class="math inline">\(256\)</span> as many times as possible, and then build <span class="math inline">\(32\)</span> from the remaining cards.</p>
+<p>The number <span class="math inline">\(256\)</span> uses one card <span class="math inline">\(2\)</span>, one card <span class="math inline">\(5\)</span>, and one card <span class="math inline">\(6\)</span>, so we can build it at most <span class="math inline">\(k = \min(k_2, k_5, k_6)\)</span> times. After that, <span class="math inline">\(k_3\)</span> cards <span class="math inline">\(3\)</span> and <span class="math inline">\(k_2 - k\)</span> cards <span class="math inline">\(2\)</span> remain, so we can build <span class="math inline">\(32\)</span> exactly <span class="math inline">\(\min(k_3, k_2 - k)\)</span> times.</p>
 <div class="sol-code">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> <span class="kw">namespace</span> std<span class="op">;</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> k2<span class="op">,</span> k3<span class="op">,</span> k5<span class="op">,</span> k6<span class="op">;</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    cin <span class="op">&gt;&gt;</span> k2 <span class="op">&gt;&gt;</span> k3 <span class="op">&gt;&gt;</span> k5 <span class="op">&gt;&gt;</span> k6<span class="op">;</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> k <span class="op">=</span> min<span class="op">(</span>min<span class="op">(</span>k2<span class="op">,</span> k5<span class="op">),</span> k6<span class="op">);</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> solution <span class="op">=</span> k <span class="op">*</span> <span class="dv">256</span> <span class="op">+</span> min<span class="op">(</span>k3<span class="op">,</span> k2 <span class="op">-</span> k<span class="op">)</span> <span class="op">*</span> <span class="dv">32</span><span class="op">;</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    cout <span class="op">&lt;&lt;</span> solution <span class="op">&lt;&lt;</span> <span class="ch">'</span><span class="sc">\n</span><span class="ch">'</span><span class="op">;</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> <span class="kw">namespace</span> std<span class="op">;</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> k2<span class="op">,</span> k3<span class="op">,</span> k5<span class="op">,</span> k6<span class="op">;</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    cin <span class="op">&gt;&gt;</span> k2 <span class="op">&gt;&gt;</span> k3 <span class="op">&gt;&gt;</span> k5 <span class="op">&gt;&gt;</span> k6<span class="op">;</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> k <span class="op">=</span> min<span class="op">(</span>min<span class="op">(</span>k2<span class="op">,</span> k5<span class="op">),</span> k6<span class="op">);</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> solution <span class="op">=</span> k <span class="op">*</span> <span class="dv">256</span> <span class="op">+</span> min<span class="op">(</span>k3<span class="op">,</span> k2 <span class="op">-</span> k<span class="op">)</span> <span class="op">*</span> <span class="dv">32</span><span class="op">;</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    cout <span class="op">&lt;&lt;</span> solution <span class="op">&lt;&lt;</span> <span class="ch">'</span><span class="sc">\n</span><span class="ch">'</span><span class="op">;</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </details>
@@ -1923,11 +1998,14 @@ window.Quarto = {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../part-b/problems/diverse-game.html" class="pagination-link" aria-label="Diverse Game">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Diverse Game</span>
+      <a href="../../part-b/problems/hit-the-lottery.html" class="pagination-link" aria-label="Hit the Lottery">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Hit the Lottery</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="../../part-b/problems/twins.html" class="pagination-link" aria-label="Twins">
+        <span class="nav-page-text">Twins</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->
