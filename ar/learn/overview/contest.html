@@ -382,7 +382,13 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">في هذه الصفحة</h2>
    
   <ul>
-  <li><a href="#المسابقة" id="toc-المسابقة" class="nav-link active" data-scroll-target="#المسابقة">المسابقة</a></li>
+  <li><a href="#المسابقة" id="toc-المسابقة" class="nav-link active" data-scroll-target="#المسابقة">المسابقة</a>
+  <ul class="collapse">
+  <li><a href="#الفئات" id="toc-الفئات" class="nav-link" data-scroll-target="#الفئات">الفئات</a></li>
+  <li><a href="#المراحل" id="toc-المراحل" class="nav-link" data-scroll-target="#المراحل">المراحل</a></li>
+  <li><a href="#البرمجيات" id="toc-البرمجيات" class="nav-link" data-scroll-target="#البرمجيات">البرمجيات</a></li>
+  <li><a href="#القواعد-الأساسية" id="toc-القواعد-الأساسية" class="nav-link" data-scroll-target="#القواعد-الأساسية">القواعد الأساسية</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -395,12 +401,15 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="المسابقة" class="level1">
 <h1>المسابقة</h1>
-<p>للمسابقة فئتان:</p>
+<section id="الفئات" class="level2">
+<h2 data-anchor-id="الفئات">الفئات</h2>
 <ul>
-<li><strong>معلوماتية ١</strong>: الصفان الأول متوسط والثاني متوسط</li>
-<li><strong>معلوماتية ٢</strong>: الصفان الثاني متوسط والأول ثانوي</li>
+<li><strong>معلوماتية1</strong>: الناشئون، الصفان الأول متوسط والثاني متوسط</li>
+<li><strong>معلوماتية2</strong>: الكبار، الصفان الثالث متوسط والأول ثانوي</li>
 </ul>
-<p>ولكل فئة أربع مراحل:</p>
+</section>
+<section id="المراحل" class="level2">
+<h2 data-anchor-id="المراحل">المراحل</h2>
 <div class="stages-table">
 <table class="caption-top table">
 <colgroup>
@@ -449,8 +458,25 @@ ul.task-list li input[type="checkbox"] {
 </tbody>
 </table>
 </div>
+</section>
+<section id="البرمجيات" class="level2">
+<h2 data-anchor-id="البرمجيات">البرمجيات</h2>
+<p>البرمجيات المعتمدة رسميًا هي:</p>
+<ul>
+<li><strong>لغة البرمجة</strong>: <span dir="ltr">C++</span></li>
+<li><strong>المترجم</strong>: <span dir="ltr">GCC</span></li>
+<li><strong>بيئة التطوير</strong>: <span dir="ltr">Code::Blocks</span></li>
+</ul>
+<p>في المرحلة 1، يمكنك استخدام أي برمجيات، بشرط الالتزام بقواعد المسابقة.</p>
+<p>في المراحل 2 و3 و4، تُوفَّر البرمجيات المعتمدة على أجهزة المسابقة. وقد تتوفر أيضًا بيئات تطوير أخرى، مثل <span dir="ltr">VS Code</span> و<span dir="ltr">CLion</span>، لكن ذلك غير مضمون مسبقًا. يمكنك استخدام أي برمجيات مثبتة ومسموح بها في المسابقة. وإذا أقيمت المسابقة على <a href="../part-a/cp/contests-and-platforms.html">منصة</a> <span dir="ltr">Codeforces</span>، يمكنك أيضًا استخدام خاصية <a href="../part-a/cp/contests-and-platforms.html#custom-invocation"><span dir="ltr">Custom Invocation</span></a> فيها لترجمة برنامجك وتشغيله على خادم <span dir="ltr">Codeforces</span>.</p>
+<p>لتعليمات التثبيت، راجع صفحة <a href="../part-a/cpp/hello-world.html">أهلًا بالعالم!</a>.</p>
+</section>
+<section id="القواعد-الأساسية" class="level2">
+<h2 data-anchor-id="القواعد-الأساسية">القواعد الأساسية</h2>
+<p>يُمنع أثناء المسابقة التواصل مع أي شخص، أو استخدام مواد لم يُسمح بها صراحةً مسبقًا، أو استخدام أدوات الذكاء الاصطناعي.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

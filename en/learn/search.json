@@ -37,7 +37,7 @@
     "href": "overview/contest.html",
     "title": "Contest",
     "section": "",
-    "text": "Contest\nThe competition has two divisions:\n\nInformatics 1: Juniors, grades 7–8\nInformatics 2: Seniors, grades 9–10\n\nEach division has four stages:\n\n\n\n\n\n\n\n\n\n\n\nStage\n1\n2\n3\n4\n\n\nCompetition\nGeneral Education Departments Competition\nNational Team Selection Competition\nCentral Exams\nNational Gifted Olympiad Finals\n\n\nLocation\nOnline\nOnsite\n\n\nProblems\nMultiple choice questions\nProgramming problems; solutions are submitted to a judging platform for evaluation\n\n\nPlatform\nClassera\nCodeforces\n\n\nDuration\n2 hours\n3 hours\n4 hours",
+    "text": "Informatics 1: Juniors, grades 7–8\nInformatics 2: Seniors, grades 9–10\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nStage\n1\n2\n3\n4\n\n\nCompetition\nGeneral Education Departments Competition\nNational Team Selection Competition\nCentral Exams\nNational Gifted Olympiad Finals\n\n\nLocation\nOnline\nOnsite\n\n\nProblems\nMultiple choice questions\nProgramming problems; solutions are submitted to a judging platform for evaluation\n\n\nPlatform\nClassera\nCodeforces\n\n\nDuration\n2 hours\n3 hours\n4 hours\n\n\n\n\n\n\n\nThe officially supported software is:\n\nProgramming language: C++\nCompiler: GCC\nIDE: Code::Blocks\n\nIn stage 1, you can use any software, as long as you follow the contest rules.\nIn stages 2, 3, and 4, the official software is provided on the contest computers. Other IDEs, such as VS Code and CLion, may also be available, but this is not guaranteed in advance. You can use any software that is installed and allowed at the contest. If the contest is held on the Codeforces platform, you can also use its Custom Invocation feature to compile and run your code on the Codeforces server.\nFor installation instructions, see Hello World!.\n\n\n\nDuring the contest, you must not communicate with anyone, use materials that were not explicitly allowed in advance, or use AI tools.",
     "crumbs": [
       "Overview",
       "Contest"
@@ -2072,7 +2072,7 @@
     "href": "part-a/cp/contests-and-platforms.html",
     "title": "Contests and Platforms",
     "section": "",
-    "text": "There are various websites (often called online judges) through which you may participate in contests or just solve problems for practice. The most popular such platform is Codeforces. Codeforces hosts weekly competitions which are suitable for all levels. It also hosts a large problemset which can be used for practice.\nThere are also other platforms like USACO, which host contests every 2 months or so. It also hosts a large problemset for the more skilled competitors. CSES is a website which doesn’t host contests but has a good problemset, suitable for learning topics.\n\n\n\nHere we will discuss the step by step process of creating a Codeforces account and solving your first problem.\n\n\nOnce you open the website ‘codeforces.com’ click the ‘Register’ button on the top right corner.\n\n\n\nRegistration button\n\n\nFill in the required information and pick a good password. Select a handle which represents your identity, you will only be able to change it once every year. Note: you must register with your own email dont use a temporary email as you will need to verify the account.\n\n\n\nAfter you register you will need to open your email to verify the account. After thats complete you may login successfully.\n\n\n\nNow we can start solving our first problem. At the topbar we can see a ‘Problemset’ button which will take us to the codeforces problem library. There we can view all problems which appeared in previous contests and attempt to solve them.\n\n\n\nTopbar\n\n\nThe last two columns in the problemset table correspond to the difficulty of the task and the number of people that solved the task respectively.\n\n\n\nProblemset\n\n\nIf you click on each one of those symbols you will be able to sort the tasks by that feature. Task difficulty is represented as a number which is a multiple of \\(100\\) in the range \\([800, 3500]\\).\nAfter you sort the tasks from lowest to highest difficulty you will find the task “Watermelon”\n\n\n\nSorted Problemset\n\n\nFun fact: it is also the most solved task.\n\n\nThis section describes the problem and the requirements. At the top we can see the problem title as well as the time and memory limits.\nThe task asks you to write a program which reads an integer w from input and check if that integer can be represented as the sum of two even positive integers a and b, then output “Yes” or “No”.\n\n\n\nThis section explains how exactly the input will be given, in what order and what datatypes need to be used. Although it might not explictly mention that you need long long or double, this can be inferred from the range of possible values of the variable.\nFor example if the statement says \\(-10^9 \\le x \\le 10^9\\) we know that int is sufficient, but if it says \\(-10^{18} \\le x \\le 10^{18}\\) then we must use long long.\n\n\n\nThis section describes how to output the result. So if the task wants you to use uppercase or lowercase, separate your outputs with spaces or newlines, or even how many digits to print if your result is a floating-point value.\n\n\n\nIf we try some numbers manually we might notice a pattern, for example if the w was odd we know that its impossible for a and b to be even, because even + even = even.\nSo our first idea will be: If w is odd print “No” otherwise print “Yes”\nSadly, this idea is incorrect. The counter is w = 2, the smallest positive even integer is 2 we can’t write 2 as a sum of two positive even integers.\n\n\n\nFor any number larger than 2 we can simply let a = 2 and b = w - 2 and this will work for any even integer larger than 2, and we already showed that its impossible for odd values of w.\n\n\n\nNow that we have reached a correct solution, we must express it in code. First we must read the input, then do our logic, then print the output.\n#include &lt;iostream&gt;\nusing namespace std;\n\nint main() {\n    int w;\n    cin &gt;&gt; w;\n\n    if (w == 2 || w % 2 == 1) cout &lt;&lt; \"No\";\n    else cout &lt;&lt; \"Yes\";\n}\n\n\n\nAt the top of the page, below the topbar, we will see the following options:\n\n\n\nProblem Topbar\n\n\nIf we click on “submit” it will take us to the following page:\n\n\n\nSubmission page\n\n\nFirst thing to ensure is the language option, since we are writing in C++ we must change the language to a valid version of C++. Note: the default is always C which causes beginners to get compilation error on the first submission.\nNow we will copy the code and paste it into the “Source code” section, and hit “Submit”.\nWe will then be redirected to the submissions page which will tell us the verdict of the submission.\n\n\n\nSubmission status\n\n\nThe possible verdicts are:\n\nAccepted - meaning the solution passed all the tests.\nWrong Answer - meaning your solution did not print the correct answer on some test.\nTime Limit Exceeded - meaning your solution took too long to print an output.\nMemory Limit Exceeded - meaning your solution used too much memory.\nRuntime Error - meaning an issue occurred during the execution of your program.\n\nUsually, you will not be able to view the test where your code failed, the test might be too large or blocked by the contest organizer, so the challenge is to figure out the issue on your own.",
+    "text": "There are various websites (often called online judges) through which you may participate in contests or just solve problems for practice. The most popular such platform is Codeforces. Codeforces hosts weekly competitions which are suitable for all levels. It also hosts a large problemset which can be used for practice.\nThere are also other platforms like USACO, which host contests every 2 months or so. It also hosts a large problemset for the more skilled competitors. CSES is a website which doesn’t host contests but has a good problemset, suitable for learning topics.\n\n\n\nHere we will discuss the step by step process of creating a Codeforces account and solving your first problem.\n\n\nOnce you open the website ‘codeforces.com’ click the ‘Register’ button on the top right corner.\n\n\n\nRegistration button\n\n\nFill in the required information and pick a good password. Select a handle which represents your identity, you will only be able to change it once every year. Note: you must register with your own email dont use a temporary email as you will need to verify the account.\n\n\n\nAfter you register you will need to open your email to verify the account. After thats complete you may login successfully.\n\n\n\nNow we can start solving our first problem. At the topbar we can see a ‘Problemset’ button which will take us to the codeforces problem library. There we can view all problems which appeared in previous contests and attempt to solve them.\n\n\n\nTopbar\n\n\nThe last two columns in the problemset table correspond to the difficulty of the task and the number of people that solved the task respectively.\n\n\n\nProblemset\n\n\nIf you click on each one of those symbols you will be able to sort the tasks by that feature. Task difficulty is represented as a number which is a multiple of \\(100\\) in the range \\([800, 3500]\\).\nAfter you sort the tasks from lowest to highest difficulty you will find the task “Watermelon”\n\n\n\nSorted Problemset\n\n\nFun fact: it is also the most solved task.\n\n\nThis section describes the problem and the requirements. At the top we can see the problem title as well as the time and memory limits.\nThe task asks you to write a program which reads an integer w from input and check if that integer can be represented as the sum of two even positive integers a and b, then output “Yes” or “No”.\n\n\n\nThis section explains how exactly the input will be given, in what order and what datatypes need to be used. Although it might not explictly mention that you need long long or double, this can be inferred from the range of possible values of the variable.\nFor example if the statement says \\(-10^9 \\le x \\le 10^9\\) we know that int is sufficient, but if it says \\(-10^{18} \\le x \\le 10^{18}\\) then we must use long long.\n\n\n\nThis section describes how to output the result. So if the task wants you to use uppercase or lowercase, separate your outputs with spaces or newlines, or even how many digits to print if your result is a floating-point value.\n\n\n\nIf we try some numbers manually we might notice a pattern, for example if the w was odd we know that its impossible for a and b to be even, because even + even = even.\nSo our first idea will be: If w is odd print “No” otherwise print “Yes”\nSadly, this idea is incorrect. The counter is w = 2, the smallest positive even integer is 2 we can’t write 2 as a sum of two positive even integers.\n\n\n\nFor any number larger than 2 we can simply let a = 2 and b = w - 2 and this will work for any even integer larger than 2, and we already showed that its impossible for odd values of w.\n\n\n\nNow that we have reached a correct solution, we must express it in code. First we must read the input, then do our logic, then print the output.\n#include &lt;iostream&gt;\nusing namespace std;\n\nint main() {\n    int w;\n    cin &gt;&gt; w;\n\n    if (w == 2 || w % 2 == 1) cout &lt;&lt; \"No\";\n    else cout &lt;&lt; \"Yes\";\n}\n\n\n\nAt the top of the page, below the topbar, we will see the following options:\n\n\n\nProblem Topbar\n\n\nIf we click on “submit” it will take us to the following page:\n\n\n\nSubmission page\n\n\nFirst thing to ensure is the language option, since we are writing in C++ we must change the language to a valid version of C++. Note: the default is always C which causes beginners to get compilation error on the first submission.\nNow we will copy the code and paste it into the “Source code” section, and hit “Submit”.\nWe will then be redirected to the submissions page which will tell us the verdict of the submission.\n\n\n\nSubmission status\n\n\nThe possible verdicts are:\n\nAccepted - meaning the solution passed all the tests.\nWrong Answer - meaning your solution did not print the correct answer on some test.\nTime Limit Exceeded - meaning your solution took too long to print an output.\nMemory Limit Exceeded - meaning your solution used too much memory.\nRuntime Error - meaning an issue occurred during the execution of your program.\n\nUsually, you will not be able to view the test where your code failed, the test might be too large or blocked by the contest organizer, so the challenge is to figure out the issue on your own.\n\n\n\n\n\nCodeforces can also compile and run your code on its servers without submitting it. This feature is called Custom Invocation. In the problemset, open it with the “Custom Test” button in the menu shown above. During a contest, it is in the contest menu under “Custom Invocation”.\nTo use it:\n\nSelect the language. As for a submission, select a version of C++.\nPaste your code into the “Source” field.\nType an input into the “Input” field, for example a sample input from the problem statement. You can also choose an input file of at most 256 KB.\nClick “Run”.\n\nCodeforces then shows the output of your program in the “Output” field, followed by the time and memory that it used. Only the first 255 bytes of the output are shown.\n\n\n\nCustom Invocation\n\n\nA custom invocation is not a submission. It does not check whether the output is correct, it does not give a verdict, and it does not count as an attempt in a contest. It is useful in these cases:\n\nYou do not have a working compiler on your computer.\nYou want to check that your code compiles with the compiler that Codeforces uses to judge submissions.\nYou want to see how long your program runs on the Codeforces servers for a given input.\n\n\n\n\n\n\n\nImportant\n\n\n\nCustom Invocation is not a replacement for an IDE. It has no debugger, it shows at most 255 bytes of output, and every run sends your code to the Codeforces servers and waits for the result. Write, run, and debug your code in an IDE on your computer, and use Custom Invocation only for occasional checks.",
     "crumbs": [
       "Competitive Programming",
       "Contests and Platforms"
@@ -6029,6 +6029,83 @@
     "crumbs": [
       "Overview",
       "Important Links"
+    ]
+  },
+  {
+    "objectID": "overview/important-links.html#informatics-community",
+    "href": "overview/important-links.html#informatics-community",
+    "title": "Important Links",
+    "section": "",
+    "text": "You can now join our Discord server to connect with the informatics community, explore useful resources, and participate in discussions related to informatics competitions in the National Gifted Olympiad – NSMO Track.",
+    "crumbs": [
+      "Overview",
+      "Important Links"
+    ]
+  },
+  {
+    "objectID": "overview/important-links.html#saudi-informatics-team-website",
+    "href": "overview/important-links.html#saudi-informatics-team-website",
+    "title": "Important Links",
+    "section": "",
+    "text": "Explore the achievements of outstanding Saudi students in national and international informatics competitions.",
+    "crumbs": [
+      "Overview",
+      "Important Links"
+    ]
+  },
+  {
+    "objectID": "overview/contest.html#divisions",
+    "href": "overview/contest.html#divisions",
+    "title": "Contest",
+    "section": "",
+    "text": "Informatics 1: Juniors, grades 7–8\nInformatics 2: Seniors, grades 9–10",
+    "crumbs": [
+      "Overview",
+      "Contest"
+    ]
+  },
+  {
+    "objectID": "overview/contest.html#stages",
+    "href": "overview/contest.html#stages",
+    "title": "Contest",
+    "section": "",
+    "text": "Stage\n1\n2\n3\n4\n\n\nCompetition\nGeneral Education Departments Competition\nNational Team Selection Competition\nCentral Exams\nNational Gifted Olympiad Finals\n\n\nLocation\nOnline\nOnsite\n\n\nProblems\nMultiple choice questions\nProgramming problems; solutions are submitted to a judging platform for evaluation\n\n\nPlatform\nClassera\nCodeforces\n\n\nDuration\n2 hours\n3 hours\n4 hours",
+    "crumbs": [
+      "Overview",
+      "Contest"
+    ]
+  },
+  {
+    "objectID": "overview/contest.html#software",
+    "href": "overview/contest.html#software",
+    "title": "Contest",
+    "section": "",
+    "text": "The officially supported software is:\n\nProgramming language: C++\nCompiler: GCC\nIDE: Code::Blocks\n\nIn stage 1, you can use any software, as long as you follow the contest rules.\nIn stages 2, 3, and 4, the official software is provided on the contest computers. Other IDEs, such as VS Code and CLion, may also be available, but this is not guaranteed in advance. You can use any software that is installed and allowed at the contest. If the contest is held on the Codeforces platform, you can also use its Custom Invocation feature to compile and run your code on the Codeforces server.\nFor installation instructions, see Hello World!.",
+    "crumbs": [
+      "Overview",
+      "Contest"
+    ]
+  },
+  {
+    "objectID": "overview/contest.html#basic-rules",
+    "href": "overview/contest.html#basic-rules",
+    "title": "Contest",
+    "section": "",
+    "text": "During the contest, you must not communicate with anyone, use materials that were not explicitly allowed in advance, or use AI tools.",
+    "crumbs": [
+      "Overview",
+      "Contest"
+    ]
+  },
+  {
+    "objectID": "part-a/cp/contests-and-platforms.html#custom-invocation",
+    "href": "part-a/cp/contests-and-platforms.html#custom-invocation",
+    "title": "Contests and Platforms",
+    "section": "",
+    "text": "Codeforces can also compile and run your code on its servers without submitting it. This feature is called Custom Invocation. In the problemset, open it with the “Custom Test” button in the menu shown above. During a contest, it is in the contest menu under “Custom Invocation”.\nTo use it:\n\nSelect the language. As for a submission, select a version of C++.\nPaste your code into the “Source” field.\nType an input into the “Input” field, for example a sample input from the problem statement. You can also choose an input file of at most 256 KB.\nClick “Run”.\n\nCodeforces then shows the output of your program in the “Output” field, followed by the time and memory that it used. Only the first 255 bytes of the output are shown.\n\n\n\nCustom Invocation\n\n\nA custom invocation is not a submission. It does not check whether the output is correct, it does not give a verdict, and it does not count as an attempt in a contest. It is useful in these cases:\n\nYou do not have a working compiler on your computer.\nYou want to check that your code compiles with the compiler that Codeforces uses to judge submissions.\nYou want to see how long your program runs on the Codeforces servers for a given input.\n\n\n\n\n\n\n\nImportant\n\n\n\nCustom Invocation is not a replacement for an IDE. It has no debugger, it shows at most 255 bytes of output, and every run sends your code to the Codeforces servers and waits for the result. Write, run, and debug your code in an IDE on your computer, and use Custom Invocation only for occasional checks.",
+    "crumbs": [
+      "Competitive Programming",
+      "Contests and Platforms"
     ]
   }
 ]

@@ -731,6 +731,7 @@ window.Quarto = {
   <li><a href="#verification" id="toc-verification" class="nav-link" data-scroll-target="#verification">Verification</a></li>
   <li><a href="#watermelon" id="toc-watermelon" class="nav-link" data-scroll-target="#watermelon">Watermelon?</a></li>
   </ul></li>
+  <li><a href="#custom-invocation" id="toc-custom-invocation" class="nav-link" data-scroll-target="#custom-invocation">Custom Invocation</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -867,6 +868,43 @@ window.Quarto = {
 <p>Usually, you will not be able to view the test where your code failed, the test might be too large or blocked by the contest organizer, so the challenge is to figure out the issue on your own.</p>
 </section>
 </section>
+</section>
+<section id="custom-invocation" class="level2">
+<h2 data-anchor-id="custom-invocation">Custom Invocation</h2>
+<p>Codeforces can also compile and run your code on its servers without submitting it. This feature is called <em>Custom Invocation</em>. In the problemset, open it with the “Custom Test” button in the menu shown above. During a contest, it is in the contest menu under “Custom Invocation”.</p>
+<p>To use it:</p>
+<ol type="1">
+<li>Select the language. As for a submission, select a version of <code>C++</code>.</li>
+<li>Paste your code into the “Source” field.</li>
+<li>Type an input into the “Input” field, for example a sample input from the problem statement. You can also choose an input file of at most 256 KB.</li>
+<li>Click “Run”.</li>
+</ol>
+<p>Codeforces then shows the output of your program in the “Output” field, followed by the time and memory that it used. Only the first 255 bytes of the output are shown.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="_resources/custom_invocation.png" class="img-fluid figure-img"></p>
+<figcaption>Custom Invocation</figcaption>
+</figure>
+</div>
+<p>A custom invocation is not a submission. It does not check whether the output is correct, it does not give a verdict, and it does not count as an attempt in a contest. It is useful in these cases:</p>
+<ul>
+<li>You do not have a working compiler on your computer.</li>
+<li>You want to check that your code compiles with the compiler that Codeforces uses to judge submissions.</li>
+<li>You want to see how long your program runs on the Codeforces servers for a given input.</li>
+</ul>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Custom Invocation is not a replacement for an IDE. It has no debugger, it shows at most 255 bytes of output, and every run sends your code to the Codeforces servers and waits for the result. Write, run, and debug your code in an IDE on your computer, and use Custom Invocation only for occasional checks.</p>
+</div>
+</div>
 </section>
 </section>
 

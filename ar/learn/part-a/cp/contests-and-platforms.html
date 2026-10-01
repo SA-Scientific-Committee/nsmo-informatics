@@ -731,6 +731,7 @@ window.Quarto = {
   <li><a href="#التحقق" id="toc-التحقق" class="nav-link" data-scroll-target="#التحقق">التحقّق</a></li>
   <li><a href="#مسألة-watermelon" id="toc-مسألة-watermelon" class="nav-link" data-scroll-target="#مسألة-watermelon">مسألة Watermelon؟</a></li>
   </ul></li>
+  <li><a href="#custom-invocation" id="toc-custom-invocation" class="nav-link" data-scroll-target="#custom-invocation">خاصية Custom Invocation</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -870,6 +871,43 @@ window.Quarto = {
 <p>عادةً لا يمكنك الاطلاع على الاختبار الذي فشل فيه برنامجك، فقد يكون كبيرًا جدًا أو محجوبًا من قِبل منظّمي المسابقة، وبالتالي يكون التحدي في اكتشاف الخطأ بنفسك.</p>
 </section>
 </section>
+</section>
+<section id="custom-invocation" class="level2">
+<h2 data-anchor-id="custom-invocation">خاصية Custom Invocation</h2>
+<p>يمكن لمنصة Codeforces أيضًا ترجمة برنامجك وتشغيله على خوادمها دون إرساله كحل. تُسمّى هذه الخاصية <em>Custom Invocation</em>. في مكتبة المسائل، افتحها بالضغط على زر <strong>Custom Test</strong> في القائمة الموضّحة أعلاه. وأثناء المسابقة، تجدها في قائمة المسابقة باسم <strong>Custom Invocation</strong>.</p>
+<p>لاستخدامها:</p>
+<ol type="1">
+<li>اختر اللغة. كما في إرسال الحل، اختر نسخة من <span dir="ltr"><code>C++</code></span>.</li>
+<li>الصق الكود في خانة <strong>Source</strong>.</li>
+<li>اكتب إدخالًا في خانة <strong>Input</strong>، مثل أحد أمثلة الإدخال الواردة في نص المسألة. ويمكنك أيضًا اختيار ملف إدخال لا يتجاوز حجمه <span dir="ltr">256 KB</span>.</li>
+<li>اضغط على <strong>Run</strong>.</li>
+</ol>
+<p>بعد ذلك تعرض Codeforces إخراج برنامجك في خانة <strong>Output</strong>، ويليه الوقت والذاكرة اللذان استخدمهما. ولا يُعرض إلا أول <span dir="ltr">255</span> بايت من الإخراج.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="_resources/custom_invocation.png" class="img-fluid figure-img"></p>
+<figcaption>Custom Invocation</figcaption>
+</figure>
+</div>
+<p>التشغيل عبر Custom Invocation ليس إرسالًا للحل؛ فهو لا يتحقق من صحة الإخراج، ولا يعطي نتيجة تقييم، ولا يُحسب محاولةً في المسابقة. وتفيد هذه الخاصية في الحالات التالية:</p>
+<ul>
+<li>عندما لا يتوفر على جهازك مترجم يعمل.</li>
+<li>عندما تريد التحقق من أن الكود يُترجم باستخدام المترجم الذي تستخدمه Codeforces لتقييم الحلول.</li>
+<li>عندما تريد معرفة مدة تشغيل برنامجك على خوادم Codeforces لإدخال معيّن.</li>
+</ul>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">مهم</span>مهم
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>خاصية Custom Invocation ليست بديلًا عن بيئة التطوير المتكاملة (<span dir="ltr">IDE</span>)؛ فهي لا تحتوي على مصحّح أخطاء (<span dir="ltr">debugger</span>)، ولا تعرض أكثر من <span dir="ltr">255</span> بايت من الإخراج، وكل تشغيل يتطلب إرسال الكود إلى خوادم Codeforces وانتظار النتيجة. اكتب برنامجك وشغّله وصحّح أخطاءه في بيئة تطوير على جهازك، واستخدم Custom Invocation للتحقق العرضي فقط.</p>
+</div>
+</div>
 </section>
 </section>
 </div>
