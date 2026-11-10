@@ -601,6 +601,7 @@ Note
 <details class="solution-card">
 <summary><span class="solution-title">Solution</span></summary>
 <div class="problem-body">
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/xI-RRuBd0lA" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
 <p>Directly computing <span class="math inline">\(2^n\)</span> can lead to integer overflow. To avoid this, we can use a variable <code>power</code> initialized to <code>1</code> and iteratively multiply it by <code>2</code> in a loop that runs <span class="math inline">\(n\)</span> times.</p>
 <p>During each iteration, if <code>power</code> exceeds <code>m</code>, we can immediately conclude that the result should be <code>m</code>. If the loop completes without <code>power</code> exceeding <span class="math inline">\(m\)</span>, we know no overflow occurred, and the result can be safely computed as <code>power % m</code>.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>

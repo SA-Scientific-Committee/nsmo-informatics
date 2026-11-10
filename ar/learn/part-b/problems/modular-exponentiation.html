@@ -596,6 +596,7 @@ window.Quarto = {
 <details class="solution-card">
 <summary><span class="solution-title">الحل</span></summary>
 <div class="problem-body">
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/xI-RRuBd0lA" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
 <p>يمكن أن تؤدي عملية حساب <span dir="ltr"><span class="math inline">\(2^n\)</span></span> مباشرة إلى تجاوز حدود النوع <span dir="ltr"><code>int</code></span> . لتجنب ذلك، نستخدم متغيرًا <span dir="ltr"><code>power</code></span> مهيأً بقيمة مبدئية تساوي <span dir="ltr"><code>1</code></span> ونضربه في <span dir="ltr"><code>2</code></span> بشكل متكرر في حلقة تتكرر <span dir="ltr"><span class="math inline">\(n\)</span></span> مرة.</p>
 <p>أثناء كل تكرار، إذا أصبح <span dir="ltr"><code>power</code></span> أكبر من <span dir="ltr"><code>m</code></span>، يمكننا على الفور استنتاج أن الناتج يجب أن يكون <span dir="ltr"><code>m</code></span>. إذا اكتملت الحلقة دون أن يتجاوز <span dir="ltr"><code>power</code></span> قيمة <span dir="ltr"><code>m</code></span>، يمكننا استنتاج أن لا تجاوز حصل لحدود النوع <span dir="ltr"><code>int</code></span> ، ويمكن حساب الناتج كـ <span dir="ltr"><code>m % power</code></span>.</p>
 <div dir="ltr">
